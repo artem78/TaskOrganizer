@@ -1,0 +1,52 @@
+object TasksFrame: TTasksFrame
+  Left = 0
+  Height = 323
+  Top = 0
+  Width = 561
+  ClientHeight = 323
+  ClientWidth = 561
+  TabOrder = 0
+  object ToolBar1: TToolBar
+    Left = 0
+    Height = 26
+    Top = 0
+    Width = 561
+    Caption = 'ToolBar1'
+    ShowCaptions = True
+    TabOrder = 0
+    object AddToolButton: TToolButton
+      Left = 1
+      Top = 2
+      Caption = 'Add'
+      OnClick = AddToolButtonClick
+    end
+    object EditToolButton: TToolButton
+      Left = 31
+      Top = 2
+      Caption = 'Edit'
+      OnClick = EditToolButtonClick
+    end
+    object RemoveToolButton: TToolButton
+      Left = 59
+      Top = 2
+      Caption = 'Remove'
+      OnClick = RemoveToolButtonClick
+    end
+  end
+  object TasksDBGrid: TDBGrid
+    Left = 0
+    Height = 297
+    Top = 26
+    Width = 561
+    Align = alClient
+    AutoEdit = False
+    Color = clWindow
+    Columns = <>
+    DataSource = DataModule1.DataSource1
+    FixedCols = 0
+    Options = [dgTitles, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgAutoSizeColumns]
+    ReadOnly = True
+    TabOrder = 1
+    TitleStyle = tsNative
+  end
+end

@@ -1,0 +1,26 @@
+object MainForm: TMainForm
+  Left = 0
+  Height = 349
+  Top = 0
+  Width = 627
+  Caption = 'Tasks Organizer'
+  ClientHeight = 349
+  ClientWidth = 627
+  Position = poDesktopCenter
+  LCLVersion = '1.6.0.4'
+  Visible = False
+  inline TasksFrame1: TTasksFrame
+    Height = 349
+    Width = 627
+    Align = alClient
+    ClientHeight = 349
+    ClientWidth = 627
+    inherited ToolBar1: TToolBar
+      Width = 627
+    end
+    inherited TasksDBGrid: TDBGrid
+      Height = 323
+      Width = 627
+    end
+  end
+end

@@ -6,7 +6,6 @@ object DataModule1: TDataModule1
   VerticalOffset = 137
   Width = 485
   object SQLQuery1: TSQLQuery
-    IndexName = 'DEFAULT_ORDER'
     FieldDefs = <    
       item
         Name = 'name'

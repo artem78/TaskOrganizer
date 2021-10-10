@@ -39,7 +39,10 @@ begin
   if TaskEditForm.ShowModal = mrCancel then
     DataModule1.TasksDataset.Delete
   else // mrOk
+  begin
     DataModule1.TasksDataset.FieldByName('created').AsDateTime := Now;
+    DataModule1.TasksDataset.ApplyUpdates;
+  end;
 end;
 
 procedure TTasksFrame.EditToolButtonClick(Sender: TObject);
@@ -47,7 +50,10 @@ begin
   if TaskEditForm.ShowModal = mrCancel then
     DataModule1.TasksDataset.Cancel
   else // mrOk
+  begin
     DataModule1.TasksDataset.FieldByName('modified').AsDateTime := Now;
+    DataModule1.TasksDataset.ApplyUpdates;
+  end;
 end;
 
 procedure TTasksFrame.RemoveToolButtonClick(Sender: TObject);
@@ -56,7 +62,10 @@ var
 begin
   Msg := Format('Are you sure to delete task "%s"?', [DataModule1.TasksDataset.FieldByName('name').AsString]);
   if MessageDlg(Msg, mtConfirmation, [mbYes, mbNo], 0) = mrYes then
+  begin
     DataModule1.TasksDataset.Delete;
+    DataModule1.TasksDataset.ApplyUpdates;
+  end;
 end;
 
 end.

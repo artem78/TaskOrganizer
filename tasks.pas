@@ -35,7 +35,6 @@ implementation
 procedure TTasksFrame.AddToolButtonClick(Sender: TObject);
 begin
   DataModule1.TasksDataset.Append;
-  DataModule1.TasksDataset.FieldByName('created').AsDateTime := Now;
   if TaskEditForm.ShowModal = mrOK then
   begin
     DataModule1.TasksDataset.FieldByName('created').AsDateTime := Now;
@@ -43,11 +42,12 @@ begin
     DataModule1.TasksDataset.ApplyUpdates;
   end
   else
-    DataModule1.TasksDataset.Delete;
+    DataModule1.TasksDataset.Cancel;
 end;
 
 procedure TTasksFrame.EditToolButtonClick(Sender: TObject);
 begin
+  DataModule1.TasksDataset.Edit;
   if TaskEditForm.ShowModal = mrOK then
   begin
     DataModule1.TasksDataset.FieldByName('modified').AsDateTime := Now;

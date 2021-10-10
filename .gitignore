@@ -35,4 +35,5 @@ lib/
 ###########################
 # My own rules
 /database.sqlite3
+/mydir/
 

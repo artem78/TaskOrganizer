@@ -36,24 +36,24 @@ procedure TTasksFrame.AddToolButtonClick(Sender: TObject);
 begin
   DataModule1.TasksDataset.Append;
   DataModule1.TasksDataset.FieldByName('created').AsDateTime := Now;
-  if TaskEditForm.ShowModal = mrCancel then
-    DataModule1.TasksDataset.Delete
-  else // mrOk
+  if TaskEditForm.ShowModal = mrOK then
   begin
     DataModule1.TasksDataset.FieldByName('created').AsDateTime := Now;
     DataModule1.TasksDataset.ApplyUpdates;
-  end;
+  end
+  else
+    DataModule1.TasksDataset.Delete;
 end;
 
 procedure TTasksFrame.EditToolButtonClick(Sender: TObject);
 begin
-  if TaskEditForm.ShowModal = mrCancel then
-    DataModule1.TasksDataset.Cancel
-  else // mrOk
+  if TaskEditForm.ShowModal = mrOK then
   begin
     DataModule1.TasksDataset.FieldByName('modified').AsDateTime := Now;
     DataModule1.TasksDataset.ApplyUpdates;
-  end;
+  end
+  else
+    DataModule1.TasksDataset.Cancel;
 end;
 
 procedure TTasksFrame.RemoveToolButtonClick(Sender: TObject);

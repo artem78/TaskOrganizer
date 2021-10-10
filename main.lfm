@@ -1,14 +1,13 @@
 object MainForm: TMainForm
-  Left = 0
+  Left = 219
   Height = 349
-  Top = 0
+  Top = 208
   Width = 627
   Caption = 'Tasks Organizer'
   ClientHeight = 349
   ClientWidth = 627
   Position = poDesktopCenter
-  LCLVersion = '1.6.0.4'
-  Visible = False
+  LCLVersion = '2.0.12.0'
   inline TasksFrame1: TTasksFrame
     Height = 349
     Width = 627

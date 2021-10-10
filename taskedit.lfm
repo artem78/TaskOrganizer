@@ -1,7 +1,7 @@
 object TaskEditForm: TTaskEditForm
-  Left = 0
+  Left = 226
   Height = 240
-  Top = 0
+  Top = 205
   Width = 320
   ActiveControl = TaskNameDBEdit
   BorderStyle = bsDialog
@@ -10,8 +10,7 @@ object TaskEditForm: TTaskEditForm
   ClientWidth = 320
   OnShow = FormShow
   Position = poOwnerFormCenter
-  LCLVersion = '1.6.0.4'
-  Visible = False
+  LCLVersion = '2.0.12.0'
   object Label1: TLabel
     Left = 36
     Height = 15
@@ -39,7 +38,7 @@ object TaskEditForm: TTaskEditForm
     DataSource = DataModule1.DataSource1
     Anchors = [akTop, akLeft, akRight]
     CharCase = ecNormal
-    MaxLength = 255
+    MaxLength = 0
     TabOrder = 0
   end
   object TaskDescriptionDBMemo: TDBMemo
@@ -59,14 +58,12 @@ object TaskEditForm: TTaskEditForm
     Width = 308
     OKButton.Name = 'OKButton'
     OKButton.Caption = 'Save'
-    OKButton.DefaultCaption = False
     HelpButton.Name = 'HelpButton'
     HelpButton.DefaultCaption = True
     CloseButton.Name = 'CloseButton'
     CloseButton.DefaultCaption = True
     CancelButton.Name = 'CancelButton'
     CancelButton.Caption = 'Cancel'
-    CancelButton.DefaultCaption = False
     TabOrder = 2
     ShowButtons = [pbOK, pbCancel]
   end

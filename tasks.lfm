@@ -6,6 +6,8 @@ object TasksFrame: TTasksFrame
   ClientHeight = 323
   ClientWidth = 561
   TabOrder = 0
+  DesignLeft = 217
+  DesignTop = 190
   object ToolBar1: TToolBar
     Left = 0
     Height = 26

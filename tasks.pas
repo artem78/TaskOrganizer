@@ -39,6 +39,7 @@ begin
   if TaskEditForm.ShowModal = mrOK then
   begin
     DataModule1.TasksDataset.FieldByName('created').AsDateTime := Now;
+    DataModule1.TasksDataset.Post;
     DataModule1.TasksDataset.ApplyUpdates;
   end
   else
@@ -50,6 +51,7 @@ begin
   if TaskEditForm.ShowModal = mrOK then
   begin
     DataModule1.TasksDataset.FieldByName('modified').AsDateTime := Now;
+    DataModule1.TasksDataset.Post;
     DataModule1.TasksDataset.ApplyUpdates;
   end
   else

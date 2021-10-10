@@ -30,20 +30,20 @@ var
 
 implementation
 
+uses DB;
+
 {$R *.lfm}
 
 { TTaskEditForm }
 
 
 procedure TTaskEditForm.FormShow(Sender: TObject);
-var
-  Id: Integer;
 begin
-  Id := DataModule1.TasksDataset.FieldByName('id').AsInteger;
-  if Id = 0 then
-    Caption := 'Create task'
-  else
-    Caption := 'Edit task';
+  case DataModule1.TasksDataset.State of
+       dsInsert: Caption := 'Create task';
+       dsEdit:   Caption := 'Edit task';
+       else      Caption := '???';
+  end;
 end;
 
 end.

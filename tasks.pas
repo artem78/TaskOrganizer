@@ -47,6 +47,9 @@ end;
 
 procedure TTasksFrame.EditToolButtonClick(Sender: TObject);
 begin
+  if DataModule1.TasksDataset.IsEmpty then
+    Exit;
+
   DataModule1.TasksDataset.Edit;
   if TaskEditForm.ShowModal = mrOK then
   begin
@@ -62,6 +65,9 @@ procedure TTasksFrame.RemoveToolButtonClick(Sender: TObject);
 var
   Msg: String;
 begin
+  if DataModule1.TasksDataset.IsEmpty then
+    Exit;
+
   Msg := Format('Are you sure to delete task "%s"?', [DataModule1.TasksDataset.FieldByName('name').AsString]);
   if MessageDlg(Msg, mtConfirmation, [mbYes, mbNo], 0) = mrYes then
   begin

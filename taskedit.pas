@@ -16,8 +16,8 @@ type
     ButtonPanel1: TButtonPanel;
     TaskNameDBEdit: TDBEdit;
     TaskDescriptionDBMemo: TDBMemo;
-    Label1: TLabel;
-    Label2: TLabel;
+    TaskNameLabel: TLabel;
+    TaskDescriptionLabel: TLabel;
     procedure FormShow(Sender: TObject);
   private
     { private declarations }

@@ -35,7 +35,28 @@ implementation
 
 procedure TDataModule1.DataModuleCreate(Sender: TObject);
 begin
-  //TasksDataset.Active := True;
+  // Create database file if not exists
+  if not FileExists(TasksDataset.FileName) then
+  begin
+    with TasksDataset do
+    begin
+      //Close;
+      if not TableExists then
+      begin
+        FieldDefs.Clear;
+        FieldDefs.Add('id',          ftAutoInc);
+        FieldDefs.Add('name',        ftString);
+        FieldDefs.Add('description', ftString);
+        FieldDefs.Add('created',     ftDateTime);
+        FieldDefs.Add('modified',    ftDateTime);
+        CreateTable;
+      end;
+      //Open;
+    end;
+  end;
+
+
+  TasksDataset.Active := True;
 end;
 
 end.

@@ -29,18 +29,16 @@ object DataModule1: TDataModule1
     SQL.Strings = (
       'SELECT * FROM `tasks`'
     )
-    Options = []
     Params = <>
     DataSource = DataSource1
-    left = 152
-    top = 40
+    Left = 152
+    Top = 40
   end
   object SQLTransaction1: TSQLTransaction
     Active = False
     Database = SQLite3Connection1
-    Options = []
-    left = 240
-    top = 40
+    Left = 240
+    Top = 40
   end
   object SQLite3Connection1: TSQLite3Connection
     Connected = False
@@ -49,22 +47,21 @@ object DataModule1: TDataModule1
     KeepConnection = False
     Transaction = SQLTransaction1
     CharSet = 'UTF8'
-    Options = []
-    left = 344
-    top = 40
+    AlwaysUseBigint = False
+    Left = 344
+    Top = 40
   end
   object DataSource1: TDataSource
     DataSet = TasksDataset
-    left = 344
-    top = 128
+    Left = 344
+    Top = 128
   end
   object TasksDataset: TSqlite3Dataset
     FileName = 'database.sqlite3'
     PrimaryKey = 'id'
     SaveOnClose = True
     TableName = 'tasks'
-    Active = True
-    left = 56
-    top = 40
+    Left = 56
+    Top = 40
   end
 end

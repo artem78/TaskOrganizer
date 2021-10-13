@@ -35,7 +35,7 @@ object TaskEditForm: TTaskEditForm
     Top = 8
     Width = 224
     DataField = 'name'
-    DataSource = DataModule1.DataSource1
+    DataSource = DataModule1.TasksDataSource
     Anchors = [akTop, akLeft, akRight]
     CharCase = ecNormal
     MaxLength = 0
@@ -48,7 +48,7 @@ object TaskEditForm: TTaskEditForm
     Width = 222
     Anchors = [akTop, akLeft, akRight]
     DataField = 'description'
-    DataSource = DataModule1.DataSource1
+    DataSource = DataModule1.TasksDataSource
     TabOrder = 1
   end
   object ButtonPanel1: TButtonPanel

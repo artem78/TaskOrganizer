@@ -12,7 +12,7 @@ type
   { TDataModule1 }
 
   TDataModule1 = class(TDataModule)
-    DataSource1: TDataSource;
+    TasksDataSource: TDataSource;
     SQLite3Connection1: TSQLite3Connection;
     SQLQuery1: TSQLQuery;
     SQLTransaction1: TSQLTransaction;

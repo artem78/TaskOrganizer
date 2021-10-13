@@ -44,7 +44,7 @@ object TasksFrame: TTasksFrame
     AutoEdit = False
     Color = clWindow
     Columns = <>
-    DataSource = DataModule1.DataSource1
+    DataSource = DataModule1.TasksDataSource
     FixedCols = 0
     Options = [dgTitles, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgAutoSizeColumns]
     ReadOnly = True

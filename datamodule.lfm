@@ -64,4 +64,20 @@ object DataModule1: TDataModule1
     Left = 48
     Top = 128
   end
+  object PeriodsDataset: TSqlite3Dataset
+    IndexFieldNames = 'task_id'
+    FileName = 'database.sqlite3'
+    PrimaryKey = 'id'
+    SaveOnClose = True
+    TableName = 'periods'
+    MasterSource = TasksDataSource
+    MasterFields = 'id'
+    Left = 48
+    Top = 208
+  end
+  object PeriodsDataSource: TDataSource
+    DataSet = PeriodsDataset
+    Left = 136
+    Top = 208
+  end
 end

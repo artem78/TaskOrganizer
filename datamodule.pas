@@ -12,6 +12,8 @@ type
   { TDataModule1 }
 
   TDataModule1 = class(TDataModule)
+    PeriodsDataSource: TDataSource;
+    PeriodsDataset: TSqlite3Dataset;
     TasksDataSource: TDataSource;
     SQLite3Connection1: TSQLite3Connection;
     SQLQuery1: TSQLQuery;
@@ -35,9 +37,10 @@ implementation
 
 procedure TDataModule1.DataModuleCreate(Sender: TObject);
 begin
-  // Create database file if not exists
+  {// Create database file if not exists
   if not FileExists(TasksDataset.FileName) then
-  begin
+  begin}
+    // Create tasks table
     with TasksDataset do
     begin
       //Close;
@@ -53,10 +56,27 @@ begin
       end;
       //Open;
     end;
-  end;
+
+    // Create periods table
+    with PeriodsDataset do
+    begin
+      //Close;
+      if not TableExists then
+      begin
+        FieldDefs.Clear;
+        FieldDefs.Add('id',      ftAutoInc);
+        FieldDefs.Add('begin',   ftDateTime);
+        FieldDefs.Add('end',     ftDateTime);
+        FieldDefs.Add('task_id', ftInteger);
+        CreateTable;
+      end;
+      //Open;
+    end;
+  {end;}
 
 
   TasksDataset.Active := True;
+  PeriodsDataset.Active := True;
 end;
 
 end.

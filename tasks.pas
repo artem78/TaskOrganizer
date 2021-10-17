@@ -17,9 +17,14 @@ type
     AddToolButton: TToolButton;
     RemoveToolButton: TToolButton;
     EditToolButton: TToolButton;
+    SeparatorToolButton: TToolButton;
+    StartTrackingToolButton: TToolButton;
+    StopTrackingToolButton: TToolButton;
     procedure AddToolButtonClick(Sender: TObject);
     procedure EditToolButtonClick(Sender: TObject);
     procedure RemoveToolButtonClick(Sender: TObject);
+    procedure StartTrackingToolButtonClick(Sender: TObject);
+    procedure StopTrackingToolButtonClick(Sender: TObject);
   private
     { private declarations }
   public
@@ -27,6 +32,9 @@ type
   end;
 
 implementation
+
+uses
+  Variants;
 
 {$R *.lfm}
 
@@ -73,6 +81,41 @@ begin
   begin
     DataModule1.TasksDataset.Delete;
     DataModule1.TasksDataset.ApplyUpdates;
+  end;
+end;
+
+procedure TTasksFrame.StartTrackingToolButtonClick(Sender: TObject);
+begin
+  with DataModule1.PeriodsDataset do
+  begin
+    // ToDo: Check if no unfinished periods
+    Append;
+    FieldByName('task_id').AsInteger
+      := DataModule1.TasksDataset.FieldByName('id').AsInteger;
+    FieldByName('begin').AsDateTime := Now;
+    Post;
+    ApplyUpdates;
+  end;
+end;
+
+procedure TTasksFrame.StopTrackingToolButtonClick(Sender: TObject);
+begin
+  with {DataModule1.PeriodsDataset} DataModule1.SQLQuery1 do
+  begin
+    //if Locate('end', Null(), []) then
+    SQL.Text := 'SELECT * FROM `periods` WHERE `end` IS NULL;';
+    Open;
+    if RecordCount > 0 then
+    // ToDo: Check if only one result
+    begin
+      First;
+      Edit;
+      FieldByName('end').AsDateTime := Now;
+      Post;
+      ApplyUpdates;
+      SQLTransaction.Commit;
+    end;
+    Close;
   end;
 end;
 

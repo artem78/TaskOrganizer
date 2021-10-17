@@ -34,6 +34,24 @@ object TasksFrame: TTasksFrame
       Caption = 'Remove'
       OnClick = RemoveToolButtonClick
     end
+    object SeparatorToolButton: TToolButton
+      Left = 110
+      Height = 22
+      Top = 2
+      Style = tbsSeparator
+    end
+    object StartTrackingToolButton: TToolButton
+      Left = 118
+      Top = 2
+      Caption = 'Start time tracking'
+      OnClick = StartTrackingToolButtonClick
+    end
+    object StopTrackingToolButton: TToolButton
+      Left = 223
+      Top = 2
+      Caption = 'Stop time tracking'
+      OnClick = StopTrackingToolButtonClick
+    end
   end
   object TasksDBGrid: TDBGrid
     Left = 0

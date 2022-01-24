@@ -52,6 +52,12 @@ object TasksFrame: TTasksFrame
       Caption = 'Stop time tracking'
       OnClick = StopTrackingToolButtonClick
     end
+    object ShowTimeToolButton: TToolButton
+      Left = 328
+      Top = 2
+      Caption = 'Show total time'
+      OnClick = ShowTimeToolButtonClick
+    end
   end
   object TasksDBGrid: TDBGrid
     Left = 0

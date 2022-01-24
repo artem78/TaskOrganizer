@@ -20,9 +20,11 @@ type
     SeparatorToolButton: TToolButton;
     StartTrackingToolButton: TToolButton;
     StopTrackingToolButton: TToolButton;
+    ShowTimeToolButton: TToolButton;
     procedure AddToolButtonClick(Sender: TObject);
     procedure EditToolButtonClick(Sender: TObject);
     procedure RemoveToolButtonClick(Sender: TObject);
+    procedure ShowTimeToolButtonClick(Sender: TObject);
     procedure StartTrackingToolButtonClick(Sender: TObject);
     procedure StopTrackingToolButtonClick(Sender: TObject);
   private
@@ -82,6 +84,34 @@ begin
     DataModule1.TasksDataset.Delete;
     DataModule1.TasksDataset.ApplyUpdates;
   end;
+end;
+
+procedure TTasksFrame.ShowTimeToolButtonClick(Sender: TObject);
+var
+  TotalTime: TTime;
+  Period: TTime;
+begin
+  TotalTime:=EncodeTime(0,0,0,0);
+
+  with DataModule1.SQLQuery1 do
+  begin
+    Close();
+    SQL.Text := 'select begin, end from periods where task_id = ' + IntToStr(DataModule1.TasksDataset.FieldByName('id').AsInteger) + ';';
+    Open();
+
+    while not EOF do
+    begin
+      if FieldByName('end').IsNull then
+        Period := Now - FieldByName('begin').AsDateTime
+      else
+        Period := FieldByName('end').AsDateTime - FieldByName('begin').AsDateTime;
+
+      TotalTime:=TotalTime+Period;
+      Next;
+    end;
+  end;
+
+  ShowMessage(TimeToStr(TotalTime));
 end;
 
 procedure TTasksFrame.StartTrackingToolButtonClick(Sender: TObject);

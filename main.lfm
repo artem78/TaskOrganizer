@@ -8,18 +8,49 @@ object MainForm: TMainForm
   ClientWidth = 627
   Position = poDesktopCenter
   LCLVersion = '2.0.12.0'
-  inline TasksFrame1: TTasksFrame
+  object PageControl1: TPageControl
+    Left = 0
     Height = 349
+    Top = 0
     Width = 627
+    ActivePage = TasksTabSheet
     Align = alClient
-    ClientHeight = 349
-    ClientWidth = 627
-    inherited ToolBar1: TToolBar
-      Width = 627
+    TabIndex = 0
+    TabOrder = 0
+    object TasksTabSheet: TTabSheet
+      Caption = 'Tasks'
+      ClientHeight = 321
+      ClientWidth = 619
+      inline TasksFrame1: TTasksFrame
+        Height = 321
+        Width = 619
+        Align = alClient
+        ClientHeight = 321
+        ClientWidth = 619
+        inherited ToolBar1: TToolBar
+          Width = 619
+        end
+        inherited TasksDBGrid: TDBGrid
+          Height = 295
+          Width = 619
+        end
+      end
     end
-    inherited TasksDBGrid: TDBGrid
-      Height = 323
-      Width = 627
+    object PeriodsTabSheet: TTabSheet
+      Caption = 'Periods'
+      ClientHeight = 321
+      ClientWidth = 619
+      inline PeriodsFrame1: TPeriodsFrame
+        Height = 321
+        Width = 619
+        Align = alClient
+        ClientHeight = 321
+        ClientWidth = 619
+        inherited DBGrid1: TDBGrid
+          Height = 321
+          Width = 619
+        end
+      end
     end
   end
 end

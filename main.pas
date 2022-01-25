@@ -5,13 +5,18 @@ unit main;
 interface
 
 uses
-  Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, tasks, taskedit, datamodule;
+  Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, ComCtrls,
+  tasks, taskedit, datamodule, PeriodsFrame;
 
 type
 
   { TMainForm }
 
   TMainForm = class(TForm)
+    PageControl1: TPageControl;
+    PeriodsFrame1: TPeriodsFrame;
+    TasksTabSheet: TTabSheet;
+    PeriodsTabSheet: TTabSheet;
     TasksFrame1: TTasksFrame;
   private
     { private declarations }

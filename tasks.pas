@@ -132,6 +132,7 @@ procedure TTasksFrame.StopTrackingToolButtonClick(Sender: TObject);
 begin
   with {DataModule1.PeriodsDataset} DataModule1.SQLQuery1 do
   begin
+    Close;
     //if Locate('end', Null(), []) then
     SQL.Text := 'SELECT * FROM `periods` WHERE `end` IS NULL;';
     Open;

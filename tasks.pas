@@ -130,22 +130,14 @@ end;
 
 procedure TTasksFrame.StopTrackingToolButtonClick(Sender: TObject);
 begin
-  with {DataModule1.PeriodsDataset} DataModule1.SQLQuery1 do
+  with DataModule1.SQLQuery1 do
   begin
     Close;
-    //if Locate('end', Null(), []) then
-    SQL.Text := 'SELECT * FROM `periods` WHERE `end` IS NULL;';
-    Open;
-    if RecordCount > 0 then
+    SQL.Text := 'update periods set end=:end WHERE `end` IS NULL';
     // ToDo: Check if only one result
-    begin
-      First;
-      Edit;
-      FieldByName('end').AsDateTime := Now;
-      Post;
-      ApplyUpdates;
-      SQLTransaction.Commit;
-    end;
+    ParamByName('end').AsDateTime:=now - 2415018.5;
+    ExecSQL;
+    SQLTransaction.Commit;
     Close;
   end;
 end;

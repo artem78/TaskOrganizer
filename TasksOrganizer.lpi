@@ -77,6 +77,7 @@
         <Filename Value="periodsframe.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="PeriodsFrame"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Frame"/>
         <UnitName Value="PeriodsFrame"/>
       </Unit5>

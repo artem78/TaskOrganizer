@@ -52,5 +52,28 @@ object MainForm: TMainForm
         end
       end
     end
+    object LogsTabSheet: TTabSheet
+      Caption = 'Logs'
+      ClientHeight = 321
+      ClientWidth = 619
+      object LogsMemo: TMemo
+        Left = 0
+        Height = 321
+        Top = 0
+        Width = 619
+        Align = alClient
+        Font.CharSet = RUSSIAN_CHARSET
+        Font.Color = clBlack
+        Font.Height = -12
+        Font.Name = 'Courier New'
+        Font.Pitch = fpFixed
+        Font.Quality = fqDraft
+        ParentFont = False
+        ReadOnly = True
+        ScrollBars = ssAutoBoth
+        TabOrder = 0
+        WordWrap = False
+      end
+    end
   end
 end

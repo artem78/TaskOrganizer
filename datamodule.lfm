@@ -47,6 +47,7 @@ object DataModule1: TDataModule1
     KeepConnection = False
     Transaction = SQLTransaction1
     CharSet = 'UTF8'
+    OnLog = SQLite3Connection1Log
     AlwaysUseBigint = False
     Left = 240
     Top = 40

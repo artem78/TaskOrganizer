@@ -6,6 +6,7 @@ object MainForm: TMainForm
   Caption = 'Tasks Organizer'
   ClientHeight = 349
   ClientWidth = 627
+  OnCreate = FormCreate
   Position = poScreenCenter
   LCLVersion = '2.0.12.0'
   object PageControl1: TPageControl

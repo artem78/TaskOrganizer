@@ -20,6 +20,7 @@ type
     TasksFrame1: TTasksFrame;
     TasksTabSheet: TTabSheet;
     PeriodsTabSheet: TTabSheet;
+    procedure FormCreate(Sender: TObject);
   private
     { private declarations }
   public
@@ -31,9 +32,16 @@ var
 
 implementation
 
+{$I revision.inc}
+
 {$R *.lfm}
 
 { TMainForm }
+
+procedure TMainForm.FormCreate(Sender: TObject);
+begin
+  Caption:=Caption+Format('    %s  %s', [GitRevisionStr, {$I %DATE%}]);
+end;
 
 end.
 

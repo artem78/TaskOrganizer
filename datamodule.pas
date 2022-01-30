@@ -5,7 +5,8 @@ unit datamodule;
 interface
 
 uses
-  Classes, SysUtils, sqldb, db, Sqlite3DS, sqlite3conn, FileUtil;
+  Classes, SysUtils, sqldb, db, Sqlite3DS, sqlite3conn, FileUtil,
+  UniqueInstance;
 
 type
 
@@ -21,9 +22,12 @@ type
     SQLQuery1: TSQLQuery;
     SQLTransaction1: TSQLTransaction;
     TasksDataset: TSqlite3Dataset;
+    UniqueInstance1: TUniqueInstance;
     procedure DataModuleCreate(Sender: TObject);
     procedure SQLite3Connection1Log(Sender: TSQLConnection;
       EventType: TDBEventType; const Msg: String);
+    {procedure UniqueInstance1OtherInstance(Sender: TObject;
+      ParamCount: Integer; const Parameters: array of String);}
   private
     { private declarations }
   public
@@ -35,7 +39,7 @@ var
 
 implementation
 
-uses main;
+uses main{, Forms};
 
 {$R *.lfm}
 
@@ -103,6 +107,14 @@ begin
 
   main.MainForm.LogsMemo.Append(Format('[%s] <%s> %s', [TimeToStr(Now), Source, Msg]));
 end;
+
+{procedure TDataModule1.UniqueInstance1OtherInstance(Sender: TObject;
+  ParamCount: Integer; const Parameters: array of String);
+begin
+  //MainForm.Show;
+  //MainForm.BringToFront;
+  Application.BringToFront;
+end; }
 
 end.
 

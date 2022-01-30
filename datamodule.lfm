@@ -104,4 +104,11 @@ object DataModule1: TDataModule1
     Left = 48
     Top = 280
   end
+  object UniqueInstance1: TUniqueInstance
+    Enabled = True
+    Identifier = 'TaskOrganizer'
+    UpdateInterval = 60000
+    Left = 424
+    Top = 40
+  end
 end

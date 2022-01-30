@@ -12,6 +12,8 @@ type
   { TDataModule1 }
 
   TDataModule1 = class(TDataModule)
+    StatsSQLQuery: TSQLQuery;
+    StatsDataSource: TDataSource;
     PeriodsDataSource: TDataSource;
     PeriodsDataset: TSqlite3Dataset;
     TasksDataSource: TDataSource;
@@ -81,6 +83,7 @@ begin
 
   TasksDataset.Active := True;
   PeriodsDataset.Active := True;
+  StatsSQLQuery.Active:=True;
 end;
 
 procedure TDataModule1.SQLite3Connection1Log(Sender: TSQLConnection;

@@ -57,6 +57,7 @@ object TasksFrame: TTasksFrame
       Top = 2
       Caption = 'Show total time'
       OnClick = ShowTimeToolButtonClick
+      Visible = False
     end
   end
   object TasksDBGrid: TDBGrid

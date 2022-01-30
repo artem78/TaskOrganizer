@@ -1,7 +1,7 @@
 object DataModule1: TDataModule1
   OnCreate = DataModuleCreate
   OldCreateOrder = False
-  Height = 244
+  Height = 399
   HorizontalOffset = 250
   VerticalOffset = 137
   Width = 485
@@ -80,5 +80,28 @@ object DataModule1: TDataModule1
     DataSet = PeriodsDataset
     Left = 136
     Top = 208
+  end
+  object StatsDataSource: TDataSource
+    DataSet = StatsSQLQuery
+    Left = 136
+    Top = 280
+  end
+  object StatsSQLQuery: TSQLQuery
+    FieldDefs = <>
+    Database = SQLite3Connection1
+    Transaction = SQLTransaction1
+    SQL.Strings = (
+      'select'
+      '    tasks.name,'
+      '    /*task_id,*/'
+      '    time(sum(ifnull(end,  strftime(''%J'', ''now'', ''localtime'')-2415018.5)-begin)+0.5) as `total_time`'
+      'from'
+      '    periods'
+      '    inner join tasks on periods.task_id=tasks.id'
+      'group by task_id'
+    )
+    Params = <>
+    Left = 48
+    Top = 280
   end
 end

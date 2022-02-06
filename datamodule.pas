@@ -13,7 +13,7 @@ type
   { TDataModule1 }
 
   TDataModule1 = class(TDataModule)
-    StatsSQLQuery: TSQLQuery;
+    StatsDataset: TSqlite3Dataset;
     StatsDataSource: TDataSource;
     PeriodsDataSource: TDataSource;
     PeriodsDataset: TSqlite3Dataset;
@@ -82,12 +82,29 @@ begin
       end;
       //Open;
     end;
+
+    // Create statistics view
+    with SQLQuery1.SQL do
+    begin
+      Clear;
+      Append('CREATE VIEW IF NOT EXISTS statistics AS');
+      Append('    SELECT task_id,');
+      Append('           tasks.name,');
+      Append('           time(sum(ifnull([end], strftime(''%J'', ''now'', ''localtime'') - 2415018.5) - [begin]) + 0.5) AS total_time');
+      Append('      FROM periods');
+      Append('           INNER JOIN');
+      Append('           tasks ON periods.task_id = tasks.id');
+      Append('     GROUP BY task_id;');
+    end;
+    SQLQuery1.ExecSQL;
+    SQLQuery1.Clear;
+    SQLTransaction1.Commit;
   {end;}
 
 
   TasksDataset.Active := True;
   PeriodsDataset.Active := True;
-  StatsSQLQuery.Active:=True;
+  StatsDataset.Active:=True;
 end;
 
 procedure TDataModule1.SQLite3Connection1Log(Sender: TSQLConnection;

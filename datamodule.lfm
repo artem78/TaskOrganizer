@@ -82,26 +82,8 @@ object DataModule1: TDataModule1
     Top = 208
   end
   object StatsDataSource: TDataSource
-    DataSet = StatsSQLQuery
+    DataSet = StatsDataset
     Left = 136
-    Top = 280
-  end
-  object StatsSQLQuery: TSQLQuery
-    FieldDefs = <>
-    Database = SQLite3Connection1
-    Transaction = SQLTransaction1
-    SQL.Strings = (
-      'select'
-      '    tasks.name,'
-      '    /*task_id,*/'
-      '    time(sum(ifnull(end,  strftime(''%J'', ''now'', ''localtime'')-2415018.5)-begin)+0.5) as `total_time`'
-      'from'
-      '    periods'
-      '    inner join tasks on periods.task_id=tasks.id'
-      'group by task_id'
-    )
-    Params = <>
-    Left = 48
     Top = 280
   end
   object UniqueInstance1: TUniqueInstance
@@ -110,5 +92,12 @@ object DataModule1: TDataModule1
     UpdateInterval = 60000
     Left = 424
     Top = 40
+  end
+  object StatsDataset: TSqlite3Dataset
+    FileName = 'database.sqlite3'
+    PrimaryKey = 'task_id'
+    TableName = 'statistics'
+    Left = 48
+    Top = 280
   end
 end

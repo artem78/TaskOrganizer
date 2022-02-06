@@ -28,9 +28,11 @@ type
     procedure StartTrackingToolButtonClick(Sender: TObject);
     procedure StopTrackingToolButtonClick(Sender: TObject);
   private
-    { private declarations }
+    function HasActiveTask: Boolean;
+    //procedure RefreshStartStopBtnsVisibility;
   public
-    { public declarations }
+    //constructor Create(AOwner: TComponent); override;
+    procedure RefreshStartStopBtnsVisibility;
   end;
 
 implementation
@@ -126,6 +128,8 @@ begin
     Post;
     ApplyUpdates;
   end;
+
+  RefreshStartStopBtnsVisibility;
 end;
 
 procedure TTasksFrame.StopTrackingToolButtonClick(Sender: TObject);
@@ -140,7 +144,43 @@ begin
     SQLTransaction.Commit;
     Close;
   end;
+
+  RefreshStartStopBtnsVisibility;
 end;
+
+function TTasksFrame.HasActiveTask: Boolean;
+begin
+  Result:=False;
+
+  if (DataModule1 <> nil) and (DataModule1.SQLQuery1 <> nil) then
+  begin
+    with DataModule1.SQLQuery1 do
+    begin
+      Close;
+      SQL.Text:='select count(*) as cnt from `periods` where `end` is null;';
+      Open;
+      First;
+      Result:=FieldByName('cnt').AsInteger > 0;
+      Close;
+    end;
+  end;
+end;
+
+procedure TTasksFrame.RefreshStartStopBtnsVisibility;
+var
+  IsActive: Boolean;
+begin
+  IsActive := HasActiveTask;
+  StartTrackingToolButton.Enabled:=not IsActive;
+  StopTrackingToolButton.Enabled:=IsActive;
+end;
+
+{constructor TTasksFrame.Create(AOwner: TComponent);
+begin
+  inherited Create(AOwner);
+
+  RefreshStartStopBtnsVisibility;
+end;  }
 
 end.
 

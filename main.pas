@@ -45,6 +45,7 @@ procedure TMainForm.FormCreate(Sender: TObject);
 begin
   Caption:=Caption+Format('    %s  %s', [GitRevisionStr, {$I %DATE%}]);
   PageControl1.ActivePageIndex:=0;
+  TasksFrame1.RefreshStartStopBtnsVisibility;
 end;
 
 procedure TMainForm.StatsTabSheetShow(Sender: TObject);

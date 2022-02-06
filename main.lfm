@@ -30,9 +30,6 @@ object MainForm: TMainForm
         ClientWidth = 619
         inherited ToolBar1: TToolBar
           Width = 619
-          inherited ShowTimeToolButton: TToolButton
-            Visible = True
-          end
         end
         inherited TasksDBGrid: TDBGrid
           Height = 295

@@ -14,6 +14,8 @@ object TasksFrame: TTasksFrame
     Top = 0
     Width = 561
     Caption = 'ToolBar1'
+    Images = DataModule1.Icons
+    List = True
     ShowCaptions = True
     TabOrder = 0
     object AddToolButton: TToolButton
@@ -44,16 +46,18 @@ object TasksFrame: TTasksFrame
       Left = 118
       Top = 2
       Caption = 'Start time tracking'
+      ImageIndex = 0
       OnClick = StartTrackingToolButtonClick
     end
     object StopTrackingToolButton: TToolButton
-      Left = 223
+      Left = 241
       Top = 2
       Caption = 'Stop time tracking'
+      ImageIndex = 1
       OnClick = StopTrackingToolButtonClick
     end
     object ShowTimeToolButton: TToolButton
-      Left = 328
+      Left = 364
       Top = 2
       Caption = 'Show total time'
       OnClick = ShowTimeToolButtonClick

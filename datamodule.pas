@@ -5,7 +5,7 @@ unit datamodule;
 interface
 
 uses
-  Classes, SysUtils, sqldb, db, Sqlite3DS, sqlite3conn, FileUtil,
+  Classes, SysUtils, sqldb, db, Sqlite3DS, sqlite3conn, FileUtil, Controls,
   UniqueInstance;
 
 type
@@ -13,6 +13,7 @@ type
   { TDataModule1 }
 
   TDataModule1 = class(TDataModule)
+    Icons: TImageList;
     StatsDataset: TSqlite3Dataset;
     StatsDataSource: TDataSource;
     PeriodsDataSource: TDataSource;

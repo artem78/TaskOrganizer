@@ -47,9 +47,11 @@ begin
   DataModule1.TasksDataset.Append;
   if TaskEditForm.ShowModal = mrOK then
   begin
+    DataModule1.SQLTransaction1.EndTransaction;
     DataModule1.TasksDataset.FieldByName('created').AsDateTime := Now;
     DataModule1.TasksDataset.Post;
     DataModule1.TasksDataset.ApplyUpdates;
+    DataModule1.StatsSQLQuery.Open;
   end
   else
     DataModule1.TasksDataset.Cancel;
@@ -63,9 +65,11 @@ begin
   DataModule1.TasksDataset.Edit;
   if TaskEditForm.ShowModal = mrOK then
   begin
+    DataModule1.SQLTransaction1.EndTransaction;
     DataModule1.TasksDataset.FieldByName('modified').AsDateTime := Now;
     DataModule1.TasksDataset.Post;
     DataModule1.TasksDataset.ApplyUpdates;
+    DataModule1.StatsSQLQuery.Open;
   end
   else
     DataModule1.TasksDataset.Cancel;
@@ -81,8 +85,10 @@ begin
   Msg := Format('Are you sure to delete task "%s"?', [DataModule1.TasksDataset.FieldByName('name').AsString]);
   if MessageDlg(Msg, mtConfirmation, [mbYes, mbNo], 0) = mrYes then
   begin
+    DataModule1.SQLTransaction1.EndTransaction;
     DataModule1.TasksDataset.Delete;
     DataModule1.TasksDataset.ApplyUpdates;
+    DataModule1.StatsSQLQuery.Open;
   end;
 end;
 
@@ -116,6 +122,7 @@ end;
 
 procedure TTasksFrame.StartTrackingToolButtonClick(Sender: TObject);
 begin
+  DataModule1.SQLTransaction1.EndTransaction;
   with DataModule1.PeriodsDataset do
   begin
     // ToDo: Check if no unfinished periods
@@ -126,6 +133,7 @@ begin
     Post;
     ApplyUpdates;
   end;
+  DataModule1.StatsSQLQuery.Open;
 end;
 
 procedure TTasksFrame.StopTrackingToolButtonClick(Sender: TObject);
@@ -137,9 +145,11 @@ begin
     // ToDo: Check if only one result
     ParamByName('end').AsDateTime:=now - 2415018.5;
     ExecSQL;
-    SQLTransaction.Commit;
-    Close;
+    SQLTransaction.CommitRetaining;
+    //Close;
   end;
+  DataModule1.PeriodsDataset.Close;
+  DataModule1.PeriodsDataset.Open;
 end;
 
 end.

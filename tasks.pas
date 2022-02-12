@@ -46,45 +46,45 @@ uses
 
 procedure TTasksFrame.AddToolButtonClick(Sender: TObject);
 begin
-  DataModule1.TasksDataset.Append;
+  DataModule1.TasksSQLQuery.Append;
   if TaskEditForm.ShowModal = mrOK then
   begin
-    DataModule1.TasksDataset.FieldByName('created').AsDateTime := Now;
-    DataModule1.TasksDataset.Post;
-    DataModule1.TasksDataset.ApplyUpdates;
+    DataModule1.TasksSQLQuery.FieldByName('created').AsDateTime := Now;
+    DataModule1.TasksSQLQuery.Post;
+    DataModule1.TasksSQLQuery.ApplyUpdates;
   end
   else
-    DataModule1.TasksDataset.Cancel;
+    DataModule1.TasksSQLQuery.Cancel;
 end;
 
 procedure TTasksFrame.EditToolButtonClick(Sender: TObject);
 begin
-  if DataModule1.TasksDataset.IsEmpty then
+  if DataModule1.TasksSQLQuery.IsEmpty then
     Exit;
 
-  DataModule1.TasksDataset.Edit;
+  DataModule1.TasksSQLQuery.Edit;
   if TaskEditForm.ShowModal = mrOK then
   begin
-    DataModule1.TasksDataset.FieldByName('modified').AsDateTime := Now;
-    DataModule1.TasksDataset.Post;
-    DataModule1.TasksDataset.ApplyUpdates;
+    DataModule1.TasksSQLQuery.FieldByName('modified').AsDateTime := Now;
+    DataModule1.TasksSQLQuery.Post;
+    DataModule1.TasksSQLQuery.ApplyUpdates;
   end
   else
-    DataModule1.TasksDataset.Cancel;
+    DataModule1.TasksSQLQuery.Cancel;
 end;
 
 procedure TTasksFrame.RemoveToolButtonClick(Sender: TObject);
 var
   Msg: String;
 begin
-  if DataModule1.TasksDataset.IsEmpty then
+  if DataModule1.TasksSQLQuery.IsEmpty then
     Exit;
 
-  Msg := Format('Are you sure to delete task "%s"?', [DataModule1.TasksDataset.FieldByName('name').AsString]);
+  Msg := Format('Are you sure to delete task "%s"?', [DataModule1.TasksSQLQuery.FieldByName('name').AsString]);
   if MessageDlg(Msg, mtConfirmation, [mbYes, mbNo], 0) = mrYes then
   begin
-    DataModule1.TasksDataset.Delete;
-    DataModule1.TasksDataset.ApplyUpdates;
+    DataModule1.TasksSQLQuery.Delete;
+    DataModule1.TasksSQLQuery.ApplyUpdates;
   end;
 end;
 
@@ -98,7 +98,7 @@ begin
   with DataModule1.SQLQuery1 do
   begin
     Close();
-    SQL.Text := 'select begin, end from periods where task_id = ' + IntToStr(DataModule1.TasksDataset.FieldByName('id').AsInteger) + ';';
+    SQL.Text := 'select begin, end from periods where task_id = ' + IntToStr(DataModule1.TasksSQLQuery.FieldByName('id').AsInteger) + ';';
     Open();
 
     while not EOF do
@@ -118,12 +118,12 @@ end;
 
 procedure TTasksFrame.StartTrackingToolButtonClick(Sender: TObject);
 begin
-  with DataModule1.PeriodsDataset do
+  with DataModule1.PeriodsSQLQuery do
   begin
     // ToDo: Check if no unfinished periods
     Append;
     FieldByName('task_id').AsInteger
-      := DataModule1.TasksDataset.FieldByName('id').AsInteger;
+      := DataModule1.TasksSQLQuery.FieldByName('id').AsInteger;
     FieldByName('begin').AsDateTime := Now;
     Post;
     ApplyUpdates;

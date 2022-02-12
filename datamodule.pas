@@ -5,7 +5,7 @@ unit datamodule;
 interface
 
 uses
-  Classes, SysUtils, sqldb, db, Sqlite3DS, sqlite3conn, FileUtil, Controls,
+  Classes, SysUtils, sqldb, db, sqlite3conn, FileUtil, Controls,
   UniqueInstance;
 
 type
@@ -14,15 +14,15 @@ type
 
   TDataModule1 = class(TDataModule)
     Icons: TImageList;
-    StatsDataset: TSqlite3Dataset;
+    StatsSQLQuery: TSQLQuery;
     StatsDataSource: TDataSource;
     PeriodsDataSource: TDataSource;
-    PeriodsDataset: TSqlite3Dataset;
+    PeriodsSQLQuery: TSQLQuery;
     TasksDataSource: TDataSource;
     SQLite3Connection1: TSQLite3Connection;
     SQLQuery1: TSQLQuery;
     SQLTransaction1: TSQLTransaction;
-    TasksDataset: TSqlite3Dataset;
+    TasksSQLQuery: TSQLQuery;
     UniqueInstance1: TUniqueInstance;
     procedure DataModuleCreate(Sender: TObject);
     procedure SQLite3Connection1Log(Sender: TSQLConnection;
@@ -52,37 +52,36 @@ begin
   if not FileExists(TasksDataset.FileName) then
   begin}
     // Create tasks table
-    with TasksDataset do
+    with SQLQuery1.SQL do
     begin
-      //Close;
-      if not TableExists then
-      begin
-        FieldDefs.Clear;
-        FieldDefs.Add('id',          ftAutoInc);
-        FieldDefs.Add('name',        ftString);
-        FieldDefs.Add('description', ftString);
-        FieldDefs.Add('created',     ftDateTime);
-        FieldDefs.Add('modified',    ftDateTime);
-        CreateTable;
-      end;
-      //Open;
+      Clear;
+      Append('CREATE TABLE IF NOT EXISTS `tasks` (');
+      Append('      `id`          AUTOINC_INT   PRIMARY KEY,');
+      Append('      `name`        VARCHAR (255),');
+      Append('      `description` VARCHAR (255),');
+      Append('      `created`     DATETIME, ');
+      Append('      `modified`    DATETIME');
+      Append(');');
     end;
+    SQLQuery1.ExecSQL;
+    SQLQuery1.Clear;
+    //SQLTransaction1.Commit;
 
     // Create periods table
-    with PeriodsDataset do
+    with SQLQuery1.SQL do
     begin
-      //Close;
-      if not TableExists then
-      begin
-        FieldDefs.Clear;
-        FieldDefs.Add('id',      ftAutoInc);
-        FieldDefs.Add('begin',   ftDateTime);
-        FieldDefs.Add('end',     ftDateTime);
-        FieldDefs.Add('task_id', ftInteger);
-        CreateTable;
-      end;
-      //Open;
+      Clear;
+      Append('CREATE TABLE IF NOT EXISTS `periods` (');
+      Append('    `id`      AUTOINC_INT PRIMARY KEY,');
+      Append('    `begin` DATETIME,');
+      Append('    `end`   DATETIME,');
+      Append('    `task_id` INTEGER,');
+      Append('    FOREIGN KEY (`task_id`)  REFERENCES `tasks` (`id`) ON DELETE CASCADE');
+      Append(');');
     end;
+    SQLQuery1.ExecSQL;
+    SQLQuery1.Clear;
+    //SQLTransaction1.Commit;
 
     // Create statistics view
     with SQLQuery1.SQL do
@@ -99,13 +98,16 @@ begin
     end;
     SQLQuery1.ExecSQL;
     SQLQuery1.Clear;
+
+
+    // Commit all changes
     SQLTransaction1.Commit;
   {end;}
 
 
-  TasksDataset.Active := True;
-  PeriodsDataset.Active := True;
-  StatsDataset.Active:=True;
+  TasksSQLQuery.Active := True;
+  PeriodsSQLQuery.Active := True;
+  StatsSQLQuery.Active:=True;
 end;
 
 procedure TDataModule1.SQLite3Connection1Log(Sender: TSQLConnection;

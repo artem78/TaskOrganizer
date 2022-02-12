@@ -26,22 +26,19 @@
         <Mode0 Name="default"/>
       </Modes>
     </RunParams>
-    <RequiredPackages Count="5">
+    <RequiredPackages Count="4">
       <Item1>
         <PackageName Value="uniqueinstance_package"/>
       </Item1>
       <Item2>
-        <PackageName Value="sqlite3laz"/>
+        <PackageName Value="FCL"/>
       </Item2>
       <Item3>
-        <PackageName Value="FCL"/>
+        <PackageName Value="SQLDBLaz"/>
       </Item3>
       <Item4>
-        <PackageName Value="SQLDBLaz"/>
-      </Item4>
-      <Item5>
         <PackageName Value="LCL"/>
-      </Item5>
+      </Item4>
     </RequiredPackages>
     <Units Count="6">
       <Unit0>

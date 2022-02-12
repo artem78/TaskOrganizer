@@ -39,7 +39,7 @@ uses DB;
 
 procedure TTaskEditForm.FormShow(Sender: TObject);
 begin
-  case DataModule1.TasksDataset.State of
+  case DataModule1.TasksSQLQuery.State of
        dsInsert: Caption := 'Create task';
        dsEdit:   Caption := 'Edit task';
        else      Caption := '???';

@@ -53,36 +53,39 @@ object DataModule1: TDataModule1
     Top = 40
   end
   object TasksDataSource: TDataSource
-    DataSet = TasksDataset
+    DataSet = TasksSQLQuery
     Left = 136
     Top = 128
   end
-  object TasksDataset: TSqlite3Dataset
-    FileName = 'database.sqlite3'
-    PrimaryKey = 'id'
-    SaveOnClose = True
-    TableName = 'tasks'
+  object TasksSQLQuery: TSQLQuery
+    FieldDefs = <>
+    Database = SQLite3Connection1
+    Transaction = SQLTransaction1
+    SQL.Strings = (
+      'select * from tasks'
+    )
+    Params = <>
     Left = 48
     Top = 128
   end
-  object PeriodsDataset: TSqlite3Dataset
-    IndexFieldNames = 'task_id'
-    FileName = 'database.sqlite3'
-    PrimaryKey = 'id'
-    SaveOnClose = True
-    TableName = 'periods'
-    MasterSource = TasksDataSource
-    MasterFields = 'id'
+  object PeriodsSQLQuery: TSQLQuery
+    FieldDefs = <>
+    Database = SQLite3Connection1
+    Transaction = SQLTransaction1
+    SQL.Strings = (
+      'select * from periods'
+    )
+    Params = <>
     Left = 48
     Top = 208
   end
   object PeriodsDataSource: TDataSource
-    DataSet = PeriodsDataset
+    DataSet = PeriodsSQLQuery
     Left = 136
     Top = 208
   end
   object StatsDataSource: TDataSource
-    DataSet = StatsDataset
+    DataSet = StatsSQLQuery
     Left = 136
     Top = 280
   end
@@ -93,10 +96,14 @@ object DataModule1: TDataModule1
     Left = 424
     Top = 40
   end
-  object StatsDataset: TSqlite3Dataset
-    FileName = 'database.sqlite3'
-    PrimaryKey = 'task_id'
-    TableName = 'statistics'
+  object StatsSQLQuery: TSQLQuery
+    FieldDefs = <>
+    Database = SQLite3Connection1
+    Transaction = SQLTransaction1
+    SQL.Strings = (
+      'select * from statistics'
+    )
+    Params = <>
     Left = 48
     Top = 280
   end

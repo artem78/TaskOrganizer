@@ -50,7 +50,7 @@ end;
 
 procedure TMainForm.StatsTabSheetShow(Sender: TObject);
 begin
-  DataModule1.StatsDataset.Refresh;
+  DataModule1.StatsSQLQuery.Refresh;
   StatsDBGrid.Refresh;
 end;
 

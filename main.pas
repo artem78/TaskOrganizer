@@ -23,7 +23,9 @@ type
     TasksTabSheet: TTabSheet;
     PeriodsTabSheet: TTabSheet;
     procedure FormCreate(Sender: TObject);
+    procedure FormShow(Sender: TObject);
     procedure StatsTabSheetShow(Sender: TObject);
+    procedure TasksTabSheetShow(Sender: TObject);
   private
     { private declarations }
   public
@@ -45,6 +47,11 @@ procedure TMainForm.FormCreate(Sender: TObject);
 begin
   Caption:=Caption+Format('    %s  %s', [GitRevisionStr, {$I %DATE%}]);
   PageControl1.ActivePageIndex:=0;
+  //TasksFrame1.RefreshStartStopBtnsVisibility;
+end;
+
+procedure TMainForm.FormShow(Sender: TObject);
+begin
   TasksFrame1.RefreshStartStopBtnsVisibility;
 end;
 
@@ -52,6 +59,11 @@ procedure TMainForm.StatsTabSheetShow(Sender: TObject);
 begin
   DataModule1.StatsSQLQuery.Refresh;
   StatsDBGrid.Refresh;
+end;
+
+procedure TMainForm.TasksTabSheetShow(Sender: TObject);
+begin
+  //TasksFrame1.RefreshStartStopBtnsVisibility;
 end;
 
 end.

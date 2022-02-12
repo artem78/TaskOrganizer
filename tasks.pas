@@ -52,6 +52,7 @@ begin
     DataModule1.TasksSQLQuery.FieldByName('created').AsDateTime := Now;
     DataModule1.TasksSQLQuery.Post;
     DataModule1.TasksSQLQuery.ApplyUpdates;
+    DataModule1.SQLTransaction1.CommitRetaining;
   end
   else
     DataModule1.TasksSQLQuery.Cancel;
@@ -68,6 +69,7 @@ begin
     DataModule1.TasksSQLQuery.FieldByName('modified').AsDateTime := Now;
     DataModule1.TasksSQLQuery.Post;
     DataModule1.TasksSQLQuery.ApplyUpdates;
+    DataModule1.SQLTransaction1.CommitRetaining;
   end
   else
     DataModule1.TasksSQLQuery.Cancel;
@@ -85,6 +87,7 @@ begin
   begin
     DataModule1.TasksSQLQuery.Delete;
     DataModule1.TasksSQLQuery.ApplyUpdates;
+    DataModule1.SQLTransaction1.CommitRetaining;
   end;
 end;
 
@@ -124,9 +127,10 @@ begin
     Append;
     FieldByName('task_id').AsInteger
       := DataModule1.TasksSQLQuery.FieldByName('id').AsInteger;
-    FieldByName('begin').AsDateTime := Now;
+    FieldByName('begin').AsDateTime := Now - 2415018.5;
     Post;
     ApplyUpdates;
+    DataModule1.SQLTransaction1.CommitRetaining;
   end;
 
   RefreshStartStopBtnsVisibility;
@@ -141,9 +145,10 @@ begin
     // ToDo: Check if only one result
     ParamByName('end').AsDateTime:=now - 2415018.5;
     ExecSQL;
-    SQLTransaction.Commit;
+    DataModule1.SQLTransaction1.CommitRetaining;
     Close;
   end;
+  DataModule1.PeriodsSQLQuery.Refresh;
 
   RefreshStartStopBtnsVisibility;
 end;

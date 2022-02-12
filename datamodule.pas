@@ -25,6 +25,7 @@ type
     TasksSQLQuery: TSQLQuery;
     UniqueInstance1: TUniqueInstance;
     procedure DataModuleCreate(Sender: TObject);
+    procedure DataModuleDestroy(Sender: TObject);
     procedure SQLite3Connection1Log(Sender: TSQLConnection;
       EventType: TDBEventType; const Msg: String);
     {procedure UniqueInstance1OtherInstance(Sender: TObject;
@@ -56,7 +57,7 @@ begin
     begin
       Clear;
       Append('CREATE TABLE IF NOT EXISTS `tasks` (');
-      Append('      `id`          AUTOINC_INT   PRIMARY KEY,');
+      Append('      `id`          INTEGER PRIMARY KEY,');
       Append('      `name`        VARCHAR (255),');
       Append('      `description` VARCHAR (255),');
       Append('      `created`     DATETIME, ');
@@ -68,11 +69,12 @@ begin
     //SQLTransaction1.Commit;
 
     // Create periods table
+    // ToDo: Думаю, в базе лучше хранить Юлианскую дату вместо паскалеской (с 1900 года)
     with SQLQuery1.SQL do
     begin
       Clear;
       Append('CREATE TABLE IF NOT EXISTS `periods` (');
-      Append('    `id`      AUTOINC_INT PRIMARY KEY,');
+      Append('    `id`    INTEGER PRIMARY KEY,');
       Append('    `begin` DATETIME,');
       Append('    `end`   DATETIME,');
       Append('    `task_id` INTEGER,');
@@ -90,7 +92,7 @@ begin
       Append('CREATE VIEW IF NOT EXISTS statistics AS');
       Append('    SELECT task_id,');
       Append('           tasks.name,');
-      Append('           time(sum(ifnull([end], strftime(''%J'', ''now'', ''localtime'') - 2415018.5) - [begin]) + 0.5) AS total_time');
+      Append('           time(sum(ifnull(`end`, strftime(''%J'', ''now'', ''localtime'') - 2415018.5) - `begin`) + 0.5) AS total_time');
       Append('      FROM periods');
       Append('           INNER JOIN');
       Append('           tasks ON periods.task_id = tasks.id');
@@ -108,6 +110,12 @@ begin
   TasksSQLQuery.Active := True;
   PeriodsSQLQuery.Active := True;
   StatsSQLQuery.Active:=True;
+end;
+
+procedure TDataModule1.DataModuleDestroy(Sender: TObject);
+begin
+  // Save all changes to DB on exit
+  DataModule1.SQLTransaction1.CommitRetaining;
 end;
 
 procedure TDataModule1.SQLite3Connection1Log(Sender: TSQLConnection;

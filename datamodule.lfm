@@ -63,7 +63,11 @@ object DataModule1: TDataModule1
     Database = SQLite3Connection1
     Transaction = SQLTransaction1
     SQL.Strings = (
-      'select * from tasks'
+      'select id, tasks.name, description, created, modified,'
+      '       printf(''%d:%s'', floor(`total_time`) /*days*/, time(`total_time`)) AS `total_time`'
+      'from tasks'
+      'left join statistics'
+      'on tasks.id = task_id'
     )
     Params = <>
     Left = 48
@@ -102,11 +106,7 @@ object DataModule1: TDataModule1
     Database = SQLite3Connection1
     Transaction = SQLTransaction1
     SQL.Strings = (
-      'SELECT'
-      '    `name`,'
-      '    printf(''%d:%s'', floor(`total_time`) /*days*/, time(`total_time`)) AS `total_time`'
-      'FROM'
-      '    `statistics`;'
+      'select '''''
     )
     Params = <>
     Left = 48

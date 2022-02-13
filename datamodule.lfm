@@ -102,7 +102,11 @@ object DataModule1: TDataModule1
     Database = SQLite3Connection1
     Transaction = SQLTransaction1
     SQL.Strings = (
-      'select * from statistics'
+      'SELECT'
+      '    `name`,'
+      '    printf(''%d:%s'', floor(`total_time`) /*days*/, time(`total_time`)) AS `total_time`'
+      'FROM'
+      '    `statistics`;'
     )
     Params = <>
     Left = 48

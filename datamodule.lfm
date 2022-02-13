@@ -66,7 +66,7 @@ object DataModule1: TDataModule1
       'select id, tasks.name, description, created, modified,'
       '       printf(''%d:%s'', floor(`total_time`) /*days*/, time(`total_time`)) AS `total_time`'
       'from tasks'
-      'left join statistics'
+      'left join total_time_per_task'
       'on tasks.id = task_id'
     )
     Params = <>

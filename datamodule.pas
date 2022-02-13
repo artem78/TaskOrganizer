@@ -89,7 +89,7 @@ begin
     with SQLQuery1.SQL do
     begin
       Clear;
-      Append('CREATE VIEW IF NOT EXISTS statistics AS');
+      Append('CREATE VIEW IF NOT EXISTS total_time_per_task AS');
       Append('    SELECT task_id,');
       Append('           tasks.name,');
       Append('           time(sum(ifnull(`end`, strftime(''%J'', ''now'', ''localtime'') - 2415018.5) - `begin`) + 0.5) AS total_time');

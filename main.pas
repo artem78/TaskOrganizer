@@ -27,9 +27,10 @@ type
     procedure StatsTabSheetShow(Sender: TObject);
     procedure TasksTabSheetShow(Sender: TObject);
   private
-    { private declarations }
+    procedure ApplicationMinimize(Sender: TObject);
   public
-    { public declarations }
+    procedure MinimizeToTray;
+    procedure RestoreFromTray;
   end;
 
 var
@@ -48,6 +49,7 @@ begin
   Caption:=Caption+Format('    %s  %s', [GitRevisionStr, {$I %DATE%}]);
   PageControl1.ActivePageIndex:=0;
   //TasksFrame1.RefreshStartStopBtnsVisibility;
+  Application.OnMinimize := @ApplicationMinimize; // Minimize to tray
 end;
 
 procedure TMainForm.FormShow(Sender: TObject);
@@ -64,6 +66,25 @@ end;
 procedure TMainForm.TasksTabSheetShow(Sender: TObject);
 begin
   //TasksFrame1.RefreshStartStopBtnsVisibility;
+end;
+
+procedure TMainForm.ApplicationMinimize(Sender: TObject);
+begin
+  MinimizeToTray;
+end;
+
+procedure TMainForm.MinimizeToTray;
+begin
+  WindowState := wsMinimized;
+  Hide;
+  DataModule1.TrayIcon.Show;
+end;
+
+procedure TMainForm.RestoreFromTray;
+begin
+  DataModule1.TrayIcon.Hide;
+  WindowState := wsNormal;
+  Show;
 end;
 
 end.

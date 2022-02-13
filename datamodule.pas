@@ -5,7 +5,7 @@ unit datamodule;
 interface
 
 uses
-  Classes, SysUtils, sqldb, db, sqlite3conn, FileUtil, Controls,
+  Classes, SysUtils, sqldb, db, sqlite3conn, FileUtil, Controls, ExtCtrls,
   UniqueInstance;
 
 type
@@ -23,11 +23,13 @@ type
     SQLQuery1: TSQLQuery;
     SQLTransaction1: TSQLTransaction;
     TasksSQLQuery: TSQLQuery;
+    TrayIcon: TTrayIcon;
     UniqueInstance1: TUniqueInstance;
     procedure DataModuleCreate(Sender: TObject);
     procedure DataModuleDestroy(Sender: TObject);
     procedure SQLite3Connection1Log(Sender: TSQLConnection;
       EventType: TDBEventType; const Msg: String);
+    procedure TrayIconDblClick(Sender: TObject);
     {procedure UniqueInstance1OtherInstance(Sender: TObject;
       ParamCount: Integer; const Parameters: array of String);}
   private
@@ -110,6 +112,9 @@ begin
   TasksSQLQuery.Active := True;
   PeriodsSQLQuery.Active := True;
   StatsSQLQuery.Active:=True;
+
+  {// Tray icon
+  TrayIcon.Icon.Assign(MainForm.Icon);}
 end;
 
 procedure TDataModule1.DataModuleDestroy(Sender: TObject);
@@ -134,6 +139,11 @@ begin
   end;
 
   main.MainForm.LogsMemo.Append(Format('[%s] <%s> %s', [TimeToStr(Now), Source, Msg]));
+end;
+
+procedure TDataModule1.TrayIconDblClick(Sender: TObject);
+begin
+  MainForm.RestoreFromTray;
 end;
 
 {procedure TDataModule1.UniqueInstance1OtherInstance(Sender: TObject;

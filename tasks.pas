@@ -141,7 +141,7 @@ begin
   with DataModule1.CustomSQLQuery do
   begin
     Close;
-    SQL.Text := 'update periods set end=:end WHERE `end` IS NULL';
+    SQL.Text := 'update periods set end=:end WHERE `is_active` = TRUE';
     // ToDo: Check if only one result
     ParamByName('end').AsDateTime:=now - 2415018.5;
     ExecSQL;
@@ -162,7 +162,7 @@ begin
     with DataModule1.CustomSQLQuery do
     begin
       Close;
-      SQL.Text:='select count(*) as cnt from `periods` where `end` is null;';
+      SQL.Text:='select count(*) as cnt from `periods` where `is_active` = TRUE;';
       Open;
       First;
       Result:=FieldByName('cnt').AsInteger > 0;

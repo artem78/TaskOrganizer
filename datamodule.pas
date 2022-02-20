@@ -75,7 +75,7 @@ begin
     with CustomSQLQuery.SQL do
     begin
       Clear;
-      Append('CREATE TABLE IF NOT EXISTS `periods` (');
+      Append('CREATE TABLE IF NOT EXISTS `_periods` (');
       Append('    `id`    INTEGER PRIMARY KEY,');
       Append('    `begin` DATETIME,');
       Append('    `end`   DATETIME,');
@@ -89,6 +89,81 @@ begin
 
     
     // Create views
+    with CustomSQLQuery.SQL do
+    begin
+      Clear;
+      Append('CREATE VIEW IF NOT EXISTS `periods` AS');
+      Append('	SELECT');
+      Append('		*,');
+      Append('		`end` - `begin` as `duration`');
+      Append('	FROM');
+      Append('		(');
+      Append('		SELECT');
+      Append('			`id`,');
+      Append('			`begin`,');
+      Append('			IFNULL(`end`, JULIANDAY(''now'', ''localtime'') - 2415018.5) as `end`,');
+      Append('			`task_id`,');
+      Append('			IIF(`end` IS NULL, TRUE, FALSE) as `is_active`');
+      Append('		FROM `_periods`');
+      Append('		)');
+    end;
+    CustomSQLQuery.ExecSQL;
+    CustomSQLQuery.Clear;
+
+    with CustomSQLQuery.SQL do
+    begin
+      Clear;
+      Append('CREATE TRIGGER IF NOT EXISTS delete_period_trigger');
+      Append('    INSTEAD OF DELETE');
+      Append('            ON periods');
+      Append('BEGIN');
+      Append('    DELETE FROM _periods');
+      Append('          WHERE id = OLD.id;');
+      Append('END;');
+    end;
+    CustomSQLQuery.ExecSQL;
+    CustomSQLQuery.Clear;
+
+    with CustomSQLQuery.SQL do
+    begin
+      Clear;
+      Append('CREATE TRIGGER IF NOT EXISTS insert_period_trigger');
+      Append('    INSTEAD OF INSERT');
+      Append('            ON periods');
+      Append('BEGIN');
+      Append('    INSERT INTO _periods (');
+      Append('                             [begin],');
+      Append('                             [end],');
+      Append('                             task_id');
+      Append('                         )');
+      Append('                         VALUES (');
+      Append('                             NEW.[begin],');
+      Append('                             NEW.[end],');
+      Append('                             NEW.task_id');
+      Append('                         );');
+      Append('END;');
+    end;
+    CustomSQLQuery.ExecSQL;
+    CustomSQLQuery.Clear;
+
+    with CustomSQLQuery.SQL do
+    begin
+      Clear;
+      Append('CREATE TRIGGER IF NOT EXISTS update_period_trigger');
+      Append('    INSTEAD OF UPDATE');
+      Append('            ON periods');
+      Append('BEGIN');
+      Append('    UPDATE _periods');
+      Append('       SET [begin] = NEW.[begin],');
+      Append('           [end] = NEW.[end],');
+      Append('           task_id = NEW.task_id');
+      Append('     WHERE id = NEW.id;');
+      Append('END;');
+    end;
+    CustomSQLQuery.ExecSQL;
+    CustomSQLQuery.Clear;
+    
+
     with CustomSQLQuery.SQL do
     begin
       Clear;

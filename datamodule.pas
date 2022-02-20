@@ -87,7 +87,8 @@ begin
     CustomSQLQuery.Clear;
     //SQLTransaction1.Commit;
 
-    // Create statistics view
+    
+    // Create views
     with CustomSQLQuery.SQL do
     begin
       Clear;
@@ -99,6 +100,33 @@ begin
       Append('           INNER JOIN');
       Append('           tasks ON periods.task_id = tasks.id');
       Append('     GROUP BY task_id;');
+    end;
+    CustomSQLQuery.ExecSQL;
+    CustomSQLQuery.Clear;
+
+    with CustomSQLQuery.SQL do
+    begin
+      Clear;
+      Append('CREATE VIEW IF NOT EXISTS `duration_per_day` AS');
+      Append('WITH RECURSIVE dates AS (');
+      Append('        SELECT DATE(MIN([begin] + 2415018.5) ) daydate,');
+      Append('               DATE(MIN([begin] + 2415018.5), ''+1 DAY'') nextdate,');
+      Append('               DATE(MAX([end] + 2415018.5) ) enddate');
+      Append('          FROM periods');
+      Append('        UNION ALL');
+      Append('        SELECT nextdate,');
+      Append('               DATE(nextdate, ''+1 DAY''),');
+      Append('               enddate');
+      Append('          FROM dates');
+      Append('         WHERE daydate < enddate');
+      Append('    )');
+      Append('    SELECT dates.daydate AS `day`,');
+      Append('           SUM(strftime(''%s'', MIN(dates.nextdate, DATETIME(periods.[end] + 2415018.5) ) ) - strftime(''%s'', MAX(dates.daydate, DATETIME(periods.[begin] + 2415018.5) ) ) ) / (24.0 * 60 * 60) AS `duration`');
+      Append('      FROM dates');
+      Append('           JOIN');
+      Append('           periods ON dates.daydate < DATETIME(periods.[end] + 2415018.5) AND ');
+      Append('                      DATETIME(periods.[begin] + 2415018.5) < dates.nextdate');
+      Append('     GROUP BY dates.daydate;');
     end;
     CustomSQLQuery.ExecSQL;
     CustomSQLQuery.Clear;

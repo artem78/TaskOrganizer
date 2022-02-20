@@ -117,8 +117,11 @@ object DataModule1: TDataModule1
     FieldDefs = <>
     Database = SQLite3Connection1
     Transaction = SQLTransaction1
+    ReadOnly = True
     SQL.Strings = (
-      'select '''''
+      'SELECT `day`,'
+      '    printf(''%d:%s'', floor(`duration`) /*days*/, time(`duration` + 0.5)) AS `duration`'
+      'FROM `duration_per_day`'
     )
     Params = <>
     Left = 48

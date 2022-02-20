@@ -69,6 +69,18 @@ object DataModule1: TDataModule1
       'left join total_time_per_task'
       'on tasks.id = task_id'
     )
+    InsertSQL.Strings = (
+      'insert into tasks (name, description, created)'
+      'values (:name, :description, :created)'
+    )
+    UpdateSQL.Strings = (
+      'update tasks'
+      'set name=:name, description=:description, created=:created, modified=:modified'
+      'where id=:id'
+    )
+    DeleteSQL.Strings = (
+      'delete from tasks where `id`=:id'
+    )
     Params = <>
     Left = 48
     Top = 128

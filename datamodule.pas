@@ -20,7 +20,7 @@ type
     PeriodsSQLQuery: TSQLQuery;
     TasksDataSource: TDataSource;
     SQLite3Connection1: TSQLite3Connection;
-    SQLQuery1: TSQLQuery;
+    CustomSQLQuery: TSQLQuery;
     SQLTransaction1: TSQLTransaction;
     TasksSQLQuery: TSQLQuery;
     TrayIcon: TTrayIcon;
@@ -55,7 +55,7 @@ begin
   if not FileExists(TasksDataset.FileName) then
   begin}
     // Create tasks table
-    with SQLQuery1.SQL do
+    with CustomSQLQuery.SQL do
     begin
       Clear;
       Append('CREATE TABLE IF NOT EXISTS `tasks` (');
@@ -66,13 +66,13 @@ begin
       Append('      `modified`    DATETIME');
       Append(');');
     end;
-    SQLQuery1.ExecSQL;
-    SQLQuery1.Clear;
+    CustomSQLQuery.ExecSQL;
+    CustomSQLQuery.Clear;
     //SQLTransaction1.Commit;
 
     // Create periods table
     // ToDo: Думаю, в базе лучше хранить Юлианскую дату вместо паскалеской (с 1900 года)
-    with SQLQuery1.SQL do
+    with CustomSQLQuery.SQL do
     begin
       Clear;
       Append('CREATE TABLE IF NOT EXISTS `periods` (');
@@ -83,12 +83,12 @@ begin
       Append('    FOREIGN KEY (`task_id`)  REFERENCES `tasks` (`id`) ON DELETE CASCADE');
       Append(');');
     end;
-    SQLQuery1.ExecSQL;
-    SQLQuery1.Clear;
+    CustomSQLQuery.ExecSQL;
+    CustomSQLQuery.Clear;
     //SQLTransaction1.Commit;
 
     // Create statistics view
-    with SQLQuery1.SQL do
+    with CustomSQLQuery.SQL do
     begin
       Clear;
       Append('CREATE VIEW IF NOT EXISTS total_time_per_task AS');
@@ -100,8 +100,8 @@ begin
       Append('           tasks ON periods.task_id = tasks.id');
       Append('     GROUP BY task_id;');
     end;
-    SQLQuery1.ExecSQL;
-    SQLQuery1.Clear;
+    CustomSQLQuery.ExecSQL;
+    CustomSQLQuery.Clear;
 
 
     // Commit all changes

@@ -98,7 +98,7 @@ var
 begin
   TotalTime:=EncodeTime(0,0,0,0);
 
-  with DataModule1.SQLQuery1 do
+  with DataModule1.CustomSQLQuery do
   begin
     Close();
     SQL.Text := 'select begin, end from periods where task_id = ' + IntToStr(DataModule1.TasksSQLQuery.FieldByName('id').AsInteger) + ';';
@@ -138,7 +138,7 @@ end;
 
 procedure TTasksFrame.StopTrackingToolButtonClick(Sender: TObject);
 begin
-  with DataModule1.SQLQuery1 do
+  with DataModule1.CustomSQLQuery do
   begin
     Close;
     SQL.Text := 'update periods set end=:end WHERE `end` IS NULL';
@@ -157,9 +157,9 @@ function TTasksFrame.HasActiveTask: Boolean;
 begin
   Result:=False;
 
-  if (DataModule1 <> nil) and (DataModule1.SQLQuery1 <> nil) then
+  if (DataModule1 <> nil) and (DataModule1.CustomSQLQuery <> nil) then
   begin
-    with DataModule1.SQLQuery1 do
+    with DataModule1.CustomSQLQuery do
     begin
       Close;
       SQL.Text:='select count(*) as cnt from `periods` where `end` is null;';

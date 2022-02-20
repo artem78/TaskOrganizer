@@ -6,7 +6,7 @@ object DataModule1: TDataModule1
   HorizontalOffset = 250
   VerticalOffset = 137
   Width = 485
-  object SQLQuery1: TSQLQuery
+  object CustomSQLQuery: TSQLQuery
     FieldDefs = <    
       item
         Name = 'name'

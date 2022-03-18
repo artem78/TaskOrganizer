@@ -770,6 +770,10 @@ object DataModule1: TDataModule1
       ImageIndex = 1
       OnExecute = StopTimeTrackingActionExecute
     end
+    object ExitAction: TAction
+      Caption = 'Exit'
+      OnExecute = ExitActionExecute
+    end
   end
   object TrayPopupMenu: TPopupMenu
     Images = Icons
@@ -780,6 +784,12 @@ object DataModule1: TDataModule1
     end
     object MenuItem2: TMenuItem
       Action = StopTimeTrackingAction
+    end
+    object MenuItem4: TMenuItem
+      Caption = '-'
+    end
+    object MenuItem3: TMenuItem
+      Action = ExitAction
     end
   end
 end

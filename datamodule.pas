@@ -13,8 +13,11 @@ type
   { TDataModule1 }
 
   TDataModule1 = class(TDataModule)
+    ExitAction: TAction;
     MenuItem1: TMenuItem;
     MenuItem2: TMenuItem;
+    MenuItem3: TMenuItem;
+    MenuItem4: TMenuItem;
     TrayPopupMenu: TPopupMenu;
     StopTimeTrackingAction: TAction;
     StartTimeTrackingAction: TAction;
@@ -33,6 +36,7 @@ type
     UniqueInstance1: TUniqueInstance;
     procedure DataModuleCreate(Sender: TObject);
     procedure DataModuleDestroy(Sender: TObject);
+    procedure ExitActionExecute(Sender: TObject);
     procedure SQLite3Connection1Log(Sender: TSQLConnection;
       EventType: TDBEventType; const Msg: String);
     procedure StartTimeTrackingActionExecute(Sender: TObject);
@@ -233,6 +237,11 @@ procedure TDataModule1.DataModuleDestroy(Sender: TObject);
 begin
   // Save all changes to DB on exit
   DataModule1.SQLTransaction1.CommitRetaining;
+end;
+
+procedure TDataModule1.ExitActionExecute(Sender: TObject);
+begin
+  MainForm.Close;
 end;
 
 procedure TDataModule1.SQLite3Connection1Log(Sender: TSQLConnection;

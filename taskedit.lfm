@@ -1,13 +1,13 @@
 object TaskEditForm: TTaskEditForm
   Left = 226
-  Height = 240
+  Height = 270
   Top = 205
-  Width = 320
+  Width = 500
   ActiveControl = TaskNameDBEdit
   BorderStyle = bsDialog
   Caption = 'Edit task'
-  ClientHeight = 240
-  ClientWidth = 320
+  ClientHeight = 270
+  ClientWidth = 500
   OnShow = FormShow
   Position = poOwnerFormCenter
   LCLVersion = '2.0.12.0'
@@ -33,7 +33,7 @@ object TaskEditForm: TTaskEditForm
     Left = 80
     Height = 23
     Top = 8
-    Width = 224
+    Width = 404
     DataField = 'name'
     DataSource = DataModule1.TasksDataSource
     Anchors = [akTop, akLeft, akRight]
@@ -43,10 +43,10 @@ object TaskEditForm: TTaskEditForm
   end
   object TaskDescriptionDBMemo: TDBMemo
     Left = 80
-    Height = 90
+    Height = 161
     Top = 48
-    Width = 222
-    Anchors = [akTop, akLeft, akRight]
+    Width = 402
+    Anchors = [akTop, akLeft, akRight, akBottom]
     DataField = 'description'
     DataSource = DataModule1.TasksDataSource
     ScrollBars = ssAutoBoth
@@ -55,8 +55,8 @@ object TaskEditForm: TTaskEditForm
   object ButtonPanel1: TButtonPanel
     Left = 6
     Height = 34
-    Top = 200
-    Width = 308
+    Top = 230
+    Width = 488
     OKButton.Name = 'OKButton'
     OKButton.Caption = 'Save'
     HelpButton.Name = 'HelpButton'

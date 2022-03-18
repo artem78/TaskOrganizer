@@ -76,7 +76,8 @@ begin
       Append('      `name`        VARCHAR (255),');
       Append('      `description` VARCHAR (255),');
       Append('      `created`     DATETIME, ');
-      Append('      `modified`    DATETIME');
+      Append('      `modified`    DATETIME,');
+      Append('      `done`        BOOLEAN       DEFAULT (FALSE)');
       Append(');');
     end;
     CustomSQLQuery.ExecSQL;

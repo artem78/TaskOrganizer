@@ -64,7 +64,8 @@ object DataModule1: TDataModule1
     Transaction = SQLTransaction1
     SQL.Strings = (
       'select id, tasks.name, description, created, modified,'
-      '       printf(''%d:%s'', floor(`total_time`) /*days*/, time(IFNULL(`total_time`, 0.5))) AS `total_time`'
+      '       printf(''%d:%s'', floor(`total_time`) /*days*/, time(IFNULL(`total_time`, 0.5))) AS `total_time`,'
+      '       `done`'
       'from tasks'
       'left join duration_per_task'
       'on tasks.id = task_id'

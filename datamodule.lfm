@@ -199,6 +199,7 @@ object DataModule1: TDataModule1
     }
   end
   object TrayIcon: TTrayIcon
+    PopUpMenu = TrayPopupMenu
     Icon.Data = {
       8644000000000100040010100000010020006804000046000000181800000100
       200088090000AE0400002020000001002000A8100000360E0000303000000100
@@ -768,6 +769,17 @@ object DataModule1: TDataModule1
       Caption = 'Stop time tracking'
       ImageIndex = 1
       OnExecute = StopTimeTrackingActionExecute
+    end
+  end
+  object TrayPopupMenu: TPopupMenu
+    Images = Icons
+    Left = 422
+    Top = 215
+    object MenuItem1: TMenuItem
+      Action = StartTimeTrackingAction
+    end
+    object MenuItem2: TMenuItem
+      Action = StopTimeTrackingAction
     end
   end
 end

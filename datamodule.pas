@@ -6,13 +6,16 @@ interface
 
 uses
   Classes, SysUtils, sqldb, db, sqlite3conn, FileUtil, Controls, ExtCtrls,
-  ActnList, UniqueInstance;
+  ActnList, Menus, UniqueInstance;
 
 type
 
   { TDataModule1 }
 
   TDataModule1 = class(TDataModule)
+    MenuItem1: TMenuItem;
+    MenuItem2: TMenuItem;
+    TrayPopupMenu: TPopupMenu;
     StopTimeTrackingAction: TAction;
     StartTimeTrackingAction: TAction;
     ActionList: TActionList;

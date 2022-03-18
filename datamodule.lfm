@@ -76,7 +76,7 @@ object DataModule1: TDataModule1
     )
     UpdateSQL.Strings = (
       'update tasks'
-      'set name=:name, description=:description, created=:created, modified=:modified'
+      'set name=:name, description=:description, created=:created, modified=:modified, done=:done'
       'where id=:id'
     )
     DeleteSQL.Strings = (
@@ -774,6 +774,14 @@ object DataModule1: TDataModule1
     object ExitAction: TAction
       Caption = 'Exit'
       OnExecute = ExitActionExecute
+    end
+    object MarkTaskAsDoneAction: TAction
+      Caption = 'Done'
+      OnExecute = MarkTaskAsDoneActionExecute
+    end
+    object UnMarkTaskAsDoneAction: TAction
+      Caption = 'Not done'
+      OnExecute = UnMarkTaskAsDoneActionExecute
     end
   end
   object TrayPopupMenu: TPopupMenu

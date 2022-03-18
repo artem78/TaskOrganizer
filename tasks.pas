@@ -21,6 +21,8 @@ type
     StartTrackingToolButton: TToolButton;
     StopTrackingToolButton: TToolButton;
     ShowTimeToolButton: TToolButton;
+    ToolButton1: TToolButton;
+    ToolButton2: TToolButton;
     procedure AddToolButtonClick(Sender: TObject);
     procedure EditToolButtonClick(Sender: TObject);
     procedure RemoveToolButtonClick(Sender: TObject);

@@ -13,6 +13,8 @@ type
   { TDataModule1 }
 
   TDataModule1 = class(TDataModule)
+    UnMarkTaskAsDoneAction: TAction;
+    MarkTaskAsDoneAction: TAction;
     ExitAction: TAction;
     StartTimerackingMenuItem: TMenuItem;
     StopTimeTrackingMenuItem: TMenuItem;
@@ -37,11 +39,13 @@ type
     procedure DataModuleCreate(Sender: TObject);
     procedure DataModuleDestroy(Sender: TObject);
     procedure ExitActionExecute(Sender: TObject);
+    procedure MarkTaskAsDoneActionExecute(Sender: TObject);
     procedure SQLite3Connection1Log(Sender: TSQLConnection;
       EventType: TDBEventType; const Msg: String);
     procedure StartTimeTrackingActionExecute(Sender: TObject);
     procedure StopTimeTrackingActionExecute(Sender: TObject);
     procedure TrayIconDblClick(Sender: TObject);
+    procedure UnMarkTaskAsDoneActionExecute(Sender: TObject);
     {procedure UniqueInstance1OtherInstance(Sender: TObject;
       ParamCount: Integer; const Parameters: array of String);}
   private
@@ -245,6 +249,19 @@ begin
   MainForm.Close;
 end;
 
+procedure TDataModule1.MarkTaskAsDoneActionExecute(Sender: TObject);
+begin
+  with TasksSQLQuery do
+  begin
+    Edit;
+    FieldByName('done').AsBoolean := True;
+    Post;
+    ApplyUpdates;
+  end;
+
+  SQLTransaction1.CommitRetaining;
+end;
+
 procedure TDataModule1.SQLite3Connection1Log(Sender: TSQLConnection;
   EventType: TDBEventType; const Msg: String);
 var
@@ -300,6 +317,19 @@ end;
 procedure TDataModule1.TrayIconDblClick(Sender: TObject);
 begin
   MainForm.RestoreFromTray;
+end;
+
+procedure TDataModule1.UnMarkTaskAsDoneActionExecute(Sender: TObject);
+begin
+  with TasksSQLQuery do
+  begin
+    Edit;
+    FieldByName('done').AsBoolean := False;
+    Post;
+    ApplyUpdates;
+  end;
+
+  SQLTransaction1.CommitRetaining;
 end;
 
 function TDataModule1.HasActiveTask: Boolean;

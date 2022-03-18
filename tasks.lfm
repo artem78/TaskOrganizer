@@ -59,6 +59,16 @@ object TasksFrame: TTasksFrame
       OnClick = ShowTimeToolButtonClick
       Visible = False
     end
+    object ToolButton1: TToolButton
+      Left = 455
+      Top = 2
+      Action = DataModule1.MarkTaskAsDoneAction
+    end
+    object ToolButton2: TToolButton
+      Left = 491
+      Top = 2
+      Action = DataModule1.UnMarkTaskAsDoneAction
+    end
   end
   object TasksDBGrid: TDBGrid
     Left = 0

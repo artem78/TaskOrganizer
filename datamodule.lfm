@@ -779,16 +779,16 @@ object DataModule1: TDataModule1
     Images = Icons
     Left = 422
     Top = 215
-    object MenuItem1: TMenuItem
+    object StartTimerackingMenuItem: TMenuItem
       Action = StartTimeTrackingAction
     end
-    object MenuItem2: TMenuItem
+    object StopTimeTrackingMenuItem: TMenuItem
       Action = StopTimeTrackingAction
     end
-    object MenuItem4: TMenuItem
+    object DelimiterMenuItem: TMenuItem
       Caption = '-'
     end
-    object MenuItem3: TMenuItem
+    object ExitMenuItem: TMenuItem
       Action = ExitAction
     end
   end

@@ -14,10 +14,10 @@ type
 
   TDataModule1 = class(TDataModule)
     ExitAction: TAction;
-    MenuItem1: TMenuItem;
-    MenuItem2: TMenuItem;
-    MenuItem3: TMenuItem;
-    MenuItem4: TMenuItem;
+    StartTimerackingMenuItem: TMenuItem;
+    StopTimeTrackingMenuItem: TMenuItem;
+    ExitMenuItem: TMenuItem;
+    DelimiterMenuItem: TMenuItem;
     TrayPopupMenu: TPopupMenu;
     StopTimeTrackingAction: TAction;
     StartTimeTrackingAction: TAction;

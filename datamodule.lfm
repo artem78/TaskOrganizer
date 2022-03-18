@@ -755,4 +755,19 @@ object DataModule1: TDataModule1
     Left = 422
     Top = 280
   end
+  object ActionList: TActionList
+    Images = Icons
+    Left = 342
+    Top = 280
+    object StartTimeTrackingAction: TAction
+      Caption = 'Start time tracking'
+      ImageIndex = 0
+      OnExecute = StartTimeTrackingActionExecute
+    end
+    object StopTimeTrackingAction: TAction
+      Caption = 'Stop time tracking'
+      ImageIndex = 1
+      OnExecute = StopTimeTrackingActionExecute
+    end
+  end
 end

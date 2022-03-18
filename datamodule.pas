@@ -6,13 +6,16 @@ interface
 
 uses
   Classes, SysUtils, sqldb, db, sqlite3conn, FileUtil, Controls, ExtCtrls,
-  UniqueInstance;
+  ActnList, UniqueInstance;
 
 type
 
   { TDataModule1 }
 
   TDataModule1 = class(TDataModule)
+    StopTimeTrackingAction: TAction;
+    StartTimeTrackingAction: TAction;
+    ActionList: TActionList;
     Icons: TImageList;
     StatsSQLQuery: TSQLQuery;
     StatsDataSource: TDataSource;
@@ -29,13 +32,16 @@ type
     procedure DataModuleDestroy(Sender: TObject);
     procedure SQLite3Connection1Log(Sender: TSQLConnection;
       EventType: TDBEventType; const Msg: String);
+    procedure StartTimeTrackingActionExecute(Sender: TObject);
+    procedure StopTimeTrackingActionExecute(Sender: TObject);
     procedure TrayIconDblClick(Sender: TObject);
     {procedure UniqueInstance1OtherInstance(Sender: TObject;
       ParamCount: Integer; const Parameters: array of String);}
   private
     { private declarations }
   public
-    { public declarations }
+    function HasActiveTask: Boolean;
+    procedure RefreshStartStopBtnsVisibility;
   end;
 
 var
@@ -244,9 +250,70 @@ begin
   main.MainForm.LogsMemo.Append(Format('[%s] <%s> %s', [TimeToStr(Now), Source, Msg]));
 end;
 
+procedure TDataModule1.StartTimeTrackingActionExecute(Sender: TObject);
+begin
+  with PeriodsSQLQuery do
+  begin
+    // ToDo: Check if no unfinished periods
+    Append;
+    FieldByName('task_id').AsInteger
+      := DataModule1.TasksSQLQuery.FieldByName('id').AsInteger;
+    FieldByName('begin').AsDateTime := Now - 2415018.5;
+    Post;
+    ApplyUpdates;
+    SQLTransaction1.CommitRetaining;
+  end;
+
+  RefreshStartStopBtnsVisibility;
+end;
+
+procedure TDataModule1.StopTimeTrackingActionExecute(Sender: TObject);
+begin
+  with CustomSQLQuery do
+  begin
+    Close;
+    SQL.Text := 'update periods set end=:end WHERE `is_active` = TRUE';
+    // ToDo: Check if only one result
+    ParamByName('end').AsDateTime:=now - 2415018.5;
+    ExecSQL;
+    SQLTransaction1.CommitRetaining;
+    Close;
+  end;
+  PeriodsSQLQuery.Refresh;
+
+  RefreshStartStopBtnsVisibility;
+end;
+
 procedure TDataModule1.TrayIconDblClick(Sender: TObject);
 begin
   MainForm.RestoreFromTray;
+end;
+
+function TDataModule1.HasActiveTask: Boolean;
+begin
+  Result:=False;
+
+  if (DataModule1 <> nil) and (DataModule1.CustomSQLQuery <> nil) then
+  begin
+    with DataModule1.CustomSQLQuery do
+    begin
+      Close;
+      SQL.Text:='select count(*) as cnt from `periods` where `is_active` = TRUE;';
+      Open;
+      First;
+      Result:=FieldByName('cnt').AsInteger > 0;
+      Close;
+    end;
+  end;
+end;
+
+procedure TDataModule1.RefreshStartStopBtnsVisibility;
+var
+  IsActive: Boolean;
+begin
+  IsActive := HasActiveTask;
+  StartTimeTrackingAction.Enabled:=not IsActive;
+  StopTimeTrackingAction.Enabled:=IsActive;
 end;
 
 {procedure TDataModule1.UniqueInstance1OtherInstance(Sender: TObject;

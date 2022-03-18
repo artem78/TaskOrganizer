@@ -45,16 +45,12 @@ object TasksFrame: TTasksFrame
     object StartTrackingToolButton: TToolButton
       Left = 118
       Top = 2
-      Caption = 'Start time tracking'
-      ImageIndex = 0
-      OnClick = StartTrackingToolButtonClick
+      Action = DataModule1.StartTimeTrackingAction
     end
     object StopTrackingToolButton: TToolButton
       Left = 241
       Top = 2
-      Caption = 'Stop time tracking'
-      ImageIndex = 1
-      OnClick = StopTrackingToolButtonClick
+      Action = DataModule1.StopTimeTrackingAction
     end
     object ShowTimeToolButton: TToolButton
       Left = 364

@@ -25,14 +25,10 @@ type
     procedure EditToolButtonClick(Sender: TObject);
     procedure RemoveToolButtonClick(Sender: TObject);
     procedure ShowTimeToolButtonClick(Sender: TObject);
-    procedure StartTrackingToolButtonClick(Sender: TObject);
-    procedure StopTrackingToolButtonClick(Sender: TObject);
   private
-    function HasActiveTask: Boolean;
-    //procedure RefreshStartStopBtnsVisibility;
+    
   public
     //constructor Create(AOwner: TComponent); override;
-    procedure RefreshStartStopBtnsVisibility;
   end;
 
 implementation
@@ -117,67 +113,6 @@ begin
   end;
 
   ShowMessage(TimeToStr(TotalTime));
-end;
-
-procedure TTasksFrame.StartTrackingToolButtonClick(Sender: TObject);
-begin
-  with DataModule1.PeriodsSQLQuery do
-  begin
-    // ToDo: Check if no unfinished periods
-    Append;
-    FieldByName('task_id').AsInteger
-      := DataModule1.TasksSQLQuery.FieldByName('id').AsInteger;
-    FieldByName('begin').AsDateTime := Now - 2415018.5;
-    Post;
-    ApplyUpdates;
-    DataModule1.SQLTransaction1.CommitRetaining;
-  end;
-
-  RefreshStartStopBtnsVisibility;
-end;
-
-procedure TTasksFrame.StopTrackingToolButtonClick(Sender: TObject);
-begin
-  with DataModule1.CustomSQLQuery do
-  begin
-    Close;
-    SQL.Text := 'update periods set end=:end WHERE `is_active` = TRUE';
-    // ToDo: Check if only one result
-    ParamByName('end').AsDateTime:=now - 2415018.5;
-    ExecSQL;
-    DataModule1.SQLTransaction1.CommitRetaining;
-    Close;
-  end;
-  DataModule1.PeriodsSQLQuery.Refresh;
-
-  RefreshStartStopBtnsVisibility;
-end;
-
-function TTasksFrame.HasActiveTask: Boolean;
-begin
-  Result:=False;
-
-  if (DataModule1 <> nil) and (DataModule1.CustomSQLQuery <> nil) then
-  begin
-    with DataModule1.CustomSQLQuery do
-    begin
-      Close;
-      SQL.Text:='select count(*) as cnt from `periods` where `is_active` = TRUE;';
-      Open;
-      First;
-      Result:=FieldByName('cnt').AsInteger > 0;
-      Close;
-    end;
-  end;
-end;
-
-procedure TTasksFrame.RefreshStartStopBtnsVisibility;
-var
-  IsActive: Boolean;
-begin
-  IsActive := HasActiveTask;
-  StartTrackingToolButton.Enabled:=not IsActive;
-  StopTrackingToolButton.Enabled:=IsActive;
 end;
 
 {constructor TTasksFrame.Create(AOwner: TComponent);

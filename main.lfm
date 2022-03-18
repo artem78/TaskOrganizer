@@ -32,6 +32,12 @@ object MainForm: TMainForm
         ClientWidth = 619
         inherited ToolBar1: TToolBar
           Width = 619
+          inherited StopTrackingToolButton: TToolButton
+            Left = 223
+          end
+          inherited ShowTimeToolButton: TToolButton
+            Left = 328
+          end
         end
         inherited TasksDBGrid: TDBGrid
           Height = 295

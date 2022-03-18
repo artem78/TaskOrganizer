@@ -54,7 +54,7 @@ end;
 
 procedure TMainForm.FormShow(Sender: TObject);
 begin
-  TasksFrame1.RefreshStartStopBtnsVisibility;
+  DataModule1.RefreshStartStopBtnsVisibility;
 end;
 
 procedure TMainForm.StatsTabSheetShow(Sender: TObject);

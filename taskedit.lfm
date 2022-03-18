@@ -49,6 +49,7 @@ object TaskEditForm: TTaskEditForm
     Anchors = [akTop, akLeft, akRight]
     DataField = 'description'
     DataSource = DataModule1.TasksDataSource
+    ScrollBars = ssAutoBoth
     TabOrder = 1
   end
   object ButtonPanel1: TButtonPanel

@@ -1,47 +1,53 @@
 object MainForm: TMainForm
   Left = 219
-  Height = 349
+  Height = 500
   Top = 208
-  Width = 627
+  Width = 800
   Caption = 'Tasks Organizer'
-  ClientHeight = 349
-  ClientWidth = 627
+  ClientHeight = 500
+  ClientWidth = 800
   OnCreate = FormCreate
   OnShow = FormShow
   Position = poScreenCenter
   LCLVersion = '2.0.12.0'
   object PageControl1: TPageControl
     Left = 0
-    Height = 349
+    Height = 500
     Top = 0
-    Width = 627
+    Width = 800
     ActivePage = TasksTabSheet
     Align = alClient
     TabIndex = 0
     TabOrder = 0
     object TasksTabSheet: TTabSheet
       Caption = 'Tasks'
-      ClientHeight = 321
-      ClientWidth = 619
+      ClientHeight = 472
+      ClientWidth = 792
       OnShow = TasksTabSheetShow
       inline TasksFrame1: TTasksFrame
-        Height = 321
-        Width = 619
+        Height = 472
+        Width = 792
         Align = alClient
-        ClientHeight = 321
-        ClientWidth = 619
+        ClientHeight = 472
+        ClientWidth = 792
         inherited ToolBar1: TToolBar
-          Width = 619
+          Width = 792
           inherited StopTrackingToolButton: TToolButton
             Left = 223
           end
           inherited ShowTimeToolButton: TToolButton
             Left = 328
           end
+          inherited ToolButton1: TToolButton
+            Left = 419
+          end
+          inherited ToolButton2: TToolButton
+            Left = 455
+          end
         end
         inherited TasksDBGrid: TDBGrid
-          Height = 295
-          Width = 619
+          Height = 446
+          Width = 792
         end
       end
     end

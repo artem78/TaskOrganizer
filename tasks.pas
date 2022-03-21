@@ -20,8 +20,8 @@ type
     SeparatorToolButton: TToolButton;
     StartTrackingToolButton: TToolButton;
     StopTrackingToolButton: TToolButton;
-    ToolButton1: TToolButton;
-    ToolButton2: TToolButton;
+    SetDoneButton: TToolButton;
+    SetNotDoneButton: TToolButton;
     procedure AddToolButtonClick(Sender: TObject);
     procedure EditToolButtonClick(Sender: TObject);
     procedure RemoveToolButtonClick(Sender: TObject);

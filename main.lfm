@@ -35,14 +35,11 @@ object MainForm: TMainForm
           inherited StopTrackingToolButton: TToolButton
             Left = 223
           end
-          inherited ShowTimeToolButton: TToolButton
+          inherited ToolButton1: TToolButton
             Left = 328
           end
-          inherited ToolButton1: TToolButton
-            Left = 419
-          end
           inherited ToolButton2: TToolButton
-            Left = 455
+            Left = 364
           end
         end
         inherited TasksDBGrid: TDBGrid

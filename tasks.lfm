@@ -6,8 +6,8 @@ object TasksFrame: TTasksFrame
   ClientHeight = 323
   ClientWidth = 561
   TabOrder = 0
-  DesignLeft = 217
-  DesignTop = 190
+  DesignLeft = 447
+  DesignTop = 377
   object ToolBar1: TToolBar
     Left = 0
     Height = 26
@@ -52,20 +52,13 @@ object TasksFrame: TTasksFrame
       Top = 2
       Action = DataModule1.StopTimeTrackingAction
     end
-    object ShowTimeToolButton: TToolButton
-      Left = 364
-      Top = 2
-      Caption = 'Show total time'
-      OnClick = ShowTimeToolButtonClick
-      Visible = False
-    end
     object ToolButton1: TToolButton
-      Left = 455
+      Left = 364
       Top = 2
       Action = DataModule1.MarkTaskAsDoneAction
     end
     object ToolButton2: TToolButton
-      Left = 491
+      Left = 400
       Top = 2
       Action = DataModule1.UnMarkTaskAsDoneAction
     end

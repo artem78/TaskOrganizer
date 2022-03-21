@@ -51,7 +51,6 @@ type
   private
     { private declarations }
   public
-    function HasActiveTask: Boolean;
     procedure RefreshStartStopBtnsVisibility;
   end;
 
@@ -60,7 +59,7 @@ var
 
 implementation
 
-uses main{, Forms};
+uses main{, Forms}, MainClasses;
 
 {$R *.lfm}
 
@@ -281,34 +280,20 @@ begin
 end;
 
 procedure TDataModule1.StartTimeTrackingActionExecute(Sender: TObject);
+var
+  Task: TTask;
 begin
-  with PeriodsSQLQuery do
-  begin
-    // ToDo: Check if no unfinished periods
-    Append;
-    FieldByName('task_id').AsInteger
-      := DataModule1.TasksSQLQuery.FieldByName('id').AsInteger;
-    FieldByName('begin').AsDateTime := Now - 2415018.5;
-    Post;
-    ApplyUpdates;
-    SQLTransaction1.CommitRetaining;
-  end;
+  Task := TTask.GetById(TasksSQLQuery.FieldByName('id').AsInteger);
+  Task.Start;
+  Task.Free;
 
   RefreshStartStopBtnsVisibility;
 end;
 
 procedure TDataModule1.StopTimeTrackingActionExecute(Sender: TObject);
 begin
-  with CustomSQLQuery do
-  begin
-    Close;
-    SQL.Text := 'update periods set end=:end WHERE `is_active` = TRUE';
-    // ToDo: Check if only one result
-    ParamByName('end').AsDateTime:=now - 2415018.5;
-    ExecSQL;
-    SQLTransaction1.CommitRetaining;
-    Close;
-  end;
+  TTask.Stop;
+
   PeriodsSQLQuery.Refresh;
 
   RefreshStartStopBtnsVisibility;
@@ -332,29 +317,11 @@ begin
   SQLTransaction1.CommitRetaining;
 end;
 
-function TDataModule1.HasActiveTask: Boolean;
-begin
-  Result:=False;
-
-  if (DataModule1 <> nil) and (DataModule1.CustomSQLQuery <> nil) then
-  begin
-    with DataModule1.CustomSQLQuery do
-    begin
-      Close;
-      SQL.Text:='select count(*) as cnt from `periods` where `is_active` = TRUE;';
-      Open;
-      First;
-      Result:=FieldByName('cnt').AsInteger > 0;
-      Close;
-    end;
-  end;
-end;
-
 procedure TDataModule1.RefreshStartStopBtnsVisibility;
 var
   IsActive: Boolean;
 begin
-  IsActive := HasActiveTask;
+  IsActive := TTask.HasActive;
   StartTimeTrackingAction.Enabled:=not IsActive;
   StopTimeTrackingAction.Enabled:=IsActive;
 end;

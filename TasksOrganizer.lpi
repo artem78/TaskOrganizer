@@ -120,7 +120,7 @@
         <PackageName Value="LCL"/>
       </Item4>
     </RequiredPackages>
-    <Units Count="6">
+    <Units Count="7">
       <Unit0>
         <Filename Value="TasksOrganizer.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -161,6 +161,11 @@
         <ResourceBaseClass Value="Frame"/>
         <UnitName Value="PeriodsFrame"/>
       </Unit5>
+      <Unit6>
+        <Filename Value="mainclasses.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="MainClasses"/>
+      </Unit6>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

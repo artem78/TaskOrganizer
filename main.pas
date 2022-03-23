@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, ComCtrls,
-  StdCtrls, DBGrids, tasks, taskedit, datamodule, PeriodsFrame, NonVisualCtrlsDM;
+  StdCtrls, DBGrids, tasks, taskedit, DatabaseDM, PeriodsFrame, NonVisualCtrlsDM;
 
 type
 
@@ -59,7 +59,7 @@ end;
 
 procedure TMainForm.StatsTabSheetShow(Sender: TObject);
 begin
-  DataModule1.StatsSQLQuery.Refresh;
+  DatabaseDataModule.StatsSQLQuery.Refresh;
   StatsDBGrid.Refresh;
 end;
 

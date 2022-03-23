@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, StdCtrls,
-  DbCtrls, ButtonPanel, datamodule;
+  DbCtrls, ButtonPanel, DatabaseDM;
 
 type
 
@@ -39,7 +39,7 @@ uses DB;
 
 procedure TTaskEditForm.FormShow(Sender: TObject);
 begin
-  case DataModule1.TasksSQLQuery.State of
+  case DatabaseDataModule.TasksSQLQuery.State of
        dsInsert: Caption := 'Create task';
        dsEdit:   Caption := 'Edit task';
        else      Caption := '???';

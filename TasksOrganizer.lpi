@@ -140,11 +140,12 @@
         <ResourceBaseClass Value="Frame"/>
       </Unit2>
       <Unit3>
-        <Filename Value="datamodule.pas"/>
+        <Filename Value="databasedm.pas"/>
         <IsPartOfProject Value="True"/>
-        <ComponentName Value="DataModule1"/>
+        <ComponentName Value="DatabaseDataModule"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="DataModule"/>
+        <UnitName Value="DatabaseDM"/>
       </Unit3>
       <Unit4>
         <Filename Value="taskedit.pas"/>

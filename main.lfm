@@ -32,6 +32,22 @@ object MainForm: TMainForm
         ClientWidth = 726
         inherited ToolBar1: TToolBar
           Width = 726
+          Images = nil
+          inherited StartTrackingToolButton: TToolButton
+            Action = nil
+          end
+          inherited StopTrackingToolButton: TToolButton
+            Left = 223
+            Action = nil
+          end
+          inherited SetDoneButton: TToolButton
+            Left = 328
+            Action = nil
+          end
+          inherited SetNotDoneButton: TToolButton
+            Left = 364
+            Action = nil
+          end
         end
         inherited TasksDBGrid: TDBGrid
           Height = 387
@@ -68,7 +84,7 @@ object MainForm: TMainForm
         Align = alClient
         Color = clWindow
         Columns = <>
-        DataSource = DataModule1.StatsDataSource
+        DataSource = DatabaseDataModule.StatsDataSource
         FixedCols = 0
         Options = [dgTitles, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgCancelOnExit, dgAutoSizeColumns, dgDisableDelete, dgDisableInsert]
         ReadOnly = True

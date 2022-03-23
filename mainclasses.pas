@@ -49,7 +49,7 @@ type
 implementation
 
 uses
-  datamodule;
+  DatabaseDM;
 
 { TPeriod }
 
@@ -67,7 +67,7 @@ class function TPeriod.GetActive: TPeriod;
 begin
   Result := Nil;
 
-  with DataModule1.CustomSQLQuery do
+  with DatabaseDataModule.CustomSQLQuery do
   begin
     Close;
     SQL.Text := 'SELECT `id` FROM `periods` WHERE `is_active` == TRUE;';
@@ -84,7 +84,7 @@ class function TPeriod.GetById(anId: Integer): TPeriod;
 begin
   Result := Nil;
 
-  with DataModule1.CustomSQLQuery do
+  with DatabaseDataModule.CustomSQLQuery do
   begin
     Close;
     SQL.Text := 'SELECT * FROM `periods` WHERE `id` == :id;';
@@ -106,7 +106,7 @@ end;
 
 function TTask.IsActive: Boolean;
 begin
-  with DataModule1.CustomSQLQuery do
+  with DatabaseDataModule.CustomSQLQuery do
   begin
     Close;
     SQL.Text := 'SELECT COUNT(*) AS `cnt` FROM `periods` WHERE `is_active` == TRUE AND `task_id` == :task_id;';
@@ -119,7 +119,7 @@ end;
 
 procedure TTask.Start;
 begin
-  with DataModule1.PeriodsSQLQuery do
+  with DatabaseDataModule.PeriodsSQLQuery do
   begin
     // ToDo: Check if no unfinished periods
     Append;
@@ -129,12 +129,12 @@ begin
     ApplyUpdates;
   end;
 
-  DataModule1.SQLTransaction1.CommitRetaining;
+  DatabaseDataModule.SQLTransaction1.CommitRetaining;
 end;
 
 class procedure TTask.Stop;
 begin
-  with DataModule1.CustomSQLQuery do
+  with DatabaseDataModule.CustomSQLQuery do
   begin
     Close;
     SQL.Text := 'update periods set end=:end WHERE `is_active` = TRUE';
@@ -143,7 +143,7 @@ begin
     ExecSQL;
   end;
 
-  DataModule1.SQLTransaction1.CommitRetaining;
+  DatabaseDataModule.SQLTransaction1.CommitRetaining;
 
   //PeriodsSQLQuery.Refresh;
 
@@ -154,9 +154,9 @@ class function TTask.HasActive: Boolean;
 begin
   Result:=False;
 
-  //if (DataModule1 <> nil) and (DataModule1.CustomSQLQuery <> nil) then
+  //if (DatabaseDataModule <> nil) and (DataModule1.CustomSQLQuery <> nil) then
   //begin
-    with DataModule1.CustomSQLQuery do
+    with DatabaseDataModule.CustomSQLQuery do
     begin
       Close;
       SQL.Text := 'SELECT COUNT(*) AS `cnt` FROM `periods` WHERE `is_active` = TRUE;';
@@ -171,7 +171,7 @@ class function TTask.GetActive: TTask;
 begin
   Result := Nil;
 
-  with DataModule1.CustomSQLQuery do
+  with DatabaseDataModule.CustomSQLQuery do
   begin
     Close;
     SQL.Text := 'SELECT `task_id` FROM `periods` WHERE `is_active` == TRUE;';
@@ -188,7 +188,7 @@ class function TTask.GetById(anId: Integer): TTask;
 begin
   Result := Nil;
 
-  with DataModule1.CustomSQLQuery do
+  with DatabaseDataModule.CustomSQLQuery do
   begin
     Close;
     SQL.Text := 'SELECT * FROM `tasks` WHERE `id` == :id;';

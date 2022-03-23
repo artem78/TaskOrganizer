@@ -1,4 +1,4 @@
-unit datamodule;
+unit DatabaseDM;
 
 {$mode objfpc}{$H+}
 
@@ -9,9 +9,9 @@ uses
 
 type
 
-  { TDataModule1 }
+  { TDatabaseDataModule }
 
-  TDataModule1 = class(TDataModule)
+  TDatabaseDataModule = class(TDataModule)
     StatsSQLQuery: TSQLQuery;
     StatsDataSource: TDataSource;
     PeriodsDataSource: TDataSource;
@@ -32,7 +32,7 @@ type
   end;
 
 var
-  DataModule1: TDataModule1;
+  DatabaseDataModule: TDatabaseDataModule;
 
 implementation
 
@@ -40,9 +40,9 @@ uses main{, Forms};
 
 {$R *.lfm}
 
-{ TDataModule1 }
+{ TDatabaseDataModule }
 
-procedure TDataModule1.DataModuleCreate(Sender: TObject);
+procedure TDatabaseDataModule.DataModuleCreate(Sender: TObject);
 begin
   {// Create database file if not exists
   if not FileExists(TasksDataset.FileName) then
@@ -214,13 +214,13 @@ begin
   TrayIcon.Icon.Assign(MainForm.Icon);}
 end;
 
-procedure TDataModule1.DataModuleDestroy(Sender: TObject);
+procedure TDatabaseDataModule.DataModuleDestroy(Sender: TObject);
 begin
   // Save all changes to DB on exit
-  DataModule1.SQLTransaction1.CommitRetaining;
+  DatabaseDataModule.SQLTransaction1.CommitRetaining;
 end;
 
-procedure TDataModule1.SQLite3Connection1Log(Sender: TSQLConnection;
+procedure TDatabaseDataModule.SQLite3Connection1Log(Sender: TSQLConnection;
   EventType: TDBEventType; const Msg: String);
 var
   Source: string;

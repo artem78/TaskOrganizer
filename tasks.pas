@@ -5,7 +5,7 @@ unit tasks;
 interface
 
 uses
-  Classes, SysUtils, FileUtil, Forms, Controls, ComCtrls, DBGrids, taskedit, datamodule, Dialogs;
+  Classes, SysUtils, FileUtil, Forms, Controls, ComCtrls, DBGrids, taskedit, DatabaseDM, Dialogs;
 
 type
 
@@ -42,48 +42,48 @@ uses
 
 procedure TTasksFrame.AddToolButtonClick(Sender: TObject);
 begin
-  DataModule1.TasksSQLQuery.Append;
+  DatabaseDataModule.TasksSQLQuery.Append;
   if TaskEditForm.ShowModal = mrOK then
   begin
-    DataModule1.TasksSQLQuery.FieldByName('created').AsDateTime := Now;
-    DataModule1.TasksSQLQuery.Post;
-    DataModule1.TasksSQLQuery.ApplyUpdates;
-    DataModule1.SQLTransaction1.CommitRetaining;
+    DatabaseDataModule.TasksSQLQuery.FieldByName('created').AsDateTime := Now;
+    DatabaseDataModule.TasksSQLQuery.Post;
+    DatabaseDataModule.TasksSQLQuery.ApplyUpdates;
+    DatabaseDataModule.SQLTransaction1.CommitRetaining;
   end
   else
-    DataModule1.TasksSQLQuery.Cancel;
+    DatabaseDataModule.TasksSQLQuery.Cancel;
 end;
 
 procedure TTasksFrame.EditToolButtonClick(Sender: TObject);
 begin
-  if DataModule1.TasksSQLQuery.IsEmpty then
+  if DatabaseDataModule.TasksSQLQuery.IsEmpty then
     Exit;
 
-  DataModule1.TasksSQLQuery.Edit;
+  DatabaseDataModule.TasksSQLQuery.Edit;
   if TaskEditForm.ShowModal = mrOK then
   begin
-    DataModule1.TasksSQLQuery.FieldByName('modified').AsDateTime := Now;
-    DataModule1.TasksSQLQuery.Post;
-    DataModule1.TasksSQLQuery.ApplyUpdates;
-    DataModule1.SQLTransaction1.CommitRetaining;
+    DatabaseDataModule.TasksSQLQuery.FieldByName('modified').AsDateTime := Now;
+    DatabaseDataModule.TasksSQLQuery.Post;
+    DatabaseDataModule.TasksSQLQuery.ApplyUpdates;
+    DatabaseDataModule.SQLTransaction1.CommitRetaining;
   end
   else
-    DataModule1.TasksSQLQuery.Cancel;
+    DatabaseDataModule.TasksSQLQuery.Cancel;
 end;
 
 procedure TTasksFrame.RemoveToolButtonClick(Sender: TObject);
 var
   Msg: String;
 begin
-  if DataModule1.TasksSQLQuery.IsEmpty then
+  if DatabaseDataModule.TasksSQLQuery.IsEmpty then
     Exit;
 
-  Msg := Format('Are you sure to delete task "%s"?', [DataModule1.TasksSQLQuery.FieldByName('name').AsString]);
+  Msg := Format('Are you sure to delete task "%s"?', [DatabaseDataModule.TasksSQLQuery.FieldByName('name').AsString]);
   if MessageDlg(Msg, mtConfirmation, [mbYes, mbNo], 0) = mrYes then
   begin
-    DataModule1.TasksSQLQuery.Delete;
-    DataModule1.TasksSQLQuery.ApplyUpdates;
-    DataModule1.SQLTransaction1.CommitRetaining;
+    DatabaseDataModule.TasksSQLQuery.Delete;
+    DatabaseDataModule.TasksSQLQuery.ApplyUpdates;
+    DatabaseDataModule.SQLTransaction1.CommitRetaining;
   end;
 end;
 

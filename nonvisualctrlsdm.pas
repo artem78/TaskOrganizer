@@ -46,7 +46,7 @@ var
 implementation
 
 uses
-  datamodule, main;
+  DatabaseDM, main;
 
 {$R *.lfm}
 
@@ -57,7 +57,7 @@ procedure TNonVisualCtrlsDataModule.StartTimeTrackingActionExecute(
 var
   Task: TTask;
 begin
-  Task := TTask.GetById(DataModule1.TasksSQLQuery.FieldByName('id').AsInteger);
+  Task := TTask.GetById(DatabaseDataModule.TasksSQLQuery.FieldByName('id').AsInteger);
   Task.Start;
   Task.Free;
 
@@ -72,7 +72,7 @@ end;
 procedure TNonVisualCtrlsDataModule.MarkTaskAsDoneActionExecute(Sender: TObject
   );
 begin
-  with DataModule1.TasksSQLQuery do
+  with DatabaseDataModule.TasksSQLQuery do
   begin
     Edit;
     FieldByName('done').AsBoolean := True;
@@ -80,7 +80,7 @@ begin
     ApplyUpdates;
   end;
 
-  DataModule1.SQLTransaction1.CommitRetaining;
+  DatabaseDataModule.SQLTransaction1.CommitRetaining;
 end;
 
 procedure TNonVisualCtrlsDataModule.StopTimeTrackingActionExecute(
@@ -88,7 +88,7 @@ procedure TNonVisualCtrlsDataModule.StopTimeTrackingActionExecute(
 begin
   TTask.Stop;
 
-  DataModule1.PeriodsSQLQuery.Refresh;
+  DatabaseDataModule.PeriodsSQLQuery.Refresh;
 
   RefreshStartStopActionsVisibility;
 end;
@@ -101,7 +101,7 @@ end;
 procedure TNonVisualCtrlsDataModule.UnMarkTaskAsDoneActionExecute(
   Sender: TObject);
 begin
-  with DataModule1.TasksSQLQuery do
+  with DatabaseDataModule.TasksSQLQuery do
   begin
     Edit;
     FieldByName('done').AsBoolean := False;
@@ -109,7 +109,7 @@ begin
     ApplyUpdates;
   end;
 
-  DataModule1.SQLTransaction1.CommitRetaining;
+  DatabaseDataModule.SQLTransaction1.CommitRetaining;
 end;
 
 procedure TNonVisualCtrlsDataModule.RefreshStartStopActionsVisibility;

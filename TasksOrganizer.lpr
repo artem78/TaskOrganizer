@@ -7,7 +7,7 @@ uses
   cthreads,
   {$ENDIF}{$ENDIF}
   Interfaces, // this includes the LCL widgetset
-  Forms, main, tasks, datamodule, taskedit, periodsframe, MainClasses, NonVisualCtrlsDM
+  Forms, main, tasks, DatabaseDM, taskedit, periodsframe, MainClasses, NonVisualCtrlsDM
   { you can add units after this };
 
 {$R *.res}
@@ -16,7 +16,7 @@ begin
   RequireDerivedFormResource:=True;
   Application.Initialize;
   Application.CreateForm(TMainForm, MainForm);
-  Application.CreateForm(TDataModule1, DataModule1);
+  Application.CreateForm(TDatabaseDataModule, DatabaseDataModule);
   Application.CreateForm(TTaskEditForm, TaskEditForm);
   Application.CreateForm(TNonVisualCtrlsDataModule, NonVisualCtrlsDataModule);
   Application.Run;

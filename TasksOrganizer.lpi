@@ -133,11 +133,12 @@
         <ResourceBaseClass Value="Form"/>
       </Unit1>
       <Unit2>
-        <Filename Value="tasks.pas"/>
+        <Filename Value="tasksframe.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="TasksFrame"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Frame"/>
+        <UnitName Value="TasksFrame"/>
       </Unit2>
       <Unit3>
         <Filename Value="databasedm.pas"/>
@@ -171,6 +172,7 @@
         <Filename Value="nonvisualctrlsdm.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="NonVisualCtrlsDataModule"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="DataModule"/>
         <UnitName Value="NonVisualCtrlsDM"/>
       </Unit7>

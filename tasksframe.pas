@@ -1,4 +1,4 @@
-unit tasks;
+unit TasksFrame;
 
 {$mode objfpc}{$H+}
 

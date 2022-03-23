@@ -5,7 +5,7 @@ unit NonVisualCtrlsDM;
 interface
 
 uses
-  Classes, SysUtils, UniqueInstance, Controls, ActnList, ExtCtrls, Menus, MainClasses;
+  Classes, SysUtils, UniqueInstance, Controls, ActnList, ExtCtrls, Menus, Models;
 
 type
 

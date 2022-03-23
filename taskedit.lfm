@@ -35,7 +35,7 @@ object TaskEditForm: TTaskEditForm
     Top = 8
     Width = 404
     DataField = 'name'
-    DataSource = DataModule1.TasksDataSource
+    DataSource = DatabaseDataModule.TasksDataSource
     Anchors = [akTop, akLeft, akRight]
     CharCase = ecNormal
     MaxLength = 0
@@ -48,7 +48,7 @@ object TaskEditForm: TTaskEditForm
     Width = 402
     Anchors = [akTop, akLeft, akRight, akBottom]
     DataField = 'description'
-    DataSource = DataModule1.TasksDataSource
+    DataSource = DatabaseDataModule.TasksDataSource
     ScrollBars = ssAutoBoth
     TabOrder = 1
   end

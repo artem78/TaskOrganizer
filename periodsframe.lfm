@@ -16,7 +16,7 @@ object PeriodsFrame: TPeriodsFrame
     Align = alClient
     Color = clWindow
     Columns = <>
-    DataSource = DataModule1.PeriodsDataSource
+    DataSource = DatabaseDataModule.PeriodsDataSource
     FixedCols = 0
     Options = [dgTitles, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAutoSizeColumns]
     ReadOnly = True

@@ -108,6 +108,18 @@ object NonVisualCtrlsDataModule: TNonVisualCtrlsDataModule
       Caption = 'Not done'
       OnExecute = UnMarkTaskAsDoneActionExecute
     end
+    object CreateTaskAction: TAction
+      Caption = 'Add task'
+      OnExecute = CreateTaskActionExecute
+    end
+    object EditTaskAction: TAction
+      Caption = 'Edit task'
+      OnExecute = EditTaskActionExecute
+    end
+    object DeleteTaskAction: TAction
+      Caption = 'Remove task'
+      OnExecute = DeleteTaskActionExecute
+    end
   end
   object TrayIcon: TTrayIcon
     PopUpMenu = TrayPopupMenu

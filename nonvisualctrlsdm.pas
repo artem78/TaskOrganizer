@@ -12,6 +12,9 @@ type
   { TNonVisualCtrlsDataModule }
 
   TNonVisualCtrlsDataModule = class(TDataModule)
+    DeleteTaskAction: TAction;
+    EditTaskAction: TAction;
+    CreateTaskAction: TAction;
     ActionList: TActionList;
     DelimiterMenuItem: TMenuItem;
     ExitAction: TAction;
@@ -26,6 +29,9 @@ type
     TrayPopupMenu: TPopupMenu;
     UniqueInstance1: TUniqueInstance;
     UnMarkTaskAsDoneAction: TAction;
+    procedure CreateTaskActionExecute(Sender: TObject);
+    procedure DeleteTaskActionExecute(Sender: TObject);
+    procedure EditTaskActionExecute(Sender: TObject);
     procedure ExitActionExecute(Sender: TObject);
     procedure MarkTaskAsDoneActionExecute(Sender: TObject);
     procedure StartTimeTrackingActionExecute(Sender: TObject);
@@ -46,7 +52,7 @@ var
 implementation
 
 uses
-  DatabaseDM, main;
+  DatabaseDM, main, taskedit, Dialogs;
 
 {$R *.lfm}
 
@@ -67,6 +73,62 @@ end;
 procedure TNonVisualCtrlsDataModule.ExitActionExecute(Sender: TObject);
 begin
   MainForm.Close;
+end;
+
+procedure TNonVisualCtrlsDataModule.CreateTaskActionExecute(Sender: TObject);
+begin
+  with DatabaseDataModule.TasksSQLQuery do
+  begin
+    Append;
+    if TaskEditForm.ShowModal = mrOK then
+    begin
+      FieldByName('created').AsDateTime := Now;
+      Post;
+      ApplyUpdates;
+      DatabaseDataModule.SQLTransaction1.CommitRetaining;
+    end
+    else
+      Cancel;
+  end;
+end;
+
+procedure TNonVisualCtrlsDataModule.DeleteTaskActionExecute(Sender: TObject);
+var
+  Msg: String;
+begin
+  with DatabaseDataModule.TasksSQLQuery do
+  begin
+    if IsEmpty then
+      Exit;
+
+    Msg := Format('Are you sure to delete task "%s"?', [DatabaseDataModule.TasksSQLQuery.FieldByName('name').AsString]);
+    if MessageDlg(Msg, mtConfirmation, [mbYes, mbNo], 0) = mrYes then
+    begin
+      Delete;
+      ApplyUpdates;
+      DatabaseDataModule.SQLTransaction1.CommitRetaining;
+    end;
+  end;
+end;
+
+procedure TNonVisualCtrlsDataModule.EditTaskActionExecute(Sender: TObject);
+begin
+  with DatabaseDataModule.TasksSQLQuery do
+  begin
+    if IsEmpty then
+      Exit;
+
+    Edit;
+    if TaskEditForm.ShowModal = mrOK then
+    begin
+      FieldByName('modified').AsDateTime := Now;
+      Post;
+      ApplyUpdates;
+      DatabaseDataModule.SQLTransaction1.CommitRetaining;
+    end
+    else
+      Cancel;
+  end;
 end;
 
 procedure TNonVisualCtrlsDataModule.MarkTaskAsDoneActionExecute(Sender: TObject

@@ -21,44 +21,41 @@ object TasksFrame: TTasksFrame
     object AddToolButton: TToolButton
       Left = 1
       Top = 2
-      Caption = 'Add'
-      OnClick = AddToolButtonClick
+      Action = NonVisualCtrlsDataModule.CreateTaskAction
     end
     object EditToolButton: TToolButton
-      Left = 31
+      Left = 55
       Top = 2
-      Caption = 'Edit'
-      OnClick = EditToolButtonClick
+      Action = NonVisualCtrlsDataModule.EditTaskAction
     end
     object RemoveToolButton: TToolButton
-      Left = 59
+      Left = 107
       Top = 2
-      Caption = 'Remove'
-      OnClick = RemoveToolButtonClick
+      Action = NonVisualCtrlsDataModule.DeleteTaskAction
     end
     object SeparatorToolButton: TToolButton
-      Left = 110
+      Left = 182
       Height = 22
       Top = 2
       Style = tbsSeparator
     end
     object StartTrackingToolButton: TToolButton
-      Left = 118
+      Left = 190
       Top = 2
       Action = NonVisualCtrlsDataModule.StartTimeTrackingAction
     end
     object StopTrackingToolButton: TToolButton
-      Left = 241
+      Left = 313
       Top = 2
       Action = NonVisualCtrlsDataModule.StopTimeTrackingAction
     end
     object SetDoneButton: TToolButton
-      Left = 364
+      Left = 436
       Top = 2
       Action = NonVisualCtrlsDataModule.MarkTaskAsDoneAction
     end
     object SetNotDoneButton: TToolButton
-      Left = 400
+      Left = 472
       Top = 2
       Action = NonVisualCtrlsDataModule.UnMarkTaskAsDoneAction
     end

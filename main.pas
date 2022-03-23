@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, ComCtrls,
-  StdCtrls, DBGrids, tasks, taskedit, datamodule, PeriodsFrame;
+  StdCtrls, DBGrids, tasks, taskedit, datamodule, PeriodsFrame, NonVisualCtrlsDM;
 
 type
 
@@ -54,7 +54,7 @@ end;
 
 procedure TMainForm.FormShow(Sender: TObject);
 begin
-  DataModule1.RefreshStartStopBtnsVisibility;
+  NonVisualCtrlsDataModule.RefreshStartStopActionsVisibility;
 end;
 
 procedure TMainForm.StatsTabSheetShow(Sender: TObject);
@@ -77,12 +77,12 @@ procedure TMainForm.MinimizeToTray;
 begin
   WindowState := wsMinimized;
   Hide;
-  DataModule1.TrayIcon.Show;
+  NonVisualCtrlsDataModule.TrayIcon.Show;
 end;
 
 procedure TMainForm.RestoreFromTray;
 begin
-  DataModule1.TrayIcon.Hide;
+  NonVisualCtrlsDataModule.TrayIcon.Hide;
   WindowState := wsNormal;
   Show;
 end;

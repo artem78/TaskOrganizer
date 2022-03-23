@@ -14,7 +14,7 @@ object TasksFrame: TTasksFrame
     Top = 0
     Width = 561
     Caption = 'ToolBar1'
-    Images = DataModule1.Icons
+    Images = NonVisualCtrlsDataModule.Icons
     List = True
     ShowCaptions = True
     TabOrder = 0
@@ -45,22 +45,22 @@ object TasksFrame: TTasksFrame
     object StartTrackingToolButton: TToolButton
       Left = 118
       Top = 2
-      Action = DataModule1.StartTimeTrackingAction
+      Action = NonVisualCtrlsDataModule.StartTimeTrackingAction
     end
     object StopTrackingToolButton: TToolButton
       Left = 241
       Top = 2
-      Action = DataModule1.StopTimeTrackingAction
+      Action = NonVisualCtrlsDataModule.StopTimeTrackingAction
     end
     object SetDoneButton: TToolButton
       Left = 364
       Top = 2
-      Action = DataModule1.MarkTaskAsDoneAction
+      Action = NonVisualCtrlsDataModule.MarkTaskAsDoneAction
     end
     object SetNotDoneButton: TToolButton
       Left = 400
       Top = 2
-      Action = DataModule1.UnMarkTaskAsDoneAction
+      Action = NonVisualCtrlsDataModule.UnMarkTaskAsDoneAction
     end
   end
   object TasksDBGrid: TDBGrid

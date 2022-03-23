@@ -5,26 +5,13 @@ unit datamodule;
 interface
 
 uses
-  Classes, SysUtils, sqldb, db, sqlite3conn, FileUtil, Controls, ExtCtrls,
-  ActnList, Menus, UniqueInstance;
+  Classes, SysUtils, sqldb, db, sqlite3conn, FileUtil, Controls, ExtCtrls;
 
 type
 
   { TDataModule1 }
 
   TDataModule1 = class(TDataModule)
-    UnMarkTaskAsDoneAction: TAction;
-    MarkTaskAsDoneAction: TAction;
-    ExitAction: TAction;
-    StartTimerackingMenuItem: TMenuItem;
-    StopTimeTrackingMenuItem: TMenuItem;
-    ExitMenuItem: TMenuItem;
-    DelimiterMenuItem: TMenuItem;
-    TrayPopupMenu: TPopupMenu;
-    StopTimeTrackingAction: TAction;
-    StartTimeTrackingAction: TAction;
-    ActionList: TActionList;
-    Icons: TImageList;
     StatsSQLQuery: TSQLQuery;
     StatsDataSource: TDataSource;
     PeriodsDataSource: TDataSource;
@@ -34,24 +21,14 @@ type
     CustomSQLQuery: TSQLQuery;
     SQLTransaction1: TSQLTransaction;
     TasksSQLQuery: TSQLQuery;
-    TrayIcon: TTrayIcon;
-    UniqueInstance1: TUniqueInstance;
     procedure DataModuleCreate(Sender: TObject);
     procedure DataModuleDestroy(Sender: TObject);
-    procedure ExitActionExecute(Sender: TObject);
-    procedure MarkTaskAsDoneActionExecute(Sender: TObject);
     procedure SQLite3Connection1Log(Sender: TSQLConnection;
       EventType: TDBEventType; const Msg: String);
-    procedure StartTimeTrackingActionExecute(Sender: TObject);
-    procedure StopTimeTrackingActionExecute(Sender: TObject);
-    procedure TrayIconDblClick(Sender: TObject);
-    procedure UnMarkTaskAsDoneActionExecute(Sender: TObject);
-    {procedure UniqueInstance1OtherInstance(Sender: TObject;
-      ParamCount: Integer; const Parameters: array of String);}
   private
     { private declarations }
   public
-    procedure RefreshStartStopBtnsVisibility;
+
   end;
 
 var
@@ -59,7 +36,7 @@ var
 
 implementation
 
-uses main{, Forms}, MainClasses;
+uses main{, Forms};
 
 {$R *.lfm}
 
@@ -243,24 +220,6 @@ begin
   DataModule1.SQLTransaction1.CommitRetaining;
 end;
 
-procedure TDataModule1.ExitActionExecute(Sender: TObject);
-begin
-  MainForm.Close;
-end;
-
-procedure TDataModule1.MarkTaskAsDoneActionExecute(Sender: TObject);
-begin
-  with TasksSQLQuery do
-  begin
-    Edit;
-    FieldByName('done').AsBoolean := True;
-    Post;
-    ApplyUpdates;
-  end;
-
-  SQLTransaction1.CommitRetaining;
-end;
-
 procedure TDataModule1.SQLite3Connection1Log(Sender: TSQLConnection;
   EventType: TDBEventType; const Msg: String);
 var
@@ -278,61 +237,6 @@ begin
 
   main.MainForm.LogsMemo.Append(Format('[%s] <%s> %s', [TimeToStr(Now), Source, Msg]));
 end;
-
-procedure TDataModule1.StartTimeTrackingActionExecute(Sender: TObject);
-var
-  Task: TTask;
-begin
-  Task := TTask.GetById(TasksSQLQuery.FieldByName('id').AsInteger);
-  Task.Start;
-  Task.Free;
-
-  RefreshStartStopBtnsVisibility;
-end;
-
-procedure TDataModule1.StopTimeTrackingActionExecute(Sender: TObject);
-begin
-  TTask.Stop;
-
-  PeriodsSQLQuery.Refresh;
-
-  RefreshStartStopBtnsVisibility;
-end;
-
-procedure TDataModule1.TrayIconDblClick(Sender: TObject);
-begin
-  MainForm.RestoreFromTray;
-end;
-
-procedure TDataModule1.UnMarkTaskAsDoneActionExecute(Sender: TObject);
-begin
-  with TasksSQLQuery do
-  begin
-    Edit;
-    FieldByName('done').AsBoolean := False;
-    Post;
-    ApplyUpdates;
-  end;
-
-  SQLTransaction1.CommitRetaining;
-end;
-
-procedure TDataModule1.RefreshStartStopBtnsVisibility;
-var
-  IsActive: Boolean;
-begin
-  IsActive := TTask.HasActive;
-  StartTimeTrackingAction.Enabled:=not IsActive;
-  StopTimeTrackingAction.Enabled:=IsActive;
-end;
-
-{procedure TDataModule1.UniqueInstance1OtherInstance(Sender: TObject;
-  ParamCount: Integer; const Parameters: array of String);
-begin
-  //MainForm.Show;
-  //MainForm.BringToFront;
-  Application.BringToFront;
-end; }
 
 end.
 

@@ -31,6 +31,8 @@ type
       class function HasActive: Boolean; static;
       class function GetActive: TTask; static;
       class function GetById(anId: Integer): TTask; static;
+    private
+      class procedure RefreshSQLQuery;
   end;
 
   { TPeriod }
@@ -130,6 +132,8 @@ begin
   end;
 
   DatabaseDataModule.SQLTransaction1.CommitRetaining;
+
+  RefreshSQLQuery;
 end;
 
 class procedure TTask.Stop;
@@ -148,6 +152,8 @@ begin
   //PeriodsSQLQuery.Refresh;
 
   //RefreshStartStopBtnsVisibility;
+
+  RefreshSQLQuery;
 end;
 
 class function TTask.HasActive: Boolean;
@@ -205,6 +211,18 @@ begin
       Result.Modified := FieldByName('modified').AsDateTime;
       Result.Done := FieldByName('done').AsBoolean;
     end;
+  end;
+end;
+
+class procedure TTask.RefreshSQLQuery;
+var
+  r: Integer;
+begin
+  with DatabaseDataModule.TasksSQLQuery do
+  begin
+    r := RecNo;
+    Refresh;
+    RecNo := r; // Restore previous selected row
   end;
 end;
 

@@ -12,6 +12,12 @@ type
   { TDatabaseDataModule }
 
   TDatabaseDataModule = class(TDataModule)
+    PeriodsSQLQueryBegin: TDateTimeField;
+    PeriodsSQLQueryDuration: TFloatField;
+    PeriodsSQLQueryEnd: TDateTimeField;
+    PeriodsSQLQueryId: TAutoIncField;
+    PeriodsSQLQueryIsActive: TBooleanField;
+    PeriodsSQLQueryTaskId: TLongintField;
     StatsSQLQuery: TSQLQuery;
     StatsDataSource: TDataSource;
     PeriodsDataSource: TDataSource;

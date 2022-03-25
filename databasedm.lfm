@@ -96,6 +96,61 @@ object DatabaseDataModule: TDatabaseDataModule
     Params = <>
     Left = 48
     Top = 208
+    object PeriodsSQLQueryId: TAutoIncField
+      FieldKind = fkData
+      FieldName = 'id'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object PeriodsSQLQueryBegin: TDateTimeField
+      FieldKind = fkData
+      FieldName = 'begin'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object PeriodsSQLQueryEnd: TDateTimeField
+      FieldKind = fkData
+      FieldName = 'end'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object PeriodsSQLQueryTaskId: TLongintField
+      FieldKind = fkData
+      FieldName = 'task_id'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object PeriodsSQLQueryIsActive: TBooleanField
+      FieldKind = fkData
+      FieldName = 'is_active'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      DisplayValues = 'True;False'
+    end
+    object PeriodsSQLQueryDuration: TFloatField
+      FieldKind = fkData
+      FieldName = 'duration'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+    end
   end
   object PeriodsDataSource: TDataSource
     DataSet = PeriodsSQLQuery

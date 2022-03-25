@@ -27,6 +27,12 @@ type
     CustomSQLQuery: TSQLQuery;
     SQLTransaction1: TSQLTransaction;
     TasksSQLQuery: TSQLQuery;
+    TasksSQLQueryCreated: TDateTimeField;
+    TasksSQLQueryDescription: TStringField;
+    TasksSQLQueryDone: TBooleanField;
+    TasksSQLQueryId: TAutoIncField;
+    TasksSQLQueryModified: TDateTimeField;
+    TasksSQLQueryName: TStringField;
     procedure DataModuleCreate(Sender: TObject);
     procedure DataModuleDestroy(Sender: TObject);
     procedure SQLite3Connection1Log(Sender: TSQLConnection;

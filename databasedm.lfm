@@ -65,7 +65,7 @@ object DatabaseDataModule: TDatabaseDataModule
     SQL.Strings = (
       'select id, tasks.name, description, created, modified,'
       '       printf(''%d:%s'', floor(`total_time`) /*days*/, time(IFNULL(`total_time`, 0.5))) AS `total_time`,'
-      '       `done`'
+      '       `done`, is_active'
       'from tasks'
       'left join duration_per_task'
       'on tasks.id = task_id'
@@ -137,6 +137,16 @@ object DatabaseDataModule: TDatabaseDataModule
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
+      Required = False
+      DisplayValues = 'True;False'
+    end
+    object TasksSQLQueryIsActive: TBooleanField
+      FieldKind = fkData
+      FieldName = 'is_active'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
       Required = False
       DisplayValues = 'True;False'
     end

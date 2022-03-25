@@ -31,6 +31,7 @@ type
     TasksSQLQueryDescription: TStringField;
     TasksSQLQueryDone: TBooleanField;
     TasksSQLQueryId: TAutoIncField;
+    TasksSQLQueryIsActive: TBooleanField;
     TasksSQLQueryModified: TDateTimeField;
     TasksSQLQueryName: TStringField;
     procedure DataModuleCreate(Sender: TObject);
@@ -63,7 +64,7 @@ begin
     with CustomSQLQuery.SQL do
     begin
       Clear;
-      Append('CREATE TABLE IF NOT EXISTS `tasks` (');
+      Append('CREATE TABLE IF NOT EXISTS `_tasks` (');
       Append('      `id`          INTEGER PRIMARY KEY,');
       Append('      `name`        VARCHAR (255),');
       Append('      `description` VARCHAR (255),');
@@ -95,6 +96,86 @@ begin
 
     
     // Create views
+    with CustomSQLQuery.SQL do
+    begin
+      Clear;
+      Append('CREATE VIEW IF NOT EXISTS `tasks` AS');
+      Append('  SELECT `_tasks`.*, `p`.`is_active`');
+      Append('  FROM `_tasks`');
+      Append('  LEFT JOIN');
+      Append('      (');
+      Append('          SELECT `task_id`, `is_active`');
+      Append('          FROM `periods`');
+      Append('          WHERE `is_active`');
+      Append('      ) AS `p`');
+      Append('      ON `p`.`task_id` = `_tasks`.`id`;');
+    end;
+    CustomSQLQuery.ExecSQL;
+    CustomSQLQuery.Clear;
+
+    with CustomSQLQuery.SQL do
+    begin
+      Clear;
+      Append('CREATE TRIGGER IF NOT EXISTS delete_task_trigger');
+      Append('    INSTEAD OF DELETE');
+      Append('            ON tasks');
+      Append('BEGIN');
+      Append('    DELETE FROM _tasks');
+      Append('          WHERE id = OLD.id;');
+      Append('END;');
+    end;
+    CustomSQLQuery.ExecSQL;
+    CustomSQLQuery.Clear;
+
+    with CustomSQLQuery.SQL do
+    begin
+      Clear;
+      Append('CREATE TRIGGER IF NOT EXISTS insert_task_trigger');
+      Append('    INSTEAD OF INSERT');
+      Append('            ON tasks');
+      Append('BEGIN');
+      Append('    INSERT INTO _tasks (');
+      Append('                             /*id,*/');
+      Append('                             name,');
+      Append('                             description,');
+      Append('                             created,');
+      Append('                             modified,');
+      Append('                             done');
+      Append('                         )');
+      Append('                         VALUES (');
+      Append('                             /*NEW.id,*/');
+      Append('                             NEW.name,');
+      Append('                             NEW.description,');
+      Append('                             NEW.created,');
+      Append('                             NEW.modified,');
+      Append('                             NEW.done');
+      Append('                         );');
+      Append('END;');
+    end;
+    CustomSQLQuery.ExecSQL;
+    CustomSQLQuery.Clear;
+
+    with CustomSQLQuery.SQL do
+    begin
+      Clear;
+      Append('CREATE TRIGGER IF NOT EXISTS update_task_trigger');
+      Append('    INSTEAD OF UPDATE');
+      Append('            ON tasks');
+      Append('BEGIN');
+      Append('    UPDATE _tasks');
+      Append('       SET /*id = NEW.id,*/');
+      Append('           name = NEW.name,');
+      Append('           description = NEW.description,');
+      Append('           created = NEW.created,');
+      Append('           modified = NEW.modified,');
+      Append('           done = NEW.done');
+      Append('     WHERE id = NEW.id;');
+      Append('END;');
+    end;
+    CustomSQLQuery.ExecSQL;
+    CustomSQLQuery.Clear;
+
+
     with CustomSQLQuery.SQL do
     begin
       Clear;

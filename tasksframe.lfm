@@ -75,5 +75,6 @@ object TasksFrame: TTasksFrame
     ReadOnly = True
     TabOrder = 1
     TitleStyle = tsNative
+    OnPrepareCanvas = TasksDBGridPrepareCanvas
   end
 end

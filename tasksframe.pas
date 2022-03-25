@@ -5,7 +5,7 @@ unit TasksFrame;
 interface
 
 uses
-  Classes, SysUtils, FileUtil, Forms, Controls, ComCtrls, DBGrids;
+  Classes, SysUtils, FileUtil, Forms, Controls, ComCtrls, DBGrids, Grids;
 
 type
 
@@ -22,6 +22,8 @@ type
     StopTrackingToolButton: TToolButton;
     SetDoneButton: TToolButton;
     SetNotDoneButton: TToolButton;
+    procedure TasksDBGridPrepareCanvas(sender: TObject; DataCol: Integer;
+      Column: TColumn; AState: TGridDrawState);
   private
     
   public
@@ -31,11 +33,23 @@ type
 implementation
 
 uses
-  Variants;
+  Variants, Graphics;
 
 {$R *.lfm}
 
 { TTasksFrame }
+
+procedure TTasksFrame.TasksDBGridPrepareCanvas(sender: TObject;
+  DataCol: Integer; Column: TColumn; AState: TGridDrawState);
+begin
+  // Green color for active task
+
+  if (Sender as TDBGrid).Datasource.Dataset.FieldByName('is_active').AsBoolean then
+  begin
+    (Sender as TDBGrid).Canvas.Font.Color := clGreen;
+    (Sender as TDBGrid).Canvas.Font.Style := [fsBold];
+  end;
+end;
 
 {constructor TTasksFrame.Create(AOwner: TComponent);
 begin

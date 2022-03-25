@@ -32,21 +32,17 @@ object MainForm: TMainForm
         ClientWidth = 726
         inherited ToolBar1: TToolBar
           Width = 726
-          Images = nil
-          inherited StartTrackingToolButton: TToolButton
-            Action = nil
+          inherited SeparatorToolButton: TToolButton
+            Height = 22
           end
           inherited StopTrackingToolButton: TToolButton
-            Left = 223
-            Action = nil
+            Left = 295
           end
           inherited SetDoneButton: TToolButton
-            Left = 328
-            Action = nil
+            Left = 400
           end
           inherited SetNotDoneButton: TToolButton
-            Left = 364
-            Action = nil
+            Left = 436
           end
         end
         inherited TasksDBGrid: TDBGrid
@@ -68,6 +64,7 @@ object MainForm: TMainForm
         inherited DBGrid1: TDBGrid
           Height = 321
           Width = 619
+          DataSource = nil
         end
       end
     end

@@ -196,6 +196,9 @@
       </Options>
     </Linking>
     <Other>
+      <CompilerMessages>
+        <IgnoredMessages idx5024="True"/>
+      </CompilerMessages>
       <ExecuteBefore>
         <Command Value="GitRevision.bat"/>
       </ExecuteBefore>

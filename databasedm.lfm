@@ -7,28 +7,11 @@ object DatabaseDataModule: TDatabaseDataModule
   VerticalOffset = 137
   Width = 485
   object CustomSQLQuery: TSQLQuery
-    FieldDefs = <    
-      item
-        Name = 'name'
-        DataType = ftString
-        Precision = -1
-        Size = 255
-      end    
-      item
-        Name = 'description'
-        DataType = ftMemo
-        Precision = -1
-      end    
-      item
-        Name = 'id'
-        DataType = ftInteger
-        Precision = -1
-        Size = 255
-      end>
+    FieldDefs = <>
     Database = SQLite3Connection1
     Transaction = SQLTransaction1
     SQL.Strings = (
-      'SELECT * FROM `tasks`'
+      ''
     )
     Params = <>
     DataSource = TasksDataSource

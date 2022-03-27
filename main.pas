@@ -22,6 +22,7 @@ type
     TasksFrame1: TTasksFrame;
     TasksTabSheet: TTabSheet;
     PeriodsTabSheet: TTabSheet;
+    procedure FormCloseQuery(Sender: TObject; var CanClose: boolean);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure StatsTabSheetShow(Sender: TObject);
@@ -38,6 +39,9 @@ var
 
 implementation
 
+uses
+  Models;
+
 {$I revision.inc}
 
 {$R *.lfm}
@@ -50,6 +54,15 @@ begin
   PageControl1.ActivePageIndex:=0;
   //TasksFrame1.RefreshStartStopBtnsVisibility;
   Application.OnMinimize := @ApplicationMinimize; // Minimize to tray
+end;
+
+procedure TMainForm.FormCloseQuery(Sender: TObject; var CanClose: boolean);
+begin
+  if TTask.HasActive then
+  begin
+    CanClose := MessageDlg('You have running task. Are you sure to exit?',
+             mtConfirmation, mbYesNo, 0) = mrYes;
+  end;
 end;
 
 procedure TMainForm.FormShow(Sender: TObject);

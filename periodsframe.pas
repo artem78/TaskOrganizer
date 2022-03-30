@@ -16,6 +16,7 @@ type
     ToolBar: TToolBar;
     CreatePeriodToolButton: TToolButton;
     EditPeriodToolButton: TToolButton;
+    DeletePeriodToolButton: TToolButton;
   private
 
   public

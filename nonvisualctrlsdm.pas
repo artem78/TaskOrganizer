@@ -13,6 +13,7 @@ type
   { TNonVisualCtrlsDataModule }
 
   TNonVisualCtrlsDataModule = class(TDataModule)
+    DeletePeriodAction: TAction;
     EditPeriodAction: TAction;
     CreatePeriodAction: TAction;
     DeleteTaskAction: TAction;
@@ -34,6 +35,7 @@ type
     UnMarkTaskAsDoneAction: TAction;
     procedure CreatePeriodActionExecute(Sender: TObject);
     procedure CreateTaskActionExecute(Sender: TObject);
+    procedure DeletePeriodActionExecute(Sender: TObject);
     procedure DeleteTaskActionExecute(Sender: TObject);
     procedure EditPeriodActionExecute(Sender: TObject);
     procedure EditTaskActionExecute(Sender: TObject);
@@ -94,6 +96,25 @@ begin
     end
     else
       Cancel;
+  end;
+end;
+
+procedure TNonVisualCtrlsDataModule.DeletePeriodActionExecute(Sender: TObject);
+var
+  Msg: String;
+begin
+  with DatabaseDataModule.PeriodsSQLQuery do
+  begin
+    if IsEmpty then
+      Exit;
+
+    Msg := 'Are you sure to delete period?';
+    if MessageDlg(Msg, mtConfirmation, mbYesNo, 0) = mrYes then
+    begin
+      Delete;
+      ApplyUpdates;
+      DatabaseDataModule.SQLTransaction1.CommitRetaining;
+    end;
   end;
 end;
 

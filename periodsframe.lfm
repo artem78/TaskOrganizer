@@ -40,5 +40,10 @@ object PeriodsFrame: TPeriodsFrame
       Top = 2
       Action = NonVisualCtrlsDataModule.EditPeriodAction
     end
+    object DeletePeriodToolButton: TToolButton
+      Left = 133
+      Top = 2
+      Action = NonVisualCtrlsDataModule.DeletePeriodAction
+    end
   end
 end

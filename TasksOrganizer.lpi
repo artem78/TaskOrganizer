@@ -106,21 +106,24 @@
         <Mode0 Name="default"/>
       </Modes>
     </RunParams>
-    <RequiredPackages Count="4">
+    <RequiredPackages Count="5">
       <Item1>
-        <PackageName Value="uniqueinstance_package"/>
+        <PackageName Value="DateTimeCtrls"/>
       </Item1>
       <Item2>
-        <PackageName Value="FCL"/>
+        <PackageName Value="uniqueinstance_package"/>
       </Item2>
       <Item3>
-        <PackageName Value="SQLDBLaz"/>
+        <PackageName Value="FCL"/>
       </Item3>
       <Item4>
-        <PackageName Value="LCL"/>
+        <PackageName Value="SQLDBLaz"/>
       </Item4>
+      <Item5>
+        <PackageName Value="LCL"/>
+      </Item5>
     </RequiredPackages>
-    <Units Count="8">
+    <Units Count="9">
       <Unit0>
         <Filename Value="TasksOrganizer.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -176,6 +179,14 @@
         <ResourceBaseClass Value="DataModule"/>
         <UnitName Value="NonVisualCtrlsDM"/>
       </Unit7>
+      <Unit8>
+        <Filename Value="periodeditfrm.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="PeriodEditForm"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="PeriodEditFrm"/>
+      </Unit8>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

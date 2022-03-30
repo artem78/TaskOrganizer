@@ -10,8 +10,8 @@ object PeriodsFrame: TPeriodsFrame
   DesignTop = 180
   object DBGrid1: TDBGrid
     Left = 0
-    Height = 320
-    Top = 0
+    Height = 294
+    Top = 26
     Width = 484
     Align = alClient
     Color = clWindow
@@ -22,5 +22,23 @@ object PeriodsFrame: TPeriodsFrame
     ReadOnly = True
     TabOrder = 0
     TitleStyle = tsNative
+  end
+  object ToolBar: TToolBar
+    Left = 0
+    Height = 26
+    Top = 0
+    Width = 484
+    ShowCaptions = True
+    TabOrder = 1
+    object CreatePeriodToolButton: TToolButton
+      Left = 1
+      Top = 2
+      Action = NonVisualCtrlsDataModule.CreatePeriodAction
+    end
+    object EditPeriodToolButton: TToolButton
+      Left = 68
+      Top = 2
+      Action = NonVisualCtrlsDataModule.EditPeriodAction
+    end
   end
 end

@@ -5,13 +5,16 @@ unit NonVisualCtrlsDM;
 interface
 
 uses
-  Classes, SysUtils, UniqueInstance, Controls, ActnList, ExtCtrls, Menus, Models;
+  Classes, SysUtils, UniqueInstance, Controls, ActnList, ExtCtrls, Menus, Models,
+  PeriodEditFrm;
 
 type
 
   { TNonVisualCtrlsDataModule }
 
   TNonVisualCtrlsDataModule = class(TDataModule)
+    EditPeriodAction: TAction;
+    CreatePeriodAction: TAction;
     DeleteTaskAction: TAction;
     EditTaskAction: TAction;
     CreateTaskAction: TAction;
@@ -29,8 +32,10 @@ type
     TrayPopupMenu: TPopupMenu;
     UniqueInstance1: TUniqueInstance;
     UnMarkTaskAsDoneAction: TAction;
+    procedure CreatePeriodActionExecute(Sender: TObject);
     procedure CreateTaskActionExecute(Sender: TObject);
     procedure DeleteTaskActionExecute(Sender: TObject);
+    procedure EditPeriodActionExecute(Sender: TObject);
     procedure EditTaskActionExecute(Sender: TObject);
     procedure ExitActionExecute(Sender: TObject);
     procedure MarkTaskAsDoneActionExecute(Sender: TObject);
@@ -92,6 +97,29 @@ begin
   end;
 end;
 
+procedure TNonVisualCtrlsDataModule.CreatePeriodActionExecute(Sender: TObject);
+begin
+  with DatabaseDataModule.PeriodsSQLQuery do
+  begin
+    Append;
+    FieldByName('begin').AsDateTime := Now;
+    FieldByName('end').AsDateTime := Now;
+    FieldByName('task_id').AsInteger := DatabaseDataModule.TasksSQLQuery.FieldByName('id').AsInteger;
+    if PeriodEditForm.ShowModal = mrOK then
+    begin
+      // Fix dates
+      FieldByName('begin').AsDateTime := FieldByName('begin').AsDateTime - 2415018.5;
+      FieldByName('end').AsDateTime := FieldByName('end').AsDateTime - 2415018.5;
+
+      Post;
+      ApplyUpdates;
+      DatabaseDataModule.SQLTransaction1.CommitRetaining;
+    end
+    else
+      Cancel;
+  end;
+end;
+
 procedure TNonVisualCtrlsDataModule.DeleteTaskActionExecute(Sender: TObject);
 var
   Msg: String;
@@ -108,6 +136,34 @@ begin
       ApplyUpdates;
       DatabaseDataModule.SQLTransaction1.CommitRetaining;
     end;
+  end;
+end;
+
+procedure TNonVisualCtrlsDataModule.EditPeriodActionExecute(Sender: TObject);
+begin
+  with DatabaseDataModule.PeriodsSQLQuery do
+  begin
+    if IsEmpty then
+      Exit;
+
+    Edit;
+
+    {// Fix dates
+    FieldByName('begin').AsDateTime := FieldByName('begin').AsDateTime + 2415018.5;
+    FieldByName('end').AsDateTime := FieldByName('end').AsDateTime + 2415018.5;}
+
+    if PeriodEditForm.ShowModal = mrOK then
+    begin
+      // Fix dates
+      FieldByName('begin').AsDateTime := FieldByName('begin').AsDateTime - 2415018.5;
+      FieldByName('end').AsDateTime := FieldByName('end').AsDateTime - 2415018.5;
+
+      Post;
+      ApplyUpdates;
+      DatabaseDataModule.SQLTransaction1.CommitRetaining;
+    end
+    else
+      Cancel;
   end;
 end;
 

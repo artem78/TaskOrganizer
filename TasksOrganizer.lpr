@@ -7,7 +7,8 @@ uses
   cthreads,
   {$ENDIF}{$ENDIF}
   Interfaces, // this includes the LCL widgetset
-  Forms, main, TasksFrame, DatabaseDM, taskedit, periodsframe, Models, NonVisualCtrlsDM
+  Forms, datetimectrls, main, TasksFrame, DatabaseDM, taskedit, periodsframe,
+  Models, NonVisualCtrlsDM, PeriodEditFrm
   { you can add units after this };
 
 {$R *.res}
@@ -19,6 +20,7 @@ begin
   Application.CreateForm(TDatabaseDataModule, DatabaseDataModule);
   Application.CreateForm(TTaskEditForm, TaskEditForm);
   Application.CreateForm(TNonVisualCtrlsDataModule, NonVisualCtrlsDataModule);
+  Application.CreateForm(TPeriodEditForm, PeriodEditForm);
   Application.Run;
 end.
 

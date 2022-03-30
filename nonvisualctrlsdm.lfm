@@ -120,6 +120,14 @@ object NonVisualCtrlsDataModule: TNonVisualCtrlsDataModule
       Caption = 'Remove task'
       OnExecute = DeleteTaskActionExecute
     end
+    object CreatePeriodAction: TAction
+      Caption = 'Add period'
+      OnExecute = CreatePeriodActionExecute
+    end
+    object EditPeriodAction: TAction
+      Caption = 'Edit period'
+      OnExecute = EditPeriodActionExecute
+    end
   end
   object TrayIcon: TTrayIcon
     PopUpMenu = TrayPopupMenu

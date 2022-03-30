@@ -149,7 +149,7 @@ object DatabaseDataModule: TDatabaseDataModule
       FieldName = 'id'
       Index = 0
       LookupCache = False
-      ProviderFlags = [pfInUpdate, pfInWhere]
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
       ReadOnly = False
       Required = False
     end

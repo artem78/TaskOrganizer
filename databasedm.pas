@@ -17,6 +17,7 @@ type
     PeriodsSQLQueryEnd: TDateTimeField;
     PeriodsSQLQueryId: TAutoIncField;
     PeriodsSQLQueryIsActive: TBooleanField;
+    PeriodsSQLQueryIsManuallyAdded: TBooleanField;
     PeriodsSQLQueryTaskId: TLongintField;
     StatsSQLQuery: TSQLQuery;
     StatsDataSource: TDataSource;
@@ -87,6 +88,7 @@ begin
       Append('    `begin` DATETIME,');
       Append('    `end`   DATETIME,');
       Append('    `task_id` INTEGER,');
+      Append('    `is_manually_added` BOOLEAN DEFAULT (FALSE),');
       Append('    FOREIGN KEY (`task_id`)  REFERENCES `tasks` (`id`) ON DELETE CASCADE');
       Append(');');
     end;
@@ -190,7 +192,8 @@ begin
       Append('			`begin`,');
       Append('			IFNULL(`end`, JULIANDAY(''now'', ''localtime'') - 2415018.5) as `end`,');
       Append('			`task_id`,');
-      Append('			IIF(`end` IS NULL, TRUE, FALSE) as `is_active`');
+      Append('			IIF(`end` IS NULL, TRUE, FALSE) as `is_active`,');
+      Append('                  `is_manually_added`');
       Append('		FROM `_periods`');
       Append('		)');
     end;
@@ -221,12 +224,14 @@ begin
       Append('    INSERT INTO _periods (');
       Append('                             [begin],');
       Append('                             [end],');
-      Append('                             task_id');
+      Append('                             task_id,');
+      Append('                             is_manually_added');
       Append('                         )');
       Append('                         VALUES (');
       Append('                             NEW.[begin],');
       Append('                             NEW.[end],');
-      Append('                             NEW.task_id');
+      Append('                             NEW.task_id,');
+      Append('                             NEW.is_manually_added');
       Append('                         );');
       Append('END;');
     end;
@@ -243,7 +248,8 @@ begin
       Append('    UPDATE _periods');
       Append('       SET [begin] = NEW.[begin],');
       Append('           [end] = NEW.[end],');
-      Append('           task_id = NEW.task_id');
+      Append('           task_id = NEW.task_id,');
+      Append('           is_manually_added = NEW.is_manually_added');
       Append('     WHERE id = NEW.id;');
       Append('END;');
     end;

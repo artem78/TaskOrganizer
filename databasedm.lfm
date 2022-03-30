@@ -199,6 +199,16 @@ object DatabaseDataModule: TDatabaseDataModule
       ReadOnly = True
       Required = False
     end
+    object PeriodsSQLQueryIsManuallyAdded: TBooleanField
+      FieldKind = fkData
+      FieldName = 'is_manually_added'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      DisplayValues = 'True;False'
+    end
   end
   object PeriodsDataSource: TDataSource
     DataSet = PeriodsSQLQuery

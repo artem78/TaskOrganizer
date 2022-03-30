@@ -126,6 +126,7 @@ begin
     FieldByName('begin').AsDateTime := Now;
     FieldByName('end').AsDateTime := Now;
     FieldByName('task_id').AsInteger := DatabaseDataModule.TasksSQLQuery.FieldByName('id').AsInteger;
+    FieldByName('is_manually_added').AsBoolean := True;
     if PeriodEditForm.ShowModal = mrOK then
     begin
       // Fix dates

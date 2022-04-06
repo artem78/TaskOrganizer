@@ -87,7 +87,7 @@ object MainForm: TMainForm
       end
     end
     object LogsTabSheet: TTabSheet
-      Caption = 'Logs'
+      Caption = 'SQL log'
       ClientHeight = 321
       ClientWidth = 619
       object LogsMemo: TMemo

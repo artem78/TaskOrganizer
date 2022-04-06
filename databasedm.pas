@@ -71,7 +71,7 @@ begin
       Append('      `description` VARCHAR (255),');
       Append('      `created`     DATETIME, ');
       Append('      `modified`    DATETIME,');
-      Append('      `done`        BOOLEAN       DEFAULT (FALSE)');
+      Append('      `done`        BOOLEAN DEFAULT (FALSE) NOT NULL ON CONFLICT REPLACE');
       Append(');');
     end;
     CustomSQLQuery.ExecSQL;
@@ -88,7 +88,7 @@ begin
       Append('    `begin` DATETIME,');
       Append('    `end`   DATETIME,');
       Append('    `task_id` INTEGER,');
-      Append('    `is_manually_added` BOOLEAN DEFAULT (FALSE),');
+      Append('    `is_manually_added` BOOLEAN DEFAULT (FALSE) NOT NULL ON CONFLICT REPLACE,');
       Append('    FOREIGN KEY (`task_id`)  REFERENCES `tasks` (`id`) ON DELETE CASCADE');
       Append(');');
     end;
@@ -102,7 +102,7 @@ begin
     begin
       Clear;
       Append('CREATE VIEW IF NOT EXISTS `tasks` AS');
-      Append('  SELECT `_tasks`.*, `p`.`is_active`');
+      Append('  SELECT `_tasks`.*, IFNULL(`p`.`is_active`, FALSE) as `is_active`');
       Append('  FROM `_tasks`');
       Append('  LEFT JOIN');
       Append('      (');
@@ -124,34 +124,6 @@ begin
       Append('BEGIN');
       Append('    DELETE FROM _tasks');
       Append('          WHERE id = OLD.id;');
-      Append('END;');
-    end;
-    CustomSQLQuery.ExecSQL;
-    CustomSQLQuery.Clear;
-
-    with CustomSQLQuery.SQL do
-    begin
-      Clear;
-      Append('CREATE TRIGGER IF NOT EXISTS insert_task_trigger');
-      Append('    INSTEAD OF INSERT');
-      Append('            ON tasks');
-      Append('BEGIN');
-      Append('    INSERT INTO _tasks (');
-      Append('                             /*id,*/');
-      Append('                             name,');
-      Append('                             description,');
-      Append('                             created,');
-      Append('                             modified,');
-      Append('                             done');
-      Append('                         )');
-      Append('                         VALUES (');
-      Append('                             /*NEW.id,*/');
-      Append('                             NEW.name,');
-      Append('                             NEW.description,');
-      Append('                             NEW.created,');
-      Append('                             NEW.modified,');
-      Append('                             NEW.done');
-      Append('                         );');
       Append('END;');
     end;
     CustomSQLQuery.ExecSQL;
@@ -209,30 +181,6 @@ begin
       Append('BEGIN');
       Append('    DELETE FROM _periods');
       Append('          WHERE id = OLD.id;');
-      Append('END;');
-    end;
-    CustomSQLQuery.ExecSQL;
-    CustomSQLQuery.Clear;
-
-    with CustomSQLQuery.SQL do
-    begin
-      Clear;
-      Append('CREATE TRIGGER IF NOT EXISTS insert_period_trigger');
-      Append('    INSTEAD OF INSERT');
-      Append('            ON periods');
-      Append('BEGIN');
-      Append('    INSERT INTO _periods (');
-      Append('                             [begin],');
-      Append('                             [end],');
-      Append('                             task_id,');
-      Append('                             is_manually_added');
-      Append('                         )');
-      Append('                         VALUES (');
-      Append('                             NEW.[begin],');
-      Append('                             NEW.[end],');
-      Append('                             NEW.task_id,');
-      Append('                             NEW.is_manually_added');
-      Append('                         );');
       Append('END;');
     end;
     CustomSQLQuery.ExecSQL;

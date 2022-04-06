@@ -58,12 +58,12 @@ object DatabaseDataModule: TDatabaseDataModule
       '    VALUES (:id, :name, :description, :created, :modified, :done)'
     )
     UpdateSQL.Strings = (
-      'update tasks'
-      'set name=:name, description=:description, created=:created, modified=:modified, done=:done'
-      'where id=:id'
+      'UPDATE `_tasks`'
+      '    SET `name`=:name, `description`=:description, `created`=:created, `modified`=:modified, `done`=:done'
+      '    WHERE `id`=:id'
     )
     DeleteSQL.Strings = (
-      'delete from tasks where `id`=:id'
+      'DELETE FROM `_tasks` WHERE `id` = :id'
     )
     RefreshSQL.Strings = (
       'SELECT `name`, `description`, `created`, `modified`, `done`, `is_active`'
@@ -148,6 +148,17 @@ object DatabaseDataModule: TDatabaseDataModule
     InsertSQL.Strings = (
       'INSERT INTO `_periods` (`id`, `begin`, `end`, `task_id`, `is_manually_added`)'
       '    VALUES (:id, :begin, :end, :task_id, :is_manually_added);'
+    )
+    UpdateSQL.Strings = (
+      'UPDATE `_periods`'
+      '    SET `begin` = :begin,'
+      '        `end` = :end,'
+      '        `task_id` = :task_id,'
+      '        `is_manually_added` = :is_manually_added'
+      '    WHERE `id` = :id'
+    )
+    DeleteSQL.Strings = (
+      'DELETE FROM `_periods` WHERE `id` = :id'
     )
     Params = <>
     Left = 48

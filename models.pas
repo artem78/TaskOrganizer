@@ -141,7 +141,7 @@ begin
   with DatabaseDataModule.CustomSQLQuery do
   begin
     Close;
-    SQL.Text := 'update periods set end=:end WHERE `is_active` = TRUE';
+    SQL.Text := 'UPDATE `_periods` SET `end`=:end WHERE /*`is_active` = TRUE*/ `end` IS NULL';
     // ToDo: Check if only one result
     ParamByName('end').AsDateTime := now - 2415018.5;
     ExecSQL;

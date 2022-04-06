@@ -118,41 +118,6 @@ begin
     with CustomSQLQuery.SQL do
     begin
       Clear;
-      Append('CREATE TRIGGER IF NOT EXISTS delete_task_trigger');
-      Append('    INSTEAD OF DELETE');
-      Append('            ON tasks');
-      Append('BEGIN');
-      Append('    DELETE FROM _tasks');
-      Append('          WHERE id = OLD.id;');
-      Append('END;');
-    end;
-    CustomSQLQuery.ExecSQL;
-    CustomSQLQuery.Clear;
-
-    with CustomSQLQuery.SQL do
-    begin
-      Clear;
-      Append('CREATE TRIGGER IF NOT EXISTS update_task_trigger');
-      Append('    INSTEAD OF UPDATE');
-      Append('            ON tasks');
-      Append('BEGIN');
-      Append('    UPDATE _tasks');
-      Append('       SET /*id = NEW.id,*/');
-      Append('           name = NEW.name,');
-      Append('           description = NEW.description,');
-      Append('           created = NEW.created,');
-      Append('           modified = NEW.modified,');
-      Append('           done = NEW.done');
-      Append('     WHERE id = NEW.id;');
-      Append('END;');
-    end;
-    CustomSQLQuery.ExecSQL;
-    CustomSQLQuery.Clear;
-
-
-    with CustomSQLQuery.SQL do
-    begin
-      Clear;
       Append('CREATE VIEW IF NOT EXISTS `periods` AS');
       Append('	SELECT');
       Append('		*,');
@@ -171,39 +136,6 @@ begin
     end;
     CustomSQLQuery.ExecSQL;
     CustomSQLQuery.Clear;
-
-    with CustomSQLQuery.SQL do
-    begin
-      Clear;
-      Append('CREATE TRIGGER IF NOT EXISTS delete_period_trigger');
-      Append('    INSTEAD OF DELETE');
-      Append('            ON periods');
-      Append('BEGIN');
-      Append('    DELETE FROM _periods');
-      Append('          WHERE id = OLD.id;');
-      Append('END;');
-    end;
-    CustomSQLQuery.ExecSQL;
-    CustomSQLQuery.Clear;
-
-    with CustomSQLQuery.SQL do
-    begin
-      Clear;
-      Append('CREATE TRIGGER IF NOT EXISTS update_period_trigger');
-      Append('    INSTEAD OF UPDATE');
-      Append('            ON periods');
-      Append('BEGIN');
-      Append('    UPDATE _periods');
-      Append('       SET [begin] = NEW.[begin],');
-      Append('           [end] = NEW.[end],');
-      Append('           task_id = NEW.task_id,');
-      Append('           is_manually_added = NEW.is_manually_added');
-      Append('     WHERE id = NEW.id;');
-      Append('END;');
-    end;
-    CustomSQLQuery.ExecSQL;
-    CustomSQLQuery.Clear;
-    
 
     with CustomSQLQuery.SQL do
     begin

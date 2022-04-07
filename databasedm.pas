@@ -60,7 +60,7 @@ var
 
 implementation
 
-uses main{, Forms}, LazUTF8, Laz2_DOM, laz2_XMLWrite;
+uses main{, Forms}, LazUTF8, Laz2_DOM, laz2_XMLWrite, Utils;
 
 {$R *.lfm}
 
@@ -285,6 +285,14 @@ begin
 end;
 
 procedure TDatabaseDataModule.ExportDatabase(AFileName: String);
+  function DateTimeFieldToString(AField: TField): String;
+  begin
+    if AField.IsNull then
+      Result := ''
+    else
+      Result := DateTimeToISO8601(AField.AsDateTime);
+  end;
+
 var
   XmlDoc: TXMLDocument;
   RootNode, TasksNode, TaskNode, PeriodsNode, PeriodNode: TDOMNode;
@@ -321,8 +329,8 @@ begin
         TaskNode := XmlDoc.CreateElement('task');
         TDOMElement(TaskNode).SetAttribute('id',       CustomSQLQuery.FieldByName('task_id').AsString);
         TDOMElement(TaskNode).SetAttribute('name',     CustomSQLQuery.FieldByName('name').AsString);
-        TDOMElement(TaskNode).SetAttribute('created',  CustomSQLQuery.FieldByName('created').AsString);
-        TDOMElement(TaskNode).SetAttribute('modified', CustomSQLQuery.FieldByName('modified').AsString);
+        TDOMElement(TaskNode).SetAttribute('created',  DateTimeFieldToString(CustomSQLQuery.FieldByName('created')));
+        TDOMElement(TaskNode).SetAttribute('modified', DateTimeFieldToString(CustomSQLQuery.FieldByName('modified')));
         TDOMElement(TaskNode).SetAttribute('done',     CustomSQLQuery.FieldByName('done').AsString);
         TasksNode.AppendChild(TaskNode);
 
@@ -334,8 +342,8 @@ begin
       begin
         PeriodNode := XmlDoc.CreateElement('period');
         TDOMElement(PeriodNode).SetAttribute('id',     CustomSQLQuery.FieldByName('period_id').AsString);
-        TDOMElement(PeriodNode).SetAttribute('begin',  CustomSQLQuery.FieldByName('period_begin').AsString);
-        TDOMElement(PeriodNode).SetAttribute('end',    CustomSQLQuery.FieldByName('period_end').AsString);
+        TDOMElement(PeriodNode).SetAttribute('begin',  DateTimeFieldToString(CustomSQLQuery.FieldByName('period_begin')));
+        TDOMElement(PeriodNode).SetAttribute('end',    DateTimeFieldToString(CustomSQLQuery.FieldByName('period_end')));
         TDOMElement(PeriodNode).SetAttribute('isManuallyAdded', CustomSQLQuery.FieldByName('period_is_manually_added').AsString);
         PeriodsNode.AppendChild(PeriodNode);
       end;

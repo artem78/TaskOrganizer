@@ -61,12 +61,14 @@ object TasksFrame: TTasksFrame
     end
   end
   object TasksDBGrid: TDBGrid
+    AnchorSideTop.Side = asrBottom
     Left = 0
-    Height = 297
-    Top = 26
+    Height = 265
+    Top = 58
     Width = 561
     Align = alClient
     AutoEdit = False
+    BorderSpacing.Top = 32
     Color = clWindow
     Columns = <>
     DataSource = DatabaseDataModule.TasksDataSource
@@ -76,5 +78,39 @@ object TasksFrame: TTasksFrame
     TabOrder = 1
     TitleStyle = tsNative
     OnPrepareCanvas = TasksDBGridPrepareCanvas
+  end
+  object FilterEdit: TLabeledEdit
+    AnchorSideTop.Control = ToolBar1
+    AnchorSideTop.Side = asrBottom
+    AnchorSideRight.Side = asrBottom
+    Left = 40
+    Height = 23
+    Top = 29
+    Width = 160
+    BorderSpacing.Around = 3
+    EditLabel.Height = 15
+    EditLabel.Width = 29
+    EditLabel.Caption = 'Filter:'
+    EditLabel.ParentColor = False
+    LabelPosition = lpLeft
+    TabOrder = 2
+    OnChange = FilterEditChange
+  end
+  object ClearFilterButton: TButton
+    AnchorSideLeft.Control = FilterEdit
+    AnchorSideLeft.Side = asrBottom
+    AnchorSideTop.Control = FilterEdit
+    AnchorSideBottom.Control = FilterEdit
+    AnchorSideBottom.Side = asrBottom
+    Left = 203
+    Height = 23
+    Top = 29
+    Width = 33
+    Anchors = [akTop, akLeft, akBottom]
+    AutoSize = True
+    BorderSpacing.Left = 3
+    Caption = 'X'
+    OnClick = ClearFilterButtonClick
+    TabOrder = 3
   end
 end

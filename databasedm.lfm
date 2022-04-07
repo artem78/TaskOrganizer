@@ -43,6 +43,7 @@ object DatabaseDataModule: TDatabaseDataModule
   end
   object TasksSQLQuery: TSQLQuery
     FieldDefs = <>
+    OnFilterRecord = TasksSQLQueryFilterRecord
     Database = SQLite3Connection1
     Transaction = SQLTransaction1
     SQL.Strings = (

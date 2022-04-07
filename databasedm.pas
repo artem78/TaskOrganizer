@@ -39,10 +39,13 @@ type
     procedure DataModuleDestroy(Sender: TObject);
     procedure SQLite3Connection1Log(Sender: TSQLConnection;
       EventType: TDBEventType; const Msg: String);
+    procedure TasksSQLQueryFilterRecord(DataSet: TDataSet; var Accept: Boolean);
   private
-    { private declarations }
-  public
+    FTasksFilterText: String;
 
+    procedure SetTasksFilterText(AText: String);
+  public
+    property TasksFilterText: String write SetTasksFilterText;
   end;
 
 var
@@ -50,7 +53,7 @@ var
 
 implementation
 
-uses main{, Forms};
+uses main{, Forms}, LazUTF8;
 
 {$R *.lfm}
 
@@ -58,6 +61,10 @@ uses main{, Forms};
 
 procedure TDatabaseDataModule.DataModuleCreate(Sender: TObject);
 begin
+  // Initializations
+  FTasksFilterText := '';
+
+
   {// Create database file if not exists
   if not FileExists(TasksDataset.FileName) then
   begin}
@@ -215,6 +222,38 @@ begin
   end;
 
   main.MainForm.LogsMemo.Append(Format('[%s] <%s> %s', [TimeToStr(Now), Source, Msg]));
+end;
+
+procedure TDatabaseDataModule.TasksSQLQueryFilterRecord(DataSet: TDataSet;
+  var Accept: Boolean);
+var
+  Name_, Descr, Search: String;
+begin
+  Accept := True;
+
+  if FTasksFilterText <> '' then
+  begin
+    Name_ := UTF8LowerCase(DataSet.FieldByName('name').AsString);
+    Descr := UTF8LowerCase(DataSet.FieldByName('description').AsString);
+    Search:= UTF8LowerCase(FTasksFilterText);
+
+    Accept := (UTF8Pos(Search, Name_) <> 0) or (UTF8Pos(Search, Descr) <> 0);
+  end;
+end;
+
+procedure TDatabaseDataModule.SetTasksFilterText(AText: String);
+begin
+  FTasksFilterText := AText;
+  if (FTasksFilterText <> '') then
+  begin
+    TasksSQLQuery.Filtered := False;
+    TasksSQLQuery.Filtered := True;
+  end
+  else
+  begin
+    TasksSQLQuery.Filtered := False;
+  end;
+  //TasksSQLQuery.Refresh;
 end;
 
 end.

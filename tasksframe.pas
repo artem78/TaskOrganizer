@@ -5,13 +5,16 @@ unit TasksFrame;
 interface
 
 uses
-  Classes, SysUtils, FileUtil, Forms, Controls, ComCtrls, DBGrids, Grids;
+  Classes, SysUtils, FileUtil, Forms, Controls, ComCtrls, DBGrids, Grids,
+  ExtCtrls, StdCtrls;
 
 type
 
   { TTasksFrame }
 
   TTasksFrame = class(TFrame)
+    ClearFilterButton: TButton;
+    FilterEdit: TLabeledEdit;
     TasksDBGrid: TDBGrid;
     ToolBar1: TToolBar;
     AddToolButton: TToolButton;
@@ -22,6 +25,8 @@ type
     StopTrackingToolButton: TToolButton;
     SetDoneButton: TToolButton;
     SetNotDoneButton: TToolButton;
+    procedure ClearFilterButtonClick(Sender: TObject);
+    procedure FilterEditChange(Sender: TObject);
     procedure TasksDBGridPrepareCanvas(sender: TObject; DataCol: Integer;
       Column: TColumn; AState: TGridDrawState);
   private
@@ -33,7 +38,7 @@ type
 implementation
 
 uses
-  Variants, Graphics;
+  Variants, Graphics, DatabaseDM;
 
 {$R *.lfm}
 
@@ -49,6 +54,16 @@ begin
     (Sender as TDBGrid).Canvas.Font.Color := clGreen;
     (Sender as TDBGrid).Canvas.Font.Style := [fsBold];
   end;
+end;
+
+procedure TTasksFrame.ClearFilterButtonClick(Sender: TObject);
+begin
+  FilterEdit.Clear;
+end;
+
+procedure TTasksFrame.FilterEditChange(Sender: TObject);
+begin
+  DatabaseDataModule.TasksFilterText := FilterEdit.Text;
 end;
 
 {constructor TTasksFrame.Create(AOwner: TComponent);

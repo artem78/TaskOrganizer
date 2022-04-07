@@ -98,6 +98,7 @@ begin
       if Execute then
       begin
         DatabaseDataModule.ExportDatabase(FileName);
+        ShowMessage('Done!');
       end;
     finally
       Free;

@@ -42,10 +42,15 @@ type
     procedure TasksSQLQueryFilterRecord(DataSet: TDataSet; var Accept: Boolean);
   private
     FTasksFilterText: String;
+    FDoneTasksFilter: Boolean;
 
     procedure SetTasksFilterText(AText: String);
+    procedure SetDoneTasksFilter(AVal: Boolean);
+
+    procedure UpdateFilters;
   public
     property TasksFilterText: String write SetTasksFilterText;
+    property DoneTasksFilter: Boolean write SetDoneTasksFilter;
   end;
 
 var
@@ -63,6 +68,7 @@ procedure TDatabaseDataModule.DataModuleCreate(Sender: TObject);
 begin
   // Initializations
   FTasksFilterText := '';
+  FDoneTasksFilter := False;
 
 
   {// Create database file if not exists
@@ -198,6 +204,8 @@ begin
 
   {// Tray icon
   TrayIcon.Icon.Assign(MainForm.Icon);}
+
+  UpdateFilters;
 end;
 
 procedure TDatabaseDataModule.DataModuleDestroy(Sender: TObject);
@@ -231,7 +239,14 @@ var
 begin
   Accept := True;
 
-  if FTasksFilterText <> '' then
+  // Filter done tasks
+  if not FDoneTasksFilter then
+  begin
+     Accept := not DataSet.FieldByName('done').AsBoolean;
+  end;
+
+  // Search by text
+  if Accept and (FTasksFilterText <> '') then
   begin
     Name_ := UTF8LowerCase(DataSet.FieldByName('name').AsString);
     Descr := UTF8LowerCase(DataSet.FieldByName('description').AsString);
@@ -244,12 +259,23 @@ end;
 procedure TDatabaseDataModule.SetTasksFilterText(AText: String);
 begin
   FTasksFilterText := AText;
-  if (FTasksFilterText <> '') then
-  begin
+  UpdateFilters;
+end;
+
+procedure TDatabaseDataModule.SetDoneTasksFilter(AVal: Boolean);
+begin
+  FDoneTasksFilter := AVal;
+  UpdateFilters;
+end;
+
+procedure TDatabaseDataModule.UpdateFilters;
+begin
+  if (FTasksFilterText <> '') or (not FDoneTasksFilter) then
+  begin // Enable filtering
     TasksSQLQuery.Filtered := False;
     TasksSQLQuery.Filtered := True;
   end
-  else
+  else // Disable filtering
   begin
     TasksSQLQuery.Filtered := False;
   end;

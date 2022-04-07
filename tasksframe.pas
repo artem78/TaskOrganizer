@@ -13,6 +13,7 @@ type
   { TTasksFrame }
 
   TTasksFrame = class(TFrame)
+    ShowDoneTasksCheckBox: TCheckBox;
     ClearFilterButton: TButton;
     FilterEdit: TLabeledEdit;
     TasksDBGrid: TDBGrid;
@@ -27,6 +28,7 @@ type
     SetNotDoneButton: TToolButton;
     procedure ClearFilterButtonClick(Sender: TObject);
     procedure FilterEditChange(Sender: TObject);
+    procedure ShowDoneTasksCheckBoxChange(Sender: TObject);
     procedure TasksDBGridPrepareCanvas(sender: TObject; DataCol: Integer;
       Column: TColumn; AState: TGridDrawState);
   private
@@ -64,6 +66,11 @@ end;
 procedure TTasksFrame.FilterEditChange(Sender: TObject);
 begin
   DatabaseDataModule.TasksFilterText := FilterEdit.Text;
+end;
+
+procedure TTasksFrame.ShowDoneTasksCheckBoxChange(Sender: TObject);
+begin
+  DatabaseDataModule.DoneTasksFilter := ShowDoneTasksCheckBox.Checked;
 end;
 
 {constructor TTasksFrame.Create(AOwner: TComponent);

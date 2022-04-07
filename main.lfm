@@ -44,7 +44,7 @@ object MainForm: TMainForm
           end
         end
         inherited TasksDBGrid: TDBGrid
-          Height = 387
+          Height = 355
           Width = 726
         end
       end

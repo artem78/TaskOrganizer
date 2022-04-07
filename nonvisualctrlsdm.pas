@@ -13,6 +13,7 @@ type
   { TNonVisualCtrlsDataModule }
 
   TNonVisualCtrlsDataModule = class(TDataModule)
+    ExportDatabaseAction: TAction;
     DeletePeriodAction: TAction;
     EditPeriodAction: TAction;
     CreatePeriodAction: TAction;
@@ -25,6 +26,8 @@ type
     ExitMenuItem: TMenuItem;
     Icons: TImageList;
     MarkTaskAsDoneAction: TAction;
+    ServiceMenuItem: TMenuItem;
+    ExportMenuItem: TMenuItem;
     StartTimerackingMenuItem: TMenuItem;
     StartTimeTrackingAction: TAction;
     StopTimeTrackingAction: TAction;
@@ -40,6 +43,7 @@ type
     procedure EditPeriodActionExecute(Sender: TObject);
     procedure EditTaskActionExecute(Sender: TObject);
     procedure ExitActionExecute(Sender: TObject);
+    procedure ExportDatabaseActionExecute(Sender: TObject);
     procedure MarkTaskAsDoneActionExecute(Sender: TObject);
     procedure StartTimeTrackingActionExecute(Sender: TObject);
     procedure StopTimeTrackingActionExecute(Sender: TObject);
@@ -80,6 +84,25 @@ end;
 procedure TNonVisualCtrlsDataModule.ExitActionExecute(Sender: TObject);
 begin
   MainForm.Close;
+end;
+
+procedure TNonVisualCtrlsDataModule.ExportDatabaseActionExecute(Sender: TObject
+  );
+begin
+  with TSaveDialog.Create(nil) do
+  begin
+    try
+      Filter := 'XML|*.xml';
+      DefaultExt := 'xml';
+      FileName := 'export.xml';
+      if Execute then
+      begin
+        DatabaseDataModule.ExportDatabase(FileName);
+      end;
+    finally
+      Free;
+    end;
+  end;
 end;
 
 procedure TNonVisualCtrlsDataModule.CreateTaskActionExecute(Sender: TObject);

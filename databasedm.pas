@@ -51,6 +51,8 @@ type
   public
     property TasksFilterText: String write SetTasksFilterText;
     property DoneTasksFilter: Boolean write SetDoneTasksFilter;
+
+    procedure ExportDatabase(AFileName: String);
   end;
 
 var
@@ -58,7 +60,7 @@ var
 
 implementation
 
-uses main{, Forms}, LazUTF8;
+uses main{, Forms}, LazUTF8, Laz2_DOM, laz2_XMLWrite;
 
 {$R *.lfm}
 
@@ -280,6 +282,71 @@ begin
     TasksSQLQuery.Filtered := False;
   end;
   //TasksSQLQuery.Refresh;
+end;
+
+procedure TDatabaseDataModule.ExportDatabase(AFileName: String);
+var
+  XmlDoc: TXMLDocument;
+  RootNode, TasksNode, TaskNode, PeriodsNode, PeriodNode: TDOMNode;
+  TaskId: Integer = -1;
+begin
+  XmlDoc := TXMLDocument.Create;
+
+  try
+    RootNode := XmlDoc.CreateElement('export');
+    XmlDoc.AppendChild(RootNode);
+    RootNode:= XmlDoc.DocumentElement;
+
+    TasksNode := XmlDoc.CreateElement('tasks');
+    RootNode.AppendChild(TasksNode);
+
+    CustomSQLQuery.Close;
+    CustomSQLQuery.SQL.Text :=
+          'SELECT `_tasks`.`id` AS `task_id`, `name`, `description`, `created`, `modified`, `done`, ' +
+          '  `p`.`id` AS `period_id`, ' +
+          '  `p`.`begin` AS `period_begin`, ' +
+          '  `p`.`end` AS `period_end`, ' +
+          '  `p`.`is_manually_added` AS `period_is_manually_added` ' +
+          'FROM `_tasks` ' +
+          'LEFT JOIN `_periods` AS `p` ON `_tasks`.`id` = `p`.`task_id` ' +
+          'ORDER BY `_tasks`.`id` ASC';
+    CustomSQLQuery.Open;
+    CustomSQLQuery.First;
+    while not CustomSQLQuery.EOF do
+    begin
+      if TaskId <> CustomSQLQuery.FieldByName('task_id').AsInteger then
+      begin
+        TaskId := CustomSQLQuery.FieldByName('task_id').AsInteger;
+
+        TaskNode := XmlDoc.CreateElement('task');
+        TDOMElement(TaskNode).SetAttribute('id',       CustomSQLQuery.FieldByName('task_id').AsString);
+        TDOMElement(TaskNode).SetAttribute('name',     CustomSQLQuery.FieldByName('name').AsString);
+        TDOMElement(TaskNode).SetAttribute('created',  CustomSQLQuery.FieldByName('created').AsString);
+        TDOMElement(TaskNode).SetAttribute('modified', CustomSQLQuery.FieldByName('modified').AsString);
+        TDOMElement(TaskNode).SetAttribute('done',     CustomSQLQuery.FieldByName('done').AsString);
+        TasksNode.AppendChild(TaskNode);
+
+        PeriodsNode := XmlDoc.CreateElement('periods');
+        TaskNode.AppendChild(PeriodsNode);
+      end;
+
+      if not CustomSQLQuery.FieldByName('period_id').IsNull then
+      begin
+        PeriodNode := XmlDoc.CreateElement('period');
+        TDOMElement(PeriodNode).SetAttribute('id',     CustomSQLQuery.FieldByName('period_id').AsString);
+        TDOMElement(PeriodNode).SetAttribute('begin',  CustomSQLQuery.FieldByName('period_begin').AsString);
+        TDOMElement(PeriodNode).SetAttribute('end',    CustomSQLQuery.FieldByName('period_end').AsString);
+        TDOMElement(PeriodNode).SetAttribute('isManuallyAdded', CustomSQLQuery.FieldByName('period_is_manually_added').AsString);
+        PeriodsNode.AppendChild(PeriodNode);
+      end;
+
+      CustomSQLQuery.Next;
+    end;
+
+    WriteXMLFile(XmlDoc, AFileName);
+  finally
+    XmlDoc.Free;
+  end;
 end;
 
 end.

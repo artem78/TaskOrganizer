@@ -6,13 +6,17 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, ComCtrls,
-  StdCtrls, DBGrids, TasksFrame, DatabaseDM, PeriodsFrame, NonVisualCtrlsDM;
+  StdCtrls, DBGrids, Menus, TasksFrame, DatabaseDM, PeriodsFrame,
+  NonVisualCtrlsDM;
 
 type
 
   { TMainForm }
 
   TMainForm = class(TForm)
+    MainMenu: TMainMenu;
+    ExportMenuItem: TMenuItem;
+    ServiceMenuItem: TMenuItem;
     StatsDBGrid: TDBGrid;
     LogsMemo: TMemo;
     PageControl1: TPageControl;

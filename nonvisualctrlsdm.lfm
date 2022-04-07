@@ -132,6 +132,10 @@ object NonVisualCtrlsDataModule: TNonVisualCtrlsDataModule
       Caption = 'Delete period'
       OnExecute = DeletePeriodActionExecute
     end
+    object ExportDatabaseAction: TAction
+      Caption = 'Export'
+      OnExecute = ExportDatabaseActionExecute
+    end
   end
   object TrayIcon: TTrayIcon
     PopUpMenu = TrayPopupMenu

@@ -329,6 +329,7 @@ begin
         TaskNode := XmlDoc.CreateElement('task');
         TDOMElement(TaskNode).SetAttribute('id',       CustomSQLQuery.FieldByName('task_id').AsString);
         TDOMElement(TaskNode).SetAttribute('name',     CustomSQLQuery.FieldByName('name').AsString);
+        TDOMElement(TaskNode).SetAttribute('description', CustomSQLQuery.FieldByName('description').AsString);
         TDOMElement(TaskNode).SetAttribute('created',  DateTimeFieldToString(CustomSQLQuery.FieldByName('created')));
         TDOMElement(TaskNode).SetAttribute('modified', DateTimeFieldToString(CustomSQLQuery.FieldByName('modified')));
         TDOMElement(TaskNode).SetAttribute('done',     CustomSQLQuery.FieldByName('done').AsString);

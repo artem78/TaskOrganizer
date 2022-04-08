@@ -80,8 +80,8 @@ begin
       Clear;
       Append('CREATE TABLE IF NOT EXISTS `_tasks` (');
       Append('      `id`          INTEGER PRIMARY KEY,');
-      Append('      `name`        VARCHAR (255),');
-      Append('      `description` VARCHAR (255),');
+      Append('      `name`        VARCHAR,');
+      Append('      `description` VARCHAR,');
       Append('      `created`     DATETIME, ');
       Append('      `modified`    DATETIME,');
       Append('      `done`        BOOLEAN DEFAULT (FALSE) NOT NULL ON CONFLICT REPLACE');

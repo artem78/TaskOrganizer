@@ -29,6 +29,8 @@ type
     procedure ClearFilterButtonClick(Sender: TObject);
     procedure FilterEditChange(Sender: TObject);
     procedure ShowDoneTasksCheckBoxChange(Sender: TObject);
+    procedure TasksDBGridKeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
     procedure TasksDBGridPrepareCanvas(sender: TObject; DataCol: Integer;
       Column: TColumn; AState: TGridDrawState);
   private
@@ -40,7 +42,7 @@ type
 implementation
 
 uses
-  Variants, Graphics, DatabaseDM;
+  Variants, Graphics, DatabaseDM, LCLType, NonVisualCtrlsDM;
 
 {$R *.lfm}
 
@@ -71,6 +73,16 @@ end;
 procedure TTasksFrame.ShowDoneTasksCheckBoxChange(Sender: TObject);
 begin
   DatabaseDataModule.DoneTasksFilter := ShowDoneTasksCheckBox.Checked;
+end;
+
+procedure TTasksFrame.TasksDBGridKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  if Key = VK_DELETE then
+  begin
+    NonVisualCtrlsDataModule.DeleteTaskAction.Execute;
+    Key := 0;
+  end;
 end;
 
 {constructor TTasksFrame.Create(AOwner: TComponent);

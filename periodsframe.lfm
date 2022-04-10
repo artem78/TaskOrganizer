@@ -22,6 +22,7 @@ object PeriodsFrame: TPeriodsFrame
     ReadOnly = True
     TabOrder = 0
     TitleStyle = tsNative
+    OnKeyDown = DBGrid1KeyDown
   end
   object ToolBar: TToolBar
     Left = 0

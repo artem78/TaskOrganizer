@@ -49,6 +49,7 @@ object TaskEditForm: TTaskEditForm
     Anchors = [akTop, akLeft, akRight, akBottom]
     DataField = 'description'
     DataSource = DatabaseDataModule.TasksDataSource
+    MaxLength = 512
     ScrollBars = ssAutoBoth
     TabOrder = 1
   end

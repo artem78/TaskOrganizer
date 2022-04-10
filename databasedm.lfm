@@ -83,6 +83,7 @@ object DatabaseDataModule: TDatabaseDataModule
       Required = False
     end
     object TasksSQLQueryName: TStringField
+      DisplayWidth = 20
       FieldKind = fkData
       FieldName = 'name'
       Index = 1
@@ -90,6 +91,7 @@ object DatabaseDataModule: TDatabaseDataModule
       ProviderFlags = [pfInUpdate, pfInWhere, pfRefreshOnInsert, pfRefreshOnUpdate]
       ReadOnly = False
       Required = False
+      Size = 256
     end
     object TasksSQLQueryDescription: TStringField
       FieldKind = fkData
@@ -99,6 +101,7 @@ object DatabaseDataModule: TDatabaseDataModule
       ProviderFlags = [pfInUpdate, pfInWhere, pfRefreshOnInsert, pfRefreshOnUpdate]
       ReadOnly = False
       Required = False
+      Size = 512
     end
     object TasksSQLQueryCreated: TDateTimeField
       FieldKind = fkData

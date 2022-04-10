@@ -29,6 +29,7 @@ type
     procedure ClearFilterButtonClick(Sender: TObject);
     procedure FilterEditChange(Sender: TObject);
     procedure ShowDoneTasksCheckBoxChange(Sender: TObject);
+    procedure TasksDBGridDblClick(Sender: TObject);
     procedure TasksDBGridKeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);
     procedure TasksDBGridPrepareCanvas(sender: TObject; DataCol: Integer;
@@ -42,7 +43,7 @@ type
 implementation
 
 uses
-  Variants, Graphics, DatabaseDM, LCLType, NonVisualCtrlsDM;
+  Variants, Graphics, DatabaseDM, LCLType, NonVisualCtrlsDM, WinMouse;
 
 {$R *.lfm}
 
@@ -73,6 +74,20 @@ end;
 procedure TTasksFrame.ShowDoneTasksCheckBoxChange(Sender: TObject);
 begin
   DatabaseDataModule.DoneTasksFilter := ShowDoneTasksCheckBox.Checked;
+end;
+
+procedure TTasksFrame.TasksDBGridDblClick(Sender: TObject);
+  function IsMouseOverCell: Boolean;
+  var
+    ClientCoord: TPoint;
+  begin
+    ClientCoord :=  TasksDBGrid.ScreenToClient(Mouse.CursorPos);
+
+    Result := TasksDBGrid.MouseToGridZone(ClientCoord.X, ClientCoord.Y) = gzNormal;
+  end;
+
+begin
+  if IsMouseOverCell then NonVisualCtrlsDataModule.EditTaskAction.Execute;
 end;
 
 procedure TTasksFrame.TasksDBGridKeyDown(Sender: TObject; var Key: Word;

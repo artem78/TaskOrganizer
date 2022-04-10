@@ -17,6 +17,7 @@ type
     CreatePeriodToolButton: TToolButton;
     EditPeriodToolButton: TToolButton;
     DeletePeriodToolButton: TToolButton;
+    procedure DBGrid1DblClick(Sender: TObject);
     procedure DBGrid1KeyDown(Sender: TObject; var Key: Word; Shift: TShiftState
       );
   private
@@ -28,7 +29,7 @@ type
 implementation
 
 uses
-  LCLType, NonVisualCtrlsDM;
+  LCLType, NonVisualCtrlsDM, WinMouse, Grids;
 
 {$R *.lfm}
 
@@ -43,6 +44,21 @@ begin
     Key := 0;
   end;
 end;
+
+procedure TPeriodsFrame.DBGrid1DblClick(Sender: TObject);
+  function IsMouseOverCell: Boolean;
+  var
+    ClientCoord: TPoint;
+  begin
+    ClientCoord := DBGrid1.ScreenToClient(Mouse.CursorPos);
+
+    Result := DBGrid1.MouseToGridZone(ClientCoord.X, ClientCoord.Y) = gzNormal;
+  end;
+
+begin
+  if IsMouseOverCell then NonVisualCtrlsDataModule.EditPeriodAction.Execute;
+end;
+
 
 end.
 

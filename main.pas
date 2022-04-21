@@ -67,7 +67,7 @@ end;
 
 procedure TMainForm.FormShow(Sender: TObject);
 begin
-  NonVisualCtrlsDataModule.RefreshStartStopActionsVisibility;
+  NonVisualCtrlsDataModule.RunningTaskUpdated;
 end;
 
 procedure TMainForm.StatsTabSheetShow(Sender: TObject);

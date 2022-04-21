@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, UniqueInstance, Controls, ActnList, ExtCtrls, Menus, Models,
-  PeriodEditFrm;
+  PeriodEditFrm, TrayIconEx;
 
 type
 
@@ -24,17 +24,19 @@ type
     ExitAction: TAction;
     ExitMenuItem: TMenuItem;
     Icons: TImageList;
+    TrayAnimationIcons: TImageList;
     MarkTaskAsDoneAction: TAction;
     StartTimerackingMenuItem: TMenuItem;
     StartTimeTrackingAction: TAction;
     StopTimeTrackingAction: TAction;
     StopTimeTrackingMenuItem: TMenuItem;
-    TrayIcon: TTrayIcon;
+    TrayIcon: TTrayIconEx;
     TrayPopupMenu: TPopupMenu;
     UniqueInstance1: TUniqueInstance;
     UnMarkTaskAsDoneAction: TAction;
     procedure CreatePeriodActionExecute(Sender: TObject);
     procedure CreateTaskActionExecute(Sender: TObject);
+    procedure DataModuleCreate(Sender: TObject);
     procedure DeletePeriodActionExecute(Sender: TObject);
     procedure DeleteTaskActionExecute(Sender: TObject);
     procedure EditPeriodActionExecute(Sender: TObject);
@@ -50,7 +52,7 @@ type
   private
 
   public
-    procedure RefreshStartStopActionsVisibility;
+    procedure RunningTaskUpdated;
   end;
 
 var
@@ -74,7 +76,7 @@ begin
   Task.Start;
   Task.Free;
 
-  RefreshStartStopActionsVisibility;
+  RunningTaskUpdated;
 end;
 
 procedure TNonVisualCtrlsDataModule.ExitActionExecute(Sender: TObject);
@@ -97,6 +99,11 @@ begin
     else
       Cancel;
   end;
+end;
+
+procedure TNonVisualCtrlsDataModule.DataModuleCreate(Sender: TObject);
+begin
+  TrayIcon.Icons := TrayAnimationIcons;
 end;
 
 procedure TNonVisualCtrlsDataModule.DeletePeriodActionExecute(Sender: TObject);
@@ -230,7 +237,7 @@ begin
 
   DatabaseDataModule.PeriodsSQLQuery.Refresh;
 
-  RefreshStartStopActionsVisibility;
+  RunningTaskUpdated;
 end;
 
 procedure TNonVisualCtrlsDataModule.TrayIconDblClick(Sender: TObject);
@@ -252,13 +259,22 @@ begin
   DatabaseDataModule.SQLTransaction1.CommitRetaining;
 end;
 
-procedure TNonVisualCtrlsDataModule.RefreshStartStopActionsVisibility;
+procedure TNonVisualCtrlsDataModule.RunningTaskUpdated;
 var
   IsActive: Boolean;
 begin
   IsActive := TTask.HasActive;
   StartTimeTrackingAction.Enabled:=not IsActive;
   StopTimeTrackingAction.Enabled:=IsActive;
+  if IsActive then
+  begin
+    TrayIcon.Animate := True;
+  end
+  else
+  begin
+    TrayIcon.Animate := False;
+    TrayIcon.RestoreIcon;
+  end;
 end;
 
 {procedure TDataModule1.UniqueInstance1OtherInstance(Sender: TObject;

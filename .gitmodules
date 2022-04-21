@@ -1,0 +1,3 @@
+[submodule "packages/LazTrayIconExtended"]
+	path = packages/LazTrayIconExtended
+	url = git@github.com:artem78/LazTrayIconExtended.git

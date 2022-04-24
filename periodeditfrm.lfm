@@ -3,6 +3,7 @@ object PeriodEditForm: TPeriodEditForm
   Height = 160
   Top = 162
   Width = 500
+  ActiveControl = TaskDBLookupComboBox
   BorderStyle = bsDialog
   Caption = 'PeriodEditForm'
   ClientHeight = 160

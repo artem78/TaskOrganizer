@@ -44,6 +44,9 @@ begin
        dsEdit:   Caption := 'Edit task';
        else      Caption := '???';
   end;
+
+  //ActiveControl.SetFocus;
+  TaskNameDBEdit.SetFocus;
 end;
 
 end.

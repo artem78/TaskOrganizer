@@ -45,6 +45,9 @@ begin
        dsEdit:   Caption := 'Edit period';
        else      Caption := '???';
   end;
+
+  //ActiveControl.SetFocus;
+  TaskDBLookupComboBox.SetFocus;
 end;
 
 end.

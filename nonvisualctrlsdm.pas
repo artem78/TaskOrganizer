@@ -164,6 +164,9 @@ begin
       Delete;
       ApplyUpdates;
       DatabaseDataModule.SQLTransaction1.CommitRetaining;
+
+      // Refresh periods list after cascade delete
+      DatabaseDataModule.PeriodsSQLQuery.Refresh;
     end;
   end;
 end;

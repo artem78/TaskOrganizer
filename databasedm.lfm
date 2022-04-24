@@ -29,6 +29,9 @@ object DatabaseDataModule: TDatabaseDataModule
     LoginPrompt = False
     DatabaseName = 'database.sqlite3'
     KeepConnection = False
+    Params.Strings = (
+      'foreign_keys=ON'
+    )
     Transaction = SQLTransaction1
     CharSet = 'UTF8'
     OnLog = SQLite3Connection1Log

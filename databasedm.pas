@@ -102,7 +102,7 @@ begin
       Append('    `end`   DATETIME,');
       Append('    `task_id` INTEGER,');
       Append('    `is_manually_added` BOOLEAN DEFAULT (FALSE) NOT NULL ON CONFLICT REPLACE,');
-      Append('    FOREIGN KEY (`task_id`)  REFERENCES `tasks` (`id`) ON DELETE CASCADE');
+      Append('    FOREIGN KEY (`task_id`)  REFERENCES `_tasks` (`id`) ON DELETE CASCADE');
       Append(');');
     end;
     CustomSQLQuery.ExecSQL;

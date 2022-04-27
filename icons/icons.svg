@@ -1,0 +1,1617 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="300"
+   height="200"
+   viewBox="0 0 79.374998 52.916668"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1.2 (b8e25be833, 2022-02-05)"
+   sodipodi:docname="TaskOrganizer icon.svg"
+   inkscape:export-filename="TaskOrganizer icon 2.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="true"
+     inkscape:document-units="px"
+     showgrid="true"
+     units="px"
+     width="300px"
+     inkscape:snap-global="true"
+     inkscape:zoom="8"
+     inkscape:cx="38"
+     inkscape:cy="160.375"
+     inkscape:window-width="1440"
+     inkscape:window-height="848"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1"
+     inkscape:snap-object-midpoints="false"
+     inkscape:snap-center="true"
+     inkscape:snap-grids="true"
+     showguides="true">
+    <inkscape:grid
+       type="xygrid"
+       id="grid848"
+       enabled="true"
+       snapvisiblegridlinesonly="true"
+       dotted="false"
+       spacingx="0.26458333"
+       spacingy="0.26458333"
+       empspacing="10"
+       color="#7373ff"
+       opacity="0.1254902" />
+  </sodipodi:namedview>
+  <defs
+     id="defs2">
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient10258">
+      <stop
+         style="stop-color:#d5deee;stop-opacity:0.95294118"
+         offset="0"
+         id="stop10254" />
+      <stop
+         style="stop-color:#ffffff;stop-opacity:1"
+         offset="1"
+         id="stop10256" />
+    </linearGradient>
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect7829"
+       is_visible="true"
+       lpeversion="1" />
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient5505">
+      <stop
+         style="stop-color:#4675bb;stop-opacity:1"
+         offset="0"
+         id="stop5501" />
+      <stop
+         style="stop-color:#87aade;stop-opacity:1"
+         offset="1"
+         id="stop5503" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient46044">
+      <stop
+         style="stop-color:#ffffff;stop-opacity:1"
+         offset="0"
+         id="stop46040" />
+      <stop
+         style="stop-color:#afc6c9;stop-opacity:1"
+         offset="1"
+         id="stop46042" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient41202">
+      <stop
+         style="stop-color:#ffffff;stop-opacity:1"
+         offset="0"
+         id="stop41198" />
+      <stop
+         style="stop-color:#9ec8ce;stop-opacity:1"
+         offset="1"
+         id="stop41200" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient26124">
+      <stop
+         style="stop-color:#204379;stop-opacity:1"
+         offset="0"
+         id="stop26120" />
+      <stop
+         style="stop-color:#214f94;stop-opacity:0.99607843"
+         offset="0.75"
+         id="stop26162" />
+      <stop
+         style="stop-color:#83a9e1;stop-opacity:0.99607843"
+         offset="1"
+         id="stop26122" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient26124"
+       id="linearGradient26126"
+       x1="7.6729164"
+       y1="4.4979167"
+       x2="7.6729164"
+       y2="1.3229166"
+       gradientUnits="userSpaceOnUse" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient41202"
+       id="radialGradient41204"
+       cx="9.1281252"
+       cy="9.3927078"
+       fx="9.1281252"
+       fy="9.3927078"
+       r="0.92604166"
+       gradientUnits="userSpaceOnUse" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient41202"
+       id="radialGradient41204-6"
+       cx="9.1281252"
+       cy="9.3927078"
+       fx="9.1281252"
+       fy="9.3927078"
+       r="0.92604166"
+       gradientUnits="userSpaceOnUse" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient41202"
+       id="radialGradient45768"
+       cx="9.1281252"
+       cy="9.3927078"
+       fx="9.1281252"
+       fy="9.3927078"
+       r="0.92604166"
+       gradientUnits="userSpaceOnUse" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient41202"
+       id="radialGradient45776"
+       cx="9.1281252"
+       cy="9.3927078"
+       fx="9.1281252"
+       fy="9.3927078"
+       r="0.92604166"
+       gradientUnits="userSpaceOnUse" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient46044"
+       id="radialGradient45793"
+       gradientUnits="userSpaceOnUse"
+       cx="9.1281252"
+       cy="9.3927078"
+       fx="9.1281252"
+       fy="9.3927078"
+       r="0.92604166" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient41202"
+       id="radialGradient45795"
+       gradientUnits="userSpaceOnUse"
+       cx="9.1281252"
+       cy="9.3927078"
+       fx="9.1281252"
+       fy="9.3927078"
+       r="0.92604166" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient41202"
+       id="radialGradient41204-9"
+       cx="9.1281252"
+       cy="9.3927078"
+       fx="9.1281252"
+       fy="9.3927078"
+       r="0.92604166"
+       gradientUnits="userSpaceOnUse" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient41202"
+       id="radialGradient46209"
+       cx="9.1281252"
+       cy="9.3927078"
+       fx="9.1281252"
+       fy="9.3927078"
+       r="0.92604166"
+       gradientUnits="userSpaceOnUse" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient41202"
+       id="radialGradient46217"
+       cx="9.1281252"
+       cy="9.3927078"
+       fx="9.1281252"
+       fy="9.3927078"
+       r="0.92604166"
+       gradientUnits="userSpaceOnUse" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient41202"
+       id="radialGradient46234"
+       gradientUnits="userSpaceOnUse"
+       cx="9.1281252"
+       cy="9.3927078"
+       fx="9.1281252"
+       fy="9.3927078"
+       r="0.92604166" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient41202"
+       id="radialGradient41204-9-3"
+       cx="9.1281252"
+       cy="9.3927078"
+       fx="9.1281252"
+       fy="9.3927078"
+       r="0.92604166"
+       gradientUnits="userSpaceOnUse" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient41202"
+       id="radialGradient46234-6"
+       gradientUnits="userSpaceOnUse"
+       cx="9.1281252"
+       cy="9.3927078"
+       fx="9.1281252"
+       fy="9.3927078"
+       r="0.92604166" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient41202"
+       id="radialGradient41204-9-3-3"
+       cx="9.1281252"
+       cy="9.3927078"
+       fx="9.1281252"
+       fy="9.3927078"
+       r="0.92604166"
+       gradientUnits="userSpaceOnUse" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient41202"
+       id="radialGradient46234-6-5"
+       gradientUnits="userSpaceOnUse"
+       cx="9.1281252"
+       cy="9.3927078"
+       fx="9.1281252"
+       fy="9.3927078"
+       r="0.92604166" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient41202"
+       id="radialGradient41204-9-3-3-8"
+       cx="9.1281252"
+       cy="9.3927078"
+       fx="9.1281252"
+       fy="9.3927078"
+       r="0.92604166"
+       gradientUnits="userSpaceOnUse" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient41202"
+       id="radialGradient46234-6-5-8"
+       gradientUnits="userSpaceOnUse"
+       cx="9.1281252"
+       cy="9.3927078"
+       fx="9.1281252"
+       fy="9.3927078"
+       r="0.92604166" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient41202"
+       id="radialGradient41204-9-3-3-8-9"
+       cx="9.1281252"
+       cy="9.3927078"
+       fx="9.1281252"
+       fy="9.3927078"
+       r="0.92604166"
+       gradientUnits="userSpaceOnUse" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient41202"
+       id="radialGradient46234-6-5-8-6"
+       gradientUnits="userSpaceOnUse"
+       cx="9.1281252"
+       cy="9.3927078"
+       fx="9.1281252"
+       fy="9.3927078"
+       r="0.92604166" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient41202"
+       id="radialGradient41204-9-3-3-8-9-2"
+       cx="9.1281252"
+       cy="9.3927078"
+       fx="9.1281252"
+       fy="9.3927078"
+       r="0.92604166"
+       gradientUnits="userSpaceOnUse" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient41202"
+       id="radialGradient46234-6-5-8-6-2"
+       gradientUnits="userSpaceOnUse"
+       cx="9.1281252"
+       cy="9.3927078"
+       fx="9.1281252"
+       fy="9.3927078"
+       r="0.92604166" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient41202"
+       id="radialGradient41204-9-3-3-8-9-2-0"
+       cx="9.1281252"
+       cy="9.3927078"
+       fx="9.1281252"
+       fy="9.3927078"
+       r="0.92604166"
+       gradientUnits="userSpaceOnUse" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient41202"
+       id="radialGradient46234-6-5-8-6-2-7"
+       gradientUnits="userSpaceOnUse"
+       cx="9.1281252"
+       cy="9.3927078"
+       fx="9.1281252"
+       fy="9.3927078"
+       r="0.92604166" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient41202"
+       id="radialGradient41204-9-3-3-8-9-2-0-3"
+       cx="9.1281252"
+       cy="9.3927078"
+       fx="9.1281252"
+       fy="9.3927078"
+       r="0.92604166"
+       gradientUnits="userSpaceOnUse" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient41202"
+       id="radialGradient46234-6-5-8-6-2-7-6"
+       gradientUnits="userSpaceOnUse"
+       cx="9.1281252"
+       cy="9.3927078"
+       fx="9.1281252"
+       fy="9.3927078"
+       r="0.92604166" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5505"
+       id="linearGradient5507"
+       x1="16.668751"
+       y1="22.489584"
+       x2="16.668751"
+       y2="21.695833"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient10258"
+       id="linearGradient10260"
+       x1="17.727083"
+       y1="26.987499"
+       x2="17.727083"
+       y2="25.4"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient26124"
+       id="linearGradient26126-9"
+       x1="7.6729164"
+       y1="4.4979167"
+       x2="7.6729164"
+       y2="1.3229166"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.4999999,0,0,1.5,4.2333336,19.711456)" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient10258"
+       id="linearGradient10260-0"
+       x1="17.727083"
+       y1="26.987499"
+       x2="17.727083"
+       y2="25.4"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.5333336,0,0,1.5333333,13.123328,-12.929303)" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5505"
+       id="linearGradient5507-0"
+       x1="16.668751"
+       y1="22.489584"
+       x2="16.668751"
+       y2="21.695833"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.5333333,0,0,1.7564129,13.123335,-17.798371)" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3293"
+       id="linearGradient3295"
+       x1="27.516666"
+       y1="32.279167"
+       x2="26.19375"
+       y2="30.427082"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient3293">
+      <stop
+         style="stop-color:#209229;stop-opacity:1"
+         offset="0"
+         id="stop3289" />
+      <stop
+         style="stop-color:#29e630;stop-opacity:1"
+         offset="0.39784178"
+         id="stop3953" />
+      <stop
+         style="stop-color:#a7ffa0;stop-opacity:1"
+         offset="1"
+         id="stop3291" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient992"
+       id="linearGradient994"
+       x1="23.775497"
+       y1="32.510792"
+       x2="21.274668"
+       y2="29.16461"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.93772909,0,0,0.93772909,-14.659909,8.8990996)" />
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient992">
+      <stop
+         style="stop-color:#cb0a00;stop-opacity:1"
+         offset="0"
+         id="stop988" />
+      <stop
+         style="stop-color:#e1251a;stop-opacity:1"
+         offset="0.2655085"
+         id="stop1414" />
+      <stop
+         style="stop-color:#f89791;stop-opacity:1"
+         offset="1"
+         id="stop990" />
+    </linearGradient>
+  </defs>
+  <g
+     inkscape:label="Слой 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="fill:#ffffff;fill-opacity:0.00505;stroke:none;stroke-width:1.40921;stroke-opacity:1"
+       id="rect2316"
+       width="4.2333331"
+       height="4.2333331"
+       x="1.0583333"
+       y="0.79374999" />
+    <rect
+       style="fill:#925d21;fill-opacity:1;stroke:none;stroke-width:1.31084"
+       id="rect846"
+       width="3.1749997"
+       height="3.7041664"
+       x="1.5875002"
+       y="1.3229166"
+       ry="0.66535723" />
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.948725"
+       id="rect846-3"
+       width="2.116667"
+       height="2.9104166"
+       x="2.1166666"
+       y="1.8520833" />
+    <rect
+       style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.518054"
+       id="rect1640"
+       width="1.5875"
+       height="0.52916664"
+       x="2.3812499"
+       y="1.3229167" />
+    <circle
+       style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.345369"
+       id="path1832"
+       cx="3.1749997"
+       cy="1.3229167"
+       r="0.52916664" />
+    <circle
+       style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.172685"
+       id="path1832-6"
+       cx="3.1749997"
+       cy="1.3229167"
+       r="0.26458332" />
+    <g
+       id="g4530">
+      <rect
+         style="fill:#ff0000;fill-opacity:0.993816;stroke:none;stroke-width:0.518054;stroke-opacity:1"
+         id="rect3743"
+         width="0.26458332"
+         height="0.26458332"
+         x="2.3812499"
+         y="2.1166666" />
+      <rect
+         style="fill:#ff0000;fill-opacity:0.993816;stroke:none;stroke-width:0.518054;stroke-opacity:1"
+         id="rect3743-7"
+         width="0.26458332"
+         height="0.26458332"
+         x="2.6458333"
+         y="2.3812499" />
+      <rect
+         style="fill:#ff0000;fill-opacity:0.993816;stroke:none;stroke-width:0.518054;stroke-opacity:1"
+         id="rect3743-5"
+         width="0.26458332"
+         height="0.26458332"
+         x="2.9104166"
+         y="2.1166666" />
+    </g>
+    <path
+       id="rect4090"
+       style="fill:#b0b0b0;fill-opacity:0.993816;stroke:none;stroke-width:1.958;stroke-opacity:1"
+       d="m 9,14 v 3 h 3 v -3 z m 1,1 h 1 v 1 h -1 z"
+       transform="scale(0.26458333)" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#g4530"
+       id="use4612"
+       transform="translate(3.7683713e-8,0.79375009)"
+       width="100%"
+       height="100%" />
+    <g
+       id="g37198"
+       inkscape:export-filename=".\program_icon_16x16.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"
+       transform="translate(0,21.166674)">
+      <rect
+         style="fill:#e3e3e3;fill-opacity:0;stroke:none;stroke-width:1.11767;stroke-opacity:1"
+         id="rect4653"
+         width="4.2333331"
+         height="4.2333331"
+         x="6.3499999"
+         y="0.79374999"
+         inkscape:export-filename="TaskOrganizer icon 4.png"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96" />
+      <rect
+         style="fill:url(#linearGradient26126);fill-opacity:1;stroke:none;stroke-width:0.598197;stroke-opacity:1"
+         id="rect5175"
+         width="4.2333331"
+         height="3.175"
+         x="6.3499999"
+         y="1.3229166"
+         ry="0.45949894"
+         inkscape:export-filename="TaskOrganizer icon 4.png"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96" />
+      <path
+         id="rect5175-1"
+         style="fill:#ffffff;fill-opacity:0.996078;stroke-width:1.72679"
+         d="m 25,8 v 7 c 0,0.554 0.446,1 1,1 h 12 c 0.553999,0 1,-0.446 1,-1 V 8 Z"
+         transform="scale(0.26458333)"
+         sodipodi:nodetypes="ccssccc"
+         inkscape:export-filename="TaskOrganizer icon 4.png"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96" />
+      <path
+         style="fill:none;stroke:#ff0000;stroke-width:0.264583;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="M 7.0245826,2.5230136 L 7.2869015,2.7631853 L 7.8010316,2.3976811"
+         id="path14596"
+         inkscape:export-filename="TaskOrganizer icon 4.png"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96"
+         sodipodi:nodetypes="ccc" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:0.705556px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#767676;fill-opacity:1;stroke:none;stroke-width:0.264583"
+         x="8.1492014"
+         y="2.8931978"
+         id="text17077"
+         inkscape:export-filename="TaskOrganizer icon 4.png"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96"><tspan
+           sodipodi:role="line"
+           id="tspan17075"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:0.705556px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#767676;fill-opacity:1;stroke-width:0.264583"
+           x="8.1492014"
+           y="2.8931978">loem</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:0.705556px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#767676;fill-opacity:1;stroke:none;stroke-width:0.264583"
+         x="8.2263346"
+         y="3.933408"
+         id="text17077-2"
+         inkscape:export-filename="TaskOrganizer icon 4.png"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96"><tspan
+           sodipodi:role="line"
+           id="tspan17075-7"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:0.705556px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#767676;fill-opacity:1;stroke-width:0.264583"
+           x="8.2263346"
+           y="3.933408">swiu</tspan></text>
+      <rect
+         style="fill:#ffffff;fill-opacity:0.996078;stroke:none;stroke-width:0.264583;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect25811"
+         width="0.26458332"
+         height="0.26458332"
+         x="10.054167"
+         y="1.5875"
+         inkscape:export-filename="TaskOrganizer icon 4.png"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96" />
+      <rect
+         style="fill:#ffffff;fill-opacity:0.996078;stroke:none;stroke-width:0.264583;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect25811-0"
+         width="0.26458332"
+         height="0.26458332"
+         x="9.5250006"
+         y="1.5875"
+         inkscape:export-filename="TaskOrganizer icon 4.png"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96" />
+      <rect
+         style="fill:#ffffff;fill-opacity:0.996078;stroke:none;stroke-width:0.264583;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect25811-9"
+         width="0.26458332"
+         height="0.26458332"
+         x="8.9958334"
+         y="1.5875"
+         inkscape:export-filename="TaskOrganizer icon 4.png"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96" />
+      <use
+         x="0"
+         y="0"
+         xlink:href="#path14596"
+         id="use35922"
+         transform="translate(0,1.0583333)"
+         width="100%"
+         height="100%"
+         inkscape:export-filename="TaskOrganizer icon 4.png"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96" />
+    </g>
+    <use
+       x="0"
+       y="0"
+       xlink:href="#g37198"
+       id="use37200"
+       width="100%"
+       height="100%"
+       inkscape:export-filename="./uTaskOrganizer icon with clock 4.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"
+       transform="translate(0,-15.875004)" />
+    <rect
+       style="fill:#fefeff;fill-opacity:1;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect39736"
+       width="2.3812499"
+       height="1.5875"
+       x="7.9375"
+       y="7.4083333"
+       inkscape:export-filename="./uTaskOrganizer icon with clock 4.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <g
+       id="g38892"
+       transform="matrix(1.2857144,0,0,1.2857144,-2.3434531,-3.2127983)"
+       inkscape:export-filename="./uTaskOrganizer icon with clock 4.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"
+       style="fill:url(#radialGradient41204);fill-opacity:1">
+      <ellipse
+         style="fill:url(#radialGradient41204);fill-opacity:1;stroke:#5d868c;stroke-width:0.205838;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="path37328"
+         cx="9.1281252"
+         cy="9.3927078"
+         rx="0.82312268"
+         ry="0.82312244"
+         inkscape:export-filename="./uTaskOrganizer icon with clock 2.png"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96" />
+      <path
+         style="fill:url(#radialGradient41204);fill-opacity:1;stroke:#000000;stroke-width:0.205787;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="M 9.2310182,9.4956015 L 8.7312499,8.9958332"
+         id="path38322"
+         inkscape:export-filename="./uTaskOrganizer icon with clock 2.png"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96"
+         sodipodi:nodetypes="cc" />
+    </g>
+    <use
+       x="0"
+       y="0"
+       xlink:href="#g37198"
+       id="use37200-8"
+       transform="translate(7.9375004,-15.875004)"
+       width="100%"
+       height="100%"
+       inkscape:export-filename="./Clock icon anim 1.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <rect
+       style="fill:#fefeff;fill-opacity:1;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect39736-97"
+       width="2.3812499"
+       height="1.5875"
+       x="15.874993"
+       y="7.4083333"
+       inkscape:export-filename="./Clock icon anim 1.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#g37198"
+       id="use37200-7"
+       width="100%"
+       height="100%"
+       inkscape:export-filename="./uTaskOrganizer icon with clock 5.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"
+       transform="translate(0,-10.583334)" />
+    <rect
+       style="fill:#fefeff;fill-opacity:1;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect39736-9"
+       width="2.3812499"
+       height="1.5875"
+       x="7.9375"
+       y="12.699996"
+       inkscape:export-filename="./uTaskOrganizer icon with clock 5.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <g
+       id="g38892-2"
+       transform="matrix(1.5714285,0,0,1.571429,-5.2160711,-0.60476513)"
+       inkscape:export-filename="./uTaskOrganizer icon with clock 5.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"
+       style="fill:url(#radialGradient41204-6);fill-opacity:1">
+      <ellipse
+         style="fill:url(#radialGradient45793);fill-opacity:1;stroke:#5d868c;stroke-width:0.205838;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="path37328-0"
+         cx="9.1281252"
+         cy="9.3927078"
+         rx="0.82312268"
+         ry="0.82312244"
+         inkscape:export-filename="./uTaskOrganizer icon with clock 2.png"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96" />
+      <path
+         style="fill:url(#radialGradient45795);fill-opacity:1;stroke:#000000;stroke-width:0.205787;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="M 9.2310182,9.4956015 L 8.7312499,8.9958332"
+         id="path38322-2"
+         inkscape:export-filename="./uTaskOrganizer icon with clock 2.png"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96"
+         sodipodi:nodetypes="cc" />
+    </g>
+    <g
+       id="g48518"
+       inkscape:export-filename="./Clock icon anim 1.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96">
+      <g
+         id="g38892-3"
+         transform="matrix(1.2857144,0,0,1.2857144,5.5940472,-3.2127983)"
+         inkscape:export-filename="./uTaskOrganizer icon with clock 4.png"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96"
+         style="fill:url(#radialGradient41204-9);fill-opacity:1">
+        <ellipse
+           style="fill:url(#radialGradient46234);fill-opacity:1;stroke:#5d868c;stroke-width:0.205838;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           id="path37328-6"
+           cx="9.1281252"
+           cy="9.3927078"
+           rx="0.82312268"
+           ry="0.82312244"
+           inkscape:export-filename="./uTaskOrganizer icon with clock 2.png"
+           inkscape:export-xdpi="96"
+           inkscape:export-ydpi="96" />
+      </g>
+      <path
+         style="fill:none;stroke:#2f595f;stroke-width:0.262978;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="M 17.330208,8.0697916 V 8.9958333"
+         id="path46700"
+         inkscape:transform-center-x="1.2027306e-06"
+         inkscape:transform-center-y="-0.33072896" />
+    </g>
+    <use
+       x="0"
+       y="0"
+       xlink:href="#g37198"
+       id="use37200-8-1"
+       transform="translate(13.758336,-15.875004)"
+       width="100%"
+       height="100%"
+       inkscape:export-filename="Clock icon anim 2.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <rect
+       style="fill:#fefeff;fill-opacity:1;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect39736-97-5"
+       width="2.3812499"
+       height="1.5875"
+       x="21.695831"
+       y="7.4083333"
+       inkscape:export-filename="Clock icon anim 2.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <g
+       id="g48518-5"
+       transform="translate(5.8208336)"
+       inkscape:export-filename="Clock icon anim 2.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96">
+      <g
+         id="g38892-3-4"
+         transform="matrix(1.2857144,0,0,1.2857144,5.5940472,-3.2127983)"
+         inkscape:export-filename="./uTaskOrganizer icon with clock 4.png"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96"
+         style="fill:url(#radialGradient41204-9-3);fill-opacity:1">
+        <ellipse
+           style="fill:url(#radialGradient46234-6);fill-opacity:1;stroke:#5d868c;stroke-width:0.205838;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           id="path37328-6-7"
+           cx="9.1281252"
+           cy="9.3927078"
+           rx="0.82312268"
+           ry="0.82312244"
+           inkscape:export-filename="./uTaskOrganizer icon with clock 2.png"
+           inkscape:export-xdpi="96"
+           inkscape:export-ydpi="96" />
+      </g>
+      <path
+         style="fill:none;stroke:#2f595f;stroke-width:0.262978;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="M 17.891474,8.3022747 L 17.236664,8.957085"
+         id="path46700-6"
+         inkscape:transform-center-x="-0.2338598"
+         inkscape:transform-center-y="-0.23386156" />
+    </g>
+    <use
+       x="0"
+       y="0"
+       xlink:href="#g37198"
+       id="use37200-8-1-2"
+       transform="translate(19.579173,-15.875004)"
+       width="100%"
+       height="100%"
+       inkscape:export-filename="Clock icon anim 3.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <rect
+       style="fill:#fefeff;fill-opacity:1;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect39736-97-5-5"
+       width="2.3812499"
+       height="1.5875"
+       x="27.51667"
+       y="7.4083333"
+       inkscape:export-filename="Clock icon anim 3.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <g
+       id="g48518-5-4"
+       transform="translate(11.641668)"
+       inkscape:export-filename="Clock icon anim 3.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96">
+      <g
+         id="g38892-3-4-7"
+         transform="matrix(1.2857144,0,0,1.2857144,5.5940472,-3.2127983)"
+         inkscape:export-filename="./uTaskOrganizer icon with clock 4.png"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96"
+         style="fill:url(#radialGradient41204-9-3-3);fill-opacity:1">
+        <ellipse
+           style="fill:url(#radialGradient46234-6-5);fill-opacity:1;stroke:#5d868c;stroke-width:0.205838;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           id="path37328-6-7-4"
+           cx="9.1281252"
+           cy="9.3927078"
+           rx="0.82312268"
+           ry="0.82312244"
+           inkscape:export-filename="./uTaskOrganizer icon with clock 2.png"
+           inkscape:export-xdpi="96"
+           inkscape:export-ydpi="96" />
+      </g>
+      <path
+         style="fill:none;stroke:#2f595f;stroke-width:0.262978;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 18.123959,8.8635401 l -0.926042,2e-7"
+         id="path46700-6-4"
+         inkscape:transform-center-x="-0.3307288"
+         inkscape:transform-center-y="-1.2033709e-06" />
+    </g>
+    <use
+       x="0"
+       y="0"
+       xlink:href="#g37198"
+       id="use37200-8-1-2-4"
+       transform="translate(25.40001,-15.875004)"
+       width="100%"
+       height="100%"
+       inkscape:export-filename="Clock icon anim 4.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <rect
+       style="fill:#fefeff;fill-opacity:1;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect39736-97-5-5-3"
+       width="2.3812499"
+       height="1.5875"
+       x="33.337509"
+       y="7.4083333"
+       inkscape:export-filename="Clock icon anim 4.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <g
+       id="g48518-5-4-1"
+       transform="translate(17.462505)"
+       inkscape:export-filename="Clock icon anim 4.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96">
+      <g
+         id="g38892-3-4-7-4"
+         transform="matrix(1.2857144,0,0,1.2857144,5.5940472,-3.2127983)"
+         inkscape:export-filename="./uTaskOrganizer icon with clock 4.png"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96"
+         style="fill:url(#radialGradient41204-9-3-3-8);fill-opacity:1">
+        <ellipse
+           style="fill:url(#radialGradient46234-6-5-8);fill-opacity:1;stroke:#5d868c;stroke-width:0.205838;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           id="path37328-6-7-4-9"
+           cx="9.1281252"
+           cy="9.3927078"
+           rx="0.82312268"
+           ry="0.82312244"
+           inkscape:export-filename="./uTaskOrganizer icon with clock 2.png"
+           inkscape:export-xdpi="96"
+           inkscape:export-ydpi="96" />
+      </g>
+      <path
+         style="fill:none;stroke:#2f595f;stroke-width:0.262978;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="M 17.891476,9.4248063 L 17.236665,8.7699959"
+         id="path46700-6-4-2"
+         inkscape:transform-center-x="-0.2338613"
+         inkscape:transform-center-y="0.2338597" />
+    </g>
+    <use
+       x="0"
+       y="0"
+       xlink:href="#g37198"
+       id="use37200-8-1-2-4-4"
+       transform="translate(31.220847,-15.875004)"
+       width="100%"
+       height="100%"
+       inkscape:export-filename="Clock icon anim 5.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <rect
+       style="fill:#fefeff;fill-opacity:1;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect39736-97-5-5-3-9"
+       width="2.3812499"
+       height="1.5875"
+       x="39.158348"
+       y="7.4083333"
+       inkscape:export-filename="Clock icon anim 5.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <g
+       id="g48518-5-4-1-5"
+       transform="translate(23.283342)"
+       inkscape:export-filename="Clock icon anim 5.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96">
+      <g
+         id="g38892-3-4-7-4-0"
+         transform="matrix(1.2857144,0,0,1.2857144,5.5940472,-3.2127983)"
+         inkscape:export-filename="./uTaskOrganizer icon with clock 4.png"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96"
+         style="fill:url(#radialGradient41204-9-3-3-8-9);fill-opacity:1">
+        <ellipse
+           style="fill:url(#radialGradient46234-6-5-8-6);fill-opacity:1;stroke:#5d868c;stroke-width:0.205838;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           id="path37328-6-7-4-9-4"
+           cx="9.1281252"
+           cy="9.3927078"
+           rx="0.82312268"
+           ry="0.82312244"
+           inkscape:export-filename="./uTaskOrganizer icon with clock 2.png"
+           inkscape:export-xdpi="96"
+           inkscape:export-ydpi="96" />
+      </g>
+      <path
+         style="fill:none;stroke:#2f595f;stroke-width:0.262978;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="M 17.330211,9.6572912 L 17.33021,8.731249"
+         id="path46700-6-4-2-8"
+         inkscape:transform-center-x="-1.2933709e-06"
+         inkscape:transform-center-y="0.3307287" />
+    </g>
+    <use
+       x="0"
+       y="0"
+       xlink:href="#g37198"
+       id="use37200-8-1-2-4-4-6"
+       transform="translate(37.041684,-15.875004)"
+       width="100%"
+       height="100%"
+       inkscape:export-filename="Clock icon anim 6.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <rect
+       style="fill:#fefeff;fill-opacity:1;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect39736-97-5-5-3-9-1"
+       width="2.3812499"
+       height="1.5875"
+       x="44.979187"
+       y="7.4083333"
+       inkscape:export-filename="Clock icon anim 6.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <g
+       id="g48518-5-4-1-5-0"
+       transform="translate(29.104179)"
+       inkscape:export-filename="Clock icon anim 6.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96">
+      <g
+         id="g38892-3-4-7-4-0-6"
+         transform="matrix(1.2857144,0,0,1.2857144,5.5940472,-3.2127983)"
+         inkscape:export-filename="./uTaskOrganizer icon with clock 4.png"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96"
+         style="fill:url(#radialGradient41204-9-3-3-8-9-2);fill-opacity:1">
+        <ellipse
+           style="fill:url(#radialGradient46234-6-5-8-6-2);fill-opacity:1;stroke:#5d868c;stroke-width:0.205838;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           id="path37328-6-7-4-9-4-1"
+           cx="9.1281252"
+           cy="9.3927078"
+           rx="0.82312268"
+           ry="0.82312244"
+           inkscape:export-filename="./uTaskOrganizer icon with clock 2.png"
+           inkscape:export-xdpi="96"
+           inkscape:export-ydpi="96" />
+      </g>
+      <path
+         style="fill:none;stroke:#2f595f;stroke-width:0.262978;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 16.768945,9.4248085 l 0.65481,-0.6548114"
+         id="path46700-6-4-2-8-5"
+         inkscape:transform-center-x="0.23385921"
+         inkscape:transform-center-y="0.2338614" />
+    </g>
+    <use
+       x="0"
+       y="0"
+       xlink:href="#g37198"
+       id="use37200-8-1-2-4-4-6-7"
+       transform="translate(42.862521,-15.875004)"
+       width="100%"
+       height="100%"
+       inkscape:export-filename="Clock icon anim 7.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <rect
+       style="fill:#fefeff;fill-opacity:1;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect39736-97-5-5-3-9-1-1"
+       width="2.3812499"
+       height="1.5875"
+       x="50.800026"
+       y="7.4083333"
+       inkscape:export-filename="Clock icon anim 7.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <g
+       id="g48518-5-4-1-5-0-1"
+       transform="translate(34.925016)"
+       inkscape:export-filename="Clock icon anim 7.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96">
+      <g
+         id="g38892-3-4-7-4-0-6-5"
+         transform="matrix(1.2857144,0,0,1.2857144,5.5940472,-3.2127983)"
+         inkscape:export-filename="./uTaskOrganizer icon with clock 4.png"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96"
+         style="fill:url(#radialGradient41204-9-3-3-8-9-2-0);fill-opacity:1">
+        <ellipse
+           style="fill:url(#radialGradient46234-6-5-8-6-2-7);fill-opacity:1;stroke:#5d868c;stroke-width:0.205838;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           id="path37328-6-7-4-9-4-1-9"
+           cx="9.1281252"
+           cy="9.3927078"
+           rx="0.82312268"
+           ry="0.82312244"
+           inkscape:export-filename="./uTaskOrganizer icon with clock 2.png"
+           inkscape:export-xdpi="96"
+           inkscape:export-ydpi="96" />
+      </g>
+      <path
+         style="fill:none;stroke:#2f595f;stroke-width:0.262978;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 16.53646,8.8635435 l 0.926042,-1e-6"
+         id="path46700-6-4-2-8-5-7"
+         inkscape:transform-center-x="0.33072821"
+         inkscape:transform-center-y="1.5933709e-06" />
+    </g>
+    <use
+       x="0"
+       y="0"
+       xlink:href="#g37198"
+       id="use37200-8-1-2-4-4-6-7-3"
+       transform="translate(48.683358,-15.875004)"
+       width="100%"
+       height="100%"
+       inkscape:export-filename="Clock icon anim 8.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <rect
+       style="fill:#fefeff;fill-opacity:1;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect39736-97-5-5-3-9-1-1-9"
+       width="2.3812499"
+       height="1.5875"
+       x="56.620865"
+       y="7.4083333"
+       inkscape:export-filename="Clock icon anim 8.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <g
+       id="g48518-5-4-1-5-0-1-4"
+       transform="translate(40.745853)"
+       inkscape:export-filename="Clock icon anim 8.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96">
+      <g
+         id="g38892-3-4-7-4-0-6-5-8"
+         transform="matrix(1.2857144,0,0,1.2857144,5.5940472,-3.2127983)"
+         inkscape:export-filename="./uTaskOrganizer icon with clock 4.png"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96"
+         style="fill:url(#radialGradient41204-9-3-3-8-9-2-0-3);fill-opacity:1">
+        <ellipse
+           style="fill:url(#radialGradient46234-6-5-8-6-2-7-6);fill-opacity:1;stroke:#5d868c;stroke-width:0.205838;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           id="path37328-6-7-4-9-4-1-9-1"
+           cx="9.1281252"
+           cy="9.3927078"
+           rx="0.82312268"
+           ry="0.82312244"
+           inkscape:export-filename="./uTaskOrganizer icon with clock 2.png"
+           inkscape:export-xdpi="96"
+           inkscape:export-ydpi="96" />
+      </g>
+      <path
+         style="fill:none;stroke:#2f595f;stroke-width:0.262978;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 16.768942,8.3022774 l 0.654812,0.6548099"
+         id="path46700-6-4-2-8-5-7-2"
+         inkscape:transform-center-x="0.23386121"
+         inkscape:transform-center-y="-0.23385906" />
+    </g>
+    <g
+       id="g13208"
+       inkscape:export-filename=".\program_icon_32x32.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"
+       transform="translate(8.4666671)">
+      <rect
+         style="fill:#e3e3e3;fill-opacity:0;stroke:none;stroke-width:2.23533;stroke-opacity:1"
+         id="rect4653-7"
+         width="8.4666662"
+         height="8.4666662"
+         x="14.816667"
+         y="19.843756"
+         inkscape:export-filename="program icon 32x32 2.png"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96" />
+      <rect
+         style="fill:#214f94;fill-opacity:1;stroke:none;stroke-width:1.14546;stroke-opacity:1"
+         id="rect5175-4"
+         width="8.4666662"
+         height="5.8208275"
+         x="14.816667"
+         y="21.166676"
+         ry="0.42392027"
+         inkscape:export-filename="program icon 32x32 2.png"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96" />
+      <rect
+         style="fill:url(#linearGradient10260);fill-opacity:1;fill-rule:evenodd;stroke-width:0.260561"
+         id="rect1880"
+         width="7.937499"
+         height="3.96875"
+         x="15.08125"
+         y="22.754168"
+         ry="0"
+         inkscape:export-filename="program icon 32x32 2.png"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:1.48245px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#7b9ca5;fill-opacity:1;stroke:none;stroke-width:0.555918"
+         x="17.77203"
+         y="25.195848"
+         id="text17077-8"
+         inkscape:export-filename="program icon 32x32 2.png"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96"
+         transform="scale(1.0348839,0.96629198)"><tspan
+           sodipodi:role="line"
+           id="tspan17075-8"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:1.48245px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#7b9ca5;fill-opacity:1;stroke-width:0.555918"
+           x="17.77203"
+           y="25.195848">loem</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:1.53887px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#7b9ca5;fill-opacity:1;stroke:none;stroke-width:0.577078"
+         x="17.428581"
+         y="27.442743"
+         id="text17077-2-5"
+         inkscape:export-filename="program icon 32x32 2.png"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96"
+         transform="scale(1.0578359,0.9453262)"><tspan
+           sodipodi:role="line"
+           id="tspan17075-7-6"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:1.53887px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#7b9ca5;fill-opacity:1;stroke-width:0.577078"
+           x="17.428581"
+           y="27.442743">swiu</tspan></text>
+      <path
+         id="rect5353"
+         style="fill:url(#linearGradient5507);fill-rule:evenodd;stroke-width:0.257883"
+         d="m 15.345833,21.43125 h 7.408334 l 0.264583,0.264583 v 0.789886 h -7.9375 v -0.789886 z"
+         sodipodi:nodetypes="ccccccc"
+         inkscape:export-filename="program icon 32x32 2.png"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96" />
+      <rect
+         style="fill:#e7edf6;fill-opacity:1;stroke:none;stroke-width:0.529166;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect25811-9-9"
+         width="0.52916664"
+         height="0.52916664"
+         x="20.108334"
+         y="21.695833"
+         inkscape:export-filename="program icon 32x32 2.png"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96"
+         ry="0" />
+      <use
+         x="0"
+         y="0"
+         xlink:href="#rect25811-9-9"
+         id="use3380"
+         transform="translate(1.0583331)"
+         width="100%"
+         height="100%"
+         inkscape:export-filename="program icon 32x32 2.png"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96" />
+      <use
+         x="0"
+         y="0"
+         xlink:href="#rect25811-9-9"
+         id="use3382"
+         transform="translate(2.1166667)"
+         width="100%"
+         height="100%"
+         inkscape:export-filename="program icon 32x32 2.png"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96" />
+      <path
+         style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:#ff0000;fill-opacity:1;stroke:none;stroke-width:0.0641196;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000;stop-opacity:1"
+         d="M 15.610417,24.077083 L 15.875,23.547916 l 0.79375,0.529167 l 1.322917,-0.79375 L 16.66875,24.60625 Z"
+         id="path7864"
+         sodipodi:nodetypes="cccccc"
+         inkscape:export-filename="program icon 32x32 2.png"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96" />
+      <use
+         x="0"
+         y="0"
+         xlink:href="#path7864"
+         id="use9696"
+         transform="translate(0,1.5875003)"
+         width="100%"
+         height="100%"
+         inkscape:export-filename="program icon 32x32 2.png"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96" />
+    </g>
+    <g
+       id="g15919"
+       inkscape:export-filename=".\program_icon_48x48.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96">
+      <rect
+         style="fill:#e3e3e3;fill-opacity:0;stroke:none;stroke-width:3.353;stroke-opacity:1"
+         id="rect4653-7-8"
+         width="12.7"
+         height="12.7"
+         x="35.983341"
+         y="17.727087"
+         inkscape:export-filename=".\program_icon_48x48.png"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96" />
+      <rect
+         style="fill:#214f94;fill-opacity:1;stroke:none;stroke-width:1.71819;stroke-opacity:1"
+         id="rect5175-4-8"
+         width="12.7"
+         height="8.7312412"
+         x="35.983341"
+         y="19.579166"
+         ry="0.46302032"
+         inkscape:export-filename=".\program_icon_48x48.png"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96" />
+      <rect
+         style="fill:url(#linearGradient10260-0);fill-opacity:1;fill-rule:evenodd;stroke-width:0.399528"
+         id="rect1880-1"
+         width="12.170834"
+         height="6.0854168"
+         x="36.247917"
+         y="21.960417"
+         ry="0"
+         inkscape:export-filename=".\program_icon_48x48.png"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:2.22367px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#7b9ca5;fill-opacity:1;stroke:none;stroke-width:0.833877"
+         x="39.952618"
+         y="25.335276"
+         id="text17077-8-0"
+         inkscape:export-filename=".\program_icon_48x48.png"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96"
+         transform="scale(1.0348839,0.96629196)"><tspan
+           sodipodi:role="line"
+           id="tspan17075-8-4"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:2.22367px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#7b9ca5;fill-opacity:1;stroke-width:0.833877"
+           x="39.952618"
+           y="25.335276">loem</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:2.3083px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#7b9ca5;fill-opacity:1;stroke:none;stroke-width:0.865617"
+         x="39.148991"
+         y="28.429314"
+         id="text17077-2-5-5"
+         inkscape:export-filename=".\program_icon_48x48.png"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96"
+         transform="scale(1.0578359,0.94532621)"><tspan
+           sodipodi:role="line"
+           id="tspan17075-7-6-0"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:2.3083px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#7b9ca5;fill-opacity:1;stroke-width:0.865617"
+           x="39.148991"
+           y="28.429314">swiu</tspan></text>
+      <path
+         id="rect5353-5"
+         style="fill:url(#linearGradient5507-0);fill-rule:evenodd;stroke-width:0.423209"
+         d="m 36.653611,19.84375 h 11.359446 l 0.405693,0.464717 v 1.387366 H 36.247917 v -1.387366 z"
+         sodipodi:nodetypes="ccccccc"
+         inkscape:export-filename=".\program_icon_48x48.png"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96" />
+      <rect
+         style="fill:#e7edf6;fill-opacity:1;stroke:none;stroke-width:0.793749;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect25811-9-9-3"
+         width="0.79374999"
+         height="0.79374999"
+         x="44.450001"
+         y="20.372917"
+         inkscape:export-filename=".\program_icon_48x48.png"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96"
+         ry="0.39687499" />
+      <use
+         x="0"
+         y="0"
+         xlink:href="#rect25811-9-9-3"
+         id="use3380-7"
+         transform="translate(1.3229186)"
+         width="100%"
+         height="100%"
+         inkscape:export-filename=".\program_icon_48x48.png"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96" />
+      <use
+         x="0"
+         y="0"
+         xlink:href="#rect25811-9-9-3"
+         id="use3382-9"
+         transform="translate(2.6458477)"
+         width="100%"
+         height="100%"
+         inkscape:export-filename=".\program_icon_48x48.png"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96" />
+      <path
+         style="font-variation-settings:normal;vector-effect:none;fill:#ff0000;fill-opacity:1;stroke:none;stroke-width:0.0961795;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000"
+         d="m 37.173966,24.077079 l 0.396874,-0.793751 l 1.190626,0.793751 l 1.984375,-1.190625 l -1.984375,1.984376 z"
+         id="path7864-8"
+         sodipodi:nodetypes="cccccc"
+         inkscape:export-filename=".\program_icon_48x48.png"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96" />
+      <use
+         x="0"
+         y="0"
+         xlink:href="#path7864-8"
+         id="use9696-5"
+         transform="translate(0,2.3812506)"
+         width="100%"
+         height="100%"
+         inkscape:export-filename=".\program_icon_48x48.png"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96" />
+    </g>
+    <g
+       id="g14880"
+       inkscape:export-filename=".\program_icon_24x24.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96">
+      <rect
+         style="fill:#e3e3e3;fill-opacity:0;stroke:none;stroke-width:1.67651;stroke-opacity:1"
+         id="rect4653-0"
+         width="6.3499999"
+         height="6.3499999"
+         x="13.758333"
+         y="20.902082"
+         inkscape:export-filename=".\program_icon_24x24.png"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96" />
+      <rect
+         style="fill:url(#linearGradient26126-9);fill-opacity:1;stroke:none;stroke-width:0.897296;stroke-opacity:1"
+         id="rect5175-7"
+         width="6.3499994"
+         height="4.7624998"
+         x="13.758333"
+         y="21.695833"
+         ry="0.38447642"
+         inkscape:export-filename=".\program_icon_24x24.png"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96" />
+      <path
+         id="rect5175-1-6"
+         style="fill:#ffffff;fill-opacity:0.996078;stroke-width:0.730089"
+         d="m 14.022917,22.754167 v 3.175 c 0,0.238194 0.03424,0.264583 0.264583,0.264583 h 5.291667 c 0.230338,0 0.264583,-0.02639 0.264583,-0.264584 l 0,-3.174997 z"
+         sodipodi:nodetypes="ccssccc"
+         inkscape:export-filename=".\program_icon_24x24.png"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96" />
+      <path
+         style="fill:none;stroke:#ff0000;stroke-width:0.396875;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 14.710326,23.471332 l 0.393479,0.360257 L 15.875,23.283333"
+         id="path14596-2"
+         inkscape:export-filename=".\program_icon_24x24.png"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96"
+         sodipodi:nodetypes="ccc" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:1.05833px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#767676;fill-opacity:1;stroke:none;stroke-width:0.396875"
+         x="16.397255"
+         y="24.026608"
+         id="text17077-0"
+         inkscape:export-filename=".\program_icon_24x24.png"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96"><tspan
+           sodipodi:role="line"
+           id="tspan17075-6"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:1.05833px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#767676;fill-opacity:1;stroke-width:0.396875"
+           x="16.397255"
+           y="24.026608">loem</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:1.05833px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#767676;fill-opacity:1;stroke:none;stroke-width:0.396875"
+         x="16.512955"
+         y="25.586924"
+         id="text17077-2-7"
+         inkscape:export-filename=".\program_icon_24x24.png"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96"><tspan
+           sodipodi:role="line"
+           id="tspan17075-7-0"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:1.05833px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#767676;fill-opacity:1;stroke-width:0.396875"
+           x="16.512955"
+           y="25.586924">swiu</tspan></text>
+      <rect
+         style="fill:#ffffff;fill-opacity:0.996078;stroke:none;stroke-width:0.529167;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect25811-9-2"
+         width="0.52916664"
+         height="0.52916664"
+         x="17.727083"
+         y="21.960417"
+         inkscape:export-filename=".\program_icon_24x24.png"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96"
+         inkscape:tile-cx="17.991666"
+         inkscape:tile-cy="22.225"
+         inkscape:tile-w="0.52916663"
+         inkscape:tile-h="0.52916663"
+         inkscape:tile-x0="17.727083"
+         inkscape:tile-y0="21.960416" />
+      <use
+         x="0"
+         y="0"
+         xlink:href="#path14596-2"
+         id="use35922-5"
+         transform="translate(2.17699e-8,1.5875008)"
+         width="100%"
+         height="100%"
+         inkscape:export-filename=".\program_icon_24x24.png"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96" />
+      <use
+         x="0"
+         y="0"
+         inkscape:tiled-clone-of="#rect25811-9-2"
+         xlink:href="#rect25811-9-2"
+         id="use13831"
+         inkscape:export-filename=".\program_icon_24x24.png"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96" />
+      <use
+         x="0"
+         y="0"
+         inkscape:tiled-clone-of="#rect25811-9-2"
+         xlink:href="#rect25811-9-2"
+         transform="translate(0.79374994)"
+         id="use13833"
+         inkscape:export-filename=".\program_icon_24x24.png"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96" />
+      <use
+         x="0"
+         y="0"
+         inkscape:tiled-clone-of="#rect25811-9-2"
+         xlink:href="#rect25811-9-2"
+         transform="translate(1.5874999)"
+         id="use13835"
+         inkscape:export-filename=".\program_icon_24x24.png"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96" />
+    </g>
+    <g
+       id="g5659"
+       style="display:inline"
+       inkscape:label="start"
+       inkscape:export-filename=".\start.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"
+       transform="translate(-14.552083,6.879167)">
+      <rect
+         style="fill:none;fill-opacity:1;fill-rule:evenodd;stroke-width:0.264583"
+         id="rect2624"
+         width="4.2333331"
+         height="4.2333331"
+         x="25.135416"
+         y="29.36875" />
+      <path
+         style="font-variation-settings:normal;opacity:1;fill:url(#linearGradient3295);fill-opacity:1;stroke:#00620c;stroke-width:0.264583;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;stop-color:#000000;stop-opacity:1"
+         d="m 26.061459,29.501042 v 3.968751 l 2.778125,-1.719792 z"
+         id="path3159"
+         sodipodi:nodetypes="cccc" />
+    </g>
+    <rect
+       style="display:inline;fill:url(#linearGradient994);fill-opacity:1;fill-rule:evenodd;stroke:#b30900;stroke-width:0.263614;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect846-2"
+       width="3.9697194"
+       height="3.9697194"
+       x="4.36514"
+       y="36.379723"
+       ry="0"
+       inkscape:export-filename=".\stop.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+  </g>
+  <metadata
+     id="metadata39672">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>artem78</dc:title>
+          </cc:Agent>
+        </dc:creator>
+        <dc:source>own work</dc:source>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+</svg>

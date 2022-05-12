@@ -265,19 +265,23 @@ end;
 procedure TNonVisualCtrlsDataModule.RunningTaskUpdated;
 var
   IsActive: Boolean;
+  HintText: String;
 begin
   IsActive := TTask.HasActive;
   StartTimeTrackingAction.Enabled:=not IsActive;
   StopTimeTrackingAction.Enabled:=IsActive;
+  HintText := 'Task Organizer';
   if IsActive then
   begin
     TrayIcon.Animate := True;
+    HintText := HintText + ' - ' + TTask.GetActive.Name;
   end
   else
   begin
     TrayIcon.Animate := False;
     TrayIcon.RestoreIcon;
   end;
+  TrayIcon.Hint := HintText;
 end;
 
 {procedure TDataModule1.UniqueInstance1OtherInstance(Sender: TObject;

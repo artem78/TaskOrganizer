@@ -438,7 +438,6 @@ object NonVisualCtrlsDataModule: TNonVisualCtrlsDataModule
       0000000000000000000000000000000000000000000000000000000000000000
       0000
     }
-    Hint = 'Task Organizer'
     OnDblClick = TrayIconDblClick
     AnimateInterval = 600
     DefaultIcon.Data = {

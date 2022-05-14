@@ -8,7 +8,7 @@
    version="1.1"
    id="svg5"
    inkscape:version="1.1.2 (b8e25be833, 2022-02-05)"
-   sodipodi:docname="TaskOrganizer icon.svg"
+   sodipodi:docname="icons.svg"
    inkscape:export-filename="TaskOrganizer icon 2.png"
    inkscape:export-xdpi="96"
    inkscape:export-ydpi="96"
@@ -33,9 +33,9 @@
      units="px"
      width="300px"
      inkscape:snap-global="true"
-     inkscape:zoom="8"
-     inkscape:cx="38"
-     inkscape:cy="160.375"
+     inkscape:zoom="22.627417"
+     inkscape:cx="71.130523"
+     inkscape:cy="148.40404"
      inkscape:window-width="1440"
      inkscape:window-height="848"
      inkscape:window-x="-8"
@@ -60,6 +60,11 @@
   </sodipodi:namedview>
   <defs
      id="defs2">
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect1269"
+       is_visible="true"
+       lpeversion="1" />
     <linearGradient
        inkscape:collect="always"
        id="linearGradient10258">
@@ -1599,6 +1604,24 @@
        inkscape:export-filename=".\stop.png"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96" />
+    <g
+       id="g4272"
+       inkscape:export-filename=".\tick.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96">
+      <rect
+         style="fill:none;fill-rule:evenodd;stroke-width:0.423333;stroke:none"
+         id="rect1133"
+         width="4.2333331"
+         height="4.2333331"
+         x="16.933332"
+         y="36.247917"
+         ry="0" />
+      <path
+         style="font-variation-settings:normal;opacity:1;fill:none;fill-opacity:1;stroke:#2fac34;stroke-width:0.68500625;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;stop-color:#000000;stop-opacity:1"
+         d="m 17.4625,38.364582 l 1.058333,1.322917 l 2.116666,-2.645833"
+         id="path1304" />
+    </g>
   </g>
   <metadata
      id="metadata39672">

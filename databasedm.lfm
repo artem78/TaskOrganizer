@@ -132,6 +132,7 @@ object DatabaseDataModule: TDatabaseDataModule
       ProviderFlags = [pfInUpdate, pfInWhere, pfRefreshOnInsert, pfRefreshOnUpdate]
       ReadOnly = False
       Required = False
+      Visible = False
       DisplayValues = 'True;False'
     end
     object TasksSQLQueryIsActive: TBooleanField

@@ -30,6 +30,8 @@ type
     procedure FilterEditChange(Sender: TObject);
     procedure ShowDoneTasksCheckBoxChange(Sender: TObject);
     procedure TasksDBGridDblClick(Sender: TObject);
+    procedure TasksDBGridDrawColumnCell(Sender: TObject; const Rect: TRect;
+      DataCol: Integer; Column: TColumn; State: TGridDrawState);
     procedure TasksDBGridKeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);
     procedure TasksDBGridPrepareCanvas(sender: TObject; DataCol: Integer;
@@ -88,6 +90,48 @@ procedure TTasksFrame.TasksDBGridDblClick(Sender: TObject);
 
 begin
   if IsMouseOverCell then NonVisualCtrlsDataModule.EditTaskAction.Execute;
+end;
+
+procedure TTasksFrame.TasksDBGridDrawColumnCell(Sender: TObject;
+  const Rect: TRect; DataCol: Integer; Column: TColumn; State: TGridDrawState);
+const
+  Indent = 3;
+var
+  Bitmap: TBitmap;
+  BitmapPoint{, TextPoint}: TPoint;
+  TextRect: TRect;
+begin
+  if Assigned(Column.Field) and (Column.FieldName = {'id'} 'name') then
+  begin
+    with TasksDBGrid.Canvas do
+    begin
+      FillRect(Rect);
+
+      // Draw icon
+      if DatabaseDataModule.TasksSQLQuery.FieldByName('done').AsBoolean then
+      begin
+        Bitmap := TBitmap.Create;
+        try
+          NonVisualCtrlsDataModule.Icons.GetBitmap(2, Bitmap);
+          BitmapPoint.X := Rect.Left + Indent;
+          BitmapPoint.Y := Rect.Top + Round((Rect.Height - Bitmap.Height) / 2);
+          Draw(BitmapPoint.X, BitmapPoint.Y, Bitmap);
+        finally
+          Bitmap.Free;
+        end;
+      end;
+
+      {// Draw text
+      TextPoint.X := Rect.Left + Indent * 2 + NonVisualCtrlsDataModule.Icons.Width;
+      TextPoint.Y := Rect.Top + Round((Rect.Height - TextHeight(Column.Field.Text)) / 2);
+      TextOut(TextPoint.X, TextPoint.Y, Column.Field.Text);}
+    end;
+
+    // Draw text
+    TextRect := Rect;
+    TextRect.Left := TextRect.Left + Indent {* 2} + NonVisualCtrlsDataModule.Icons.Width;
+    TasksDBGrid.DefaultDrawColumnCell(TextRect, DataCol, Column, State);
+  end;
 end;
 
 procedure TTasksFrame.TasksDBGridKeyDown(Sender: TObject; var Key: Word;

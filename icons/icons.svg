@@ -33,9 +33,9 @@
      units="px"
      width="300px"
      inkscape:snap-global="true"
-     inkscape:zoom="16"
-     inkscape:cx="159.78125"
-     inkscape:cy="147.6875"
+     inkscape:zoom="11.313709"
+     inkscape:cx="186.72038"
+     inkscape:cy="152.29312"
      inkscape:window-width="1440"
      inkscape:window-height="848"
      inkscape:window-x="-8"
@@ -1729,6 +1729,37 @@
          d="m 45.508333,37.570833 l -0.79375,-0.79375 l 0.529166,-0.529167 l 0.79375,0.79375 z"
          id="path10302"
          sodipodi:nodetypes="ccccc" />
+    </g>
+    <g
+       id="g17648"
+       inkscape:export-filename=".\exit.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96">
+      <rect
+         style="fill:#ffffff;fill-opacity:0;fill-rule:evenodd;stroke:none;stroke-width:0.423333;stroke-opacity:1"
+         id="rect1133-9-7-1-6-1"
+         width="4.2333331"
+         height="4.2333331"
+         x="48.154167"
+         y="36.247917"
+         ry="0" />
+      <path
+         style="fill:none;fill-rule:evenodd;stroke:#cc0b01;stroke-width:0.529167;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="path13549"
+         sodipodi:type="arc"
+         sodipodi:cx="50.270832"
+         sodipodi:cy="38.364582"
+         sodipodi:rx="1.8520833"
+         sodipodi:ry="1.8520833"
+         sodipodi:start="5.2359878"
+         sodipodi:end="4.1887902"
+         sodipodi:arc-type="arc"
+         d="m 51.196874,36.760631 a 1.8520833,1.8520833 0 0 1 0.862933,2.083306 a 1.8520833,1.8520833 0 0 1 -1.788975,1.372728 a 1.8520833,1.8520833 0 0 1 -1.788975,-1.372729 a 1.8520833,1.8520833 0 0 1 0.862933,-2.083305"
+         sodipodi:open="true" />
+      <path
+         style="font-variation-settings:normal;opacity:1;fill:none;fill-opacity:1;stroke:#cc0b01;stroke-width:0.52916667;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;stop-color:#000000;stop-opacity:1"
+         d="m 50.270833,36.5125 v 1.852083 v 0"
+         id="path15204" />
     </g>
   </g>
   <metadata

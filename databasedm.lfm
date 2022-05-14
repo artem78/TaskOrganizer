@@ -143,6 +143,7 @@ object DatabaseDataModule: TDatabaseDataModule
       ProviderFlags = [pfInUpdate, pfInWhere, pfRefreshOnInsert, pfRefreshOnUpdate]
       ReadOnly = True
       Required = False
+      Visible = False
       DisplayValues = 'True;False'
     end
   end

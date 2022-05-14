@@ -100,6 +100,7 @@ var
   Bitmap: TBitmap;
   BitmapPoint{, TextPoint}: TPoint;
   TextRect: TRect;
+  IconIdx: Integer = -1;
 begin
   if Assigned(Column.Field) and (Column.FieldName = {'id'} 'name') then
   begin
@@ -107,12 +108,20 @@ begin
     begin
       FillRect(Rect);
 
+      with DatabaseDataModule.TasksSQLQuery do
+      begin
+        if FieldByName('is_active').AsBoolean then
+          IconIdx := 0
+        else if FieldByName('done').AsBoolean then
+          IconIdx := 2;
+      end;
+
       // Draw icon
-      if DatabaseDataModule.TasksSQLQuery.FieldByName('done').AsBoolean then
+      if IconIdx > -1 then
       begin
         Bitmap := TBitmap.Create;
         try
-          NonVisualCtrlsDataModule.Icons.GetBitmap(2, Bitmap);
+          NonVisualCtrlsDataModule.Icons.GetBitmap(IconIdx, Bitmap);
           BitmapPoint.X := Rect.Left + Indent;
           BitmapPoint.Y := Rect.Top + Round((Rect.Height - Bitmap.Height) / 2);
           Draw(BitmapPoint.X, BitmapPoint.Y, Bitmap);

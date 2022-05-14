@@ -33,9 +33,9 @@
      units="px"
      width="300px"
      inkscape:snap-global="true"
-     inkscape:zoom="22.627417"
-     inkscape:cx="71.130523"
-     inkscape:cy="148.40404"
+     inkscape:zoom="16"
+     inkscape:cx="159.78125"
+     inkscape:cy="147.6875"
      inkscape:window-width="1440"
      inkscape:window-height="848"
      inkscape:window-x="-8"
@@ -60,6 +60,11 @@
   </sodipodi:namedview>
   <defs
      id="defs2">
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect2076"
+       is_visible="true"
+       lpeversion="1" />
     <inkscape:path-effect
        effect="spiro"
        id="path-effect1269"
@@ -1621,6 +1626,109 @@
          style="font-variation-settings:normal;opacity:1;fill:none;fill-opacity:1;stroke:#2fac34;stroke-width:0.68500625;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;stop-color:#000000;stop-opacity:1"
          d="m 17.4625,38.364582 l 1.058333,1.322917 l 2.116666,-2.645833"
          id="path1304" />
+    </g>
+    <g
+       id="g4272-7"
+       inkscape:export-filename=".\tick_gray.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"
+       transform="translate(6.3500003)">
+      <rect
+         style="fill:none;fill-rule:evenodd;stroke:none;stroke-width:0.423333"
+         id="rect1133-9"
+         width="4.2333331"
+         height="4.2333331"
+         x="16.933332"
+         y="36.247917"
+         ry="0" />
+      <path
+         style="font-variation-settings:normal;opacity:1;fill:none;fill-opacity:1;stroke:#a9a9a9;stroke-width:0.685006;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;stop-color:#000000;stop-opacity:1"
+         d="m 17.4625,38.364582 l 1.058333,1.322917 l 2.116666,-2.645833"
+         id="path1304-0" />
+    </g>
+    <g
+       id="g4984"
+       inkscape:export-filename=".\create.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96">
+      <rect
+         style="fill:#ffffff;fill-rule:evenodd;stroke:none;stroke-width:0.423333;stroke-opacity:1;fill-opacity:0"
+         id="rect1133-9-7"
+         width="4.2333331"
+         height="4.2333331"
+         x="29.633335"
+         y="36.247917"
+         ry="0" />
+      <path
+         style="font-variation-settings:normal;opacity:1;fill:none;fill-opacity:1;stroke:#2fac34;stroke-width:0.529167;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;stop-color:#000000;stop-opacity:1"
+         d="m 29.633333,38.364584 h 4.233333"
+         id="path2271" />
+      <use
+         x="0"
+         y="0"
+         xlink:href="#path2271"
+         id="use4673"
+         transform="rotate(90,31.75,38.364584)"
+         width="100%"
+         height="100%" />
+    </g>
+    <g
+       id="g9319"
+       inkscape:export-filename=".\delete.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96">
+      <rect
+         style="fill:#ffffff;fill-opacity:0;fill-rule:evenodd;stroke:none;stroke-width:0.423333;stroke-opacity:1"
+         id="rect1133-9-7-1"
+         width="4.2333331"
+         height="4.2333331"
+         x="35.983334"
+         y="36.247917"
+         ry="0" />
+      <g
+         id="g5231"
+         transform="matrix(1.1458334,0,0,1.1458334,-5.5562508,-5.594836)">
+        <path
+           style="font-variation-settings:normal;fill:none;fill-opacity:1;stroke:#cc0b01;stroke-width:0.529167;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;stop-color:#000000"
+           d="m 36.603291,39.861293 l 2.993418,-2.993418"
+           id="path2271-6" />
+        <use
+           x="0"
+           y="0"
+           xlink:href="#path2271-6"
+           id="use4673-2"
+           transform="rotate(90,38.1,38.364584)"
+           width="100%"
+           height="100%"
+           style="stroke-width:1.00006721;stroke-miterlimit:4;stroke-dasharray:none" />
+      </g>
+    </g>
+    <g
+       id="g12361"
+       inkscape:export-filename=".\edit.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96">
+      <rect
+         style="fill:#ffffff;fill-opacity:0;fill-rule:evenodd;stroke:none;stroke-width:0.423333;stroke-opacity:1"
+         id="rect1133-9-7-1-6"
+         width="4.2333331"
+         height="4.2333331"
+         x="41.804169"
+         y="36.247917"
+         ry="0" />
+      <path
+         style="font-variation-settings:normal;opacity:1;fill:#8b653b;fill-opacity:1;stroke:none;stroke-width:0;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;stop-color:#000000;stop-opacity:1"
+         d="M 41.804166,40.481249 V 39.6875 l 0.79375,0.793749 z"
+         id="path10128" />
+      <path
+         style="font-variation-settings:normal;opacity:1;fill:#8b653b;fill-opacity:1;stroke:none;stroke-width:0;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;stop-color:#000000;stop-opacity:1"
+         d="m 42.068749,39.422916 l 0.79375,0.79375 l 2.38125,-2.38125 l -0.79375,-0.79375 z"
+         id="path10130" />
+      <path
+         style="font-variation-settings:normal;opacity:1;fill:#8b653b;fill-opacity:1;stroke:none;stroke-width:0;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;stop-color:#000000;stop-opacity:1"
+         d="m 45.508333,37.570833 l -0.79375,-0.79375 l 0.529166,-0.529167 l 0.79375,0.79375 z"
+         id="path10302"
+         sodipodi:nodetypes="ccccc" />
     </g>
   </g>
   <metadata

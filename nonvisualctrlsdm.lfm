@@ -295,12 +295,12 @@ object NonVisualCtrlsDataModule: TNonVisualCtrlsDataModule
       OnExecute = ExitActionExecute
     end
     object MarkTaskAsDoneAction: TAction
-      Caption = 'Done'
+      Caption = 'Mark as done'
       ImageIndex = 2
       OnExecute = MarkTaskAsDoneActionExecute
     end
     object UnMarkTaskAsDoneAction: TAction
-      Caption = 'Not done'
+      Caption = 'Unmark as done'
       ImageIndex = 3
       OnExecute = UnMarkTaskAsDoneActionExecute
     end

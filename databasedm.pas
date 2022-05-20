@@ -39,6 +39,7 @@ type
     procedure DataModuleDestroy(Sender: TObject);
     procedure SQLite3Connection1Log(Sender: TSQLConnection;
       EventType: TDBEventType; const Msg: String);
+    procedure TasksDataSourceDataChange(Sender: TObject; Field: TField);
     procedure TasksSQLQueryFilterRecord(DataSet: TDataSet; var Accept: Boolean);
   private
     FTasksFilterText: String;
@@ -58,7 +59,7 @@ var
 
 implementation
 
-uses main{, Forms}, LazUTF8;
+uses main{, Forms}, LazUTF8, NonVisualCtrlsDM;
 
 {$R *.lfm}
 
@@ -230,6 +231,19 @@ begin
   end;
 
   main.MainForm.LogsMemo.Append(Format('[%s] <%s> %s', [TimeToStr(Now), Source, Msg]));
+end;
+
+procedure TDatabaseDataModule.TasksDataSourceDataChange(Sender: TObject;
+  Field: TField);
+var
+  Done: Boolean;
+begin
+  if Assigned(NonVisualCtrlsDataModule) then
+  begin
+    Done := TasksSQLQuery.FieldByName('done').AsBoolean;
+    NonVisualCtrlsDataModule.MarkTaskAsDoneAction.{Enabled}Visible := not Done;
+    NonVisualCtrlsDataModule.UnMarkTaskAsDoneAction.{Enabled}Visible := Done;
+  end;
 end;
 
 procedure TDatabaseDataModule.TasksSQLQueryFilterRecord(DataSet: TDataSet;

@@ -41,6 +41,7 @@ object DatabaseDataModule: TDatabaseDataModule
   end
   object TasksDataSource: TDataSource
     DataSet = TasksSQLQuery
+    OnDataChange = TasksDataSourceDataChange
     Left = 136
     Top = 128
   end

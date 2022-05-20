@@ -30,6 +30,8 @@ object PeriodsFrame: TPeriodsFrame
     Height = 26
     Top = 0
     Width = 484
+    Images = NonVisualCtrlsDataModule.Icons
+    List = True
     ShowCaptions = True
     TabOrder = 1
     object CreatePeriodToolButton: TToolButton
@@ -38,12 +40,12 @@ object PeriodsFrame: TPeriodsFrame
       Action = NonVisualCtrlsDataModule.CreatePeriodAction
     end
     object EditPeriodToolButton: TToolButton
-      Left = 68
+      Left = 86
       Top = 2
       Action = NonVisualCtrlsDataModule.EditPeriodAction
     end
     object DeletePeriodToolButton: TToolButton
-      Left = 133
+      Left = 169
       Top = 2
       Action = NonVisualCtrlsDataModule.DeletePeriodAction
     end

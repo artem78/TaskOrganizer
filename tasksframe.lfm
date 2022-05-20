@@ -24,39 +24,39 @@ object TasksFrame: TTasksFrame
       Action = NonVisualCtrlsDataModule.CreateTaskAction
     end
     object EditToolButton: TToolButton
-      Left = 55
+      Left = 73
       Top = 2
       Action = NonVisualCtrlsDataModule.EditTaskAction
     end
     object RemoveToolButton: TToolButton
-      Left = 107
+      Left = 143
       Top = 2
       Action = NonVisualCtrlsDataModule.DeleteTaskAction
     end
     object SeparatorToolButton: TToolButton
-      Left = 182
+      Left = 236
       Height = 22
       Top = 2
       Style = tbsSeparator
     end
     object StartTrackingToolButton: TToolButton
-      Left = 190
+      Left = 244
       Top = 2
       Action = NonVisualCtrlsDataModule.StartTimeTrackingAction
     end
     object StopTrackingToolButton: TToolButton
-      Left = 313
+      Left = 367
       Top = 2
       Action = NonVisualCtrlsDataModule.StopTimeTrackingAction
     end
     object SetDoneButton: TToolButton
-      Left = 436
+      Left = 490
       Top = 2
       Action = NonVisualCtrlsDataModule.MarkTaskAsDoneAction
     end
     object SetNotDoneButton: TToolButton
-      Left = 472
-      Top = 2
+      Left = 1
+      Top = 24
       Action = NonVisualCtrlsDataModule.UnMarkTaskAsDoneAction
     end
   end
@@ -73,7 +73,8 @@ object TasksFrame: TTasksFrame
     Columns = <>
     DataSource = DatabaseDataModule.TasksDataSource
     FixedCols = 0
-    Options = [dgTitles, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgAutoSizeColumns]
+    Options = [dgTitles, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgAutoSizeColumns, dgAnyButtonCanSelect]
+    PopupMenu = TasksGridPopupMenu
     ReadOnly = True
     TabOrder = 1
     TitleStyle = tsNative
@@ -129,5 +130,22 @@ object TasksFrame: TTasksFrame
     Caption = 'Show done tasks'
     OnChange = ShowDoneTasksCheckBoxChange
     TabOrder = 4
+  end
+  object TasksGridPopupMenu: TPopupMenu
+    Images = NonVisualCtrlsDataModule.Icons
+    Left = 448
+    Top = 216
+    object MenuItem1: TMenuItem
+      Action = NonVisualCtrlsDataModule.EditTaskAction
+    end
+    object MenuItem2: TMenuItem
+      Action = NonVisualCtrlsDataModule.DeleteTaskAction
+    end
+    object MenuItem3: TMenuItem
+      Action = NonVisualCtrlsDataModule.MarkTaskAsDoneAction
+    end
+    object MenuItem4: TMenuItem
+      Action = NonVisualCtrlsDataModule.UnMarkTaskAsDoneAction
+    end
   end
 end

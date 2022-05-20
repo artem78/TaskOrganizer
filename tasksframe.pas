@@ -6,13 +6,18 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, ComCtrls, DBGrids, Grids,
-  ExtCtrls, StdCtrls;
+  ExtCtrls, StdCtrls, Menus;
 
 type
 
   { TTasksFrame }
 
   TTasksFrame = class(TFrame)
+    MenuItem1: TMenuItem;
+    MenuItem2: TMenuItem;
+    MenuItem3: TMenuItem;
+    MenuItem4: TMenuItem;
+    TasksGridPopupMenu: TPopupMenu;
     ShowDoneTasksCheckBox: TCheckBox;
     ClearFilterButton: TButton;
     FilterEdit: TLabeledEdit;

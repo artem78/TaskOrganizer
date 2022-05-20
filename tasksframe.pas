@@ -17,6 +17,7 @@ type
     MenuItem2: TMenuItem;
     MenuItem3: TMenuItem;
     MenuItem4: TMenuItem;
+    MenuItem5: TMenuItem;
     TasksGridPopupMenu: TPopupMenu;
     ShowDoneTasksCheckBox: TCheckBox;
     ClearFilterButton: TButton;

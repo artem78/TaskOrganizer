@@ -131,6 +131,9 @@ object TasksFrame: TTasksFrame
     object MenuItem2: TMenuItem
       Action = NonVisualCtrlsDataModule.DeleteTaskAction
     end
+    object MenuItem5: TMenuItem
+      Action = NonVisualCtrlsDataModule.StartTimeTrackingAction
+    end
     object MenuItem3: TMenuItem
       Action = NonVisualCtrlsDataModule.MarkTaskAsDoneAction
     end

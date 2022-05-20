@@ -49,16 +49,6 @@ object TasksFrame: TTasksFrame
       Top = 2
       Action = NonVisualCtrlsDataModule.StopTimeTrackingAction
     end
-    object SetDoneButton: TToolButton
-      Left = 490
-      Top = 2
-      Action = NonVisualCtrlsDataModule.MarkTaskAsDoneAction
-    end
-    object SetNotDoneButton: TToolButton
-      Left = 1
-      Top = 24
-      Action = NonVisualCtrlsDataModule.UnMarkTaskAsDoneAction
-    end
   end
   object TasksDBGrid: TDBGrid
     AnchorSideTop.Side = asrBottom

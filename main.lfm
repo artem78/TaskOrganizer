@@ -33,15 +33,6 @@ object MainForm: TMainForm
         ClientWidth = 726
         inherited ToolBar1: TToolBar
           Width = 726
-          inherited StopTrackingToolButton: TToolButton
-            Left = 295
-          end
-          inherited SetDoneButton: TToolButton
-            Left = 400
-          end
-          inherited SetNotDoneButton: TToolButton
-            Left = 436
-          end
         end
         inherited TasksDBGrid: TDBGrid
           Height = 355
@@ -51,17 +42,20 @@ object MainForm: TMainForm
     end
     object PeriodsTabSheet: TTabSheet
       Caption = 'Periods'
-      ClientHeight = 321
-      ClientWidth = 619
+      ClientHeight = 413
+      ClientWidth = 726
       inline PeriodsFrame1: TPeriodsFrame
-        Height = 321
-        Width = 619
+        Height = 413
+        Width = 726
         Align = alClient
-        ClientHeight = 321
-        ClientWidth = 619
+        ClientHeight = 413
+        ClientWidth = 726
         inherited DBGrid1: TDBGrid
-          Height = 321
-          Width = 619
+          Height = 387
+          Width = 726
+        end
+        inherited ToolBar: TToolBar
+          Width = 726
         end
       end
     end

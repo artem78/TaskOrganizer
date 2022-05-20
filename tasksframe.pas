@@ -29,8 +29,6 @@ type
     SeparatorToolButton: TToolButton;
     StartTrackingToolButton: TToolButton;
     StopTrackingToolButton: TToolButton;
-    SetDoneButton: TToolButton;
-    SetNotDoneButton: TToolButton;
     procedure ClearFilterButtonClick(Sender: TObject);
     procedure FilterEditChange(Sender: TObject);
     procedure ShowDoneTasksCheckBoxChange(Sender: TObject);

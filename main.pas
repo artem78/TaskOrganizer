@@ -13,10 +13,10 @@ type
   { TMainForm }
 
   TMainForm = class(TForm)
+    PeriodsFrame1: TPeriodsFrame;
     StatsDBGrid: TDBGrid;
     LogsMemo: TMemo;
     PageControl1: TPageControl;
-    PeriodsFrame1: TPeriodsFrame;
     LogsTabSheet: TTabSheet;
     StatsTabSheet: TTabSheet;
     TasksFrame1: TTasksFrame;

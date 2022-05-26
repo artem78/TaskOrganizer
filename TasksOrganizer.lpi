@@ -25,7 +25,7 @@
           </Target>
           <SearchPaths>
             <IncludeFiles Value="$(ProjOutDir)"/>
-            <OtherUnitFiles Value="packages\LazTrayIconExtended"/>
+            <OtherUnitFiles Value="packages\LazTrayIconExtended;packages\LazDatabaseVersioning"/>
             <UnitOutputDirectory Value="lib\$(TargetCPU)-$(TargetOS)"/>
           </SearchPaths>
           <Parsing>
@@ -70,6 +70,7 @@
           </Target>
           <SearchPaths>
             <IncludeFiles Value="$(ProjOutDir)"/>
+            <OtherUnitFiles Value="packages\LazDatabaseVersioning"/>
             <UnitOutputDirectory Value="lib\$(TargetCPU)-$(TargetOS)"/>
           </SearchPaths>
           <CodeGeneration>
@@ -126,7 +127,7 @@
         <PackageName Value="LCL"/>
       </Item6>
     </RequiredPackages>
-    <Units Count="9">
+    <Units Count="10">
       <Unit0>
         <Filename Value="TasksOrganizer.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -190,6 +191,11 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="PeriodEditFrm"/>
       </Unit8>
+      <Unit9>
+        <Filename Value="packages\LazDatabaseVersioning\databaseversioning.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="DatabaseVersioning"/>
+      </Unit9>
     </Units>
   </ProjectOptions>
   <CompilerOptions>
@@ -200,6 +206,7 @@
     </Target>
     <SearchPaths>
       <IncludeFiles Value="$(ProjOutDir)"/>
+      <OtherUnitFiles Value="packages\LazDatabaseVersioning"/>
       <UnitOutputDirectory Value="lib\$(TargetCPU)-$(TargetOS)"/>
     </SearchPaths>
     <Linking>

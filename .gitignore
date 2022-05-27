@@ -35,6 +35,10 @@ lib/
 ###########################
 # My own rules
 /database.sqlite3
+
+# sqlitebrowser local config:
+*.sqbpro
+
 /mydir/
 /revision.inc
 /db backups/

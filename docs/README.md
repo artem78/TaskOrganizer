@@ -7,3 +7,4 @@ Still work in progress, but some features already implemented:
 - Marking tasks as completed
 - Shows total time spent per day
 - Export database to XML
+- Filter tasks by name

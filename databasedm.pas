@@ -80,7 +80,6 @@ begin
 
 
   // Create DB schema
-  // ToDo: Думаю, в базе лучше хранить Юлианскую дату вместо паскалевской (с 1900 года)
   DBVersioning := TDBVersioning.Create(SQLite3Connection1, SQLTransaction1);
   try
     if DBVersioning.UpgradeNeeded then

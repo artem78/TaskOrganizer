@@ -136,10 +136,6 @@ begin
     FieldByName('is_manually_added').AsBoolean := True;
     if PeriodEditForm.ShowModal = mrOK then
     begin
-      // Fix dates
-      FieldByName('begin').AsDateTime := FieldByName('begin').AsDateTime - 2415018.5;
-      FieldByName('end').AsDateTime := FieldByName('end').AsDateTime - 2415018.5;
-
       Post;
       ApplyUpdates;
       DatabaseDataModule.SQLTransaction1.CommitRetaining;
@@ -180,16 +176,8 @@ begin
 
     Edit;
 
-    {// Fix dates
-    FieldByName('begin').AsDateTime := FieldByName('begin').AsDateTime + 2415018.5;
-    FieldByName('end').AsDateTime := FieldByName('end').AsDateTime + 2415018.5;}
-
     if PeriodEditForm.ShowModal = mrOK then
     begin
-      // Fix dates
-      FieldByName('begin').AsDateTime := FieldByName('begin').AsDateTime - 2415018.5;
-      FieldByName('end').AsDateTime := FieldByName('end').AsDateTime - 2415018.5;
-
       Post;
       ApplyUpdates;
       DatabaseDataModule.SQLTransaction1.CommitRetaining;

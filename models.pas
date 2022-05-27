@@ -126,7 +126,7 @@ begin
     // ToDo: Check if no unfinished periods
     Append;
     FieldByName('task_id').AsInteger := Self.Id;
-    FieldByName('begin').AsDateTime := Now - 2415018.5;
+    FieldByName('begin').AsDateTime := Now;
     Post;
     ApplyUpdates;
   end;
@@ -143,7 +143,7 @@ begin
     Close;
     SQL.Text := 'UPDATE `_periods` SET `end`=:end WHERE /*`is_active` = TRUE*/ `end` IS NULL';
     // ToDo: Check if only one result
-    ParamByName('end').AsDateTime := now - 2415018.5;
+    ParamByName('end').AsDateTime := Now;
     ExecSQL;
   end;
 

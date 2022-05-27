@@ -153,7 +153,15 @@ object DatabaseDataModule: TDatabaseDataModule
     Database = SQLite3Connection1
     Transaction = SQLTransaction1
     SQL.Strings = (
-      'select * from periods'
+      'SELECT'
+      '    `id`,'
+      '    `begin`,'
+      '     `end` - 2415018.5 AS `end`, /* Fix for Lazarus */'
+      '     `task_id`,'
+      '     `is_active`,'
+      '     `is_manually_added`,'
+      '     `duration`'
+      'FROM `periods`'
     )
     InsertSQL.Strings = (
       'INSERT INTO `_periods` (`id`, `begin`, `end`, `task_id`, `is_manually_added`)'
@@ -169,6 +177,18 @@ object DatabaseDataModule: TDatabaseDataModule
     )
     DeleteSQL.Strings = (
       'DELETE FROM `_periods` WHERE `id` = :id'
+    )
+    RefreshSQL.Strings = (
+      'SELECT'
+      '    `id`,'
+      '    `begin`,'
+      '     `end` - 2415018.5 AS `end`, /* Fix for Lazarus */'
+      '     `task_id`,'
+      '     `is_active`,'
+      '     `is_manually_added`,'
+      '     `duration`'
+      'FROM `periods`'
+      'WHERE `id` = :id'
     )
     Params = <>
     Left = 48

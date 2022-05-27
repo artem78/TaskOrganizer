@@ -34,6 +34,21 @@ object MainForm: TMainForm
         ClientWidth = 726
         inherited ToolBar1: TToolBar
           Width = 726
+          inherited EditToolButton: TToolButton
+            Left = 55
+          end
+          inherited RemoveToolButton: TToolButton
+            Left = 107
+          end
+          inherited SeparatorToolButton: TToolButton
+            Left = 182
+          end
+          inherited StartTrackingToolButton: TToolButton
+            Left = 190
+          end
+          inherited StopTrackingToolButton: TToolButton
+            Left = 295
+          end
         end
         inherited TasksDBGrid: TDBGrid
           Height = 335
@@ -112,6 +127,9 @@ object MainForm: TMainForm
       Caption = 'Service'
       object ExportMenuItem: TMenuItem
         Action = NonVisualCtrlsDataModule.ExportDatabaseAction
+      end
+      object BackupDBMenuItem: TMenuItem
+        Action = NonVisualCtrlsDataModule.BackupDatabaseAction
       end
     end
   end

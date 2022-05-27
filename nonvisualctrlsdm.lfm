@@ -339,6 +339,11 @@ object NonVisualCtrlsDataModule: TNonVisualCtrlsDataModule
       Caption = 'Export'
       OnExecute = ExportDatabaseActionExecute
     end
+    object BackupDatabaseAction: TAction
+      Category = 'service'
+      Caption = 'Backup database'
+      OnExecute = BackupDatabaseActionExecute
+    end
   end
   object TrayAnimationIcons: TImageList
     Left = 280

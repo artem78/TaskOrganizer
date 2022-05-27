@@ -37,3 +37,4 @@ lib/
 /database.sqlite3
 /mydir/
 /revision.inc
+/db backups/

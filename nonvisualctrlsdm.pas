@@ -13,6 +13,7 @@ type
   { TNonVisualCtrlsDataModule }
 
   TNonVisualCtrlsDataModule = class(TDataModule)
+    BackupDatabaseAction: TAction;
     ExportDatabaseAction: TAction;
     DeletePeriodAction: TAction;
     EditPeriodAction: TAction;
@@ -37,6 +38,7 @@ type
     TrayPopupMenu: TPopupMenu;
     UniqueInstance1: TUniqueInstance;
     UnMarkTaskAsDoneAction: TAction;
+    procedure BackupDatabaseActionExecute(Sender: TObject);
     procedure CreatePeriodActionExecute(Sender: TObject);
     procedure CreateTaskActionExecute(Sender: TObject);
     procedure DataModuleCreate(Sender: TObject);
@@ -65,7 +67,7 @@ var
 implementation
 
 uses
-  DatabaseDM, main, taskedit, Dialogs;
+  DatabaseDM, main, taskedit, Dialogs, FileUtil, LazFileUtils, Forms;
 
 {$R *.lfm}
 
@@ -167,6 +169,41 @@ begin
     else
       Cancel;
   end;
+end;
+
+procedure TNonVisualCtrlsDataModule.BackupDatabaseActionExecute(Sender: TObject
+  );
+const
+  DBBackupsDirName = 'db backups';
+var
+  SourceFileName, DestFileName: String;
+  Res: Boolean = False;
+begin
+  SourceFileName := ExpandFileNameUTF8(DatabaseDataModule.SQLite3Connection1.DatabaseName);
+
+  DestFileName := AppendPathDelim(ExtractFileDir(Application.ExeName));
+  DestFileName := AppendPathDelim(DestFileName + DBBackupsDirName);
+  //ForceDirectory(DestFileName);
+  DestFileName := DestFileName + 'db backup '
+     + FormatDateTime('yyyy-mm-dd hh-nn-ss', Now) + ExtractFileExt(SourceFileName);
+
+  DatabaseDataModule.SQLite3Connection1.Close();
+  try
+    Res := CopyFile(SourceFileName, DestFileName, [cffCreateDestDirectory]);
+  finally
+    with DatabaseDataModule do
+    begin
+      SQLite3Connection1.Open;
+      TasksSQLQuery.Active := True;
+      PeriodsSQLQuery.Active := True;
+      StatsSQLQuery.Active := True;
+    end;
+  end;
+
+  if Res then
+    MessageDlg(Format('Saved in "%s"', [DestFileName]), mtInformation, [mbOk] , 0)
+  else
+    MessageDlg('Failed!', {mtWarning} mtError, [mbOk], 0);
 end;
 
 procedure TNonVisualCtrlsDataModule.DeleteTaskActionExecute(Sender: TObject);

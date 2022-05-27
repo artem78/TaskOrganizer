@@ -14,6 +14,7 @@ type
   { TMainForm }
 
   TMainForm = class(TForm)
+    BackupDBMenuItem: TMenuItem;
     PeriodsFrame1: TPeriodsFrame;
     MainMenu: TMainMenu;
     ExportMenuItem: TMenuItem;

@@ -267,18 +267,27 @@ function TDatabaseDataModule.SaveDatabaseBackup: String;
 const
   DBBackupsDirName = 'db backups';
 var
-  SourceFileName, DestFileName: String;
+  SourceFileName, DestFileName, DestDir: String;
   Res: Boolean = False;
+  CurrentVersion: Integer;
+  DBVersioning: TDBVersioning;
 begin
   Result := '';
 
+  DBVersioning := TDBVersioning.Create(SQLite3Connection1, SQLTransaction1);
+  CurrentVersion := DBVersioning.CurrentVersion;
+  DBVersioning.Free;
+
   SourceFileName := ExpandFileNameUTF8(DatabaseDataModule.SQLite3Connection1.DatabaseName);
 
-  DestFileName := AppendPathDelim(ExtractFileDir(Application.ExeName));
-  DestFileName := AppendPathDelim(DestFileName + DBBackupsDirName);
-  //ForceDirectory(DestFileName);
-  DestFileName := DestFileName + 'db backup '
-     + FormatDateTime('yyyy-mm-dd hh-nn-ss', Now) + ExtractFileExt(SourceFileName);
+  DestDir := AppendPathDelim(ExtractFileDir(Application.ExeName));
+  DestDir := AppendPathDelim(DestDir + DBBackupsDirName);
+
+  DestFileName := Format('db backup %s v%d%s', [
+      FormatDateTime('yyyy-mm-dd hh-nn-ss', Now),
+      CurrentVersion, ExtractFileExt(SourceFileName)
+  ]);
+  DestFileName := ExpandFileNameUTF8(DestFileName, DestDir);
 
   DatabaseDataModule.SQLite3Connection1.Close(); // Temporarily turn off connection to DB
   try

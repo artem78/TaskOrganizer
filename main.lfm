@@ -4,8 +4,9 @@ object MainForm: TMainForm
   Top = 160
   Width = 734
   Caption = 'Tasks Organizer'
-  ClientHeight = 441
+  ClientHeight = 421
   ClientWidth = 734
+  Menu = MainMenu
   OnCloseQuery = FormCloseQuery
   OnCreate = FormCreate
   OnShow = FormShow
@@ -13,7 +14,7 @@ object MainForm: TMainForm
   LCLVersion = '2.0.12.0'
   object PageControl1: TPageControl
     Left = 0
-    Height = 441
+    Height = 421
     Top = 0
     Width = 734
     ActivePage = TasksTabSheet
@@ -22,20 +23,20 @@ object MainForm: TMainForm
     TabOrder = 0
     object TasksTabSheet: TTabSheet
       Caption = 'Tasks'
-      ClientHeight = 413
+      ClientHeight = 393
       ClientWidth = 726
       OnShow = TasksTabSheetShow
       inline TasksFrame1: TTasksFrame
-        Height = 413
+        Height = 393
         Width = 726
         Align = alClient
-        ClientHeight = 413
+        ClientHeight = 393
         ClientWidth = 726
         inherited ToolBar1: TToolBar
           Width = 726
         end
         inherited TasksDBGrid: TDBGrid
-          Height = 355
+          Height = 335
           Width = 726
         end
       end
@@ -101,6 +102,16 @@ object MainForm: TMainForm
         ScrollBars = ssAutoBoth
         TabOrder = 0
         WordWrap = False
+      end
+    end
+  end
+  object MainMenu: TMainMenu
+    Left = 656
+    Top = 352
+    object ServiceMenuItem: TMenuItem
+      Caption = 'Service'
+      object ExportMenuItem: TMenuItem
+        Action = NonVisualCtrlsDataModule.ExportDatabaseAction
       end
     end
   end

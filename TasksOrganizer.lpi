@@ -127,7 +127,7 @@
         <PackageName Value="LCL"/>
       </Item6>
     </RequiredPackages>
-    <Units Count="10">
+    <Units Count="11">
       <Unit0>
         <Filename Value="TasksOrganizer.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -196,6 +196,11 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="DatabaseVersioning"/>
       </Unit9>
+      <Unit10>
+        <Filename Value="utils.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="Utils"/>
+      </Unit10>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

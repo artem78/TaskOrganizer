@@ -334,6 +334,11 @@ object NonVisualCtrlsDataModule: TNonVisualCtrlsDataModule
       ImageIndex = 5
       OnExecute = DeletePeriodActionExecute
     end
+    object ExportDatabaseAction: TAction
+      Category = 'service'
+      Caption = 'Export'
+      OnExecute = ExportDatabaseActionExecute
+    end
   end
   object TrayAnimationIcons: TImageList
     Left = 280

@@ -54,6 +54,8 @@ type
     property DoneTasksFilter: Boolean write SetDoneTasksFilter;
 
     procedure ExportDatabase(AFileName: String);
+    //procedure SaveDatabaseBackup;
+    function SaveDatabaseBackup: String;
   end;
 
 var
@@ -61,8 +63,8 @@ var
 
 implementation
 
-uses main{, Forms}, LazUTF8, NonVisualCtrlsDM, DatabaseVersioning,
-  Laz2_DOM, laz2_XMLWrite, Utils;
+uses main, Forms, LazUTF8, NonVisualCtrlsDM, DatabaseVersioning,
+  Laz2_DOM, laz2_XMLWrite, Utils, LazFileUtils;
 
 {$R *.lfm}
 
@@ -81,7 +83,11 @@ begin
   // ToDo: Думаю, в базе лучше хранить Юлианскую дату вместо паскалевской (с 1900 года)
   DBVersioning := TDBVersioning.Create(SQLite3Connection1, SQLTransaction1);
   try
-    DBVersioning.UpgradeToLatest;
+    if DBVersioning.UpgradeNeeded then
+    begin
+      SaveDatabaseBackup;
+      DBVersioning.UpgradeToLatest;
+    end;
   finally
     DBVersioning.Free;
   end;
@@ -255,6 +261,38 @@ begin
     WriteXMLFile(XmlDoc, AFileName);
   finally
     XmlDoc.Free;
+  end;
+end;
+
+function TDatabaseDataModule.SaveDatabaseBackup: String;
+const
+  DBBackupsDirName = 'db backups';
+var
+  SourceFileName, DestFileName: String;
+  Res: Boolean = False;
+begin
+  Result := '';
+
+  SourceFileName := ExpandFileNameUTF8(DatabaseDataModule.SQLite3Connection1.DatabaseName);
+
+  DestFileName := AppendPathDelim(ExtractFileDir(Application.ExeName));
+  DestFileName := AppendPathDelim(DestFileName + DBBackupsDirName);
+  //ForceDirectory(DestFileName);
+  DestFileName := DestFileName + 'db backup '
+     + FormatDateTime('yyyy-mm-dd hh-nn-ss', Now) + ExtractFileExt(SourceFileName);
+
+  DatabaseDataModule.SQLite3Connection1.Close(); // Temporarily turn off connection to DB
+  try
+    Res := CopyFile(SourceFileName, DestFileName, [cffCreateDestDirectory]);
+    if not Res then
+      Raise Exception.CreateFmt('Failed to save database to file "%s"', [DestFileName]);
+    Result := DestFileName;
+  finally
+    // Restore connection to DB
+    SQLite3Connection1.Open;
+    TasksSQLQuery.Active := True;
+    PeriodsSQLQuery.Active := True;
+    StatsSQLQuery.Active := True;
   end;
 end;
 

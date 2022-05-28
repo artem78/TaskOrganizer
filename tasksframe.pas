@@ -19,7 +19,6 @@ type
     MenuItem4: TMenuItem;
     MenuItem5: TMenuItem;
     TasksGridPopupMenu: TPopupMenu;
-    ShowDoneTasksCheckBox: TCheckBox;
     ClearFilterButton: TButton;
     FilterEdit: TLabeledEdit;
     TasksDBGrid: TDBGrid;
@@ -32,7 +31,6 @@ type
     StopTrackingToolButton: TToolButton;
     procedure ClearFilterButtonClick(Sender: TObject);
     procedure FilterEditChange(Sender: TObject);
-    procedure ShowDoneTasksCheckBoxChange(Sender: TObject);
     procedure TasksDBGridDblClick(Sender: TObject);
     procedure TasksDBGridDrawColumnCell(Sender: TObject; const Rect: TRect;
       DataCol: Integer; Column: TColumn; State: TGridDrawState);
@@ -75,11 +73,6 @@ end;
 procedure TTasksFrame.FilterEditChange(Sender: TObject);
 begin
   DatabaseDataModule.TasksFilterText := FilterEdit.Text;
-end;
-
-procedure TTasksFrame.ShowDoneTasksCheckBoxChange(Sender: TObject);
-begin
-  DatabaseDataModule.DoneTasksFilter := ShowDoneTasksCheckBox.Checked;
 end;
 
 procedure TTasksFrame.TasksDBGridDblClick(Sender: TObject);

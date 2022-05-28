@@ -58,16 +58,16 @@ object MainForm: TMainForm
     end
     object PeriodsTabSheet: TTabSheet
       Caption = 'Periods'
-      ClientHeight = 413
+      ClientHeight = 393
       ClientWidth = 726
       inline PeriodsFrame1: TPeriodsFrame
-        Height = 413
+        Height = 393
         Width = 726
         Align = alClient
-        ClientHeight = 413
+        ClientHeight = 393
         ClientWidth = 726
         inherited DBGrid1: TDBGrid
-          Height = 387
+          Height = 367
           Width = 726
         end
         inherited ToolBar: TToolBar
@@ -123,6 +123,12 @@ object MainForm: TMainForm
   object MainMenu: TMainMenu
     Left = 656
     Top = 352
+    object ViewMenuItem: TMenuItem
+      Caption = 'View'
+      object ShowDoneTasksMenuItem: TMenuItem
+        Action = NonVisualCtrlsDataModule.ShowDoneTasksAction
+      end
+    end
     object ServiceMenuItem: TMenuItem
       Caption = 'Service'
       object ExportMenuItem: TMenuItem

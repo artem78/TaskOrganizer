@@ -15,6 +15,9 @@ type
 
   TMainForm = class(TForm)
     BackupDBMenuItem: TMenuItem;
+    ShowDoneTasksMenuItem: TMenuItem;
+    TasksFrame1: TTasksFrame;
+    ViewMenuItem: TMenuItem;
     PeriodsFrame1: TPeriodsFrame;
     MainMenu: TMainMenu;
     ExportMenuItem: TMenuItem;
@@ -24,7 +27,6 @@ type
     PageControl1: TPageControl;
     LogsTabSheet: TTabSheet;
     StatsTabSheet: TTabSheet;
-    TasksFrame1: TTasksFrame;
     TasksTabSheet: TTabSheet;
     PeriodsTabSheet: TTabSheet;
     procedure FormCloseQuery(Sender: TObject; var CanClose: boolean);

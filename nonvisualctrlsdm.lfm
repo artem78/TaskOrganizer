@@ -344,6 +344,10 @@ object NonVisualCtrlsDataModule: TNonVisualCtrlsDataModule
       Caption = 'Backup database'
       OnExecute = BackupDatabaseActionExecute
     end
+    object ShowDoneTasksAction: TAction
+      Caption = 'Show done tasks'
+      OnExecute = ShowDoneTasksActionExecute
+    end
   end
   object TrayAnimationIcons: TImageList
     Left = 280

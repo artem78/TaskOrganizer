@@ -107,20 +107,6 @@ object TasksFrame: TTasksFrame
     OnClick = ClearFilterButtonClick
     TabOrder = 3
   end
-  object ShowDoneTasksCheckBox: TCheckBox
-    AnchorSideLeft.Control = FilterEdit
-    AnchorSideLeft.Side = asrBottom
-    AnchorSideTop.Control = FilterEdit
-    AnchorSideTop.Side = asrCenter
-    Left = 280
-    Height = 19
-    Top = 31
-    Width = 108
-    BorderSpacing.Left = 80
-    Caption = 'Show done tasks'
-    OnChange = ShowDoneTasksCheckBoxChange
-    TabOrder = 4
-  end
   object TasksGridPopupMenu: TPopupMenu
     Images = NonVisualCtrlsDataModule.Icons
     Left = 448

@@ -13,6 +13,7 @@ type
   { TNonVisualCtrlsDataModule }
 
   TNonVisualCtrlsDataModule = class(TDataModule)
+    ShowDoneTasksAction: TAction;
     BackupDatabaseAction: TAction;
     ExportDatabaseAction: TAction;
     DeletePeriodAction: TAction;
@@ -49,6 +50,7 @@ type
     procedure ExitActionExecute(Sender: TObject);
     procedure ExportDatabaseActionExecute(Sender: TObject);
     procedure MarkTaskAsDoneActionExecute(Sender: TObject);
+    procedure ShowDoneTasksActionExecute(Sender: TObject);
     procedure StartTimeTrackingActionExecute(Sender: TObject);
     procedure StopTimeTrackingActionExecute(Sender: TObject);
     procedure TrayIconDblClick(Sender: TObject);
@@ -259,6 +261,12 @@ begin
   end;
 
   DatabaseDataModule.SQLTransaction1.CommitRetaining;
+end;
+
+procedure TNonVisualCtrlsDataModule.ShowDoneTasksActionExecute(Sender: TObject);
+begin
+  ShowDoneTasksAction.Checked := not ShowDoneTasksAction.Checked;
+  DatabaseDataModule.DoneTasksFilter := ShowDoneTasksAction.Checked;
 end;
 
 procedure TNonVisualCtrlsDataModule.StopTimeTrackingActionExecute(

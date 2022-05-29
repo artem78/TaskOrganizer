@@ -198,9 +198,10 @@ procedure TDatabaseDataModule.ExportDatabase(AFileName: String);
       Result := DateTimeToISO8601(AField.AsDateTime);
   end;
 
+{$I revision.inc}
 var
   XmlDoc: TXMLDocument;
-  RootNode, TasksNode, TaskNode, PeriodsNode, PeriodNode: TDOMNode;
+  RootNode, TasksNode, TaskNode, PeriodsNode, PeriodNode, CommentNode: TDOMNode;
   TaskId: Integer = -1;
 begin
   XmlDoc := TXMLDocument.Create;
@@ -209,6 +210,13 @@ begin
     RootNode := XmlDoc.CreateElement('export');
     XmlDoc.AppendChild(RootNode);
     RootNode:= XmlDoc.DocumentElement;
+
+    CommentNode := XmlDoc.CreateComment(
+        Format(' Created with %s version %s on %s ', ['Task Organizer',
+          GitRevisionStr, FormatDateTime('yyyy-mm-dd hh:nn:ss', Now)
+        ])
+    );
+    RootNode.AppendChild(CommentNode);
 
     TasksNode := XmlDoc.CreateElement('tasks');
     RootNode.AppendChild(TasksNode);

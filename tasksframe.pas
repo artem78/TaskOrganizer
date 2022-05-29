@@ -99,7 +99,8 @@ var
   TextRect: TRect;
   IconIdx: Integer = -1;
 begin
-  if Assigned(Column.Field) and (Column.FieldName = {'id'} 'name') then
+  if Assigned(Column.Field) and (Column.FieldName = {'id'} 'name')
+      and (not (Sender as TDBGrid).DataSource.DataSet.IsEmpty) then
   begin
     with TasksDBGrid.Canvas do
     begin

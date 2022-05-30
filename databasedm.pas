@@ -279,6 +279,8 @@ var
   Res: Boolean = False;
   CurrentVersion: Integer;
   DBVersioning: TDBVersioning;
+  TasksQueryIsActive, PeriodsQueryIsActive, StatsQueryIsActive,
+    ConnectionIsConnected: Boolean;
 begin
   Result := '';
 
@@ -297,6 +299,10 @@ begin
   ]);
   DestFileName := ExpandFileNameUTF8(DestFileName, DestDir);
 
+  ConnectionIsConnected := SQLite3Connection1.Connected;
+  TasksQueryIsActive := TasksSQLQuery.Active;
+  PeriodsQueryIsActive := PeriodsSQLQuery.Active;
+  StatsQueryIsActive := StatsSQLQuery.Active;
   DatabaseDataModule.SQLite3Connection1.Close(); // Temporarily turn off connection to DB
   try
     Res := CopyFile(SourceFileName, DestFileName, [cffCreateDestDirectory]);
@@ -305,10 +311,10 @@ begin
     Result := DestFileName;
   finally
     // Restore connection to DB
-    SQLite3Connection1.Open;
-    TasksSQLQuery.Active := True;
-    PeriodsSQLQuery.Active := True;
-    StatsSQLQuery.Active := True;
+    SQLite3Connection1.Connected := ConnectionIsConnected;
+    TasksSQLQuery.Active := TasksQueryIsActive;
+    PeriodsSQLQuery.Active := PeriodsQueryIsActive;
+    StatsSQLQuery.Active := StatsQueryIsActive;
   end;
 end;
 

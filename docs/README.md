@@ -13,7 +13,7 @@ Still work in progress, but some features already implemented:
 
 Currently only M$ Windows is supported.
 
-You need to have Free [Pascal Compiler (FPC) and Lazarus IDE](https://www.lazarus-ide.org/) installed.
+You need to have [Free Pascal Compiler (FPC) and Lazarus IDE](https://www.lazarus-ide.org/) installed.
 
 Clone repository with all submodules:
 

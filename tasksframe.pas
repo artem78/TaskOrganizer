@@ -60,7 +60,9 @@ begin
 
   if (Sender as TDBGrid).Datasource.Dataset.FieldByName('is_active').AsBoolean then
   begin
-    (Sender as TDBGrid).Canvas.Font.Color := clGreen;
+    if not (gdSelected in AState) then
+      (Sender as TDBGrid).Canvas.Font.Color := clGreen;
+
     (Sender as TDBGrid).Canvas.Font.Style := [fsBold];
   end;
 end;

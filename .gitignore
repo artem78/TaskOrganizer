@@ -42,3 +42,5 @@ lib/
 /mydir/
 /revision.inc
 /db backups/
+/build/
+/releases/

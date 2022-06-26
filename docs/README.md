@@ -9,7 +9,11 @@ Still work in progress, but some features already implemented:
 - Export database to XML
 - Filter tasks by name
 
-# Build
+# Windows builds
+
+https://github.com/artem78/TaskOrganizer/releases
+
+# Build manually
 
 Currently only M$ Windows is supported.
 
@@ -36,3 +40,5 @@ Compile in IDE or from command line:
 ```
 "c:/path/to/lazarus/lazbuild.exe" TasksOrganizer.lpi
 ```
+
+Enjoy!

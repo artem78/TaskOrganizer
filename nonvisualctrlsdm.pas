@@ -5,7 +5,7 @@ unit NonVisualCtrlsDM;
 interface
 
 uses
-  Classes, SysUtils, UniqueInstance, Controls, ActnList, ExtCtrls, Menus, Models,
+  Classes, SysUtils, Controls, ActnList, ExtCtrls, Menus, Models,
   PeriodEditFrm, TrayIconEx;
 
 type
@@ -37,7 +37,6 @@ type
     StopTimeTrackingMenuItem: TMenuItem;
     TrayIcon: TTrayIconEx;
     TrayPopupMenu: TPopupMenu;
-    UniqueInstance1: TUniqueInstance;
     UnMarkTaskAsDoneAction: TAction;
     procedure BackupDatabaseActionExecute(Sender: TObject);
     procedure CreatePeriodActionExecute(Sender: TObject);

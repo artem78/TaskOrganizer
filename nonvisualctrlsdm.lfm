@@ -5,13 +5,6 @@ object NonVisualCtrlsDataModule: TNonVisualCtrlsDataModule
   HorizontalOffset = 247
   VerticalOffset = 170
   Width = 470
-  object UniqueInstance1: TUniqueInstance
-    Enabled = True
-    Identifier = 'TaskOrganizer'
-    UpdateInterval = 60000
-    Left = 56
-    Top = 32
-  end
   object Icons: TImageList
     Left = 144
     Top = 32

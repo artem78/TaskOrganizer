@@ -57,7 +57,7 @@ uses
 
 procedure TMainForm.FormCreate(Sender: TObject);
 begin
-  Caption:=Caption+Format('    %s  %s', [GitRevisionStr, {$I %DATE%}]);
+  Caption:=Caption+Format('    %s  %s'{$IFOPT D+} + '    [Debug Build]'{$EndIf}, [GitRevisionStr, {$I %DATE%}]);
   PageControl1.ActivePageIndex:=0;
   //TasksFrame1.RefreshStartStopBtnsVisibility;
   Application.OnMinimize := @ApplicationMinimize; // Minimize to tray

@@ -1,4 +1,4 @@
-program TasksOrganizer;
+program TaskOrganizer;
 
 {$mode objfpc}{$H+}
 
@@ -26,6 +26,7 @@ begin
   end;
 
   RequireDerivedFormResource:=True;
+  Application.Title:='Task Organizer';
   Application.Initialize;
   Application.CreateForm(TMainForm, MainForm);
   Application.CreateForm(TDatabaseDataModule, DatabaseDataModule);

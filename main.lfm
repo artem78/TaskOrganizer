@@ -3,7 +3,7 @@ object MainForm: TMainForm
   Height = 441
   Top = 160
   Width = 734
-  Caption = 'Tasks Organizer'
+  Caption = 'Task Organizer'
   ClientHeight = 421
   ClientWidth = 734
   Menu = MainMenu

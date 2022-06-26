@@ -38,7 +38,7 @@ Install additional packages:
 Compile in IDE or from command line:
 
 ```
-"c:/path/to/lazarus/lazbuild.exe" TasksOrganizer.lpi
+"c:/path/to/lazarus/lazbuild.exe" TaskOrganizer.lpi
 ```
 
 Enjoy!

@@ -22,7 +22,7 @@ function Pause(){
 function Compile(){
 	# Run compile project
 	echo "Starting compile project..."
-	"$LazarusDir/lazbuild.exe" --build-mode="Release" --verbose TasksOrganizer.lpi
+	"$LazarusDir/lazbuild.exe" --build-mode="Release" --verbose TaskOrganizer.lpi
 	echo "Compiling finished!"
 	echo ""
 }
@@ -40,7 +40,7 @@ function MakeZip(){
 
 	# Executable
 	echo "Copy EXE..."
-	cp -v --preserve TasksOrganizer.exe $BuildDir
+	cp -v --preserve TaskOrganizer.exe $BuildDir
 	echo "Done!"
 	echo ""
 
@@ -78,7 +78,7 @@ BuildDir=$(realpath -m "build")
 TargetZipDir=$(realpath -m "releases")
 
 # Program version
-#ProgramVersion=$(grep -Po '\<StringTable.+ ProductVersion="\K[0-9\.]+' TasksOrganizer.lpi)
+#ProgramVersion=$(grep -Po '\<StringTable.+ ProductVersion="\K[0-9\.]+' TaskOrganizer.lpi)
 ProgramVersion=$(git describe --dirty --long)
 #echo "Current program version: $ProgramVersion"
 #echo ""

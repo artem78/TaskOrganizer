@@ -238,6 +238,8 @@ begin
     Edit;
     if TaskEditForm.ShowModal = mrOK then
     begin
+      FieldByName('created').AsDateTime :=
+          TTask.GetById(FieldByName('id').AsInteger).Created; // Fix for date gets lost
       FieldByName('modified').AsDateTime := Now;
       Post;
       ApplyUpdates;

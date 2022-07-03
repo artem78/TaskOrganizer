@@ -110,6 +110,7 @@ end;
 
 procedure TDatabaseDataModule.SQLite3Connection1Log(Sender: TSQLConnection;
   EventType: TDBEventType; const Msg: String);
+{$IfOpt D+}
 var
   Source: string;
 begin
@@ -125,6 +126,10 @@ begin
 
   main.MainForm.LogsMemo.Append(Format('[%s] <%s> %s', [TimeToStr(Now), Source, Msg]));
 end;
+{$Else}
+begin
+end;
+{$EndIf}
 
 procedure TDatabaseDataModule.TasksDataSourceDataChange(Sender: TObject;
   Field: TField);

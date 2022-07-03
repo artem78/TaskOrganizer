@@ -63,6 +63,9 @@ procedure TMainForm.FormCreate(Sender: TObject);
 begin
   Caption:=Caption+Format('    %s  %s'{$IFOPT D+} + '    [Debug Build]'{$EndIf}, [GitRevisionStr, {$I %DATE%}]);
   PageControl1.ActivePageIndex:=0;
+  {$IFOPT D-}
+  LogsTabSheet.TabVisible := False;
+  {$EndIf}
   //TasksFrame1.RefreshStartStopBtnsVisibility;
   Application.OnMinimize := @ApplicationMinimize; // Minimize to tray
 end;

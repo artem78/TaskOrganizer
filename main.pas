@@ -15,6 +15,8 @@ type
 
   TMainForm = class(TForm)
     BackupDBMenuItem: TMenuItem;
+    GoToTaskMenuItem: TMenuItem;
+    MenuItem1: TMenuItem;
     ShowDoneTasksMenuItem: TMenuItem;
     TasksFrame1: TTasksFrame;
     ViewMenuItem: TMenuItem;
@@ -32,10 +34,12 @@ type
     procedure FormCloseQuery(Sender: TObject; var CanClose: boolean);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure GoToTaskMenuItemClick(Sender: TObject);
     procedure StatsTabSheetShow(Sender: TObject);
     procedure TasksTabSheetShow(Sender: TObject);
   private
     procedure ApplicationMinimize(Sender: TObject);
+    procedure GoToTaskMenuItemClick2(Sender: TObject); // ToDo: Better name
   public
     procedure MinimizeToTray;
     procedure RestoreFromTray;
@@ -77,6 +81,28 @@ begin
   NonVisualCtrlsDataModule.RunningTaskUpdated;
 end;
 
+procedure TMainForm.GoToTaskMenuItemClick(Sender: TObject);
+const
+  Limit = 12;
+var
+  MenuItem: TMenuItem;
+  Tasks: TTasks;
+  Task: TTask;
+begin
+  GoToTaskMenuItem.Clear;
+
+  Tasks := TTask.GetLastActive(Limit, not DatabaseDataModule.DoneTasksFilter);
+  for Task in Tasks do
+  begin
+    MenuItem := TMenuItem.Create(GoToTaskMenuItem);
+    MenuItem.Caption := Task.Name;
+    MenuItem.Name := Format('GoToTask%dMenuItem', [Task.Id]);
+    MenuItem.OnClick := @GoToTaskMenuItemClick2;
+    GoToTaskMenuItem.Add(MenuItem);
+  end;
+  Tasks.Free;
+end;
+
 procedure TMainForm.StatsTabSheetShow(Sender: TObject);
 begin
   DatabaseDataModule.StatsSQLQuery.Refresh;
@@ -91,6 +117,16 @@ end;
 procedure TMainForm.ApplicationMinimize(Sender: TObject);
 begin
   MinimizeToTray;
+end;
+
+procedure TMainForm.GoToTaskMenuItemClick2(Sender: TObject);
+var
+  S: String;
+  TaskId: Integer;
+begin
+  S := (Sender as TMenuItem).Name;
+  TaskId := StrToInt(S.Substring(8, S.Length - 16));
+  TasksFrame1.SelectTask(TaskId);
 end;
 
 procedure TMainForm.MinimizeToTray;

@@ -5,7 +5,7 @@ unit Models;
 interface
 
 uses
-  Classes, SysUtils;
+  Classes, SysUtils, fgl;
 
 type
 
@@ -15,6 +15,11 @@ type
     public
       Id: Integer;
   end;
+
+
+  TTask = class;
+
+  TTasks = specialize TFPGObjectList<TTask>;
 
   { TTask }
 
@@ -31,6 +36,7 @@ type
       class function HasActive: Boolean; static;
       class function GetActive: TTask; static;
       class function GetById(anId: Integer): TTask; static;
+      class function GetLastActive(ACount: Integer; AOnlyUnfinished: Boolean = False): TTasks;
     private
       class procedure RefreshSQLQuery;
   end;
@@ -51,7 +57,7 @@ type
 implementation
 
 uses
-  DatabaseDM;
+  DatabaseDM, StrUtils;
 
 { TPeriod }
 
@@ -211,6 +217,45 @@ begin
       Result.Modified := FieldByName('modified').AsDateTime;
       Result.Done := FieldByName('done').AsBoolean;
     end;
+  end;
+end;
+
+class function TTask.GetLastActive(ACount: Integer; AOnlyUnfinished: Boolean = False): TTasks;
+var
+  Task: TTask;
+begin
+  Result := TTasks.Create();
+
+  with DatabaseDataModule.CustomSQLQuery do
+  begin
+    Close;
+    SQL.Text := 'SELECT `tasks`.*, MAX(`end`) AS `last_active` FROM `periods` '
+                 + '/*LEFT*/ INNER JOIN `tasks` ON `periods`.`task_id` = `tasks`.`id` '
+                 + IfThen(AOnlyUnfinished, 'where done == FALSE ')
+                 + 'GROUP BY `task_id` '
+                 + 'ORDER BY `last_active` DESC '
+                 + 'LIMIT :limit ';
+    ParamByName('limit').AsInteger := ACount;
+    Open;
+    First;
+    while not EOF do
+    begin
+      Task := TTask.Create;
+      // ToDo: Code duplicate
+      with Task do
+      begin
+        Id := FieldByName('id').AsInteger;
+        Name := FieldByName('name').AsString;
+        Description := FieldByName('description').AsString;
+        Created := FieldByName('created').AsDateTime;
+        Modified := FieldByName('modified').AsDateTime;
+        Done := FieldByName('done').AsBoolean;
+      end;
+      //////////////////
+      Result.Add(Task);
+      Next;
+    end;
+    Close;
   end;
 end;
 

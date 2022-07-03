@@ -51,7 +51,7 @@ type
     procedure UpdateFilters;
   public
     property TasksFilterText: String write SetTasksFilterText;
-    property DoneTasksFilter: Boolean write SetDoneTasksFilter;
+    property DoneTasksFilter: Boolean read FDoneTasksFilter write SetDoneTasksFilter;
 
     procedure ExportDatabase(AFileName: String);
     //procedure SaveDatabaseBackup;

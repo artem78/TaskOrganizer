@@ -128,6 +128,13 @@ object MainForm: TMainForm
       object ShowDoneTasksMenuItem: TMenuItem
         Action = NonVisualCtrlsDataModule.ShowDoneTasksAction
       end
+      object GoToTaskMenuItem: TMenuItem
+        Caption = 'Select last active task'
+        OnClick = GoToTaskMenuItemClick
+        object MenuItem1: TMenuItem
+          Caption = 'MenuItem1'
+        end
+      end
     end
     object ServiceMenuItem: TMenuItem
       Caption = 'Service'

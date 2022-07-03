@@ -42,6 +42,7 @@ type
     
   public
     //constructor Create(AOwner: TComponent); override;
+    procedure SelectTask(AnID: Integer);
   end;
 
 implementation
@@ -65,6 +66,11 @@ begin
 
     (Sender as TDBGrid).Canvas.Font.Style := [fsBold];
   end;
+end;
+
+procedure TTasksFrame.SelectTask(AnID: Integer);
+begin
+  DatabaseDataModule.TasksSQLQuery.Locate('id', AnID, []);
 end;
 
 procedure TTasksFrame.ClearFilterButtonClick(Sender: TObject);

@@ -264,23 +264,4 @@ object DatabaseDataModule: TDatabaseDataModule
     Left = 136
     Top = 208
   end
-  object StatsDataSource: TDataSource
-    DataSet = StatsSQLQuery
-    Left = 136
-    Top = 280
-  end
-  object StatsSQLQuery: TSQLQuery
-    FieldDefs = <>
-    Database = SQLite3Connection1
-    Transaction = SQLTransaction1
-    ReadOnly = True
-    SQL.Strings = (
-      'SELECT `day`,'
-      '    printf(''%d:%s'', floor(`duration`) /*days*/, time(`duration` + 0.5)) AS `duration`'
-      'FROM `duration_per_day`'
-    )
-    Params = <>
-    Left = 48
-    Top = 280
-  end
 end

@@ -4,3 +4,6 @@
 [submodule "packages/LazDatabaseVersioning"]
 	path = packages/LazDatabaseVersioning
 	url = ../LazDatabaseVersioning.git
+[submodule "packages/treelistview"]
+	path = packages/treelistview
+	url = ../../benibela/treelistview.git

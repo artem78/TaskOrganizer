@@ -33,6 +33,8 @@ type
     ReportTreeListView: TTreeListView;
     ViewRadioGroup: TRadioGroup;
     procedure GroupByRadioGroupClick(Sender: TObject);
+    procedure PeriodBeginDateTimePickerChange(Sender: TObject);
+    procedure PeriodEndDateTimePickerChange(Sender: TObject);
     procedure ViewRadioGroupClick(Sender: TObject);
   private
     function GetBeginDate: TDate;
@@ -70,6 +72,16 @@ begin
   GroupBy := GroupBy;
 end;
 
+procedure TReportFrame.PeriodBeginDateTimePickerChange(Sender: TObject);
+begin
+  BeginDate := BeginDate;
+end;
+
+procedure TReportFrame.PeriodEndDateTimePickerChange(Sender: TObject);
+begin
+  EndDate := EndDate;
+end;
+
 function TReportFrame.GetBeginDate: TDate;
 begin
   Result := PeriodBeginDateTimePicker.Date;
@@ -78,6 +90,8 @@ end;
 procedure TReportFrame.SetBeginDate(ADate: TDate);
 begin
   PeriodBeginDateTimePicker.Date := ADate;
+
+  PeriodEndDateTimePicker.MinDate := ADate;
 end;
 
 function TReportFrame.GetEndDate: TDate;
@@ -88,6 +102,8 @@ end;
 procedure TReportFrame.SetEndDate(ADate: TDate);
 begin
   PeriodEndDateTimePicker.Date := ADate;
+
+  PeriodBeginDateTimePicker.MaxDate := ADate;
 end;
 
 function TReportFrame.GetGroupBy: TReportGroupBy;

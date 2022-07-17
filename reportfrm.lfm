@@ -66,6 +66,7 @@ object ReportFrame: TReportFrame
         UseDefaultSeparators = True
         HideDateTimeParts = []
         MonthNames = 'Long'
+        OnChange = PeriodBeginDateTimePickerChange
       end
       object PeriodEndLabel: TLabel
         Left = 144
@@ -99,6 +100,7 @@ object ReportFrame: TReportFrame
         UseDefaultSeparators = True
         HideDateTimeParts = []
         MonthNames = 'Long'
+        OnChange = PeriodEndDateTimePickerChange
       end
     end
     object GroupByRadioGroup: TRadioGroup

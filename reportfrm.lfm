@@ -126,6 +126,7 @@ object ReportFrame: TReportFrame
         'Months'
         'Days'
       )
+      OnClick = GroupByRadioGroupClick
       TabOrder = 1
     end
     object ViewRadioGroup: TRadioGroup
@@ -150,6 +151,7 @@ object ReportFrame: TReportFrame
         'Table'
         'Chart'
       )
+      OnClick = ViewRadioGroupClick
       TabOrder = 2
     end
     object TasksGroupBox: TGroupBox

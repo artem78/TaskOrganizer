@@ -707,4 +707,12 @@ object NonVisualCtrlsDataModule: TNonVisualCtrlsDataModule
       Action = ExitAction
     end
   end
+  object XMLConfig: TXMLConfig
+    Filename = 'settings.xml'
+    StartEmpty = False
+    RootName = 'Settings'
+    ReadOnly = False
+    Left = 56
+    Top = 32
+  end
 end

@@ -5,7 +5,7 @@ unit NonVisualCtrlsDM;
 interface
 
 uses
-  Classes, SysUtils, Controls, ActnList, ExtCtrls, Menus, Models,
+  Classes, SysUtils, XMLConf, Controls, ActnList, ExtCtrls, Menus, Models,
   PeriodEditFrm, TrayIconEx;
 
 type
@@ -38,6 +38,7 @@ type
     TrayIcon: TTrayIconEx;
     TrayPopupMenu: TPopupMenu;
     UnMarkTaskAsDoneAction: TAction;
+    XMLConfig: TXMLConfig;
     procedure BackupDatabaseActionExecute(Sender: TObject);
     procedure CreatePeriodActionExecute(Sender: TObject);
     procedure CreateTaskActionExecute(Sender: TObject);

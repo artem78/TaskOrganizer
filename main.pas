@@ -157,6 +157,8 @@ begin
     SetValue('MainWindow/RestoredHeight', RestoredHeight);
 
     SetValue('MainWindow/WindowState', GetEnumName(TypeInfo(TWindowState), Ord(WindowState)));
+
+    SetValue('View/ShowDoneTasks', NonVisualCtrlsDataModule.ShowDoneTasksAction.Checked);
   end;
 end;
 
@@ -189,6 +191,13 @@ begin
         GetValue('MainWindow/Top', Top),
         GetValue('MainWindow/Width', Width),
         GetValue('MainWindow/Height', Height));
+    end;
+
+    // ToDo: Remake this
+    with NonVisualCtrlsDataModule.ShowDoneTasksAction do
+    begin
+      Checked := not GetValue('View/ShowDoneTasks', False);
+      Execute;
     end;
   end;
 end;

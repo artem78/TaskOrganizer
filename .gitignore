@@ -44,3 +44,4 @@ lib/
 /db backups/
 /build/
 /releases/
+/settings.xml

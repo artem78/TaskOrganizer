@@ -6,8 +6,8 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, ComCtrls,
-  StdCtrls, DBGrids, Menus, TasksFrame, DatabaseDM, PeriodsFrame,
-  NonVisualCtrlsDM;
+  StdCtrls, DBGrids, Menus, XMLPropStorage, TasksFrame, DatabaseDM,
+  PeriodsFrame, NonVisualCtrlsDM;
 
 type
 
@@ -31,6 +31,7 @@ type
     StatsTabSheet: TTabSheet;
     TasksTabSheet: TTabSheet;
     PeriodsTabSheet: TTabSheet;
+    XMLPropStorage: TXMLPropStorage;
     procedure FormCloseQuery(Sender: TObject; var CanClose: boolean);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);

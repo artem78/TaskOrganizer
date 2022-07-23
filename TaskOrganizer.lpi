@@ -112,31 +112,34 @@
         <Mode0 Name="default"/>
       </Modes>
     </RunParams>
-    <RequiredPackages Count="8">
+    <RequiredPackages Count="9">
       <Item1>
-        <PackageName Value="treelistviewpackage"/>
+        <PackageName Value="LazControls"/>
       </Item1>
       <Item2>
-        <PackageName Value="TAChartLazarusPkg"/>
+        <PackageName Value="treelistviewpackage"/>
       </Item2>
       <Item3>
-        <PackageName Value="TrayIconExLazPkg"/>
+        <PackageName Value="TAChartLazarusPkg"/>
       </Item3>
       <Item4>
-        <PackageName Value="DateTimeCtrls"/>
+        <PackageName Value="TrayIconExLazPkg"/>
       </Item4>
       <Item5>
-        <PackageName Value="uniqueinstance_package"/>
+        <PackageName Value="DateTimeCtrls"/>
       </Item5>
       <Item6>
-        <PackageName Value="FCL"/>
+        <PackageName Value="uniqueinstance_package"/>
       </Item6>
       <Item7>
-        <PackageName Value="SQLDBLaz"/>
+        <PackageName Value="FCL"/>
       </Item7>
       <Item8>
-        <PackageName Value="LCL"/>
+        <PackageName Value="SQLDBLaz"/>
       </Item8>
+      <Item9>
+        <PackageName Value="LCL"/>
+      </Item9>
     </RequiredPackages>
     <Units Count="12">
       <Unit0>

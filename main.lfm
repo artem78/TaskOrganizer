@@ -1,7 +1,7 @@
 object MainForm: TMainForm
-  Left = 250
+  Left = 251
   Height = 441
-  Top = 160
+  Top = 161
   Width = 734
   Caption = 'Task Organizer'
   ClientHeight = 421
@@ -34,8 +34,21 @@ object MainForm: TMainForm
         ClientWidth = 726
         inherited ToolBar1: TToolBar
           Width = 726
+          inherited EditToolButton: TToolButton
+            Left = 55
+          end
+          inherited RemoveToolButton: TToolButton
+            Left = 107
+          end
           inherited SeparatorToolButton: TToolButton
+            Left = 182
             Height = 22
+          end
+          inherited StartTrackingToolButton: TToolButton
+            Left = 190
+          end
+          inherited StopTrackingToolButton: TToolButton
+            Left = 295
           end
         end
         inherited TasksDBGrid: TDBGrid
@@ -75,25 +88,18 @@ object MainForm: TMainForm
         ClientHeight = 393
         ClientWidth = 726
         inherited SettingsPanel: TPanel
-          Width = 726
-          ClientWidth = 726
-          inherited TasksGroupBox: TGroupBox
-            inherited TasksCheckListBox: TCheckListBox
-              Data = {
-                140000000000000000000000000000000000000000000000
-              }
-            end
-          end
+          Width = 714
+          ClientWidth = 714
           inherited UpdateReportButton: TButton
-            Left = 651
+            Left = 639
           end
         end
         inherited ReportTreeListView: TTreeListView
-          Height = 185
+          Height = 149
           Width = 726
         end
         inherited ReportChart: TChart
-          Height = 165
+          Height = 135
           Width = 726
         end
       end

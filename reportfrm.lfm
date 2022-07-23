@@ -177,13 +177,17 @@ object ReportFrame: TReportFrame
       ClientHeight = 212
       ClientWidth = 262
       TabOrder = 3
-      object TaskFilterEdit: TEdit
+      object TaskListFilterEdit: TListFilterEdit
         Left = 6
         Height = 23
         Top = 6
         Width = 250
+        ButtonWidth = 23
+        NumGlyphs = 1
+        MaxLength = 0
         TabOrder = 0
-        Text = 'Filter...'
+        TextHint = '(filter)'
+        FilteredListbox = TasksCheckListBox
       end
       object TasksCheckListBox: TCheckListBox
         Left = 6
@@ -193,33 +197,8 @@ object ReportFrame: TReportFrame
         Constraints.MaxWidth = 400
         Constraints.MinHeight = 140
         Constraints.MinWidth = 250
-        Items.Strings = (
-          'Task 1'
-          'Task 2'
-          'Task 3'
-          'Task 4'
-          'Task 5'
-          'Task 6'
-          'Task 7'
-          'Task 8'
-          'Task 9'
-          'Task 10'
-          'Task 11'
-          'Task 12'
-          'Task 13'
-          'Task 14'
-          'Task 15'
-          'Task 16'
-          'Task 17'
-          'Task 18'
-          'Task 19'
-          'Task 20'
-        )
-        ItemHeight = 17
+        ItemHeight = 0
         TabOrder = 1
-        Data = {
-          140000000000000000000000000000000000000000000000
-        }
       end
       object SelectAllTasksButton: TButton
         Left = 6
@@ -227,6 +206,7 @@ object ReportFrame: TReportFrame
         Top = 181
         Width = 250
         Caption = '(De)Select all'
+        OnClick = SelectAllTasksButtonClick
         TabOrder = 2
       end
     end

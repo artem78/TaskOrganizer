@@ -5,8 +5,9 @@ unit ReportFrm;
 interface
 
 uses
-  Classes, SysUtils, Forms, Controls, StdCtrls, EditBtn, ExtCtrls, ComboEx,
-  CheckLst, TreeListView, TAGraph, DateTimePicker;
+  Classes, SysUtils, Messages, Forms, Controls, StdCtrls, EditBtn, ExtCtrls,
+  CheckLst, {LMessages,} TreeListView, TAGraph, DateTimePicker,
+  ListFilterEdit;
 
 type
 
@@ -17,10 +18,10 @@ type
   { TReportFrame }
 
   TReportFrame = class(TFrame)
+    TaskListFilterEdit: TListFilterEdit;
     PeriodBeginDateTimePicker: TDateTimePicker;
     PeriodEndDateTimePicker: TDateTimePicker;
     SelectAllTasksButton: TButton;
-    TaskFilterEdit: TEdit;
     ReportChart: TChart;
     SettingsPanel: TPanel;
     UpdateReportButton: TButton;
@@ -35,6 +36,7 @@ type
     procedure GroupByRadioGroupClick(Sender: TObject);
     procedure PeriodBeginDateTimePickerChange(Sender: TObject);
     procedure PeriodEndDateTimePickerChange(Sender: TObject);
+    procedure SelectAllTasksButtonClick(Sender: TObject);
     procedure ViewRadioGroupClick(Sender: TObject);
   private
     function GetBeginDate: TDate;
@@ -45,6 +47,9 @@ type
     procedure SetGroupBy(AVal: TReportGroupBy);
     function GetView: TReportView;
     procedure SetView(AVal: TReportView);
+
+    procedure UpdateTasksList;
+    procedure CMShowingChanged(var AMsg: TMessage); message CM_SHOWINGCHANGED;
   public
     constructor Create(TheOwner: TComponent); override;
 
@@ -56,7 +61,7 @@ type
 
 implementation
 
-uses DateUtils;
+uses DateUtils, DatabaseDM;
 
 {$R *.lfm}
 
@@ -80,6 +85,27 @@ end;
 procedure TReportFrame.PeriodEndDateTimePickerChange(Sender: TObject);
 begin
   EndDate := EndDate;
+end;
+
+procedure TReportFrame.SelectAllTasksButtonClick(Sender: TObject);
+var
+  IsAllChecked: Boolean;
+  Idx: Integer;
+begin
+  IsAllChecked := True;
+  for Idx := 0 to TasksCheckListBox.Count - 1 do
+  begin
+    if not TasksCheckListBox.Checked[Idx] then
+    begin
+      IsAllChecked := False;
+      Break;
+    end;
+  end;
+
+  if IsAllChecked then
+    TasksCheckListBox.CheckAll(cbUnchecked)
+  else
+    TasksCheckListBox.CheckAll(cbChecked);
 end;
 
 function TReportFrame.GetBeginDate: TDate;
@@ -140,6 +166,36 @@ begin
   end;
 end;
 
+procedure TReportFrame.UpdateTasksList;
+begin
+  {TasksCheckListBox.Clear} TaskListFilterEdit.Items.Clear;
+
+  with DatabaseDataModule.CustomSQLQuery do
+  begin
+    Close;
+    SQL.Text := 'SELECT `id`, `name` FROM `tasks` ORDER BY `name` ASC;';
+    Open;
+    First;
+    while not EOF do
+    begin
+      {TasksCheckListBox.AddItem} TaskListFilterEdit.Items.AddObject(FieldByName('name').AsString,
+          TObject(FieldByName('id').AsInteger));
+      Next;
+    end;
+    Close;
+  end;
+
+  TaskListFilterEdit.InvalidateFilter;
+end;
+
+procedure TReportFrame.CMShowingChanged(var AMsg: TMessage);
+begin
+  inherited;
+
+  if Showing then
+    UpdateTasksList;
+end;
+
 constructor TReportFrame.Create(TheOwner: TComponent);
 begin
   inherited Create(TheOwner);
@@ -148,6 +204,8 @@ begin
   BeginDate := IncWeek(EndDate, -1);
   GroupBy := rgbDay;
   View := rvChart;
+
+  //UpdateTasksList;
 end;
 
 end.

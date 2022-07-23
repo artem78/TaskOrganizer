@@ -15,6 +15,8 @@ type
 
   TReportView = (rvTable, rvChart);
 
+  TTaskIds = array of Integer;
+
   { TReportFrame }
 
   TReportFrame = class(TFrame)
@@ -47,6 +49,7 @@ type
     procedure SetGroupBy(AVal: TReportGroupBy);
     function GetView: TReportView;
     procedure SetView(AVal: TReportView);
+    function GetSelectedTasks: TTaskIds;
 
     procedure UpdateTasksList;
     procedure CMShowingChanged(var AMsg: TMessage); message CM_SHOWINGCHANGED;
@@ -57,6 +60,7 @@ type
     property EndDate: TDate read GetEndDate write SetEndDate;
     property GroupBy: TReportGroupBy read GetGroupBy write SetGroupBy;
     property View: TReportView read GetView write SetView;
+    property SelectedTasks: TTaskIds read GetSelectedTasks {write ...};
   end;
 
 implementation
@@ -163,6 +167,30 @@ begin
         ReportTreeListView.Hide;
         ReportChart.Show;
       end;
+  end;
+end;
+
+function TReportFrame.GetSelectedTasks: TTaskIds;
+var
+  CheckedCount: Integer = 0;
+  Idx, Idx2: Integer;
+begin
+  for Idx := 0 to TasksCheckListBox.Count - 1 do
+  begin
+    if TasksCheckListBox.Checked[Idx] then
+      Inc(CheckedCount);
+  end;
+
+  SetLength(Result, CheckedCount);
+
+  Idx2 := 0;
+  for Idx := 0 to TasksCheckListBox.Count - 1 do
+  begin
+    if TasksCheckListBox.Checked[Idx] then
+    begin
+      Result[Idx2] := Integer(TasksCheckListBox.Items.Objects[Idx]);
+      Inc(Idx2);
+    end;
   end;
 end;
 

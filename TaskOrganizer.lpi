@@ -141,7 +141,7 @@
         <PackageName Value="LCL"/>
       </Item9>
     </RequiredPackages>
-    <Units Count="12">
+    <Units Count="13">
       <Unit0>
         <Filename Value="TaskOrganizer.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -223,6 +223,11 @@
         <ResourceBaseClass Value="Frame"/>
         <UnitName Value="ReportFrm"/>
       </Unit11>
+      <Unit12>
+        <Filename Value="reports.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="Reports"/>
+      </Unit12>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

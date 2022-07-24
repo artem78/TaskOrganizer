@@ -6,16 +6,12 @@ interface
 
 uses
   Classes, SysUtils, Messages, Forms, Controls, StdCtrls, EditBtn, ExtCtrls,
-  CheckLst, {LMessages,} TreeListView, TAGraph, DateTimePicker,
+  CheckLst, {LMessages,} TreeListView, Reports, TAGraph, DateTimePicker,
   ListFilterEdit;
 
 type
 
-  TReportGroupBy = (rgbYear, rgbMonth, rgbDay);
-
   TReportView = (rvTable, rvChart);
-
-  TTaskIds = array of Integer;
 
   { TReportFrame }
 
@@ -39,6 +35,7 @@ type
     procedure PeriodBeginDateTimePickerChange(Sender: TObject);
     procedure PeriodEndDateTimePickerChange(Sender: TObject);
     procedure SelectAllTasksButtonClick(Sender: TObject);
+    procedure UpdateReportButtonClick(Sender: TObject);
     procedure ViewRadioGroupClick(Sender: TObject);
   private
     function GetBeginDate: TDate;
@@ -53,6 +50,7 @@ type
 
     procedure UpdateTasksList;
     procedure CMShowingChanged(var AMsg: TMessage); message CM_SHOWINGCHANGED;
+    procedure FillReportTree(const AReport: TReport);
   public
     constructor Create(TheOwner: TComponent); override;
 
@@ -110,6 +108,36 @@ begin
     TasksCheckListBox.CheckAll(cbUnchecked)
   else
     TasksCheckListBox.CheckAll(cbChecked);
+end;
+
+procedure TReportFrame.UpdateReportButtonClick(Sender: TObject);
+var
+  Generator: TReportGenerator = nil;
+  Report: TReport = nil;
+begin
+  Generator := TReportGenerator.Create;
+
+  try
+    Generator.BeginDate := BeginDate;
+    Generator.EndDate := EndDate;
+    Generator.GroupBy := GroupBy;
+    Generator.Tasks := SelectedTasks;
+
+    try
+      Report := Generator.GenerateReport;
+
+      case View of
+        rvTable:
+          begin
+            FillReportTree(Report);
+          end;
+      end;
+    finally
+      Report.Free;
+    end;
+  finally
+    Generator.Free;
+  end;
 end;
 
 function TReportFrame.GetBeginDate: TDate;
@@ -222,6 +250,36 @@ begin
 
   if Showing then
     UpdateTasksList;
+end;
+
+procedure TReportFrame.FillReportTree(const AReport: TReport);
+var
+  PeriodIdx: Integer;
+  Period: String;
+  TaskIdx: Integer;
+  Task: String;
+  TaskTimeSeconds: Integer;
+  TaskTime: String;
+begin
+  ReportTreeListView.BeginUpdate;
+  ReportTreeListView.Items.Clear;
+
+  for PeriodIdx := 0 to AReport.Items.Count - 1 do
+  begin
+    Period := AReport.Items.Keys[PeriodIdx];
+    with ReportTreeListView.Items.Add(Period) do
+    begin
+      for TaskIdx := 0 to AReport.Items.Data[PeriodIdx].Count - 1 do
+      begin
+        Task := AReport.Items.Data[PeriodIdx].Keys[TaskIdx];
+        TaskTimeSeconds := AReport.Items.Data[PeriodIdx].Data[TaskIdx];
+        TaskTime := Format('%.1f h', [TaskTimeSeconds / 60 / 60]);
+        SubItems.Add(Task).RecordItems.Add(TaskTime);
+      end;
+    end;
+  end;
+
+  ReportTreeListView.EndUpdate;
 end;
 
 constructor TReportFrame.Create(TheOwner: TComponent);

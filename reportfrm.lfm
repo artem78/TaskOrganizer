@@ -221,6 +221,7 @@ object ReportFrame: TReportFrame
       Width = 75
       Anchors = [akRight, akBottom]
       Caption = 'Refresh'
+      OnClick = UpdateReportButtonClick
       TabOrder = 4
     end
   end

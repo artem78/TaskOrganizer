@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, Messages, Forms, Controls, StdCtrls, EditBtn, ExtCtrls,
-  CheckLst, {LMessages,} TreeListView, Reports, TAGraph, DateTimePicker,
+  CheckLst, TreeListView, Reports, TAGraph, TASeries, DateTimePicker,
   ListFilterEdit;
 
 type
@@ -51,6 +51,7 @@ type
     procedure UpdateTasksList;
     procedure CMShowingChanged(var AMsg: TMessage); message CM_SHOWINGCHANGED;
     procedure FillReportTree(const AReport: TReport);
+    procedure FillReportChart(const AReport: TReport);
   public
     constructor Create(TheOwner: TComponent); override;
 
@@ -63,9 +64,12 @@ type
 
 implementation
 
-uses DateUtils, DatabaseDM;
+uses DateUtils, DatabaseDM, Graphics, System.UITypes, fgl, Math;
 
 {$R *.lfm}
+
+type
+  TBarSeriesMap = specialize TFPGMap<String, TBarSeries>;
 
 { TReportFrame }
 
@@ -130,6 +134,11 @@ begin
         rvTable:
           begin
             FillReportTree(Report);
+          end;
+
+        rvChart:
+          begin
+            FillReportChart(Report);
           end;
       end;
     finally
@@ -280,6 +289,103 @@ begin
   end;
 
   ReportTreeListView.EndUpdate;
+end;
+
+procedure TReportFrame.FillReportChart(const AReport: TReport);
+  function FixColorConstant(AColor: TColorRec): TColor;
+  { Bug fix for current FPC (v3.2.2 and earlier)
+    Issue: https://forum.lazarus.freepascal.org/index.php/topic,60069.0.html
+    Fixed by commit (not included in release yet):
+        https://gitlab.com/freepascal.org/fpc/source/-/commit/742ec5680f8edfdae744382f565a3fda804b0e5c?view=parallel
+  }
+  begin
+    {$if defined(FPC_FULLVERSION) and (FPC_FULLVERSION <= 030202)}
+    Result := RGBToColor(AColor.B, AColor.G, AColor.R);
+    {$ELSE}
+    {$Fatal  ToDo: Check if it fixed in current FPC version}
+    Result := AColor;
+    {$ENDIF}
+  end;
+
+  function GetDefaultColor(AIdx: Integer): TColor;
+  var
+    Colors: array of {TColorRec} TColor = (
+      TColorRec.DodgerBlue,
+      TColorRec.Gold,
+      TColorRec.{OrangeRed}Red,
+      TColorRec.GreenYellow,
+      TColorRec.{DeepPink}Magenta,
+      TColorRec.{Sienna}Maroon,
+      TCOlorRec.Moccasin,
+      TColorRec.Navy,
+      TColorRec.MediumSeaGreen,
+      TColorRec.Silver,
+      TColorRec.DarkOrchid,
+      TColorRec.Tomato,
+      TColorRec.SpringGreen,
+      TColorRec.PaleTurquoise,
+      TColorRec.Orange
+    );
+  begin
+    if AIdx in [Low(Colors) .. High(Colors)] then
+      Result := FixColorConstant(Colors[AIdx])
+    else
+      Result := { $ffffff } Random(2 ** 24);
+  end;
+
+var
+  PeriodIdx: Integer;
+  Period: String;
+  TaskIdx: Integer;
+  Task: String;
+  TaskTimeSeconds: Integer;
+  BarSeries: TBarSeries;
+  BarSeriesMap: TBarSeriesMap;
+  BarSeriesIdx: Integer;
+begin
+  ReportChart.ClearSeries;
+
+  BarSeriesMap := TBarSeriesMap.Create;
+  try
+    for PeriodIdx := 0 to AReport.Items.Count - 1 do
+    begin
+      Period := AReport.Items.Keys[PeriodIdx];
+      for TaskIdx := 0 to AReport.Items.Data[PeriodIdx].Count - 1 do
+      begin
+        Task := AReport.Items.Data[PeriodIdx].Keys[TaskIdx];
+        TaskTimeSeconds := AReport.Items.Data[PeriodIdx].Data[TaskIdx];
+
+        BarSeriesIdx := BarSeriesMap.IndexOf(Task);
+        if BarSeriesIdx = -1 then
+        begin
+          BarSeries := TBarSeries.Create(ReportChart);
+          BarSeries.Title := Task;
+          BarSeries.SeriesColor := GetDefaultColor(BarSeriesMap.Count);
+          BarSeriesMap.Add(Task, BarSeries);
+        end
+        else
+        begin
+          BarSeries := BarSeriesMap.Data[BarSeriesIdx];
+        end;
+
+        BarSeries.AddXY(StrToInt(Period), TaskTimeSeconds / 60 / 60{, Period});
+      end;
+    end;
+
+    for BarSeriesIdx := 0 to BarSeriesMap.Count - 1 do
+    begin
+      with BarSeriesMap.Data[BarSeriesIdx] do
+      begin
+        BarWidthStyle := bwPercentMin;
+        BarWidthPercent := Floor(100 / (BarSeriesMap.Count + 1));
+        BarOffsetPercent := Floor(100 / BarSeriesMap.Count) * BarSeriesIdx;
+      end;
+      ReportChart.AddSeries(BarSeriesMap.Data[BarSeriesIdx]);
+    end;
+
+  finally
+    BarSeriesMap.Free;
+  end;
 end;
 
 constructor TReportFrame.Create(TheOwner: TComponent);

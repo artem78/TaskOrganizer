@@ -283,14 +283,27 @@ object ReportFrame: TReportFrame
         Title.LabelBrush.Style = bsClear
       end    
       item
+        Grid.Visible = False
+        TickLength = 0
         Alignment = calBottom
+        Marks.Format = '%2:s'
         Marks.LabelBrush.Style = bsClear
-        Minors = <>
+        Marks.Source = LabelsChartSource
+        Marks.Style = smsLabel
+        Minors = <        
+          item
+            Intervals.Count = 1
+            Intervals.MinLength = 5
+            Intervals.Options = [aipUseCount, aipUseMinLength]
+            TickLength = 4
+            Marks.LabelBrush.Style = bsClear
+          end>
         Title.LabelBrush.Style = bsClear
       end>
     Foot.Brush.Color = clBtnFace
     Foot.Font.Color = clBlue
     Legend.Visible = True
+    Margins.Bottom = 0
     Title.Brush.Color = clBtnFace
     Title.Font.Color = clBlue
     Title.Text.Strings = (
@@ -298,5 +311,9 @@ object ReportFrame: TReportFrame
     )
     Align = alClient
     BorderSpacing.Top = 20
+  end
+  object LabelsChartSource: TListChartSource
+    Left = 616
+    Top = 488
   end
 end

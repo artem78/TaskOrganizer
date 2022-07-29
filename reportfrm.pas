@@ -6,8 +6,8 @@ interface
 
 uses
   Classes, SysUtils, Messages, Forms, Controls, StdCtrls, EditBtn, ExtCtrls,
-  CheckLst, TreeListView, Reports, TAGraph, TASeries, DateTimePicker,
-  ListFilterEdit;
+  CheckLst, TreeListView, Reports, TAGraph, TASeries,
+  TASources, DateTimePicker, ListFilterEdit;
 
 type
 
@@ -16,6 +16,7 @@ type
   { TReportFrame }
 
   TReportFrame = class(TFrame)
+    LabelsChartSource: TListChartSource;
     TaskListFilterEdit: TListFilterEdit;
     PeriodBeginDateTimePicker: TDateTimePicker;
     PeriodEndDateTimePicker: TDateTimePicker;
@@ -52,6 +53,7 @@ type
     procedure CMShowingChanged(var AMsg: TMessage); message CM_SHOWINGCHANGED;
     procedure FillReportTree(const AReport: TReport);
     procedure FillReportChart(const AReport: TReport);
+    procedure CreateChartLabels;
   public
     constructor Create(TheOwner: TComponent); override;
 
@@ -342,6 +344,8 @@ var
   BarSeries: TBarSeries;
   BarSeriesMap: TBarSeriesMap;
   BarSeriesIdx: Integer;
+  XVal: TDate;
+  YVal: Double;
 begin
   ReportChart.ClearSeries;
 
@@ -368,7 +372,11 @@ begin
           BarSeries := BarSeriesMap.Data[BarSeriesIdx];
         end;
 
-        BarSeries.AddXY(StrToInt(Period), TaskTimeSeconds / 60 / 60{, Period});
+        case GroupBy of
+          rgbYear: XVal := EncodeDate(StrToInt(Period), 1, 1);
+        end;
+        YVal := TaskTimeSeconds / 60 / 60;
+        BarSeries.AddXY(XVal, YVal{, Period});
       end;
     end;
 
@@ -377,14 +385,35 @@ begin
       with BarSeriesMap.Data[BarSeriesIdx] do
       begin
         BarWidthStyle := bwPercentMin;
-        BarWidthPercent := Floor(100 / (BarSeriesMap.Count + 1));
-        BarOffsetPercent := Floor(100 / BarSeriesMap.Count) * BarSeriesIdx;
+        BarWidthPercent := {Floor}Round(100 / (BarSeriesMap.Count + 1));
+        BarOffsetPercent := Round((100 / (BarSeriesMap.Count + 1))
+            * (BarSeriesIdx - (BarSeriesMap.Count - 1) / 2));
       end;
       ReportChart.AddSeries(BarSeriesMap.Data[BarSeriesIdx]);
     end;
 
+    CreateChartLabels;
+
   finally
     BarSeriesMap.Free;
+  end;
+end;
+
+procedure TReportFrame.CreateChartLabels;
+  procedure CreateYearLabels;
+  var
+    year1, year2, year: Integer;
+  begin
+    year1 := {trunc(Chart1Barseries1.MinXValue)} YearOf(BeginDate);
+    year2 := {trunc(Chart1Barseries1.MaxXValue) + 1} YearOf(EndDate) + 1;
+    LabelsChartSource.Clear;
+    for year := year1 to year2 do
+      LabelsChartSource.Add({year} EncodeDate(year, 1, 1), 0, IntToStr(year));
+  end;
+
+begin
+  case GroupBy of
+    rgbYear: CreateYearLabels;
   end;
 end;
 

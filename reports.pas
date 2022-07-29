@@ -87,12 +87,14 @@ begin
     case GroupBy of
       rgbYear: p := FormatDateTime('YYYY', date);
       rgbMonth: p := FormatDateTime('YYYY-MM', date);
+      rgbDay: p := FormatDateTime('YYYY-MM-DD', date);
     end;
     Result.Items.Add(p, d);
 
     case GroupBy of
       rgbYear: date := IncYear(date);
       rgbMonth: date := IncMonth(date);
+      rgbDay: date := IncDay(date);
     end;
   end;
 end;

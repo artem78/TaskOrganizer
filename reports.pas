@@ -43,6 +43,8 @@ type
 
 implementation
 
+uses DateUtils;
+
 { TReport }
 
 constructor TReport.Create;
@@ -64,21 +66,25 @@ function TReportGenerator.GenerateReport: TReport;
 var
   I, taskid: integer;
   d: TTaskTotalTimeMap;
+  year, startyear, endyear: integer;
 begin
   Result := TReport.Create;
 
-  for i := 0 to 9 do
+  startyear := yearof(BeginDate);
+  endyear := yearof(EndDate);
+
+  for year := startyear to endyear do
   begin
     d := TTaskTotalTimeMap.Create;
-    for taskid:=0 to 9 do
+    for taskid:=0 to {9}{4}4 do
     begin
-      If Random > 0.5 then
+      If Random > 0{.5} then
       begin
         d.Add('task ' + inttostr(taskid), Random(8*60*60));
       end;
     end;
 
-    Result.Items.Add(inttostr( 2000 + I), d);
+    Result.Items.Add(inttostr(year), d);
   end;
 end;
 {*** STUB *** }

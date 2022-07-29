@@ -64,16 +64,16 @@ end;
 function TReportGenerator.GenerateReport: TReport;
 {*** STUB *** }
 var
-  I, taskid: integer;
+  taskid: integer;
   d: TTaskTotalTimeMap;
-  year, startyear, endyear: integer;
+  date: tdate;
+  p: string;
 begin
   Result := TReport.Create;
 
-  startyear := yearof(BeginDate);
-  endyear := yearof(EndDate);
+  date := BeginDate;
 
-  for year := startyear to endyear do
+  while date <= EndDate do
   begin
     d := TTaskTotalTimeMap.Create;
     for taskid:=0 to {9}{4}4 do
@@ -84,7 +84,16 @@ begin
       end;
     end;
 
-    Result.Items.Add(inttostr(year), d);
+    case GroupBy of
+      rgbYear: p := FormatDateTime('YYYY', date);
+      rgbMonth: p := FormatDateTime('YYYY-MM', date);
+    end;
+    Result.Items.Add(p, d);
+
+    case GroupBy of
+      rgbYear: date := IncYear(date);
+      rgbMonth: date := IncMonth(date);
+    end;
   end;
 end;
 {*** STUB *** }

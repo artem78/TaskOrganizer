@@ -374,6 +374,7 @@ begin
 
         case GroupBy of
           rgbYear: XVal := EncodeDate(StrToInt(Period), 1, 1);
+          rgbMonth: XVal := ScanDateTime('YYYY-MM-DD', Period + '-01');
         end;
         YVal := TaskTimeSeconds / 60 / 60;
         BarSeries.AddXY(XVal, YVal{, Period});
@@ -400,20 +401,29 @@ begin
 end;
 
 procedure TReportFrame.CreateChartLabels;
-  procedure CreateYearLabels;
-  var
-    year1, year2, year: Integer;
-  begin
-    year1 := {trunc(Chart1Barseries1.MinXValue)} YearOf(BeginDate);
-    year2 := {trunc(Chart1Barseries1.MaxXValue) + 1} YearOf(EndDate) + 1;
-    LabelsChartSource.Clear;
-    for year := year1 to year2 do
-      LabelsChartSource.Add({year} EncodeDate(year, 1, 1), 0, IntToStr(year));
-  end;
+var
+  Date: TDate;
 
 begin
-  case GroupBy of
-    rgbYear: CreateYearLabels;
+  Date := BeginDate;
+
+  while Date <= EndDate do
+  begin
+    case GroupBy of
+      rgbYear:
+        begin
+          LabelsChartSource.Add(EncodeDate(YearOf(Date), 1, 1), 0,
+              FormatDateTime('YYYY', Date));
+          Date := IncYear(Date);
+        end;
+
+      rgbMonth:
+        begin
+          LabelsChartSource.Add(EncodeDate(YearOf(Date), MonthOf(Date), 1), 0,
+              FormatDateTime('YYYY-MM', Date));
+          Date := IncMonth(Date);
+        end;
+    end;
   end;
 end;
 

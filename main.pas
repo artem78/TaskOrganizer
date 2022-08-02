@@ -159,6 +159,7 @@ begin
     SetValue('MainWindow/WindowState', GetEnumName(TypeInfo(TWindowState), Ord(WindowState)));
 
     SetValue('View/ShowDoneTasks', NonVisualCtrlsDataModule.ShowDoneTasksAction.Checked);
+    SetValue('SelectedTask', TasksFrame1.TasksDBGrid.DataSource.DataSet.FieldByName('id').AsInteger);
   end;
 end;
 
@@ -199,6 +200,9 @@ begin
       Checked := not GetValue('View/ShowDoneTasks', False);
       Execute;
     end;
+
+    TasksFrame1.TasksDBGrid.DataSource.DataSet.Locate(
+          'id', GetValue('SelectedTask', -1), []);
   end;
 end;
 

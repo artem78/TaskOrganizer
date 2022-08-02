@@ -28,10 +28,10 @@ git clone https://github.com/artem78/TaskOrganizer.git --recurse-submodules
 Install additional packages:
 
 - From `packages` directory:
-  - LazDatabaseVersioning
-  - TrayIconExLazPkg
+  - LazTrayIconExtended/trayiconexlazpkg.lpk
+  - treelistview/treelistviewpackage.lpk
 - From online package manager in IDE:
-  - uniqueinstance
+  - UniqueInstance
 
 [Download SQlite3 library](https://www.sqlite.org/download.html) and put \*.dll to main Lazarus root directory and project directory.
 

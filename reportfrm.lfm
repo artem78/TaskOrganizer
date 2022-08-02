@@ -288,6 +288,7 @@ object ReportFrame: TReportFrame
         Alignment = calBottom
         Marks.Format = '%2:s'
         Marks.LabelBrush.Style = bsClear
+        Marks.OverlapPolicy = opHideNeighbour
         Marks.Source = LabelsChartSource
         Marks.Style = smsLabel
         Minors = <        

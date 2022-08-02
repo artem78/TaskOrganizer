@@ -272,8 +272,8 @@ object ReportFrame: TReportFrame
   end
   object ReportChart: TChart
     Left = 0
-    Height = 321
-    Top = 258
+    Height = 335
+    Top = 244
     Width = 710
     AxisList = <    
       item
@@ -311,7 +311,6 @@ object ReportFrame: TReportFrame
       'TAChart'
     )
     Align = alClient
-    BorderSpacing.Top = 20
   end
   object LabelsChartSource: TListChartSource
     Left = 616

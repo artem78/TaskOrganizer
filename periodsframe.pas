@@ -5,7 +5,7 @@ unit PeriodsFrame;
 interface
 
 uses
-  Classes, SysUtils, Forms, Controls, DBGrids, ComCtrls;
+  Classes, SysUtils, Forms, Controls, DBGrids, ComCtrls, Menus;
 
 type
 
@@ -13,6 +13,9 @@ type
 
   TPeriodsFrame = class(TFrame)
     DBGrid1: TDBGrid;
+    EditPeriodMenuItem: TMenuItem;
+    DeletePeriodMenuItem: TMenuItem;
+    PeriodsGridPopupMenu: TPopupMenu;
     ToolBar: TToolBar;
     CreatePeriodToolButton: TToolButton;
     EditPeriodToolButton: TToolButton;

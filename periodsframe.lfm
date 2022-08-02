@@ -19,6 +19,7 @@ object PeriodsFrame: TPeriodsFrame
     DataSource = DatabaseDataModule.PeriodsDataSource
     FixedCols = 0
     Options = [dgTitles, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAutoSizeColumns, dgAnyButtonCanSelect]
+    PopupMenu = PeriodsGridPopupMenu
     ReadOnly = True
     TabOrder = 0
     TitleStyle = tsNative
@@ -47,6 +48,17 @@ object PeriodsFrame: TPeriodsFrame
     object DeletePeriodToolButton: TToolButton
       Left = 169
       Top = 2
+      Action = NonVisualCtrlsDataModule.DeletePeriodAction
+    end
+  end
+  object PeriodsGridPopupMenu: TPopupMenu
+    Images = NonVisualCtrlsDataModule.Icons
+    Left = 392
+    Top = 56
+    object EditPeriodMenuItem: TMenuItem
+      Action = NonVisualCtrlsDataModule.EditPeriodAction
+    end
+    object DeletePeriodMenuItem: TMenuItem
       Action = NonVisualCtrlsDataModule.DeletePeriodAction
     end
   end

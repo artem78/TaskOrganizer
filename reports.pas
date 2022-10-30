@@ -43,7 +43,7 @@ type
 
 implementation
 
-uses DateUtils;
+uses DateUtils, DatabaseDM;
 
 { TReport }
 
@@ -62,7 +62,7 @@ end;
 { TReportGenerator }
 
 function TReportGenerator.GenerateReport: TReport;
-{*** STUB *** }
+(*{*** STUB *** }
 var
   taskid: integer;
   d: TTaskTotalTimeMap;
@@ -98,7 +98,53 @@ begin
     end;
   end;
 end;
-{*** STUB *** }
+{*** STUB *** }  *)
+var
+  d: TTaskTotalTimeMap;
+  p: String;
+  TableName: String;
+begin
+  Result := TReport.Create;
+
+  case GroupBy of
+    rgbYear: TableName := 'duration_per_year_and_task';
+    rgbMonth: TableName := 'duration_per_month_and_task';
+    rgbDay: TableName := 'duration_per_day_and_task';
+  end;
+
+  (*case GroupBy of
+    //rgbYear;
+    //rgbMonth;
+    rgbDay:
+      begin*)
+        with DatabaseDataModule.CustomSQLQuery do
+        begin
+          Close;
+          SQL.Text := 'SELECT `date`, task_id, tasks.name as `task_name`, duration '
+                    + 'FROM /*:tbl*/ `' + TableName + '` '
+                    + 'INNER JOIN tasks ON tasks.id = task_id;';
+          //ParamByName('tbl').AsString := TableName;
+          Open;
+          First;
+          while not EOF do
+          begin
+            p := {FormatDateTime('YYYY-MM-DD', FieldByName('date').AsDateTime)} FieldByName('date').AsString;
+            if not Result.Items.TryGetData(p, d) then
+            begin
+              d := TTaskTotalTimeMap.Create;
+              Result.Items.Add(p, d);
+            end;
+
+            d.Add(FieldByName('task_name').AsString,
+                  Round(FieldByName('duration').AsFloat * 60 *60 *24));
+
+            Next;
+          end;
+          Close;
+        end;
+      {end;
+  end;}
+end;
 
 end.
 

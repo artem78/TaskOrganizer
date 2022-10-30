@@ -19,8 +19,6 @@ type
     PeriodsSQLQueryIsActive: TBooleanField;
     PeriodsSQLQueryIsManuallyAdded: TBooleanField;
     PeriodsSQLQueryTaskId: TLongintField;
-    StatsSQLQuery: TSQLQuery;
-    StatsDataSource: TDataSource;
     PeriodsDataSource: TDataSource;
     PeriodsSQLQuery: TSQLQuery;
     TasksDataSource: TDataSource;
@@ -94,7 +92,7 @@ begin
 
   TasksSQLQuery.Active := True;
   PeriodsSQLQuery.Active := True;
-  StatsSQLQuery.Active:=True;
+  //StatsSQLQuery.Active:=True;
 
   {// Tray icon
   TrayIcon.Icon.Assign(MainForm.Icon);}
@@ -284,7 +282,7 @@ var
   Res: Boolean = False;
   CurrentVersion: Integer;
   DBVersioning: TDBVersioning;
-  TasksQueryIsActive, PeriodsQueryIsActive, StatsQueryIsActive,
+  TasksQueryIsActive, PeriodsQueryIsActive{, StatsQueryIsActive},
     ConnectionIsConnected: Boolean;
 begin
   Result := '';
@@ -307,7 +305,7 @@ begin
   ConnectionIsConnected := SQLite3Connection1.Connected;
   TasksQueryIsActive := TasksSQLQuery.Active;
   PeriodsQueryIsActive := PeriodsSQLQuery.Active;
-  StatsQueryIsActive := StatsSQLQuery.Active;
+  //StatsQueryIsActive := StatsSQLQuery.Active;
   DatabaseDataModule.SQLite3Connection1.Close(); // Temporarily turn off connection to DB
   try
     Res := CopyFile(SourceFileName, DestFileName, [cffCreateDestDirectory]);
@@ -319,7 +317,7 @@ begin
     SQLite3Connection1.Connected := ConnectionIsConnected;
     TasksSQLQuery.Active := TasksQueryIsActive;
     PeriodsSQLQuery.Active := PeriodsQueryIsActive;
-    StatsSQLQuery.Active := StatsQueryIsActive;
+    //StatsSQLQuery.Active := StatsQueryIsActive;
   end;
 end;
 

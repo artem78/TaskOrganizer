@@ -1,0 +1,150 @@
+unit Reports;
+
+{$mode objfpc}{$H+}
+
+interface
+
+uses
+  Classes, SysUtils, fgl;
+
+type
+
+  TTaskTotalTimeMap = specialize TFPGMap<String, Integer>;
+
+  TPeriodDataMap = specialize TFPGMap<string, TTaskTotalTimeMap>;
+
+  { TReport }
+
+  TReport = class
+    public
+      Items: TPeriodDataMap;
+
+      constructor Create;
+      destructor Destroy; override;
+  end;
+
+  TReportGroupBy = (rgbYear, rgbMonth, rgbDay);
+
+  TTaskIds = array of Integer;
+
+  { TReportGenerator }
+
+  TReportGenerator = class
+    private
+
+    public
+      BeginDate: TDateTime;
+      EndDate: TDateTime;
+      GroupBy: TReportGroupBy;
+      Tasks: TTaskIds;
+
+      function GenerateReport: TReport;
+  end;
+
+implementation
+
+uses DateUtils, DatabaseDM;
+
+{ TReport }
+
+constructor TReport.Create;
+begin
+  Items := TPeriodDataMap.Create;
+end;
+
+destructor TReport.Destroy;
+begin
+  inherited Destroy;
+
+  Items.Free;
+end;
+
+{ TReportGenerator }
+
+function TReportGenerator.GenerateReport: TReport;
+(*{*** STUB *** }
+var
+  taskid: integer;
+  d: TTaskTotalTimeMap;
+  date: tdate;
+  p: string;
+begin
+  Result := TReport.Create;
+
+  date := BeginDate;
+
+  while date <= EndDate do
+  begin
+    d := TTaskTotalTimeMap.Create;
+    for taskid:=0 to {9}{4}4 do
+    begin
+      If Random > 0{.5} then
+      begin
+        d.Add('task ' + inttostr(taskid), Random(8*60*60));
+      end;
+    end;
+
+    case GroupBy of
+      rgbYear: p := FormatDateTime('YYYY', date);
+      rgbMonth: p := FormatDateTime('YYYY-MM', date);
+      rgbDay: p := FormatDateTime('YYYY-MM-DD', date);
+    end;
+    Result.Items.Add(p, d);
+
+    case GroupBy of
+      rgbYear: date := IncYear(date);
+      rgbMonth: date := IncMonth(date);
+      rgbDay: date := IncDay(date);
+    end;
+  end;
+end;
+{*** STUB *** }  *)
+var
+  d: TTaskTotalTimeMap;
+  p: String;
+  TableName: String;
+begin
+  Result := TReport.Create;
+
+  case GroupBy of
+    rgbYear: TableName := 'duration_per_year_and_task';
+    rgbMonth: TableName := 'duration_per_month_and_task';
+    rgbDay: TableName := 'duration_per_day_and_task';
+  end;
+
+  (*case GroupBy of
+    //rgbYear;
+    //rgbMonth;
+    rgbDay:
+      begin*)
+        with DatabaseDataModule.CustomSQLQuery do
+        begin
+          Close;
+          SQL.Text := 'SELECT `date`, task_id, tasks.name as `task_name`, duration '
+                    + 'FROM /*:tbl*/ `' + TableName + '` '
+                    + 'INNER JOIN tasks ON tasks.id = task_id;';
+          //ParamByName('tbl').AsString := TableName;
+          Open;
+          First;
+          while not EOF do
+          begin
+            p := {FormatDateTime('YYYY-MM-DD', FieldByName('date').AsDateTime)} FieldByName('date').AsString;
+            if not Result.Items.TryGetData(p, d) then
+            begin
+              d := TTaskTotalTimeMap.Create;
+              Result.Items.Add(p, d);
+            end;
+
+            d.Add(FieldByName('task_name').AsString,
+                  Round(FieldByName('duration').AsFloat * 60 *60 *24));
+
+            Next;
+          end;
+          Close;
+        end;
+      {end;
+  end;}
+end;
+
+end.
+

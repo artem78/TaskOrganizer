@@ -7,7 +7,7 @@ interface
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, ComCtrls,
   StdCtrls, DBGrids, Menus, XMLPropStorage, TasksFrame, DatabaseDM,
-  PeriodsFrame, NonVisualCtrlsDM;
+  PeriodsFrame, NonVisualCtrlsDM, ReportFrm;
 
 type
 
@@ -17,6 +17,7 @@ type
     BackupDBMenuItem: TMenuItem;
     GoToTaskMenuItem: TMenuItem;
     MenuItem1: TMenuItem;
+    ReportFrame1: TReportFrame;
     ShowDoneTasksMenuItem: TMenuItem;
     TasksFrame1: TTasksFrame;
     ViewMenuItem: TMenuItem;
@@ -24,11 +25,10 @@ type
     MainMenu: TMainMenu;
     ExportMenuItem: TMenuItem;
     ServiceMenuItem: TMenuItem;
-    StatsDBGrid: TDBGrid;
     LogsMemo: TMemo;
     PageControl1: TPageControl;
     LogsTabSheet: TTabSheet;
-    StatsTabSheet: TTabSheet;
+    ReportTabSheet: TTabSheet;
     TasksTabSheet: TTabSheet;
     PeriodsTabSheet: TTabSheet;
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
@@ -36,7 +36,7 @@ type
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure GoToTaskMenuItemClick(Sender: TObject);
-    procedure StatsTabSheetShow(Sender: TObject);
+    procedure ReportTabSheetShow(Sender: TObject);
     procedure TasksTabSheetShow(Sender: TObject);
   private
     procedure ApplicationMinimize(Sender: TObject);
@@ -116,10 +116,10 @@ begin
   Tasks.Free;
 end;
 
-procedure TMainForm.StatsTabSheetShow(Sender: TObject);
+procedure TMainForm.ReportTabSheetShow(Sender: TObject);
 begin
-  DatabaseDataModule.StatsSQLQuery.Refresh;
-  StatsDBGrid.Refresh;
+  //DatabaseDataModule.StatsSQLQuery.Refresh;
+  //StatsDBGrid.Refresh;
 end;
 
 procedure TMainForm.TasksTabSheetShow(Sender: TObject);

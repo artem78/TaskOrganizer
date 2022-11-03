@@ -1,0 +1,319 @@
+object ReportFrame: TReportFrame
+  Left = 0
+  Height = 579
+  Top = 0
+  Width = 710
+  ClientHeight = 579
+  ClientWidth = 710
+  TabOrder = 0
+  DesignLeft = 299
+  DesignTop = 109
+  object SettingsPanel: TPanel
+    Left = 6
+    Height = 232
+    Top = 6
+    Width = 698
+    Align = alTop
+    AutoSize = True
+    BorderSpacing.Around = 6
+    BevelOuter = bvNone
+    ClientHeight = 232
+    ClientWidth = 698
+    TabOrder = 0
+    object PeriodGroupBox: TGroupBox
+      Left = 0
+      Height = 55
+      Top = 0
+      Width = 262
+      AutoSize = True
+      Caption = 'Period'
+      ChildSizing.LeftRightSpacing = 6
+      ChildSizing.TopBottomSpacing = 6
+      ChildSizing.HorizontalSpacing = 6
+      ChildSizing.VerticalSpacing = 6
+      ChildSizing.Layout = cclLeftToRightThenTopToBottom
+      ChildSizing.ControlsPerLine = 9999
+      ClientHeight = 35
+      ClientWidth = 258
+      TabOrder = 0
+      object PeriodBeginLabel: TLabel
+        Left = 6
+        Height = 23
+        Top = 6
+        Width = 33
+        Caption = 'Begin:'
+        Layout = tlCenter
+        ParentColor = False
+      end
+      object PeriodBeginDateTimePicker: TDateTimePicker
+        Left = 45
+        Height = 23
+        Top = 6
+        Width = 79
+        CenturyFrom = 1941
+        MaxDate = 2958465
+        MinDate = -53780
+        TabOrder = 0
+        TrailingSeparator = False
+        TextForNullDate = 'NULL'
+        LeadingZeros = True
+        NullInputAllowed = False
+        Kind = dtkDate
+        TimeFormat = tf24
+        TimeDisplay = tdHMS
+        DateMode = dmComboBox
+        Date = 44562
+        Time = 0.430048217589501
+        UseDefaultSeparators = True
+        HideDateTimeParts = []
+        MonthNames = 'Long'
+        OnChange = PeriodBeginDateTimePickerChange
+      end
+      object PeriodEndLabel: TLabel
+        Left = 144
+        Height = 23
+        Top = 6
+        Width = 23
+        BorderSpacing.Left = 20
+        Caption = 'End:'
+        Layout = tlCenter
+        ParentColor = False
+      end
+      object PeriodEndDateTimePicker: TDateTimePicker
+        Left = 173
+        Height = 23
+        Top = 6
+        Width = 79
+        CenturyFrom = 1941
+        MaxDate = 2958465
+        MinDate = -53780
+        TabOrder = 1
+        TrailingSeparator = False
+        TextForNullDate = 'NULL'
+        LeadingZeros = True
+        NullInputAllowed = False
+        Kind = dtkDate
+        TimeFormat = tf24
+        TimeDisplay = tdHMS
+        DateMode = dmComboBox
+        Date = 44562
+        Time = 0.753500497681671
+        UseDefaultSeparators = True
+        HideDateTimeParts = []
+        MonthNames = 'Long'
+        OnChange = PeriodEndDateTimePickerChange
+      end
+    end
+    object GroupByRadioGroup: TRadioGroup
+      AnchorSideTop.Control = PeriodGroupBox
+      AnchorSideTop.Side = asrBottom
+      Left = 0
+      Height = 77
+      Top = 70
+      Width = 77
+      AutoFill = True
+      AutoSize = True
+      BorderSpacing.Top = 15
+      Caption = 'Group by'
+      ChildSizing.LeftRightSpacing = 6
+      ChildSizing.EnlargeHorizontal = crsHomogenousChildResize
+      ChildSizing.EnlargeVertical = crsHomogenousChildResize
+      ChildSizing.ShrinkHorizontal = crsScaleChilds
+      ChildSizing.ShrinkVertical = crsScaleChilds
+      ChildSizing.Layout = cclLeftToRightThenTopToBottom
+      ChildSizing.ControlsPerLine = 1
+      ClientHeight = 57
+      ClientWidth = 73
+      Items.Strings = (
+        'Years'
+        'Months'
+        'Days'
+      )
+      OnClick = GroupByRadioGroupClick
+      TabOrder = 1
+    end
+    object ViewRadioGroup: TRadioGroup
+      AnchorSideTop.Control = GroupByRadioGroup
+      Left = 136
+      Height = 58
+      Top = 70
+      Width = 65
+      AutoFill = True
+      AutoSize = True
+      Caption = 'View'
+      ChildSizing.LeftRightSpacing = 6
+      ChildSizing.EnlargeHorizontal = crsHomogenousChildResize
+      ChildSizing.EnlargeVertical = crsHomogenousChildResize
+      ChildSizing.ShrinkHorizontal = crsScaleChilds
+      ChildSizing.ShrinkVertical = crsScaleChilds
+      ChildSizing.Layout = cclLeftToRightThenTopToBottom
+      ChildSizing.ControlsPerLine = 1
+      ClientHeight = 38
+      ClientWidth = 61
+      Items.Strings = (
+        'Table'
+        'Chart'
+      )
+      OnClick = ViewRadioGroupClick
+      TabOrder = 2
+    end
+    object TasksGroupBox: TGroupBox
+      AnchorSideLeft.Control = PeriodGroupBox
+      AnchorSideLeft.Side = asrBottom
+      AnchorSideRight.Side = asrBottom
+      Left = 282
+      Height = 232
+      Top = 0
+      Width = 266
+      AutoSize = True
+      BorderSpacing.Left = 20
+      Caption = 'Tasks'
+      ChildSizing.LeftRightSpacing = 6
+      ChildSizing.TopBottomSpacing = 6
+      ChildSizing.HorizontalSpacing = 6
+      ChildSizing.VerticalSpacing = 6
+      ChildSizing.Layout = cclLeftToRightThenTopToBottom
+      ChildSizing.ControlsPerLine = 1
+      ClientHeight = 212
+      ClientWidth = 262
+      TabOrder = 3
+      object TaskListFilterEdit: TListFilterEdit
+        Left = 6
+        Height = 23
+        Top = 6
+        Width = 250
+        ButtonWidth = 23
+        NumGlyphs = 1
+        MaxLength = 0
+        TabOrder = 0
+        TextHint = '(filter)'
+        FilteredListbox = TasksCheckListBox
+      end
+      object TasksCheckListBox: TCheckListBox
+        Left = 6
+        Height = 140
+        Top = 35
+        Width = 250
+        Constraints.MaxWidth = 400
+        Constraints.MinHeight = 140
+        Constraints.MinWidth = 250
+        ItemHeight = 0
+        TabOrder = 1
+      end
+      object SelectAllTasksButton: TButton
+        Left = 6
+        Height = 25
+        Top = 181
+        Width = 250
+        Caption = '(De)Select all'
+        OnClick = SelectAllTasksButtonClick
+        TabOrder = 2
+      end
+    end
+    object UpdateReportButton: TButton
+      AnchorSideRight.Control = SettingsPanel
+      AnchorSideRight.Side = asrBottom
+      AnchorSideBottom.Control = SettingsPanel
+      AnchorSideBottom.Side = asrBottom
+      Left = 623
+      Height = 25
+      Top = 207
+      Width = 75
+      Anchors = [akRight, akBottom]
+      Caption = 'Refresh'
+      OnClick = UpdateReportButtonClick
+      TabOrder = 4
+    end
+  end
+  object ReportTreeListView: TTreeListView
+    Left = 0
+    Height = 335
+    Top = 244
+    Width = 710
+    Options = [tlvoToolTips, tlvoRightMouseSelects, tlvoStriped]
+    Columns = <    
+      item
+        Alignment = taLeftJustify
+        Text = 'Task'
+        Width = 300
+        Visible = True
+      end    
+      item
+        Alignment = taLeftJustify
+        Text = 'Total time'
+        Width = 100
+        Visible = True
+      end>
+    RowHeight = 16
+    HorizontalLineMode = lmNone
+    HorizontalLineColor = clWindowFrame
+    VerticalLineMode = lmDot
+    VerticalLineColor = clWindowFrame
+    RootLineMode = lmDot
+    RootLineColor = clWindowFrame
+    ColorSearchMark = clAqua
+    ColorSearchMarkField = 16744320
+    ExpandMode = emExpandByClick
+    HotTrackFont.Color = clBlue
+    HotTrackFont.Style = [fsUnderline]
+    Font.Color = clWindowText
+    SelectedFont.Color = clHighlightText
+    SelectedHotTrackFont.Color = clHighlightText
+    SelectedHotTrackFont.Style = [fsBold, fsUnderline]
+    StripedOddColor = clWindow
+    StripedEvenColor = 14745599
+    SelectBackColor = clHighlight
+    ButtonColor = clWindow
+    BackGroundColor = clWindow
+    Scrollbars = ssBoth
+    HeaderVisible = True
+    TabOrder = 2
+    Align = alClient
+  end
+  object ReportChart: TChart
+    Left = 0
+    Height = 321
+    Top = 258
+    Width = 710
+    AxisList = <    
+      item
+        Marks.LabelBrush.Style = bsClear
+        Minors = <>
+        Title.LabelFont.Orientation = 900
+        Title.LabelBrush.Style = bsClear
+      end    
+      item
+        Grid.Visible = False
+        TickLength = 0
+        Alignment = calBottom
+        Marks.Format = '%2:s'
+        Marks.LabelBrush.Style = bsClear
+        Marks.Source = LabelsChartSource
+        Marks.Style = smsLabel
+        Minors = <        
+          item
+            Intervals.Count = 1
+            Intervals.MinLength = 5
+            Intervals.Options = [aipUseCount, aipUseMinLength]
+            TickLength = 4
+            Marks.LabelBrush.Style = bsClear
+          end>
+        Title.LabelBrush.Style = bsClear
+      end>
+    Foot.Brush.Color = clBtnFace
+    Foot.Font.Color = clBlue
+    Legend.Visible = True
+    Margins.Bottom = 0
+    Title.Brush.Color = clBtnFace
+    Title.Font.Color = clBlue
+    Title.Text.Strings = (
+      'TAChart'
+    )
+    Align = alClient
+    BorderSpacing.Top = 20
+  end
+  object LabelsChartSource: TListChartSource
+    Left = 616
+    Top = 488
+  end
+end

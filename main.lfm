@@ -1,7 +1,7 @@
 object MainForm: TMainForm
-  Left = 250
+  Left = 251
   Height = 441
-  Top = 160
+  Top = 161
   Width = 734
   Caption = 'Task Organizer'
   ClientHeight = 421
@@ -43,6 +43,7 @@ object MainForm: TMainForm
           end
           inherited SeparatorToolButton: TToolButton
             Left = 182
+            Height = 22
           end
           inherited StartTrackingToolButton: TToolButton
             Left = 190
@@ -76,25 +77,32 @@ object MainForm: TMainForm
         end
       end
     end
-    object StatsTabSheet: TTabSheet
-      Caption = 'Statistics'
-      ClientHeight = 321
-      ClientWidth = 619
-      OnShow = StatsTabSheetShow
-      object StatsDBGrid: TDBGrid
-        Left = 0
-        Height = 321
-        Top = 0
-        Width = 619
+    object ReportTabSheet: TTabSheet
+      Caption = 'Reports'
+      ClientHeight = 393
+      ClientWidth = 726
+      OnShow = ReportTabSheetShow
+      inline ReportFrame1: TReportFrame
+        Height = 393
+        Width = 726
         Align = alClient
-        Color = clWindow
-        Columns = <>
-        DataSource = DatabaseDataModule.StatsDataSource
-        FixedCols = 0
-        Options = [dgTitles, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgCancelOnExit, dgAutoSizeColumns, dgDisableDelete, dgDisableInsert]
-        ReadOnly = True
-        TabOrder = 0
-        TitleStyle = tsNative
+        ClientHeight = 393
+        ClientWidth = 726
+        inherited SettingsPanel: TPanel
+          Width = 714
+          ClientWidth = 714
+          inherited UpdateReportButton: TButton
+            Left = 639
+          end
+        end
+        inherited ReportTreeListView: TTreeListView
+          Height = 149
+          Width = 726
+        end
+        inherited ReportChart: TChart
+          Height = 135
+          Width = 726
+        end
       end
     end
     object LogsTabSheet: TTabSheet

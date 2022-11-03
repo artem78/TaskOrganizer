@@ -272,8 +272,8 @@ object ReportFrame: TReportFrame
   end
   object ReportChart: TChart
     Left = 0
-    Height = 321
-    Top = 258
+    Height = 335
+    Top = 244
     Width = 710
     AxisList = <    
       item
@@ -288,6 +288,7 @@ object ReportFrame: TReportFrame
         Alignment = calBottom
         Marks.Format = '%2:s'
         Marks.LabelBrush.Style = bsClear
+        Marks.OverlapPolicy = opHideNeighbour
         Marks.Source = LabelsChartSource
         Marks.Style = smsLabel
         Minors = <        
@@ -310,7 +311,6 @@ object ReportFrame: TReportFrame
       'TAChart'
     )
     Align = alClient
-    BorderSpacing.Top = 20
   end
   object LabelsChartSource: TListChartSource
     Left = 616

@@ -105,6 +105,8 @@ var
   TableName: String;
   TaskId: Integer;
   TaskIdList: TStringList;
+  BeginDateStr, EndDateStr: String;
+  FilterDateFmt: String;
 begin
   Result := TReport.Create;
 
@@ -119,6 +121,12 @@ begin
     rgbDay: TableName := 'duration_per_day_and_task';
   end;
 
+  case GroupBy of
+    rgbYear:  FilterDateFmt := 'yyyy';
+    rgbMonth: FilterDateFmt := 'yyyy-mm';
+    rgbDay:   FilterDateFmt := 'yyyy-mm-dd';
+  end;
+
   (*case GroupBy of
     //rgbYear;
     //rgbMonth;
@@ -130,8 +138,15 @@ begin
           SQL.Text := 'SELECT `date`, task_id, tasks.name as `task_name`, duration '
                     + 'FROM /*:tbl*/ `' + TableName + '` '
                     + 'INNER JOIN tasks ON tasks.id = task_id '
-                    + 'WHERE task_id IN (' + TaskIdList.DelimitedText + ');';
+                    + 'WHERE task_id IN (' + TaskIdList.DelimitedText + ') '
+                    + '      AND (`date` BETWEEN :begin_date AND :end_date);';
           //ParamByName('tbl').AsString := TableName;
+          //ParamByName('begin_date').AsDate := BeginDate;
+          //ParamByName('end_date').AsDate := EndDate;
+          DateTimeToString(BeginDateStr, FilterDateFmt, BeginDate);
+          ParamByName('begin_date').AsString := BeginDateStr;
+          DateTimeToString(EndDateStr, FilterDateFmt, EndDate);
+          ParamByName('end_date').AsString := EndDateStr;
           Open;
           First;
           while not EOF do

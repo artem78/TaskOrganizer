@@ -103,8 +103,15 @@ var
   d: TTaskTotalTimeMap;
   p: String;
   TableName: String;
+  TaskId: Integer;
+  TaskIdList: TStringList;
 begin
   Result := TReport.Create;
+
+  TaskIdList := TStringList.Create;
+  TaskIdList.Delimiter := ',';
+  for TaskId in Tasks do
+    TaskIdList.Add(IntToStr(TaskId));
 
   case GroupBy of
     rgbYear: TableName := 'duration_per_year_and_task';
@@ -122,7 +129,8 @@ begin
           Close;
           SQL.Text := 'SELECT `date`, task_id, tasks.name as `task_name`, duration '
                     + 'FROM /*:tbl*/ `' + TableName + '` '
-                    + 'INNER JOIN tasks ON tasks.id = task_id;';
+                    + 'INNER JOIN tasks ON tasks.id = task_id '
+                    + 'WHERE task_id IN (' + TaskIdList.DelimitedText + ');';
           //ParamByName('tbl').AsString := TableName;
           Open;
           First;
@@ -144,6 +152,8 @@ begin
         end;
       {end;
   end;}
+
+  TaskIdList.Free;
 end;
 
 end.

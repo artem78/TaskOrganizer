@@ -276,7 +276,7 @@ begin
   with DatabaseDataModule.CustomSQLQuery do
   begin
     Close;
-    SQL.Text := 'SELECT `id`, `name` FROM `tasks` ORDER BY `name` ASC;';
+    SQL.Text := 'SELECT `id`, `name` FROM `tasks` ORDER BY `name` COLLATE UTF8_CI ASC;';
     Open;
     First;
     while not EOF do

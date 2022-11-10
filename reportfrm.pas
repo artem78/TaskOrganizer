@@ -49,7 +49,7 @@ type
     function GetSelectedTasks: TTaskIds;
 
     procedure UpdateTasksList;
-    procedure CMShowingChanged(var AMsg: TMessage); message CM_SHOWINGCHANGED;
+    //procedure CMShowingChanged(var AMsg: TMessage); message CM_SHOWINGCHANGED;
     procedure FillReportTree(const AReport: TReport);
     procedure FillReportChart(const AReport: TReport);
     procedure CreateChartLabels;
@@ -63,6 +63,8 @@ type
     property SelectedTasks: TTaskIds read GetSelectedTasks {write ...};
 
     procedure UpdateReport;
+
+    procedure OnShow;
   end;
 
 implementation
@@ -157,6 +159,12 @@ begin
   finally
     Generator.Free;
   end;
+end;
+
+procedure TReportFrame.OnShow;
+begin
+  UpdateTasksList;
+  UpdateReport;
 end;
 
 function TReportFrame.GetBeginDate: TDate;
@@ -283,7 +291,7 @@ begin
   TaskListFilterEdit.InvalidateFilter;
 end;
 
-procedure TReportFrame.CMShowingChanged(var AMsg: TMessage);
+{procedure TReportFrame.CMShowingChanged(var AMsg: TMessage);
 begin
   inherited;
 
@@ -292,7 +300,7 @@ begin
     UpdateTasksList;
     UpdateReport;
   end;
-end;
+end;   }
 
 procedure TReportFrame.FillReportTree(const AReport: TReport);
 var

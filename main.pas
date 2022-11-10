@@ -120,6 +120,8 @@ procedure TMainForm.ReportTabSheetShow(Sender: TObject);
 begin
   //DatabaseDataModule.StatsSQLQuery.Refresh;
   //StatsDBGrid.Refresh;
+
+  ReportFrame1.OnShow;
 end;
 
 procedure TMainForm.TasksTabSheetShow(Sender: TObject);

@@ -18,9 +18,9 @@ object MainForm: TMainForm
     Height = 421
     Top = 0
     Width = 734
-    ActivePage = TasksTabSheet
+    ActivePage = ReportTabSheet
     Align = alClient
-    TabIndex = 0
+    TabIndex = 2
     TabOrder = 0
     object TasksTabSheet: TTabSheet
       Caption = 'Tasks'
@@ -35,22 +35,6 @@ object MainForm: TMainForm
         ClientWidth = 726
         inherited ToolBar1: TToolBar
           Width = 726
-          inherited EditToolButton: TToolButton
-            Left = 55
-          end
-          inherited RemoveToolButton: TToolButton
-            Left = 107
-          end
-          inherited SeparatorToolButton: TToolButton
-            Left = 182
-            Height = 22
-          end
-          inherited StartTrackingToolButton: TToolButton
-            Left = 190
-          end
-          inherited StopTrackingToolButton: TToolButton
-            Left = 295
-          end
         end
         inherited TasksDBGrid: TDBGrid
           Height = 335
@@ -74,6 +58,12 @@ object MainForm: TMainForm
         end
         inherited ToolBar: TToolBar
           Width = 726
+          inherited EditPeriodToolButton: TToolButton
+            Left = 68
+          end
+          inherited DeletePeriodToolButton: TToolButton
+            Left = 133
+          end
         end
       end
     end
@@ -91,16 +81,13 @@ object MainForm: TMainForm
         inherited SettingsPanel: TPanel
           Width = 714
           ClientWidth = 714
-          inherited UpdateReportButton: TButton
-            Left = 639
-          end
         end
         inherited ReportTreeListView: TTreeListView
           Height = 149
           Width = 726
         end
         inherited ReportChart: TChart
-          Height = 135
+          Height = 149
           Width = 726
         end
       end

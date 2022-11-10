@@ -110,6 +110,10 @@ var
 begin
   Result := TReport.Create;
 
+  ////////
+  if DatabaseDataModule=nil then exit;
+  ////////
+
   TaskIdList := TStringList.Create;
   TaskIdList.Delimiter := ',';
   for TaskId in Tasks do

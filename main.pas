@@ -17,11 +17,11 @@ type
     BackupDBMenuItem: TMenuItem;
     GoToTaskMenuItem: TMenuItem;
     MenuItem1: TMenuItem;
+    PeriodsFrame1: TPeriodsFrame;
     ReportFrame1: TReportFrame;
     ShowDoneTasksMenuItem: TMenuItem;
     TasksFrame1: TTasksFrame;
     ViewMenuItem: TMenuItem;
-    PeriodsFrame1: TPeriodsFrame;
     MainMenu: TMainMenu;
     ExportMenuItem: TMenuItem;
     ServiceMenuItem: TMenuItem;

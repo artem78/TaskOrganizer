@@ -198,6 +198,7 @@ object ReportFrame: TReportFrame
         Constraints.MinHeight = 140
         Constraints.MinWidth = 250
         ItemHeight = 0
+        OnClickCheck = TasksCheckListBoxClickCheck
         TabOrder = 1
       end
       object SelectAllTasksButton: TButton
@@ -209,20 +210,6 @@ object ReportFrame: TReportFrame
         OnClick = SelectAllTasksButtonClick
         TabOrder = 2
       end
-    end
-    object UpdateReportButton: TButton
-      AnchorSideRight.Control = SettingsPanel
-      AnchorSideRight.Side = asrBottom
-      AnchorSideBottom.Control = SettingsPanel
-      AnchorSideBottom.Side = asrBottom
-      Left = 623
-      Height = 25
-      Top = 207
-      Width = 75
-      Anchors = [akRight, akBottom]
-      Caption = 'Refresh'
-      OnClick = UpdateReportButtonClick
-      TabOrder = 4
     end
   end
   object ReportTreeListView: TTreeListView

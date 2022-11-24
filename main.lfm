@@ -1,11 +1,13 @@
 object MainForm: TMainForm
   Left = 251
-  Height = 441
+  Height = 450
   Top = 161
-  Width = 734
+  Width = 750
   Caption = 'Task Organizer'
-  ClientHeight = 421
-  ClientWidth = 734
+  ClientHeight = 430
+  ClientWidth = 750
+  Constraints.MinHeight = 450
+  Constraints.MinWidth = 750
   Menu = MainMenu
   OnClose = FormClose
   OnCloseQuery = FormCloseQuery
@@ -15,26 +17,26 @@ object MainForm: TMainForm
   LCLVersion = '2.0.12.0'
   object PageControl1: TPageControl
     Left = 0
-    Height = 421
+    Height = 430
     Top = 0
-    Width = 734
+    Width = 750
     ActivePage = TasksTabSheet
     Align = alClient
     TabIndex = 0
     TabOrder = 0
     object TasksTabSheet: TTabSheet
       Caption = 'Tasks'
-      ClientHeight = 393
-      ClientWidth = 726
+      ClientHeight = 402
+      ClientWidth = 742
       OnShow = TasksTabSheetShow
       inline TasksFrame1: TTasksFrame
-        Height = 393
-        Width = 726
+        Height = 402
+        Width = 742
         Align = alClient
-        ClientHeight = 393
-        ClientWidth = 726
+        ClientHeight = 402
+        ClientWidth = 742
         inherited ToolBar1: TToolBar
-          Width = 726
+          Width = 742
           inherited EditToolButton: TToolButton
             Left = 55
           end
@@ -53,8 +55,8 @@ object MainForm: TMainForm
           end
         end
         inherited TasksDBGrid: TDBGrid
-          Height = 335
-          Width = 726
+          Height = 344
+          Width = 742
         end
       end
     end

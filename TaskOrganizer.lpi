@@ -16,7 +16,8 @@
     </i18n>
     <VersionInfo>
       <UseVersionInfo Value="True"/>
-      <MinorVersionNr Value="10"/>
+      <MinorVersionNr Value="11"/>
+      <Attributes pvaPreRelease="True"/>
     </VersionInfo>
     <BuildModes Count="3">
       <Item1 Name="Default" Default="True"/>

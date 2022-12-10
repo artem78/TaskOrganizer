@@ -66,6 +66,16 @@ uses main, Forms, LazUTF8, NonVisualCtrlsDM, DatabaseVersioning,
 
 {$R *.lfm}
 
+// https://wiki.freepascal.org/SQLite#Creating_user_defined_collations
+// utf8 case-insensitive compare callback function
+function UTF8xCompare_CI(user: pointer; len1: longint; data1: pointer; len2: longint; data2: pointer): longint; cdecl;
+var S1, S2: AnsiString;
+begin
+  SetString(S1, data1, len1);
+  SetString(S2, data2, len2);
+  Result := UnicodeCompareText(UTF8Decode(S1), UTF8Decode(S2));
+end;
+
 { TDatabaseDataModule }
 
 procedure TDatabaseDataModule.DataModuleCreate(Sender: TObject);
@@ -75,6 +85,8 @@ begin
   // Initializations
   FTasksFilterText := '';
   FDoneTasksFilter := False;
+
+  SQLite3Connection1.CreateCollation('UTF8_CI',1,nil,@UTF8xCompare_CI);
 
 
   // Create DB schema

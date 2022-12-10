@@ -23,7 +23,6 @@ type
     SelectAllTasksButton: TButton;
     ReportChart: TChart;
     SettingsPanel: TPanel;
-    UpdateReportButton: TButton;
     TasksCheckListBox: TCheckListBox;
     TasksGroupBox: TGroupBox;
     PeriodBeginLabel: TLabel;
@@ -36,7 +35,7 @@ type
     procedure PeriodBeginDateTimePickerChange(Sender: TObject);
     procedure PeriodEndDateTimePickerChange(Sender: TObject);
     procedure SelectAllTasksButtonClick(Sender: TObject);
-    procedure UpdateReportButtonClick(Sender: TObject);
+    procedure TasksCheckListBoxClickCheck(Sender: TObject);
     procedure ViewRadioGroupClick(Sender: TObject);
   private
     function GetBeginDate: TDate;
@@ -50,7 +49,7 @@ type
     function GetSelectedTasks: TTaskIds;
 
     procedure UpdateTasksList;
-    procedure CMShowingChanged(var AMsg: TMessage); message CM_SHOWINGCHANGED;
+    //procedure CMShowingChanged(var AMsg: TMessage); message CM_SHOWINGCHANGED;
     procedure FillReportTree(const AReport: TReport);
     procedure FillReportChart(const AReport: TReport);
     procedure CreateChartLabels;
@@ -62,6 +61,10 @@ type
     property GroupBy: TReportGroupBy read GetGroupBy write SetGroupBy;
     property View: TReportView read GetView write SetView;
     property SelectedTasks: TTaskIds read GetSelectedTasks {write ...};
+
+    procedure UpdateReport;
+
+    procedure OnShow;
   end;
 
 implementation
@@ -114,9 +117,16 @@ begin
     TasksCheckListBox.CheckAll(cbUnchecked)
   else
     TasksCheckListBox.CheckAll(cbChecked);
+
+  UpdateReport;
 end;
 
-procedure TReportFrame.UpdateReportButtonClick(Sender: TObject);
+procedure TReportFrame.TasksCheckListBoxClickCheck(Sender: TObject);
+begin
+  UpdateReport;
+end;
+
+procedure TReportFrame.UpdateReport;
 var
   Generator: TReportGenerator = nil;
   Report: TReport = nil;
@@ -151,6 +161,12 @@ begin
   end;
 end;
 
+procedure TReportFrame.OnShow;
+begin
+  UpdateTasksList;
+  UpdateReport;
+end;
+
 function TReportFrame.GetBeginDate: TDate;
 begin
   Result := PeriodBeginDateTimePicker.Date;
@@ -158,9 +174,14 @@ end;
 
 procedure TReportFrame.SetBeginDate(ADate: TDate);
 begin
+  //if PeriodBeginDateTimePicker.Date = ADate then
+  //  Exit;
+
   PeriodBeginDateTimePicker.Date := ADate;
 
   PeriodEndDateTimePicker.MinDate := ADate;
+
+  UpdateReport;
 end;
 
 function TReportFrame.GetEndDate: TDate;
@@ -170,9 +191,14 @@ end;
 
 procedure TReportFrame.SetEndDate(ADate: TDate);
 begin
+  //if PeriodEndDateTimePicker.Date = ADate then
+  //  Exit;
+
   PeriodEndDateTimePicker.Date := ADate;
 
   PeriodBeginDateTimePicker.MaxDate := ADate;
+
+  UpdateReport;
 end;
 
 function TReportFrame.GetGroupBy: TReportGroupBy;
@@ -182,7 +208,12 @@ end;
 
 procedure TReportFrame.SetGroupBy(AVal: TReportGroupBy);
 begin
+  //if GroupByRadioGroup.ItemIndex = Ord(AVal) then
+  //  Exit;
+
   GroupByRadioGroup.ItemIndex := Ord(AVal);
+
+  UpdateReport;
 end;
 
 function TReportFrame.GetView: TReportView;
@@ -192,7 +223,12 @@ end;
 
 procedure TReportFrame.SetView(AVal: TReportView);
 begin
+  //if ViewRadioGroup.ItemIndex = Ord(AVal) then
+  //  Exit;
+
   ViewRadioGroup.ItemIndex := Ord(AVal);
+
+  UpdateReport;
 
   case AVal of
     rvTable:
@@ -240,7 +276,7 @@ begin
   with DatabaseDataModule.CustomSQLQuery do
   begin
     Close;
-    SQL.Text := 'SELECT `id`, `name` FROM `tasks` ORDER BY `name` ASC;';
+    SQL.Text := 'SELECT `id`, `name` FROM `tasks` ORDER BY `name` COLLATE UTF8_CI ASC;';
     Open;
     First;
     while not EOF do
@@ -255,13 +291,16 @@ begin
   TaskListFilterEdit.InvalidateFilter;
 end;
 
-procedure TReportFrame.CMShowingChanged(var AMsg: TMessage);
+{procedure TReportFrame.CMShowingChanged(var AMsg: TMessage);
 begin
   inherited;
 
   if Showing then
+  begin
     UpdateTasksList;
-end;
+    UpdateReport;
+  end;
+end;   }
 
 procedure TReportFrame.FillReportTree(const AReport: TReport);
 var
@@ -445,6 +484,7 @@ begin
   View := rvChart;
 
   //UpdateTasksList;
+  //UpdateReport;
 end;
 
 end.

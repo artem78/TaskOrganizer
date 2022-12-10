@@ -160,11 +160,13 @@ object ReportFrame: TReportFrame
     object TasksGroupBox: TGroupBox
       AnchorSideLeft.Control = PeriodGroupBox
       AnchorSideLeft.Side = asrBottom
+      AnchorSideRight.Control = SettingsPanel
       AnchorSideRight.Side = asrBottom
       Left = 282
       Height = 232
       Top = 0
-      Width = 266
+      Width = 416
+      Anchors = [akTop, akLeft, akRight]
       AutoSize = True
       BorderSpacing.Left = 20
       Caption = 'Tasks'
@@ -172,16 +174,20 @@ object ReportFrame: TReportFrame
       ChildSizing.TopBottomSpacing = 6
       ChildSizing.HorizontalSpacing = 6
       ChildSizing.VerticalSpacing = 6
+      ChildSizing.EnlargeHorizontal = crsHomogenousChildResize
       ChildSizing.Layout = cclLeftToRightThenTopToBottom
       ChildSizing.ControlsPerLine = 1
       ClientHeight = 212
-      ClientWidth = 262
+      ClientWidth = 412
+      Constraints.MaxWidth = 500
+      Constraints.MinWidth = 250
       TabOrder = 3
       object TaskListFilterEdit: TListFilterEdit
+        AnchorSideRight.Side = asrBottom
         Left = 6
         Height = 23
         Top = 6
-        Width = 250
+        Width = 400
         ButtonWidth = 23
         NumGlyphs = 1
         MaxLength = 0
@@ -193,36 +199,24 @@ object ReportFrame: TReportFrame
         Left = 6
         Height = 140
         Top = 35
-        Width = 250
+        Width = 400
         Constraints.MaxWidth = 400
         Constraints.MinHeight = 140
         Constraints.MinWidth = 250
         ItemHeight = 0
+        OnClickCheck = TasksCheckListBoxClickCheck
         TabOrder = 1
       end
       object SelectAllTasksButton: TButton
         Left = 6
         Height = 25
         Top = 181
-        Width = 250
+        Width = 150
         Caption = '(De)Select all'
+        Constraints.MaxWidth = 150
         OnClick = SelectAllTasksButtonClick
         TabOrder = 2
       end
-    end
-    object UpdateReportButton: TButton
-      AnchorSideRight.Control = SettingsPanel
-      AnchorSideRight.Side = asrBottom
-      AnchorSideBottom.Control = SettingsPanel
-      AnchorSideBottom.Side = asrBottom
-      Left = 623
-      Height = 25
-      Top = 207
-      Width = 75
-      Anchors = [akRight, akBottom]
-      Caption = 'Refresh'
-      OnClick = UpdateReportButtonClick
-      TabOrder = 4
     end
   end
   object ReportTreeListView: TTreeListView

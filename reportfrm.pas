@@ -16,6 +16,7 @@ type
   { TReportFrame }
 
   TReportFrame = class(TFrame)
+    PeriodAllTimeCheckBox: TCheckBox;
     LabelsChartSource: TListChartSource;
     TaskListFilterEdit: TListFilterEdit;
     PeriodBeginDateTimePicker: TDateTimePicker;
@@ -32,6 +33,7 @@ type
     ReportTreeListView: TTreeListView;
     ViewRadioGroup: TRadioGroup;
     procedure GroupByRadioGroupClick(Sender: TObject);
+    procedure PeriodAllTimeCheckBoxChange(Sender: TObject);
     procedure PeriodBeginDateTimePickerChange(Sender: TObject);
     procedure PeriodEndDateTimePickerChange(Sender: TObject);
     procedure SelectAllTasksButtonClick(Sender: TObject);
@@ -47,6 +49,8 @@ type
     function GetView: TReportView;
     procedure SetView(AVal: TReportView);
     function GetSelectedTasks: TTaskIds;
+    procedure SetNoDateLimit(AVal: Boolean);
+    function GetNoDateLimit: Boolean;
 
     procedure UpdateTasksList;
     //procedure CMShowingChanged(var AMsg: TMessage); message CM_SHOWINGCHANGED;
@@ -61,6 +65,7 @@ type
     property GroupBy: TReportGroupBy read GetGroupBy write SetGroupBy;
     property View: TReportView read GetView write SetView;
     property SelectedTasks: TTaskIds read GetSelectedTasks {write ...};
+    property NoDateLimit: Boolean read GetNoDateLimit write SetNoDateLimit;
 
     procedure UpdateReport;
 
@@ -86,6 +91,11 @@ end;
 procedure TReportFrame.GroupByRadioGroupClick(Sender: TObject);
 begin
   GroupBy := GroupBy;
+end;
+
+procedure TReportFrame.PeriodAllTimeCheckBoxChange(Sender: TObject);
+begin
+  NoDateLimit := NoDateLimit;
 end;
 
 procedure TReportFrame.PeriodBeginDateTimePickerChange(Sender: TObject);
@@ -134,8 +144,17 @@ begin
   Generator := TReportGenerator.Create;
 
   try
-    Generator.BeginDate := BeginDate;
-    Generator.EndDate := EndDate;
+    if not NoDateLimit then
+    begin
+      Generator.BeginDate := BeginDate;
+      Generator.EndDate := EndDate;
+    end
+    else
+    begin
+      Generator.BeginDate := MinDateTime;
+      Generator.EndDate := MaxDateTime;
+    end;
+
     Generator.GroupBy := GroupBy;
     Generator.Tasks := SelectedTasks;
 
@@ -169,7 +188,10 @@ end;
 
 function TReportFrame.GetBeginDate: TDate;
 begin
-  Result := PeriodBeginDateTimePicker.Date;
+  //if PeriodAllTimeCheckBox.Checked then
+  //  Result := PeriodBeginDateTimePicker.MinDate
+  //else
+    Result := PeriodBeginDateTimePicker.Date;
 end;
 
 procedure TReportFrame.SetBeginDate(ADate: TDate);
@@ -186,7 +208,10 @@ end;
 
 function TReportFrame.GetEndDate: TDate;
 begin
-  Result := PeriodEndDateTimePicker.Date;
+  //if PeriodAllTimeCheckBox.Checked then
+  //  Result := PeriodEndDateTimePicker.MaxDate
+  //else
+    Result := PeriodEndDateTimePicker.Date;
 end;
 
 procedure TReportFrame.SetEndDate(ADate: TDate);
@@ -267,6 +292,22 @@ begin
       Inc(Idx2);
     end;
   end;
+end;
+
+procedure TReportFrame.SetNoDateLimit(AVal: Boolean);
+begin
+  PeriodAllTimeCheckBox.Checked     := AVal;
+  PeriodBeginLabel.Enabled          := not AVal;
+  PeriodBeginDateTimePicker.Enabled := not AVal;
+  PeriodEndLabel.Enabled            := not AVal;
+  PeriodEndDateTimePicker.Enabled   := not AVal;
+
+  UpdateReport;
+end;
+
+function TReportFrame.GetNoDateLimit: Boolean;
+begin
+  Result := PeriodAllTimeCheckBox.Checked;
 end;
 
 procedure TReportFrame.UpdateTasksList;

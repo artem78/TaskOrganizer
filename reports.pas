@@ -142,15 +142,21 @@ begin
           SQL.Text := 'SELECT `date`, task_id, tasks.name as `task_name`, duration '
                     + 'FROM /*:tbl*/ `' + TableName + '` '
                     + 'INNER JOIN tasks ON tasks.id = task_id '
-                    + 'WHERE task_id IN (' + TaskIdList.DelimitedText + ') '
-                    + '      AND (`date` BETWEEN :begin_date AND :end_date);';
+                    + 'WHERE task_id IN (' + TaskIdList.DelimitedText + ')';
           //ParamByName('tbl').AsString := TableName;
-          //ParamByName('begin_date').AsDate := BeginDate;
-          //ParamByName('end_date').AsDate := EndDate;
-          DateTimeToString(BeginDateStr, FilterDateFmt, BeginDate);
-          ParamByName('begin_date').AsString := BeginDateStr;
-          DateTimeToString(EndDateStr, FilterDateFmt, EndDate);
-          ParamByName('end_date').AsString := EndDateStr;
+
+          if (BeginDate > MinDateTime) {or} and (EndDate < MaxDateTime) then
+          begin // Small SQL query optimization
+            SQL.Append(' AND (`date` BETWEEN :begin_date AND :end_date)');
+
+            //ParamByName('begin_date').AsDate := BeginDate;
+            //ParamByName('end_date').AsDate := EndDate;
+            DateTimeToString(BeginDateStr, FilterDateFmt, BeginDate);
+            ParamByName('begin_date').AsString := BeginDateStr;
+            DateTimeToString(EndDateStr, FilterDateFmt, EndDate);
+            ParamByName('end_date').AsString := EndDateStr;
+          end;
+
           Open;
           First;
           while not EOF do

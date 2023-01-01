@@ -310,6 +310,7 @@ var
   Task: String;
   TaskTimeSeconds: Integer;
   TaskTime: String;
+  PeriodSecondsSum: integer;
 begin
   ReportTreeListView.BeginUpdate;
   ReportTreeListView.Items.Clear;
@@ -319,13 +320,18 @@ begin
     Period := AReport.Items.Keys[PeriodIdx];
     with ReportTreeListView.Items.Add(Period) do
     begin
+      PeriodSecondsSum := 0;
+
       for TaskIdx := 0 to AReport.Items.Data[PeriodIdx].Count - 1 do
       begin
         Task := AReport.Items.Data[PeriodIdx].Keys[TaskIdx];
         TaskTimeSeconds := AReport.Items.Data[PeriodIdx].Data[TaskIdx];
+        PeriodSecondsSum += TaskTimeSeconds;
         TaskTime := Format('%.1f h', [TaskTimeSeconds / 60 / 60]);
         SubItems.Add(Task).RecordItems.Add(TaskTime);
       end;
+
+      RecordItems.Add(Format('%.1f h', [PeriodSecondsSum / 60 / 60]));
     end;
   end;
 

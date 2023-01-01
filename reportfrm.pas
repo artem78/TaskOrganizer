@@ -303,6 +303,19 @@ begin
 end;   }
 
 procedure TReportFrame.FillReportTree(const AReport: TReport);
+    function TimeInSecondsToStr(ASec: Integer): String;
+    var
+      Days, Hours, Minutes, Seconds: Integer;
+    begin
+      Days := ASec div SecsPerDay;
+      Hours := ASec mod SecsPerDay div SecsPerHour;
+      Minutes := ASec mod SecsPerHour div SecsPerMin;
+      Seconds := ASec mod 60;
+      Result := Format('%d:%.2d:%.2d:%.2d', [
+            Days, Hours, Minutes, Seconds
+          ]);
+    end;
+
 var
   PeriodIdx: Integer;
   Period: String;
@@ -332,11 +345,11 @@ begin
         Task := AReport.Items.Data[PeriodIdx].Keys[TaskIdx];
         TaskTimeSeconds := AReport.Items.Data[PeriodIdx].Data[TaskIdx];
         PeriodSecondsSum += TaskTimeSeconds;
-        TaskTime := Format('%.1f h', [TaskTimeSeconds / 60 / 60]);
+        TaskTime := TimeInSecondsToStr(TaskTimeSeconds);
         SubItems.Add(Task).RecordItems.Add(TaskTime);
       end;
 
-      RecordItems.Add(Format('%.1f h', [PeriodSecondsSum / 60 / 60]));
+      RecordItems.Add(TimeInSecondsToStr(PeriodSecondsSum));
     end;
   end;
 

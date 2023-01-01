@@ -318,6 +318,11 @@ begin
   for PeriodIdx := 0 to AReport.Items.Count - 1 do
   begin
     Period := AReport.Items.Keys[PeriodIdx];
+    case GroupBy of
+      rgbDay: Period := FormatDateTime({'ddddd'} 'dddddd', ScanDateTime('yyyy-mm-dd', Period));
+      rgbMonth: Period := FormatDateTime('mmmm yyyy', ScanDateTime('yyyy-mm-dd', Period + '-01'));
+      //rgbYear: Period := AReport.Items.Keys[PeriodIdx];
+    end;
     with ReportTreeListView.Items.Add(Period) do
     begin
       PeriodSecondsSum := 0;
@@ -460,20 +465,20 @@ begin
       rgbYear:
         begin
           LabelsChartSource.Add(EncodeDate(YearOf(Date), 1, 1), 0,
-              FormatDateTime('YYYY', Date));
+              FormatDateTime('yyyy', Date));
           Date := IncYear(Date);
         end;
 
       rgbMonth:
         begin
           LabelsChartSource.Add(EncodeDate(YearOf(Date), MonthOf(Date), 1), 0,
-              FormatDateTime('YYYY-MM', Date));
+              FormatDateTime('mmmm yyyy', Date));
           Date := IncMonth(Date);
         end;
 
       rgbDay:
         begin
-          LabelsChartSource.Add(Date, 0, FormatDateTime('YYYY-MM-DD', Date));
+          LabelsChartSource.Add(Date, 0, FormatDateTime({'ddddd'} 'dddddd', Date));
           Date := IncDay(Date);
         end;
     end;

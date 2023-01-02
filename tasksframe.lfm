@@ -24,28 +24,28 @@ object TasksFrame: TTasksFrame
       Action = NonVisualCtrlsDataModule.CreateTaskAction
     end
     object EditToolButton: TToolButton
-      Left = 73
+      Left = 76
       Top = 2
       Action = NonVisualCtrlsDataModule.EditTaskAction
     end
     object RemoveToolButton: TToolButton
-      Left = 143
+      Left = 149
       Top = 2
       Action = NonVisualCtrlsDataModule.DeleteTaskAction
     end
     object SeparatorToolButton: TToolButton
-      Left = 236
+      Left = 245
       Height = 22
       Top = 2
       Style = tbsSeparator
     end
     object StartTrackingToolButton: TToolButton
-      Left = 244
+      Left = 253
       Top = 2
       Action = NonVisualCtrlsDataModule.StartTimeTrackingAction
     end
     object StopTrackingToolButton: TToolButton
-      Left = 367
+      Left = 379
       Top = 2
       Action = NonVisualCtrlsDataModule.StopTimeTrackingAction
     end

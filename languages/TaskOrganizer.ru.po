@@ -1,0 +1,315 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
+"X-Generator: Poedit 3.2.2\n"
+
+#: databasedm.rsbackupdbfailed
+#, object-pascal-format
+msgid "Failed to save database to file \"%s\""
+msgstr "Ошибка сохранения базы данных в файл \"%s\""
+
+#: main.rsrunningtasknotification
+msgid "You have running task. Are you sure to exit?"
+msgstr "Есть выполняющаяся задача. Вы уверены, что хотите выйти?"
+
+#: nonvisualctrlsdm.rsconfirmdeleteperiod
+msgid "Are you sure to delete period?"
+msgstr "Удалить период?"
+
+#: nonvisualctrlsdm.rsconfirmdeletetask
+#, object-pascal-format
+msgid "Are you sure to delete task \"%s\"?"
+msgstr "Удалить задачу \"%s\"?"
+
+#: nonvisualctrlsdm.rsdone
+msgid "Done!"
+msgstr "Выполнено!"
+
+#: nonvisualctrlsdm.rssavedin
+#, object-pascal-format
+msgid "Saved in \"%s\""
+msgstr "Сохранено в \"%s\""
+
+#: periodeditfrm.rscreateperiod
+msgid "Create period"
+msgstr "Создать период"
+
+#: periodeditfrm.rseditperiod
+msgctxt "periodeditfrm.rseditperiod"
+msgid "Edit period"
+msgstr "Редактировать период"
+
+#: reportfrm.rschart
+msgid "Chart"
+msgstr "График"
+
+#: reportfrm.rsdays
+msgid "Days"
+msgstr "Дни"
+
+#: reportfrm.rsmonths
+msgid "Months"
+msgstr "Месяцы"
+
+#: reportfrm.rstable
+msgid "Table"
+msgstr "Таблица"
+
+#: reportfrm.rsyears
+msgid "Years"
+msgstr "Годы"
+
+#: taskedit.rscreatetask
+msgid "Create task"
+msgstr "Создать задачу"
+
+#: taskedit.rsedittask
+msgctxt "taskedit.rsedittask"
+msgid "Edit task"
+msgstr "Редактировать задачу"
+
+#: tmainform.caption
+msgid "Task Organizer"
+msgstr ""
+
+#: tmainform.gototaskmenuitem.caption
+msgid "Select last active task"
+msgstr "Выбрать последнюю задачу"
+
+#: tmainform.logstabsheet.caption
+msgid "SQL log"
+msgstr "Журнал SQL запросов"
+
+#: tmainform.menuitem1.caption
+msgid "MenuItem1"
+msgstr ""
+
+#: tmainform.periodstabsheet.caption
+msgid "Periods"
+msgstr "Периоды"
+
+#: tmainform.reportframe1.reporttreelistview.columns[0].text
+msgctxt "tmainform.reportframe1.reporttreelistview.columns[0].text"
+msgid "Task"
+msgstr "Задача"
+
+#: tmainform.reportframe1.reporttreelistview.columns[1].text
+msgctxt "tmainform.reportframe1.reporttreelistview.columns[1].text"
+msgid "Total time"
+msgstr "Общее время"
+
+#: tmainform.reportframe1.settingspanel.periodgroupbox.periodalltimecheckbox.caption
+msgid "All time"
+msgstr "Всё время"
+
+#: tmainform.reporttabsheet.caption
+msgid "Reports"
+msgstr "Отчёты"
+
+#: tmainform.servicemenuitem.caption
+msgid "Service"
+msgstr "Сервис"
+
+#: tmainform.taskstabsheet.caption
+msgctxt "tmainform.taskstabsheet.caption"
+msgid "Tasks"
+msgstr "Задачи"
+
+#: tmainform.viewmenuitem.caption
+msgctxt "tmainform.viewmenuitem.caption"
+msgid "View"
+msgstr "Вид"
+
+#: tnonvisualctrlsdatamodule.backupdatabaseaction.caption
+msgid "Backup database"
+msgstr "Сделать резервную копию базы данных"
+
+#: tnonvisualctrlsdatamodule.createperiodaction.caption
+msgid "Add period"
+msgstr "Добавить период"
+
+#: tnonvisualctrlsdatamodule.createtaskaction.caption
+msgid "Add task"
+msgstr "Добавить задачу"
+
+#: tnonvisualctrlsdatamodule.deleteperiodaction.caption
+msgid "Delete period"
+msgstr "Удалить период"
+
+#: tnonvisualctrlsdatamodule.deletetaskaction.caption
+msgid "Remove task"
+msgstr "Удалить задачу"
+
+#: tnonvisualctrlsdatamodule.editperiodaction.caption
+msgctxt "tnonvisualctrlsdatamodule.editperiodaction.caption"
+msgid "Edit period"
+msgstr "Редактировать период"
+
+#: tnonvisualctrlsdatamodule.edittaskaction.caption
+msgctxt "tnonvisualctrlsdatamodule.edittaskaction.caption"
+msgid "Edit task"
+msgstr "Редактировать задачу"
+
+#: tnonvisualctrlsdatamodule.exitaction.caption
+msgid "Exit"
+msgstr "Выход"
+
+#: tnonvisualctrlsdatamodule.exportdatabaseaction.caption
+msgid "Export"
+msgstr "Экспорт"
+
+#: tnonvisualctrlsdatamodule.marktaskasdoneaction.caption
+msgid "Mark as done"
+msgstr "Пометить как завершённую"
+
+#: tnonvisualctrlsdatamodule.showdonetasksaction.caption
+msgid "Show done tasks"
+msgstr "Показывать завершённые задачи"
+
+#: tnonvisualctrlsdatamodule.starttimetrackingaction.caption
+msgid "Start time tracking"
+msgstr "Начать замер времени"
+
+#: tnonvisualctrlsdatamodule.stoptimetrackingaction.caption
+msgid "Stop time tracking"
+msgstr "Остановить замер времени"
+
+#: tnonvisualctrlsdatamodule.unmarktaskasdoneaction.caption
+msgid "Unmark as done"
+msgstr "Пометить как незавершённую"
+
+#: tperiodeditform.begindatetimepicker.textfornulldate
+msgctxt "tperiodeditform.begindatetimepicker.textfornulldate"
+msgid "NULL"
+msgstr ""
+
+#: tperiodeditform.begindatetimepicker1.textfornulldate
+msgctxt "tperiodeditform.begindatetimepicker1.textfornulldate"
+msgid "NULL"
+msgstr ""
+
+#: tperiodeditform.beginlabel.caption
+msgctxt "tperiodeditform.beginlabel.caption"
+msgid "Begin:"
+msgstr "Начало:"
+
+#: tperiodeditform.buttonpanel.okbutton.caption
+msgctxt "tperiodeditform.buttonpanel.okbutton.caption"
+msgid "Save"
+msgstr "Сохранить"
+
+#: tperiodeditform.caption
+msgid "PeriodEditForm"
+msgstr ""
+
+#: tperiodeditform.endlabel.caption
+msgctxt "tperiodeditform.endlabel.caption"
+msgid "End:"
+msgstr "Конец:"
+
+#: tperiodeditform.tasklabel.caption
+msgid "Task:"
+msgstr "Задача:"
+
+#: treportframe.groupbyradiogroup.caption
+msgid "Group by"
+msgstr "Группировка"
+
+#: treportframe.periodalltimecheckbox.caption
+msgid "For all time"
+msgstr "За всё время"
+
+#: treportframe.periodbegindatetimepicker.textfornulldate
+msgctxt "treportframe.periodbegindatetimepicker.textfornulldate"
+msgid "NULL"
+msgstr ""
+
+#: treportframe.periodbeginlabel.caption
+msgctxt "treportframe.periodbeginlabel.caption"
+msgid "Begin:"
+msgstr "Начало:"
+
+#: treportframe.periodenddatetimepicker.textfornulldate
+msgctxt "treportframe.periodenddatetimepicker.textfornulldate"
+msgid "NULL"
+msgstr ""
+
+#: treportframe.periodendlabel.caption
+msgctxt "treportframe.periodendlabel.caption"
+msgid "End:"
+msgstr "Конец:"
+
+#: treportframe.periodgroupbox.caption
+msgid "Period"
+msgstr "Диапазон дат"
+
+#: treportframe.reporttreelistview.columns[0].text
+msgctxt "treportframe.reporttreelistview.columns[0].text"
+msgid "Task"
+msgstr "Задача"
+
+#: treportframe.reporttreelistview.columns[1].text
+msgctxt "treportframe.reporttreelistview.columns[1].text"
+msgid "Total time"
+msgstr "Общее время"
+
+#: treportframe.selectalltasksbutton.caption
+msgid "(De)Select all"
+msgstr "Отметить все/снять отметку"
+
+#: treportframe.tasklistfilteredit.texthint
+msgid "(filter)"
+msgstr "(фильтр)"
+
+#: treportframe.tasksgroupbox.caption
+msgctxt "treportframe.tasksgroupbox.caption"
+msgid "Tasks"
+msgstr "Задачи"
+
+#: treportframe.viewradiogroup.caption
+msgctxt "treportframe.viewradiogroup.caption"
+msgid "View"
+msgstr "Вид"
+
+#: ttaskeditform.buttonpanel1.cancelbutton.caption
+msgid "Cancel"
+msgstr "Отмена"
+
+#: ttaskeditform.buttonpanel1.okbutton.caption
+msgctxt "ttaskeditform.buttonpanel1.okbutton.caption"
+msgid "Save"
+msgstr "Сохранить"
+
+#: ttaskeditform.caption
+msgctxt "ttaskeditform.caption"
+msgid "Edit task"
+msgstr "Редактировать задачу"
+
+#: ttaskeditform.taskdescriptionlabel.caption
+msgid "Description:"
+msgstr "Описание:"
+
+#: ttaskeditform.tasknamelabel.caption
+msgid "Name:"
+msgstr "Название:"
+
+#: ttasksframe.clearfilterbutton.caption
+msgid "X"
+msgstr ""
+
+#: ttasksframe.filteredit.editlabel.caption
+msgid "Filter:"
+msgstr "Фильтр:"
+
+#: ttasksframe.toolbar1.caption
+msgid "ToolBar1"
+msgstr ""

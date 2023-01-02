@@ -54,7 +54,10 @@ var
 implementation
 
 uses
-  Models, TypInfo;
+  Models, TypInfo, LCLTranslator;
+
+resourcestring
+  RSRunningTaskNotification = 'You have running task. Are you sure to exit?';
 
 {$I revision.inc}
 
@@ -64,6 +67,8 @@ uses
 
 procedure TMainForm.FormCreate(Sender: TObject);
 begin
+  SetDefaultLang('');
+
   Caption:=Caption+Format('    %s  %s'{$IFOPT D+} + '    [Debug Build]'{$EndIf}, [GitRevisionStr, {$I %DATE%}]);
   PageControl1.ActivePageIndex:=0;
   {$IFOPT D-}
@@ -77,7 +82,7 @@ procedure TMainForm.FormCloseQuery(Sender: TObject; var CanClose: boolean);
 begin
   if TTask.HasActive then
   begin
-    CanClose := MessageDlg('You have running task. Are you sure to exit?',
+    CanClose := MessageDlg(RSRunningTaskNotification,
              mtConfirmation, mbYesNo, 0) = mrYes;
   end;
 end;

@@ -1,0 +1,9 @@
+{"version":1,"strings":[
+{"hash":127445853,"name":"tperiodeditform.caption","sourcebytes":[80,101,114,105,111,100,69,100,105,116,70,111,114,109],"value":"PeriodEditForm"},
+{"hash":76275738,"name":"tperiodeditform.beginlabel.caption","sourcebytes":[66,101,103,105,110,58],"value":"Begin:"},
+{"hash":342540,"name":"tperiodeditform.begindatetimepicker.textfornulldate","sourcebytes":[78,85,76,76],"value":"NULL"},
+{"hash":312442,"name":"tperiodeditform.endlabel.caption","sourcebytes":[69,110,100,58],"value":"End:"},
+{"hash":5933546,"name":"tperiodeditform.tasklabel.caption","sourcebytes":[84,97,115,107,58],"value":"Task:"},
+{"hash":366789,"name":"tperiodeditform.buttonpanel.okbutton.caption","sourcebytes":[83,97,118,101],"value":"Save"},
+{"hash":342540,"name":"tperiodeditform.begindatetimepicker1.textfornulldate","sourcebytes":[78,85,76,76],"value":"NULL"}
+]}

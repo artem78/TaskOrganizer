@@ -5,6 +5,7 @@ object ReportFrame: TReportFrame
   Width = 710
   ClientHeight = 579
   ClientWidth = 710
+  ParentShowHint = False
   TabOrder = 0
   DesignLeft = 299
   DesignTop = 109

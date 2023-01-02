@@ -64,6 +64,9 @@ implementation
 uses main, Forms, LazUTF8, NonVisualCtrlsDM, DatabaseVersioning,
   Laz2_DOM, laz2_XMLWrite, Utils, LazFileUtils;
 
+resourcestring
+  RSBackupDBFailed = 'Failed to save database to file "%s"';
+
 {$R *.lfm}
 
 // https://wiki.freepascal.org/SQLite#Creating_user_defined_collations
@@ -322,7 +325,7 @@ begin
   try
     Res := CopyFile(SourceFileName, DestFileName, [cffCreateDestDirectory]);
     if not Res then
-      Raise Exception.CreateFmt('Failed to save database to file "%s"', [DestFileName]);
+      Raise Exception.CreateFmt(RSBackupDBFailed, [DestFileName]);
     Result := DestFileName;
   finally
     // Restore connection to DB

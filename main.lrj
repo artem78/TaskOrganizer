@@ -1,0 +1,14 @@
+{"version":1,"strings":[
+{"hash":100295650,"name":"tmainform.caption","sourcebytes":[84,97,115,107,32,79,114,103,97,110,105,122,101,114],"value":"Task Organizer"},
+{"hash":5933603,"name":"tmainform.taskstabsheet.caption","sourcebytes":[84,97,115,107,115],"value":"Tasks"},
+{"hash":113837539,"name":"tmainform.periodstabsheet.caption","sourcebytes":[80,101,114,105,111,100,115],"value":"Periods"},
+{"hash":147286499,"name":"tmainform.reporttabsheet.caption","sourcebytes":[82,101,112,111,114,116,115],"value":"Reports"},
+{"hash":48737461,"name":"tmainform.reportframe1.settingspanel.periodgroupbox.periodalltimecheckbox.caption","sourcebytes":[65,108,108,32,116,105,109,101],"value":"All time"},
+{"hash":370843,"name":"tmainform.reportframe1.reporttreelistview.columns[0].text","sourcebytes":[84,97,115,107],"value":"Task"},
+{"hash":132258453,"name":"tmainform.reportframe1.reporttreelistview.columns[1].text","sourcebytes":[84,111,116,97,108,32,116,105,109,101],"value":"Total time"},
+{"hash":140407559,"name":"tmainform.logstabsheet.caption","sourcebytes":[83,81,76,32,108,111,103],"value":"SQL log"},
+{"hash":380871,"name":"tmainform.viewmenuitem.caption","sourcebytes":[86,105,101,119],"value":"View"},
+{"hash":5302667,"name":"tmainform.gototaskmenuitem.caption","sourcebytes":[83,101,108,101,99,116,32,108,97,115,116,32,97,99,116,105,118,101,32,116,97,115,107],"value":"Select last active task"},
+{"hash":94435777,"name":"tmainform.menuitem1.caption","sourcebytes":[77,101,110,117,73,116,101,109,49],"value":"MenuItem1"},
+{"hash":164220869,"name":"tmainform.servicemenuitem.caption","sourcebytes":[83,101,114,118,105,99,101],"value":"Service"}
+]}

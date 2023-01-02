@@ -71,6 +71,12 @@ implementation
 uses
   DatabaseDM, main, taskedit, Dialogs;
 
+resourcestring
+  RSDone = 'Done!';
+  RSConfirmDeletePeriod = 'Are you sure to delete period?';
+  RSSavedIn = 'Saved in "%s"';
+  RSConfirmDeleteTask = 'Are you sure to delete task "%s"?';
+
 {$R *.lfm}
 
 { TNonVisualCtrlsDataModule }
@@ -104,7 +110,7 @@ begin
       if Execute then
       begin
         DatabaseDataModule.ExportDatabase(FileName);
-        ShowMessage('Done!');
+        ShowMessage(RSDone);
       end;
     finally
       Free;
@@ -143,7 +149,7 @@ begin
     if IsEmpty then
       Exit;
 
-    Msg := 'Are you sure to delete period?';
+    Msg := RSConfirmDeletePeriod;
     if MessageDlg(Msg, mtConfirmation, mbYesNo, 0) = mrYes then
     begin
       Delete;
@@ -180,7 +186,7 @@ var
 begin
   try
     BackupFileName := DatabaseDataModule.SaveDatabaseBackup;
-    MessageDlg(Format('Saved in "%s"', [BackupFileName]), mtInformation, [mbOk] , 0);
+    MessageDlg(Format(RSSavedIn, [BackupFileName]), mtInformation, [mbOk] , 0);
   except
     on E: Exception do
       MessageDlg(E.Message, {mtWarning} mtError, [mbOk], 0);
@@ -196,7 +202,7 @@ begin
     if IsEmpty then
       Exit;
 
-    Msg := Format('Are you sure to delete task "%s"?', [DatabaseDataModule.TasksSQLQuery.FieldByName('name').AsString]);
+    Msg := Format(RSConfirmDeleteTask, [DatabaseDataModule.TasksSQLQuery.FieldByName('name').AsString]);
     if MessageDlg(Msg, mtConfirmation, [mbYes, mbNo], 0) = mrYes then
     begin
       Delete;

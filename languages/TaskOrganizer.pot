@@ -1,0 +1,305 @@
+msgid ""
+msgstr "Content-Type: text/plain; charset=UTF-8"
+
+#: databasedm.rsbackupdbfailed
+#, object-pascal-format
+msgid "Failed to save database to file \"%s\""
+msgstr ""
+
+#: main.rsrunningtasknotification
+msgid "You have running task. Are you sure to exit?"
+msgstr ""
+
+#: nonvisualctrlsdm.rsconfirmdeleteperiod
+msgid "Are you sure to delete period?"
+msgstr ""
+
+#: nonvisualctrlsdm.rsconfirmdeletetask
+#, object-pascal-format
+msgid "Are you sure to delete task \"%s\"?"
+msgstr ""
+
+#: nonvisualctrlsdm.rsdone
+msgid "Done!"
+msgstr ""
+
+#: nonvisualctrlsdm.rssavedin
+#, object-pascal-format
+msgid "Saved in \"%s\""
+msgstr ""
+
+#: periodeditfrm.rscreateperiod
+msgid "Create period"
+msgstr ""
+
+#: periodeditfrm.rseditperiod
+msgctxt "periodeditfrm.rseditperiod"
+msgid "Edit period"
+msgstr ""
+
+#: reportfrm.rschart
+msgid "Chart"
+msgstr ""
+
+#: reportfrm.rsdays
+msgid "Days"
+msgstr ""
+
+#: reportfrm.rsmonths
+msgid "Months"
+msgstr ""
+
+#: reportfrm.rstable
+msgid "Table"
+msgstr ""
+
+#: reportfrm.rsyears
+msgid "Years"
+msgstr ""
+
+#: taskedit.rscreatetask
+msgid "Create task"
+msgstr ""
+
+#: taskedit.rsedittask
+msgctxt "taskedit.rsedittask"
+msgid "Edit task"
+msgstr ""
+
+#: tmainform.caption
+msgid "Task Organizer"
+msgstr ""
+
+#: tmainform.gototaskmenuitem.caption
+msgid "Select last active task"
+msgstr ""
+
+#: tmainform.logstabsheet.caption
+msgid "SQL log"
+msgstr ""
+
+#: tmainform.menuitem1.caption
+msgid "MenuItem1"
+msgstr ""
+
+#: tmainform.periodstabsheet.caption
+msgid "Periods"
+msgstr ""
+
+#: tmainform.reportframe1.reporttreelistview.columns[0].text
+msgctxt "tmainform.reportframe1.reporttreelistview.columns[0].text"
+msgid "Task"
+msgstr ""
+
+#: tmainform.reportframe1.reporttreelistview.columns[1].text
+msgctxt "tmainform.reportframe1.reporttreelistview.columns[1].text"
+msgid "Total time"
+msgstr ""
+
+#: tmainform.reportframe1.settingspanel.periodgroupbox.periodalltimecheckbox.caption
+msgid "All time"
+msgstr ""
+
+#: tmainform.reporttabsheet.caption
+msgid "Reports"
+msgstr ""
+
+#: tmainform.servicemenuitem.caption
+msgid "Service"
+msgstr ""
+
+#: tmainform.taskstabsheet.caption
+msgctxt "tmainform.taskstabsheet.caption"
+msgid "Tasks"
+msgstr ""
+
+#: tmainform.viewmenuitem.caption
+msgctxt "tmainform.viewmenuitem.caption"
+msgid "View"
+msgstr ""
+
+#: tnonvisualctrlsdatamodule.backupdatabaseaction.caption
+msgid "Backup database"
+msgstr ""
+
+#: tnonvisualctrlsdatamodule.createperiodaction.caption
+msgid "Add period"
+msgstr ""
+
+#: tnonvisualctrlsdatamodule.createtaskaction.caption
+msgid "Add task"
+msgstr ""
+
+#: tnonvisualctrlsdatamodule.deleteperiodaction.caption
+msgid "Delete period"
+msgstr ""
+
+#: tnonvisualctrlsdatamodule.deletetaskaction.caption
+msgid "Remove task"
+msgstr ""
+
+#: tnonvisualctrlsdatamodule.editperiodaction.caption
+msgctxt "tnonvisualctrlsdatamodule.editperiodaction.caption"
+msgid "Edit period"
+msgstr ""
+
+#: tnonvisualctrlsdatamodule.edittaskaction.caption
+msgctxt "tnonvisualctrlsdatamodule.edittaskaction.caption"
+msgid "Edit task"
+msgstr ""
+
+#: tnonvisualctrlsdatamodule.exitaction.caption
+msgid "Exit"
+msgstr ""
+
+#: tnonvisualctrlsdatamodule.exportdatabaseaction.caption
+msgid "Export"
+msgstr ""
+
+#: tnonvisualctrlsdatamodule.marktaskasdoneaction.caption
+msgid "Mark as done"
+msgstr ""
+
+#: tnonvisualctrlsdatamodule.showdonetasksaction.caption
+msgid "Show done tasks"
+msgstr ""
+
+#: tnonvisualctrlsdatamodule.starttimetrackingaction.caption
+msgid "Start time tracking"
+msgstr ""
+
+#: tnonvisualctrlsdatamodule.stoptimetrackingaction.caption
+msgid "Stop time tracking"
+msgstr ""
+
+#: tnonvisualctrlsdatamodule.unmarktaskasdoneaction.caption
+msgid "Unmark as done"
+msgstr ""
+
+#: tperiodeditform.begindatetimepicker.textfornulldate
+msgctxt "tperiodeditform.begindatetimepicker.textfornulldate"
+msgid "NULL"
+msgstr ""
+
+#: tperiodeditform.begindatetimepicker1.textfornulldate
+msgctxt "tperiodeditform.begindatetimepicker1.textfornulldate"
+msgid "NULL"
+msgstr ""
+
+#: tperiodeditform.beginlabel.caption
+msgctxt "tperiodeditform.beginlabel.caption"
+msgid "Begin:"
+msgstr ""
+
+#: tperiodeditform.buttonpanel.okbutton.caption
+msgctxt "tperiodeditform.buttonpanel.okbutton.caption"
+msgid "Save"
+msgstr ""
+
+#: tperiodeditform.caption
+msgid "PeriodEditForm"
+msgstr ""
+
+#: tperiodeditform.endlabel.caption
+msgctxt "tperiodeditform.endlabel.caption"
+msgid "End:"
+msgstr ""
+
+#: tperiodeditform.tasklabel.caption
+msgid "Task:"
+msgstr ""
+
+#: treportframe.groupbyradiogroup.caption
+msgid "Group by"
+msgstr ""
+
+#: treportframe.periodalltimecheckbox.caption
+msgid "For all time"
+msgstr ""
+
+#: treportframe.periodbegindatetimepicker.textfornulldate
+msgctxt "treportframe.periodbegindatetimepicker.textfornulldate"
+msgid "NULL"
+msgstr ""
+
+#: treportframe.periodbeginlabel.caption
+msgctxt "treportframe.periodbeginlabel.caption"
+msgid "Begin:"
+msgstr ""
+
+#: treportframe.periodenddatetimepicker.textfornulldate
+msgctxt "treportframe.periodenddatetimepicker.textfornulldate"
+msgid "NULL"
+msgstr ""
+
+#: treportframe.periodendlabel.caption
+msgctxt "treportframe.periodendlabel.caption"
+msgid "End:"
+msgstr ""
+
+#: treportframe.periodgroupbox.caption
+msgid "Period"
+msgstr ""
+
+#: treportframe.reporttreelistview.columns[0].text
+msgctxt "treportframe.reporttreelistview.columns[0].text"
+msgid "Task"
+msgstr ""
+
+#: treportframe.reporttreelistview.columns[1].text
+msgctxt "treportframe.reporttreelistview.columns[1].text"
+msgid "Total time"
+msgstr ""
+
+#: treportframe.selectalltasksbutton.caption
+msgid "(De)Select all"
+msgstr ""
+
+#: treportframe.tasklistfilteredit.texthint
+msgid "(filter)"
+msgstr ""
+
+#: treportframe.tasksgroupbox.caption
+msgctxt "treportframe.tasksgroupbox.caption"
+msgid "Tasks"
+msgstr ""
+
+#: treportframe.viewradiogroup.caption
+msgctxt "treportframe.viewradiogroup.caption"
+msgid "View"
+msgstr ""
+
+#: ttaskeditform.buttonpanel1.cancelbutton.caption
+msgid "Cancel"
+msgstr ""
+
+#: ttaskeditform.buttonpanel1.okbutton.caption
+msgctxt "ttaskeditform.buttonpanel1.okbutton.caption"
+msgid "Save"
+msgstr ""
+
+#: ttaskeditform.caption
+msgctxt "ttaskeditform.caption"
+msgid "Edit task"
+msgstr ""
+
+#: ttaskeditform.taskdescriptionlabel.caption
+msgid "Description:"
+msgstr ""
+
+#: ttaskeditform.tasknamelabel.caption
+msgid "Name:"
+msgstr ""
+
+#: ttasksframe.clearfilterbutton.caption
+msgid "X"
+msgstr ""
+
+#: ttasksframe.filteredit.editlabel.caption
+msgid "Filter:"
+msgstr ""
+
+#: ttasksframe.toolbar1.caption
+msgid "ToolBar1"
+msgstr ""
+

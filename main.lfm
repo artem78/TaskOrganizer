@@ -14,7 +14,7 @@ object MainForm: TMainForm
   OnCreate = FormCreate
   OnShow = FormShow
   Position = poScreenCenter
-  LCLVersion = '2.0.12.0'
+  LCLVersion = '2.2.4.0'
   object PageControl1: TPageControl
     Left = 0
     Height = 430
@@ -36,7 +36,23 @@ object MainForm: TMainForm
         ClientHeight = 402
         ClientWidth = 742
         inherited ToolBar1: TToolBar
-          Width = 726
+          Width = 742
+          inherited EditToolButton: TToolButton
+            Left = 55
+          end
+          inherited RemoveToolButton: TToolButton
+            Left = 107
+          end
+          inherited SeparatorToolButton: TToolButton
+            Left = 182
+            Height = 22
+          end
+          inherited StartTrackingToolButton: TToolButton
+            Left = 190
+          end
+          inherited StopTrackingToolButton: TToolButton
+            Left = 295
+          end
         end
         inherited TasksDBGrid: TDBGrid
           Height = 344
@@ -46,63 +62,111 @@ object MainForm: TMainForm
     end
     object PeriodsTabSheet: TTabSheet
       Caption = 'Periods'
-      ClientHeight = 393
-      ClientWidth = 726
+      ClientHeight = 402
+      ClientWidth = 742
       inline PeriodsFrame1: TPeriodsFrame
-        Height = 393
-        Width = 726
+        Height = 402
+        Width = 742
         Align = alClient
-        ClientHeight = 393
-        ClientWidth = 726
+        ClientHeight = 402
+        ClientWidth = 742
         inherited DBGrid1: TDBGrid
-          Height = 367
-          Width = 726
+          Height = 376
+          Width = 742
         end
         inherited ToolBar: TToolBar
-          Width = 726
+          Width = 742
           inherited EditPeriodToolButton: TToolButton
-            Left = 68
+            Left = 89
           end
           inherited DeletePeriodToolButton: TToolButton
-            Left = 133
+            Left = 175
           end
         end
       end
     end
     object ReportTabSheet: TTabSheet
       Caption = 'Reports'
-      ClientHeight = 393
-      ClientWidth = 726
+      ClientHeight = 402
+      ClientWidth = 742
       OnShow = ReportTabSheetShow
       inline ReportFrame1: TReportFrame
-        Height = 393
-        Width = 726
+        Height = 402
+        Width = 742
         Align = alClient
-        ClientHeight = 393
-        ClientWidth = 726
+        ClientHeight = 402
+        ClientWidth = 742
         inherited SettingsPanel: TPanel
-          Width = 714
-          ClientWidth = 714
+          Width = 730
+          ClientWidth = 730
+          inherited PeriodGroupBox: TGroupBox
+            Width = 290
+            ClientWidth = 286
+            inherited PeriodBeginLabel: TLabel
+              Width = 61
+            end
+            inherited PeriodBeginDateTimePicker: TDateTimePicker
+              Left = 73
+            end
+            inherited PeriodEndLabel: TLabel
+              Left = 172
+            end
+            inherited PeriodEndDateTimePicker: TDateTimePicker
+              Left = 201
+            end
+            inherited PeriodAllTimeCheckBox: TCheckBox
+              Width = 61
+              Caption = 'All time'
+            end
+          end
+          inherited TasksGroupBox: TGroupBox
+            Left = 310
+            Width = 420
+            ClientWidth = 416
+            inherited TaskListFilterEdit: TListFilterEdit
+              Width = 404
+            end
+            inherited TasksCheckListBox: TCheckListBox
+              Width = 400
+            end
+          end
         end
         inherited ReportTreeListView: TTreeListView
-          Height = 149
-          Width = 726
+          Height = 158
+          Width = 742
+          Columns = <          
+            item
+              Alignment = taLeftJustify
+              Text = 'Task'
+              Width = 300
+              Visible = True
+            end          
+            item
+              Alignment = taLeftJustify
+              Text = 'Total time'
+              Width = 100
+              Visible = True
+            end>
+          RootLineMode = lmDot
+          StripedEvenColor = 14745599
+          OnCustomItemDraw = nil
+          OnCustomRecordItemDraw = nil
         end
         inherited ReportChart: TChart
-          Height = 149
-          Width = 726
+          Height = 158
+          Width = 742
         end
       end
     end
     object LogsTabSheet: TTabSheet
       Caption = 'SQL log'
-      ClientHeight = 321
-      ClientWidth = 619
+      ClientHeight = 402
+      ClientWidth = 742
       object LogsMemo: TMemo
         Left = 0
-        Height = 321
+        Height = 402
         Top = 0
-        Width = 619
+        Width = 742
         Align = alClient
         Font.CharSet = RUSSIAN_CHARSET
         Font.Color = clBlack

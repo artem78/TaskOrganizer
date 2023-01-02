@@ -1,0 +1,15 @@
+{"version":1,"strings":[
+{"hash":91000916,"name":"treportframe.periodgroupbox.caption","sourcebytes":[80,101,114,105,111,100],"value":"Period"},
+{"hash":76275738,"name":"treportframe.periodbeginlabel.caption","sourcebytes":[66,101,103,105,110,58],"value":"Begin:"},
+{"hash":342540,"name":"treportframe.periodbegindatetimepicker.textfornulldate","sourcebytes":[78,85,76,76],"value":"NULL"},
+{"hash":312442,"name":"treportframe.periodendlabel.caption","sourcebytes":[69,110,100,58],"value":"End:"},
+{"hash":342540,"name":"treportframe.periodenddatetimepicker.textfornulldate","sourcebytes":[78,85,76,76],"value":"NULL"},
+{"hash":103934645,"name":"treportframe.periodalltimecheckbox.caption","sourcebytes":[70,111,114,32,97,108,108,32,116,105,109,101],"value":"For all time"},
+{"hash":158081657,"name":"treportframe.groupbyradiogroup.caption","sourcebytes":[71,114,111,117,112,32,98,121],"value":"Group by"},
+{"hash":380871,"name":"treportframe.viewradiogroup.caption","sourcebytes":[86,105,101,119],"value":"View"},
+{"hash":5933603,"name":"treportframe.tasksgroupbox.caption","sourcebytes":[84,97,115,107,115],"value":"Tasks"},
+{"hash":218345129,"name":"treportframe.tasklistfilteredit.texthint","sourcebytes":[40,102,105,108,116,101,114,41],"value":"(filter)"},
+{"hash":30998220,"name":"treportframe.selectalltasksbutton.caption","sourcebytes":[40,68,101,41,83,101,108,101,99,116,32,97,108,108],"value":"(De)Select all"},
+{"hash":370843,"name":"treportframe.reporttreelistview.columns[0].text","sourcebytes":[84,97,115,107],"value":"Task"},
+{"hash":132258453,"name":"treportframe.reporttreelistview.columns[1].text","sourcebytes":[84,111,116,97,108,32,116,105,109,101],"value":"Total time"}
+]}

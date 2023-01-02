@@ -1,52 +1,60 @@
 object TaskEditForm: TTaskEditForm
   Left = 226
-  Height = 270
+  Height = 288
   Top = 205
-  Width = 500
+  Width = 557
   ActiveControl = TaskNameDBEdit
+  AutoSize = True
   BorderStyle = bsDialog
   Caption = 'Edit task'
-  ClientHeight = 270
-  ClientWidth = 500
+  ChildSizing.LeftRightSpacing = 10
+  ChildSizing.TopBottomSpacing = 10
+  ChildSizing.HorizontalSpacing = 10
+  ChildSizing.VerticalSpacing = 10
+  ChildSizing.Layout = cclLeftToRightThenTopToBottom
+  ChildSizing.ControlsPerLine = 2
+  ClientHeight = 288
+  ClientWidth = 557
   OnShow = FormShow
   Position = poOwnerFormCenter
-  LCLVersion = '2.0.12.0'
+  LCLVersion = '2.2.4.0'
   object TaskNameLabel: TLabel
-    Left = 36
-    Height = 15
-    Top = 16
-    Width = 35
+    Left = 10
+    Height = 23
+    Top = 10
+    Width = 63
     Alignment = taRightJustify
     Caption = 'Name:'
     ParentColor = False
   end
+  object TaskNameDBEdit: TDBEdit
+    Left = 83
+    Height = 23
+    Top = 10
+    Width = 400
+    DataField = 'name'
+    DataSource = DatabaseDataModule.TasksDataSource
+    Constraints.MinWidth = 400
+    MaxLength = 0
+    TabOrder = 0
+  end
   object TaskDescriptionLabel: TLabel
-    Left = 8
-    Height = 15
-    Top = 56
+    Left = 10
+    Height = 150
+    Top = 43
     Width = 63
     Alignment = taRightJustify
     Caption = 'Description:'
     ParentColor = False
   end
-  object TaskNameDBEdit: TDBEdit
-    Left = 80
-    Height = 23
-    Top = 8
-    Width = 404
-    DataField = 'name'
-    DataSource = DatabaseDataModule.TasksDataSource
-    Anchors = [akTop, akLeft, akRight]
-    CharCase = ecNormal
-    MaxLength = 0
-    TabOrder = 0
-  end
   object TaskDescriptionDBMemo: TDBMemo
-    Left = 80
-    Height = 161
-    Top = 48
-    Width = 402
-    Anchors = [akTop, akLeft, akRight, akBottom]
+    Left = 83
+    Height = 150
+    Top = 43
+    Width = 400
+    BorderSpacing.Bottom = 70
+    Constraints.MinHeight = 150
+    Constraints.MinWidth = 400
     DataField = 'description'
     DataSource = DatabaseDataModule.TasksDataSource
     MaxLength = 512
@@ -54,10 +62,10 @@ object TaskEditForm: TTaskEditForm
     TabOrder = 1
   end
   object ButtonPanel1: TButtonPanel
-    Left = 6
+    Left = 10
     Height = 34
-    Top = 230
-    Width = 488
+    Top = 244
+    Width = 537
     OKButton.Name = 'OKButton'
     OKButton.Caption = 'Save'
     HelpButton.Name = 'HelpButton'

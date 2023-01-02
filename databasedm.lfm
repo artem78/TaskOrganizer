@@ -14,6 +14,7 @@ object DatabaseDataModule: TDatabaseDataModule
       ''
     )
     Params = <>
+    Macros = <>
     DataSource = TasksDataSource
     Left = 48
     Top = 40
@@ -75,6 +76,7 @@ object DatabaseDataModule: TDatabaseDataModule
       '    FROM `tasks` WHERE (`id` = :id)'
     )
     Params = <>
+    Macros = <>
     Left = 48
     Top = 128
     object TasksSQLQueryId: TAutoIncField
@@ -191,6 +193,7 @@ object DatabaseDataModule: TDatabaseDataModule
       'WHERE `id` = :id'
     )
     Params = <>
+    Macros = <>
     Left = 48
     Top = 208
     object PeriodsSQLQueryId: TAutoIncField

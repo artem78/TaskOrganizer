@@ -238,7 +238,7 @@ object ReportFrame: TReportFrame
       item
         Alignment = taLeftJustify
         Text = 'Task'
-        Width = 300
+        Width = 550
         Visible = True
       end    
       item
@@ -252,7 +252,7 @@ object ReportFrame: TReportFrame
     HorizontalLineColor = clWindowFrame
     VerticalLineMode = lmDot
     VerticalLineColor = clWindowFrame
-    RootLineMode = lmDot
+    RootLineMode = lmSolid
     RootLineColor = clWindowFrame
     ColorSearchMark = clAqua
     ColorSearchMarkField = 16744320
@@ -264,12 +264,14 @@ object ReportFrame: TReportFrame
     SelectedHotTrackFont.Color = clHighlightText
     SelectedHotTrackFont.Style = [fsBold, fsUnderline]
     StripedOddColor = clWindow
-    StripedEvenColor = 14745599
+    StripedEvenColor = 16774378
     SelectBackColor = clHighlight
     ButtonColor = clWindow
     BackGroundColor = clWindow
     Scrollbars = ssBoth
     HeaderVisible = True
+    OnCustomItemDraw = ReportTreeListViewCustomItemDraw
+    OnCustomRecordItemDraw = ReportTreeListViewCustomRecordItemDraw
     TabOrder = 2
     Align = alClient
   end

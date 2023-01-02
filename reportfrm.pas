@@ -36,6 +36,12 @@ type
     procedure PeriodAllTimeCheckBoxChange(Sender: TObject);
     procedure PeriodBeginDateTimePickerChange(Sender: TObject);
     procedure PeriodEndDateTimePickerChange(Sender: TObject);
+    procedure ReportTreeListViewCustomItemDraw(sender: TObject;
+      eventTyp_cdet: TCustomDrawEventTyp; item: TTreeListItem;
+      var defaultDraw: Boolean);
+    procedure ReportTreeListViewCustomRecordItemDraw(sender: TObject;
+      eventTyp_cdet: TCustomDrawEventTyp; recordItem: TTreeListRecordItem;
+      var defaultDraw: Boolean);
     procedure SelectAllTasksButtonClick(Sender: TObject);
     procedure TasksCheckListBoxClickCheck(Sender: TObject);
     procedure ViewRadioGroupClick(Sender: TObject);
@@ -106,6 +112,34 @@ end;
 procedure TReportFrame.PeriodEndDateTimePickerChange(Sender: TObject);
 begin
   EndDate := EndDate;
+end;
+
+procedure TReportFrame.ReportTreeListViewCustomItemDraw(sender: TObject;
+  eventTyp_cdet: TCustomDrawEventTyp; item: TTreeListItem;
+  var defaultDraw: Boolean);
+begin
+  if (eventTyp_cdet = cdetPrePaint) and (not Assigned(item.Parent)) then
+  begin
+    if not item.SeemsSelected then
+    begin
+      (sender as TTreeListView).Canvas.Brush.Color:=clSkyBlue;
+    end;
+
+    // (sender as TTreeListView).Canvas.Font.Bold := True;
+  end;
+  defaultDraw := True;
+end;
+
+procedure TReportFrame.ReportTreeListViewCustomRecordItemDraw(sender: TObject;
+  eventTyp_cdet: TCustomDrawEventTyp; recordItem: TTreeListRecordItem;
+  var defaultDraw: Boolean);
+begin
+  if (eventTyp_cdet = cdetPrePaint) and (Assigned(recordItem.Parent))
+      and (not Assigned(recordItem.Parent.Parent)) then
+  begin
+    (sender as TTreeListView).Canvas.Font.Bold := True;
+  end;
+  defaultDraw := True;
 end;
 
 procedure TReportFrame.SelectAllTasksButtonClick(Sender: TObject);

@@ -5,6 +5,7 @@ object ReportFrame: TReportFrame
   Width = 710
   ClientHeight = 579
   ClientWidth = 710
+  ParentShowHint = False
   TabOrder = 0
   DesignLeft = 299
   DesignTop = 109
@@ -183,21 +184,19 @@ object ReportFrame: TReportFrame
       ChildSizing.TopBottomSpacing = 6
       ChildSizing.HorizontalSpacing = 6
       ChildSizing.VerticalSpacing = 6
-      ChildSizing.EnlargeHorizontal = crsHomogenousChildResize
-      ChildSizing.Layout = cclLeftToRightThenTopToBottom
-      ChildSizing.ControlsPerLine = 1
       ClientHeight = 212
       ClientWidth = 366
-      Constraints.MaxWidth = 500
-      Constraints.MinWidth = 250
+      Constraints.MaxWidth = 600
+      Constraints.MinWidth = 200
       TabOrder = 3
       object TaskListFilterEdit: TListFilterEdit
-        AnchorSideRight.Side = asrBottom
         Left = 6
         Height = 23
         Top = 6
         Width = 354
         ButtonWidth = 23
+        Align = alTop
+        AutoSize = False
         NumGlyphs = 1
         MaxLength = 0
         TabOrder = 0
@@ -209,22 +208,34 @@ object ReportFrame: TReportFrame
         Height = 140
         Top = 35
         Width = 354
-        Constraints.MaxWidth = 400
+        Align = alClient
         Constraints.MinHeight = 140
         Constraints.MinWidth = 250
         ItemHeight = 0
         OnClickCheck = TasksCheckListBoxClickCheck
         TabOrder = 1
       end
-      object SelectAllTasksButton: TButton
+      object ButtonPanel: TPanel
         Left = 6
         Height = 25
         Top = 181
-        Width = 150
-        Caption = '(De)Select all'
-        Constraints.MaxWidth = 150
-        OnClick = SelectAllTasksButtonClick
+        Width = 354
+        Align = alBottom
+        AutoSize = True
+        BevelOuter = bvNone
+        ClientHeight = 25
+        ClientWidth = 354
         TabOrder = 2
+        object SelectAllTasksButton: TButton
+          Left = 0
+          Height = 25
+          Top = 0
+          Width = 94
+          AutoSize = True
+          Caption = '(De)Select all'
+          OnClick = SelectAllTasksButtonClick
+          TabOrder = 0
+        end
       end
     end
   end

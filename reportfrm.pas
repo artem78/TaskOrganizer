@@ -16,6 +16,7 @@ type
   { TReportFrame }
 
   TReportFrame = class(TFrame)
+    ButtonPanel: TPanel;
     PeriodAllTimeCheckBox: TCheckBox;
     LabelsChartSource: TListChartSource;
     TaskListFilterEdit: TListFilterEdit;

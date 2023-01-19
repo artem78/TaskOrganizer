@@ -46,9 +46,12 @@ type
     procedure RestoreFormState;
     procedure FillLanguagesList;
     procedure OnLanguageMenuClick(ASender: TObject);
+    procedure SetLanguage(ALang: String);
+    function GetLanguage: String;
   public
     procedure MinimizeToTray;
     procedure RestoreFromTray;
+    property Language: String read GetLanguage write SetLanguage;
   end;
 
 var
@@ -70,13 +73,9 @@ resourcestring
 
 procedure TMainForm.FormCreate(Sender: TObject);
 begin
-  SetDefaultLang('');
-
-  if LanguageMenuItem.Caption <> 'Language' then
-     LanguageMenuItem.Caption := LanguageMenuItem.Caption + ' / Language';
   FillLanguagesList;
+  Language := '';
 
-  Caption:=Caption+Format('    %s  %s'{$IFOPT D+} + '    [Debug Build]'{$EndIf}, [GitRevisionStr, {$I %DATE%}]);
   PageControl1.ActivePageIndex:=0;
   {$IFOPT D-}
   LogsTabSheet.TabVisible := False;
@@ -260,7 +259,7 @@ begin
       MenuItem.Name := LangCode + '_LangMenuItem';
       MenuItem.OnClick := @OnLanguageMenuClick;
       MenuItem.RadioItem := True;
-      MenuItem.AutoCheck := True;
+      MenuItem.AutoCheck := {True} False;
       LanguageMenuItem.Add(MenuItem);
     end;
   finally
@@ -270,11 +269,33 @@ begin
 end;
 
 procedure TMainForm.OnLanguageMenuClick(ASender: TObject);
-var
-  Lang: String;
 begin
-  Lang := ExtractWord(1, (ASender as TMenuItem).Name, ['_']);
-  SetDefaultLang(Lang);
+  Language := ExtractWord(1, (ASender as TMenuItem).Name, ['_']);
+end;
+
+procedure TMainForm.SetLanguage(ALang: String);
+var
+  ResLang: String;
+  LangMenuItem: TMenuItem;
+begin
+  ResLang := SetDefaultLang(ALang);
+
+  // Update some labels
+  if LanguageMenuItem.Caption <> 'Language' then
+     LanguageMenuItem.Caption := LanguageMenuItem.Caption + ' / Language';
+  //FillLanguagesList;
+
+  Caption := Caption + Format('    %s  %s'{$IFOPT D+} + '    [Debug Build]'{$EndIf}, [GitRevisionStr, {$I %DATE%}]);
+
+  // Update selected language in main menu
+  LangMenuItem := (LanguageMenuItem.FindComponent({ALang} ResLang + '_LangMenuItem') as TMenuItem);
+  if Assigned(LangMenuItem) then
+    LangMenuItem.Checked := True;
+end;
+
+function TMainForm.GetLanguage: String;
+begin
+  Result := GetDefaultLang;
 end;
 
 procedure TMainForm.MinimizeToTray;

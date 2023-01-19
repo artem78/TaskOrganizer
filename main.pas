@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, ComCtrls,
-  StdCtrls, DBGrids, Menus, XMLPropStorage, TasksFrame, DatabaseDM,
+  StdCtrls, DBGrids, Menus, TasksFrame, DatabaseDM,
   PeriodsFrame, NonVisualCtrlsDM, ReportFrm;
 
 type

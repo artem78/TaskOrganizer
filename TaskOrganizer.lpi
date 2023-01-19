@@ -32,7 +32,7 @@
           </Target>
           <SearchPaths>
             <IncludeFiles Value="$(ProjOutDir)"/>
-            <OtherUnitFiles Value="packages\LazTrayIconExtended;packages\LazDatabaseVersioning"/>
+            <OtherUnitFiles Value="packages\LazDatabaseVersioning"/>
             <UnitOutputDirectory Value="lib\$(TargetCPU)-$(TargetOS)"/>
           </SearchPaths>
           <Parsing>

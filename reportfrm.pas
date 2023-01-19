@@ -5,7 +5,7 @@ unit ReportFrm;
 interface
 
 uses
-  Classes, SysUtils, Messages, Forms, Controls, StdCtrls, EditBtn, ExtCtrls,
+  Classes, SysUtils, Forms, Controls, StdCtrls, EditBtn, ExtCtrls,
   CheckLst, TreeListView, Reports, TAGraph, TASeries,
   TASources, DateTimePicker, ListFilterEdit;
 

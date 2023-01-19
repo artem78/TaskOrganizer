@@ -173,6 +173,7 @@ begin
 
     SetValue('View/ShowDoneTasks', NonVisualCtrlsDataModule.ShowDoneTasksAction.Checked);
     SetValue('SelectedTask', TasksFrame1.TasksDBGrid.DataSource.DataSet.FieldByName('id').AsInteger);
+    SetValue('Language', Language);
   end;
 end;
 
@@ -216,6 +217,8 @@ begin
 
     TasksFrame1.TasksDBGrid.DataSource.DataSet.Locate(
           'id', GetValue('SelectedTask', -1), []);
+
+    Language := GetValue('Language', '');
   end;
 end;
 

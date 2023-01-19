@@ -74,6 +74,10 @@ msgstr ""
 msgid "Select last active task"
 msgstr ""
 
+#: tmainform.languagemenuitem.caption
+msgid "Language"
+msgstr ""
+
 #: tmainform.logstabsheet.caption
 msgid "SQL log"
 msgstr ""

@@ -17,6 +17,7 @@ type
     BackupDBMenuItem: TMenuItem;
     GoToTaskMenuItem: TMenuItem;
     MenuItem1: TMenuItem;
+    LanguageMenuItem: TMenuItem;
     PeriodsFrame1: TPeriodsFrame;
     ReportFrame1: TReportFrame;
     ShowDoneTasksMenuItem: TMenuItem;
@@ -43,6 +44,8 @@ type
     procedure GoToTaskMenuItemClick2(Sender: TObject); // ToDo: Better name
     procedure StoreFormState;
     procedure RestoreFormState;
+    procedure FillLanguagesList;
+    procedure OnLanguageMenuClick(ASender: TObject);
   public
     procedure MinimizeToTray;
     procedure RestoreFromTray;
@@ -54,7 +57,7 @@ var
 implementation
 
 uses
-  Models, TypInfo, LCLTranslator;
+  Models, StrUtils, TypInfo, LCLTranslator, LazFileUtils;
 
 resourcestring
   RSRunningTaskNotification = 'You have running task. Are you sure to exit?';
@@ -68,6 +71,10 @@ resourcestring
 procedure TMainForm.FormCreate(Sender: TObject);
 begin
   SetDefaultLang('');
+
+  if LanguageMenuItem.Caption <> 'Language' then
+     LanguageMenuItem.Caption := LanguageMenuItem.Caption + ' / Language';
+  FillLanguagesList;
 
   Caption:=Caption+Format('    %s  %s'{$IFOPT D+} + '    [Debug Build]'{$EndIf}, [GitRevisionStr, {$I %DATE%}]);
   PageControl1.ActivePageIndex:=0;
@@ -211,6 +218,63 @@ begin
     TasksFrame1.TasksDBGrid.DataSource.DataSet.Locate(
           'id', GetValue('SelectedTask', -1), []);
   end;
+end;
+
+procedure TMainForm.FillLanguagesList;
+  function ExtractLangCodeFromFileName(AFileName: String): String;
+  var
+    Idx: Integer;
+  begin
+    Result := ExtractFileNameOnly(AFileName);
+    Idx := WordCount(Result, ['.']);
+    Result := ExtractWord(Idx, Result, ['.']);
+    Result := LowerCase(Result);
+  end;
+
+var
+  Files, Langs: TStringList;
+  FileName, LangCode: String;
+  MenuItem: TMenuItem;
+begin
+  LanguageMenuItem.Clear;
+
+  Files := TStringList.Create;
+  Langs := TStringList.Create;
+  try
+    Langs.Sorted := True;
+    Langs.Duplicates := dupIgnore;
+
+    FindAllFiles(Files, ConcatPaths([ProgramDirectory, 'languages']), '*.po;*.mo', False);
+
+    for FileName in Files do
+    begin
+      Langs.Add(ExtractLangCodeFromFileName(FileName));
+    end;
+
+    Langs.Add('en');
+
+    for LangCode in Langs do
+    begin
+      MenuItem := TMenuItem.Create(LanguageMenuItem);
+      MenuItem.Caption := LangCode;
+      MenuItem.Name := LangCode + '_LangMenuItem';
+      MenuItem.OnClick := @OnLanguageMenuClick;
+      MenuItem.RadioItem := True;
+      MenuItem.AutoCheck := True;
+      LanguageMenuItem.Add(MenuItem);
+    end;
+  finally
+    Langs.Free;
+    Files.Free;
+  end;
+end;
+
+procedure TMainForm.OnLanguageMenuClick(ASender: TObject);
+var
+  Lang: String;
+begin
+  Lang := ExtractWord(1, (ASender as TMenuItem).Name, ['_']);
+  SetDefaultLang(Lang);
 end;
 
 procedure TMainForm.MinimizeToTray;

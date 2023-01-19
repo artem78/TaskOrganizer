@@ -10,5 +10,6 @@
 {"hash":380871,"name":"tmainform.viewmenuitem.caption","sourcebytes":[86,105,101,119],"value":"View"},
 {"hash":5302667,"name":"tmainform.gototaskmenuitem.caption","sourcebytes":[83,101,108,101,99,116,32,108,97,115,116,32,97,99,116,105,118,101,32,116,97,115,107],"value":"Select last active task"},
 {"hash":94435777,"name":"tmainform.menuitem1.caption","sourcebytes":[77,101,110,117,73,116,101,109,49],"value":"MenuItem1"},
-{"hash":164220869,"name":"tmainform.servicemenuitem.caption","sourcebytes":[83,101,114,118,105,99,101],"value":"Service"}
+{"hash":164220869,"name":"tmainform.servicemenuitem.caption","sourcebytes":[83,101,114,118,105,99,101],"value":"Service"},
+{"hash":139375349,"name":"tmainform.languagemenuitem.caption","sourcebytes":[76,97,110,103,117,97,103,101],"value":"Language"}
 ]}

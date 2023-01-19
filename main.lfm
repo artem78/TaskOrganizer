@@ -45,7 +45,6 @@ object MainForm: TMainForm
           end
           inherited SeparatorToolButton: TToolButton
             Left = 182
-            Height = 22
           end
           inherited StartTrackingToolButton: TToolButton
             Left = 190
@@ -206,6 +205,9 @@ object MainForm: TMainForm
       object BackupDBMenuItem: TMenuItem
         Action = NonVisualCtrlsDataModule.BackupDatabaseAction
       end
+    end
+    object LanguageMenuItem: TMenuItem
+      Caption = 'Language'
     end
   end
 end

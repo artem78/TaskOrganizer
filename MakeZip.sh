@@ -56,6 +56,15 @@ function MakeZip(){
 	cp -v --preserve db-updates/*.sql $BuildDir/db-updates/
 	echo "Done!"
 	echo ""
+	
+	# Languages
+	echo "Copy languages..."
+	mkdir -p $BuildDir/languages
+	#cp -v --preserve languages/*.mo $BuildDir/languages/
+	cp -v --preserve languages/*.pot $BuildDir/languages/
+	cp -v --preserve languages/*.po $BuildDir/languages/
+	echo "Done!"
+	echo ""
 
 	# Pack to ZIP archive
 	echo "Pack all files to ZIP archive..."

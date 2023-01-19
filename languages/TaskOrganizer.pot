@@ -213,6 +213,39 @@ msgstr ""
 msgid "Task:"
 msgstr ""
 
+#: tperiodsframe.dbgrid1.columns[0].title.caption
+msgctxt "tperiodsframe.dbgrid1.columns[0].title.caption"
+msgid "ID"
+msgstr ""
+
+#: tperiodsframe.dbgrid1.columns[1].title.caption
+msgctxt "tperiodsframe.dbgrid1.columns[1].title.caption"
+msgid "Begin"
+msgstr ""
+
+#: tperiodsframe.dbgrid1.columns[2].title.caption
+msgctxt "tperiodsframe.dbgrid1.columns[2].title.caption"
+msgid "End"
+msgstr ""
+
+#: tperiodsframe.dbgrid1.columns[3].title.caption
+msgctxt "tperiodsframe.dbgrid1.columns[3].title.caption"
+msgid "Task ID"
+msgstr ""
+
+#: tperiodsframe.dbgrid1.columns[4].title.caption
+msgctxt "tperiodsframe.dbgrid1.columns[4].title.caption"
+msgid "Active"
+msgstr ""
+
+#: tperiodsframe.dbgrid1.columns[5].title.caption
+msgid "Duration"
+msgstr ""
+
+#: tperiodsframe.dbgrid1.columns[6].title.caption
+msgid "Manually added"
+msgstr ""
+
 #: treportframe.groupbyradiogroup.caption
 msgid "Group by"
 msgstr ""
@@ -301,6 +334,31 @@ msgstr ""
 
 #: ttasksframe.filteredit.editlabel.caption
 msgid "Filter:"
+msgstr ""
+
+#: ttasksframe.tasksdbgrid.columns[0].title.caption
+msgctxt "ttasksframe.tasksdbgrid.columns[0].title.caption"
+msgid "ID"
+msgstr ""
+
+#: ttasksframe.tasksdbgrid.columns[1].title.caption
+msgctxt "ttasksframe.tasksdbgrid.columns[1].title.caption"
+msgid "Name"
+msgstr ""
+
+#: ttasksframe.tasksdbgrid.columns[2].title.caption
+msgctxt "ttasksframe.tasksdbgrid.columns[2].title.caption"
+msgid "Description"
+msgstr ""
+
+#: ttasksframe.tasksdbgrid.columns[3].title.caption
+msgctxt "ttasksframe.tasksdbgrid.columns[3].title.caption"
+msgid "Created"
+msgstr ""
+
+#: ttasksframe.tasksdbgrid.columns[4].title.caption
+msgctxt "ttasksframe.tasksdbgrid.columns[4].title.caption"
+msgid "Modified"
 msgstr ""
 
 #: ttasksframe.toolbar1.caption

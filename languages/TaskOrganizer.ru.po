@@ -9,8 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
 "X-Generator: Poedit 3.2.2\n"
 
 #: databasedm.rsbackupdbfailed
@@ -225,6 +224,39 @@ msgstr "Конец:"
 msgid "Task:"
 msgstr "Задача:"
 
+#: tperiodsframe.dbgrid1.columns[0].title.caption
+msgctxt "tperiodsframe.dbgrid1.columns[0].title.caption"
+msgid "ID"
+msgstr "ИД"
+
+#: tperiodsframe.dbgrid1.columns[1].title.caption
+msgctxt "tperiodsframe.dbgrid1.columns[1].title.caption"
+msgid "Begin"
+msgstr "Начало"
+
+#: tperiodsframe.dbgrid1.columns[2].title.caption
+msgctxt "tperiodsframe.dbgrid1.columns[2].title.caption"
+msgid "End"
+msgstr "Конец"
+
+#: tperiodsframe.dbgrid1.columns[3].title.caption
+msgctxt "tperiodsframe.dbgrid1.columns[3].title.caption"
+msgid "Task ID"
+msgstr "ИД задачи"
+
+#: tperiodsframe.dbgrid1.columns[4].title.caption
+msgctxt "tperiodsframe.dbgrid1.columns[4].title.caption"
+msgid "Active"
+msgstr "Активна"
+
+#: tperiodsframe.dbgrid1.columns[5].title.caption
+msgid "Duration"
+msgstr "Продолжительность"
+
+#: tperiodsframe.dbgrid1.columns[6].title.caption
+msgid "Manually added"
+msgstr "Добавлена вручную"
+
 #: treportframe.groupbyradiogroup.caption
 msgid "Group by"
 msgstr "Группировка"
@@ -314,6 +346,31 @@ msgstr ""
 #: ttasksframe.filteredit.editlabel.caption
 msgid "Filter:"
 msgstr "Фильтр:"
+
+#: ttasksframe.tasksdbgrid.columns[0].title.caption
+msgctxt "ttasksframe.tasksdbgrid.columns[0].title.caption"
+msgid "ID"
+msgstr "ИД"
+
+#: ttasksframe.tasksdbgrid.columns[1].title.caption
+msgctxt "ttasksframe.tasksdbgrid.columns[1].title.caption"
+msgid "Name"
+msgstr "Название"
+
+#: ttasksframe.tasksdbgrid.columns[2].title.caption
+msgctxt "ttasksframe.tasksdbgrid.columns[2].title.caption"
+msgid "Description"
+msgstr "Описание"
+
+#: ttasksframe.tasksdbgrid.columns[3].title.caption
+msgctxt "ttasksframe.tasksdbgrid.columns[3].title.caption"
+msgid "Created"
+msgstr "Создано"
+
+#: ttasksframe.tasksdbgrid.columns[4].title.caption
+msgctxt "ttasksframe.tasksdbgrid.columns[4].title.caption"
+msgid "Modified"
+msgstr "Изменено"
 
 #: ttasksframe.toolbar1.caption
 msgid "ToolBar1"

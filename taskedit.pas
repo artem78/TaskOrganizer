@@ -32,6 +32,10 @@ implementation
 
 uses DB;
 
+resourcestring
+  RSCreateTask = 'Create task';
+  RSEditTask = 'Edit task';
+
 {$R *.lfm}
 
 { TTaskEditForm }
@@ -40,8 +44,8 @@ uses DB;
 procedure TTaskEditForm.FormShow(Sender: TObject);
 begin
   case DatabaseDataModule.TasksSQLQuery.State of
-       dsInsert: Caption := 'Create task';
-       dsEdit:   Caption := 'Edit task';
+       dsInsert: Caption := RSCreateTask;
+       dsEdit:   Caption := RSEditTask;
        else      Caption := '???';
   end;
 

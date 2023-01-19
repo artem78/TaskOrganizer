@@ -15,7 +15,35 @@ object PeriodsFrame: TPeriodsFrame
     Width = 484
     Align = alClient
     Color = clWindow
-    Columns = <>
+    Columns = <    
+      item
+        Title.Caption = 'ID'
+        FieldName = 'id'
+      end    
+      item
+        Title.Caption = 'Begin'
+        FieldName = 'begin'
+      end    
+      item
+        Title.Caption = 'End'
+        FieldName = 'end'
+      end    
+      item
+        Title.Caption = 'Task ID'
+        FieldName = 'task_id'
+      end    
+      item
+        Title.Caption = 'Active'
+        FieldName = 'is_active'
+      end    
+      item
+        Title.Caption = 'Duration'
+        FieldName = 'duration'
+      end    
+      item
+        Title.Caption = 'Manually added'
+        FieldName = 'is_manually_added'
+      end>
     DataSource = DatabaseDataModule.PeriodsDataSource
     FixedCols = 0
     Options = [dgTitles, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAutoSizeColumns, dgAnyButtonCanSelect]
@@ -41,12 +69,12 @@ object PeriodsFrame: TPeriodsFrame
       Action = NonVisualCtrlsDataModule.CreatePeriodAction
     end
     object EditPeriodToolButton: TToolButton
-      Left = 86
+      Left = 89
       Top = 2
       Action = NonVisualCtrlsDataModule.EditPeriodAction
     end
     object DeletePeriodToolButton: TToolButton
-      Left = 169
+      Left = 175
       Top = 2
       Action = NonVisualCtrlsDataModule.DeletePeriodAction
     end

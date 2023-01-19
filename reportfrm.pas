@@ -64,6 +64,7 @@ type
     procedure FillReportTree(const AReport: TReport);
     procedure FillReportChart(const AReport: TReport);
     procedure CreateChartLabels;
+    procedure UpdateTranslations;
   public
     constructor Create(TheOwner: TComponent); override;
 
@@ -81,7 +82,14 @@ type
 
 implementation
 
-uses DateUtils, DatabaseDM, Graphics, System.UITypes, fgl, Math;
+uses DateUtils, DatabaseDM, Graphics, System.UITypes, fgl, Math{, LCLTranslator};
+
+resourcestring
+  RSYears = 'Years';
+  RSMonths = 'Months';
+  RSDays = 'Days';
+  RSTable = 'Table';
+  RSChart = 'Chart';
 
 {$R *.lfm}
 
@@ -219,6 +227,9 @@ procedure TReportFrame.OnShow;
 begin
   UpdateTasksList;
   UpdateReport;
+
+  // Translate some strings if not translated yet
+  UpdateTranslations;
 end;
 
 function TReportFrame.GetBeginDate: TDate;
@@ -571,6 +582,22 @@ begin
           Date := IncDay(Date);
         end;
     end;
+  end;
+end;
+
+procedure TReportFrame.UpdateTranslations;
+begin
+  with GroupByRadioGroup do
+  begin
+    Items[0] := RSYears;
+    Items[1] := RSMonths;
+    Items[2] := RSDays;
+  end;
+
+  with ViewRadioGroup do
+  begin
+    Items[0] := RSTable;
+    Items[1] := RSChart;
   end;
 end;
 

@@ -1,0 +1,16 @@
+{"version":1,"strings":[
+{"hash":135528407,"name":"tnonvisualctrlsdatamodule.starttimetrackingaction.caption","sourcebytes":[83,116,97,114,116,32,116,105,109,101,32,116,114,97,99,107,105,110,103],"value":"Start time tracking"},
+{"hash":118623111,"name":"tnonvisualctrlsdatamodule.stoptimetrackingaction.caption","sourcebytes":[83,116,111,112,32,116,105,109,101,32,116,114,97,99,107,105,110,103],"value":"Stop time tracking"},
+{"hash":315140,"name":"tnonvisualctrlsdatamodule.exitaction.caption","sourcebytes":[69,120,105,116],"value":"Exit"},
+{"hash":225327397,"name":"tnonvisualctrlsdatamodule.marktaskasdoneaction.caption","sourcebytes":[77,97,114,107,32,97,115,32,100,111,110,101],"value":"Mark as done"},
+{"hash":225328869,"name":"tnonvisualctrlsdatamodule.unmarktaskasdoneaction.caption","sourcebytes":[85,110,109,97,114,107,32,97,115,32,100,111,110,101],"value":"Unmark as done"},
+{"hash":174566635,"name":"tnonvisualctrlsdatamodule.createtaskaction.caption","sourcebytes":[65,100,100,32,116,97,115,107],"value":"Add task"},
+{"hash":6808363,"name":"tnonvisualctrlsdatamodule.edittaskaction.caption","sourcebytes":[69,100,105,116,32,116,97,115,107],"value":"Edit task"},
+{"hash":204434683,"name":"tnonvisualctrlsdatamodule.deletetaskaction.caption","sourcebytes":[82,101,109,111,118,101,32,116,97,115,107],"value":"Remove task"},
+{"hash":124319284,"name":"tnonvisualctrlsdatamodule.createperiodaction.caption","sourcebytes":[65,100,100,32,112,101,114,105,111,100],"value":"Add period"},
+{"hash":120012852,"name":"tnonvisualctrlsdatamodule.editperiodaction.caption","sourcebytes":[69,100,105,116,32,112,101,114,105,111,100],"value":"Edit period"},
+{"hash":229525092,"name":"tnonvisualctrlsdatamodule.deleteperiodaction.caption","sourcebytes":[68,101,108,101,116,101,32,112,101,114,105,111,100],"value":"Delete period"},
+{"hash":80705172,"name":"tnonvisualctrlsdatamodule.exportdatabaseaction.caption","sourcebytes":[69,120,112,111,114,116],"value":"Export"},
+{"hash":42722885,"name":"tnonvisualctrlsdatamodule.backupdatabaseaction.caption","sourcebytes":[66,97,99,107,117,112,32,100,97,116,97,98,97,115,101],"value":"Backup database"},
+{"hash":32343443,"name":"tnonvisualctrlsdatamodule.showdonetasksaction.caption","sourcebytes":[83,104,111,119,32,100,111,110,101,32,116,97,115,107,115],"value":"Show done tasks"}
+]}

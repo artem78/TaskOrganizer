@@ -45,3 +45,4 @@ lib/
 /build/
 /releases/
 /settings.xml
+/languages/*.mo

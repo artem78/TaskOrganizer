@@ -34,6 +34,10 @@ implementation
 
 uses DB;
 
+resourcestring
+  RSCreatePeriod = 'Create period';
+  RSEditPeriod = 'Edit period';
+
 {$R *.lfm}
 
 { TPeriodEditForm }
@@ -41,8 +45,8 @@ uses DB;
 procedure TPeriodEditForm.FormShow(Sender: TObject);
 begin
   case DatabaseDataModule.PeriodsSQLQuery.State of
-       dsInsert: Caption := 'Create period';
-       dsEdit:   Caption := 'Edit period';
+       dsInsert: Caption := RSCreatePeriod;
+       dsEdit:   Caption := RSEditPeriod;
        else      Caption := '???';
   end;
 

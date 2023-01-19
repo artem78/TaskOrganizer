@@ -24,28 +24,28 @@ object TasksFrame: TTasksFrame
       Action = NonVisualCtrlsDataModule.CreateTaskAction
     end
     object EditToolButton: TToolButton
-      Left = 73
+      Left = 76
       Top = 2
       Action = NonVisualCtrlsDataModule.EditTaskAction
     end
     object RemoveToolButton: TToolButton
-      Left = 143
+      Left = 149
       Top = 2
       Action = NonVisualCtrlsDataModule.DeleteTaskAction
     end
     object SeparatorToolButton: TToolButton
-      Left = 236
+      Left = 245
       Height = 22
       Top = 2
       Style = tbsSeparator
     end
     object StartTrackingToolButton: TToolButton
-      Left = 244
+      Left = 253
       Top = 2
       Action = NonVisualCtrlsDataModule.StartTimeTrackingAction
     end
     object StopTrackingToolButton: TToolButton
-      Left = 367
+      Left = 379
       Top = 2
       Action = NonVisualCtrlsDataModule.StopTimeTrackingAction
     end
@@ -60,7 +60,28 @@ object TasksFrame: TTasksFrame
     AutoEdit = False
     BorderSpacing.Top = 32
     Color = clWindow
-    Columns = <>
+    Columns = <    
+      item
+        Title.Caption = 'ID'
+        Width = 79
+        FieldName = 'id'
+      end    
+      item
+        Title.Caption = 'Name'
+        FieldName = 'name'
+      end    
+      item
+        Title.Caption = 'Description'
+        FieldName = 'description'
+      end    
+      item
+        Title.Caption = 'Created'
+        FieldName = 'created'
+      end    
+      item
+        Title.Caption = 'Modified'
+        FieldName = 'modified'
+      end>
     DataSource = DatabaseDataModule.TasksDataSource
     FixedCols = 0
     Options = [dgTitles, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgAutoSizeColumns, dgAnyButtonCanSelect]

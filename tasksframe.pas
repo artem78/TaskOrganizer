@@ -48,7 +48,7 @@ type
 implementation
 
 uses
-  Variants, Graphics, DatabaseDM, LCLType, NonVisualCtrlsDM, WinMouse;
+  Variants, Graphics, DatabaseDM, LCLType, NonVisualCtrlsDM, WinMouse{, LCLTranslator};
 
 {$R *.lfm}
 

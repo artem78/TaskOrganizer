@@ -1,0 +1,9 @@
+{"version":1,"strings":[
+{"hash":1236,"name":"tperiodsframe.dbgrid1.columns[0].title.caption","sourcebytes":[73,68],"value":"ID"},
+{"hash":4767230,"name":"tperiodsframe.dbgrid1.columns[1].title.caption","sourcebytes":[66,101,103,105,110],"value":"Begin"},
+{"hash":19524,"name":"tperiodsframe.dbgrid1.columns[2].title.caption","sourcebytes":[69,110,100],"value":"End"},
+{"hash":176804996,"name":"tperiodsframe.dbgrid1.columns[3].title.caption","sourcebytes":[84,97,115,107,32,73,68],"value":"Task ID"},
+{"hash":75149509,"name":"tperiodsframe.dbgrid1.columns[4].title.caption","sourcebytes":[65,99,116,105,118,101],"value":"Active"},
+{"hash":210283758,"name":"tperiodsframe.dbgrid1.columns[5].title.caption","sourcebytes":[68,117,114,97,116,105,111,110],"value":"Duration"},
+{"hash":54272692,"name":"tperiodsframe.dbgrid1.columns[6].title.caption","sourcebytes":[77,97,110,117,97,108,108,121,32,97,100,100,101,100],"value":"Manually added"}
+]}

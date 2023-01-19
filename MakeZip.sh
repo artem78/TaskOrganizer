@@ -71,7 +71,7 @@ function MakeZip(){
 # ***********************
 
 # ***  Set variables ***
-LazarusDir="/cygdrive/f/Programms/lazarus_2.0.12_32bit"
+LazarusDir="/cygdrive/d/Programs/Lazarus_2.2.4_32bit"
 
 # Output dirs
 BuildDir=$(realpath -m "build")

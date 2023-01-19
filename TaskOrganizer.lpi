@@ -19,7 +19,7 @@
     </i18n>
     <VersionInfo>
       <UseVersionInfo Value="True"/>
-      <MinorVersionNr Value="11"/>
+      <MinorVersionNr Value="12"/>
       <Attributes pvaPreRelease="True"/>
     </VersionInfo>
     <BuildModes Count="3">

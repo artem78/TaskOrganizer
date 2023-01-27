@@ -90,20 +90,6 @@ msgstr ""
 msgid "Periods"
 msgstr ""
 
-#: tmainform.reportframe1.reporttreelistview.columns[0].text
-msgctxt "tmainform.reportframe1.reporttreelistview.columns[0].text"
-msgid "Task"
-msgstr ""
-
-#: tmainform.reportframe1.reporttreelistview.columns[1].text
-msgctxt "tmainform.reportframe1.reporttreelistview.columns[1].text"
-msgid "Total time"
-msgstr ""
-
-#: tmainform.reportframe1.settingspanel.periodgroupbox.periodalltimecheckbox.caption
-msgid "All time"
-msgstr ""
-
 #: tmainform.reporttabsheet.caption
 msgid "Reports"
 msgstr ""

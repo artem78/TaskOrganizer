@@ -77,62 +77,24 @@ object MainForm: TMainForm
         inherited SettingsPanel: TPanel
           Width = 730
           ClientWidth = 730
-          inherited PeriodGroupBox: TGroupBox
-            Width = 290
-            ClientWidth = 286
-            inherited PeriodBeginLabel: TLabel
-              Width = 61
-            end
-            inherited PeriodBeginDateTimePicker: TDateTimePicker
-              Left = 73
-            end
-            inherited PeriodEndLabel: TLabel
-              Left = 172
-            end
-            inherited PeriodEndDateTimePicker: TDateTimePicker
-              Left = 201
-            end
-            inherited PeriodAllTimeCheckBox: TCheckBox
-              Width = 61
-              Caption = 'All time'
-            end
-          end
           inherited TasksGroupBox: TGroupBox
-            Left = 310
-            Width = 420
-            ClientWidth = 416
+            Width = 402
+            ClientWidth = 398
             inherited TaskListFilterEdit: TListFilterEdit
-              Width = 404
+              Width = 386
             end
             inherited TasksCheckListBox: TCheckListBox
-              Width = 404
+              Width = 386
             end
             inherited ButtonPanel: TPanel
-              Width = 404
-              ClientWidth = 404
+              Width = 386
+              ClientWidth = 386
             end
           end
         end
         inherited ReportTreeListView: TTreeListView
           Height = 158
           Width = 742
-          Columns = <          
-            item
-              Alignment = taLeftJustify
-              Text = 'Task'
-              Width = 300
-              Visible = True
-            end          
-            item
-              Alignment = taLeftJustify
-              Text = 'Total time'
-              Width = 100
-              Visible = True
-            end>
-          RootLineMode = lmDot
-          StripedEvenColor = 14745599
-          OnCustomItemDraw = nil
-          OnCustomRecordItemDraw = nil
         end
         inherited ReportChart: TChart
           Height = 158

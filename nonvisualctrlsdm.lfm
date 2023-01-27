@@ -121,56 +121,67 @@ object NonVisualCtrlsDataModule: TNonVisualCtrlsDataModule
     Top = 32
     object StartTimeTrackingAction: TAction
       Caption = 'Start time tracking'
+      Hint = 'Start time tracking'
       ImageIndex = 0
       OnExecute = StartTimeTrackingActionExecute
     end
     object StopTimeTrackingAction: TAction
       Caption = 'Stop time tracking'
+      Hint = 'Stop time tracking'
       ImageIndex = 1
       OnExecute = StopTimeTrackingActionExecute
     end
     object ExitAction: TAction
       Caption = 'Exit'
+      Hint = 'Exit'
       ImageIndex = 7
       OnExecute = ExitActionExecute
     end
     object MarkTaskAsDoneAction: TAction
       Caption = 'Mark as done'
+      Hint = 'Mark as done'
       ImageIndex = 2
       OnExecute = MarkTaskAsDoneActionExecute
     end
     object UnMarkTaskAsDoneAction: TAction
       Caption = 'Unmark as done'
+      Hint = 'Unmark as done'
       ImageIndex = 3
       OnExecute = UnMarkTaskAsDoneActionExecute
     end
     object CreateTaskAction: TAction
       Caption = 'Add task'
+      Hint = 'Add task'
       ImageIndex = 4
       OnExecute = CreateTaskActionExecute
     end
     object EditTaskAction: TAction
       Caption = 'Edit task'
+      Hint = 'Edit task'
       ImageIndex = 6
       OnExecute = EditTaskActionExecute
     end
     object DeleteTaskAction: TAction
       Caption = 'Remove task'
+      Hint = 'Remove task'
       ImageIndex = 5
       OnExecute = DeleteTaskActionExecute
     end
     object CreatePeriodAction: TAction
       Caption = 'Add period'
+      Hint = 'Add period'
       ImageIndex = 4
       OnExecute = CreatePeriodActionExecute
     end
     object EditPeriodAction: TAction
       Caption = 'Edit period'
+      Hint = 'Edit period'
       ImageIndex = 6
       OnExecute = EditPeriodActionExecute
     end
     object DeletePeriodAction: TAction
       Caption = 'Delete period'
+      Hint = 'Delete period'
       ImageIndex = 5
       OnExecute = DeletePeriodActionExecute
     end
@@ -186,6 +197,7 @@ object NonVisualCtrlsDataModule: TNonVisualCtrlsDataModule
     end
     object ShowDoneTasksAction: TAction
       Caption = 'Show done tasks'
+      Hint = 'Show done tasks'
       OnExecute = ShowDoneTasksActionExecute
     end
   end

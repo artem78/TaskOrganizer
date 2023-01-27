@@ -9,7 +9,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
 "X-Generator: Poedit 3.2.2\n"
 
 #: databasedm.rsbackupdbfailed
@@ -138,18 +139,42 @@ msgid "Backup database"
 msgstr "Сделать резервную копию базы данных"
 
 #: tnonvisualctrlsdatamodule.createperiodaction.caption
+msgctxt "tnonvisualctrlsdatamodule.createperiodaction.caption"
+msgid "Add period"
+msgstr "Добавить период"
+
+#: tnonvisualctrlsdatamodule.createperiodaction.hint
+msgctxt "tnonvisualctrlsdatamodule.createperiodaction.hint"
 msgid "Add period"
 msgstr "Добавить период"
 
 #: tnonvisualctrlsdatamodule.createtaskaction.caption
+msgctxt "tnonvisualctrlsdatamodule.createtaskaction.caption"
+msgid "Add task"
+msgstr "Добавить задачу"
+
+#: tnonvisualctrlsdatamodule.createtaskaction.hint
+msgctxt "tnonvisualctrlsdatamodule.createtaskaction.hint"
 msgid "Add task"
 msgstr "Добавить задачу"
 
 #: tnonvisualctrlsdatamodule.deleteperiodaction.caption
+msgctxt "tnonvisualctrlsdatamodule.deleteperiodaction.caption"
+msgid "Delete period"
+msgstr "Удалить период"
+
+#: tnonvisualctrlsdatamodule.deleteperiodaction.hint
+msgctxt "tnonvisualctrlsdatamodule.deleteperiodaction.hint"
 msgid "Delete period"
 msgstr "Удалить период"
 
 #: tnonvisualctrlsdatamodule.deletetaskaction.caption
+msgctxt "tnonvisualctrlsdatamodule.deletetaskaction.caption"
+msgid "Remove task"
+msgstr "Удалить задачу"
+
+#: tnonvisualctrlsdatamodule.deletetaskaction.hint
+msgctxt "tnonvisualctrlsdatamodule.deletetaskaction.hint"
 msgid "Remove task"
 msgstr "Удалить задачу"
 
@@ -158,12 +183,28 @@ msgctxt "tnonvisualctrlsdatamodule.editperiodaction.caption"
 msgid "Edit period"
 msgstr "Редактировать период"
 
+#: tnonvisualctrlsdatamodule.editperiodaction.hint
+msgctxt "tnonvisualctrlsdatamodule.editperiodaction.hint"
+msgid "Edit period"
+msgstr "Редактировать период"
+
 #: tnonvisualctrlsdatamodule.edittaskaction.caption
 msgctxt "tnonvisualctrlsdatamodule.edittaskaction.caption"
 msgid "Edit task"
 msgstr "Редактировать задачу"
 
+#: tnonvisualctrlsdatamodule.edittaskaction.hint
+msgctxt "tnonvisualctrlsdatamodule.edittaskaction.hint"
+msgid "Edit task"
+msgstr "Редактировать задачу"
+
 #: tnonvisualctrlsdatamodule.exitaction.caption
+msgctxt "tnonvisualctrlsdatamodule.exitaction.caption"
+msgid "Exit"
+msgstr "Выход"
+
+#: tnonvisualctrlsdatamodule.exitaction.hint
+msgctxt "tnonvisualctrlsdatamodule.exitaction.hint"
 msgid "Exit"
 msgstr "Выход"
 
@@ -172,22 +213,52 @@ msgid "Export"
 msgstr "Экспорт"
 
 #: tnonvisualctrlsdatamodule.marktaskasdoneaction.caption
+msgctxt "tnonvisualctrlsdatamodule.marktaskasdoneaction.caption"
+msgid "Mark as done"
+msgstr "Пометить как завершённую"
+
+#: tnonvisualctrlsdatamodule.marktaskasdoneaction.hint
+msgctxt "tnonvisualctrlsdatamodule.marktaskasdoneaction.hint"
 msgid "Mark as done"
 msgstr "Пометить как завершённую"
 
 #: tnonvisualctrlsdatamodule.showdonetasksaction.caption
+msgctxt "tnonvisualctrlsdatamodule.showdonetasksaction.caption"
+msgid "Show done tasks"
+msgstr "Показывать завершённые задачи"
+
+#: tnonvisualctrlsdatamodule.showdonetasksaction.hint
+msgctxt "tnonvisualctrlsdatamodule.showdonetasksaction.hint"
 msgid "Show done tasks"
 msgstr "Показывать завершённые задачи"
 
 #: tnonvisualctrlsdatamodule.starttimetrackingaction.caption
+msgctxt "tnonvisualctrlsdatamodule.starttimetrackingaction.caption"
+msgid "Start time tracking"
+msgstr "Начать замер времени"
+
+#: tnonvisualctrlsdatamodule.starttimetrackingaction.hint
+msgctxt "tnonvisualctrlsdatamodule.starttimetrackingaction.hint"
 msgid "Start time tracking"
 msgstr "Начать замер времени"
 
 #: tnonvisualctrlsdatamodule.stoptimetrackingaction.caption
+msgctxt "tnonvisualctrlsdatamodule.stoptimetrackingaction.caption"
+msgid "Stop time tracking"
+msgstr "Остановить замер времени"
+
+#: tnonvisualctrlsdatamodule.stoptimetrackingaction.hint
+msgctxt "tnonvisualctrlsdatamodule.stoptimetrackingaction.hint"
 msgid "Stop time tracking"
 msgstr "Остановить замер времени"
 
 #: tnonvisualctrlsdatamodule.unmarktaskasdoneaction.caption
+msgctxt "tnonvisualctrlsdatamodule.unmarktaskasdoneaction.caption"
+msgid "Unmark as done"
+msgstr "Пометить как незавершённую"
+
+#: tnonvisualctrlsdatamodule.unmarktaskasdoneaction.hint
+msgctxt "tnonvisualctrlsdatamodule.unmarktaskasdoneaction.hint"
 msgid "Unmark as done"
 msgstr "Пометить как незавершённую"
 

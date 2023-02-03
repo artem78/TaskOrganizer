@@ -7,7 +7,7 @@ Program for managing tasks written in Lazarus IDE (Free Pascal).
 Still work in progress, but some features already implemented:
 - Time tracking
 - Marking tasks as completed
-- Shows total time spent per day
+- Statistics / report
 - Export database to XML
 - Filter tasks by name
 

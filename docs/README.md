@@ -1,3 +1,9 @@
+[![GitHub release (latest by date)](https://img.shields.io/github/v/release/artem78/TaskOrganizer?style=plastic)](https://github.com/artem78/TaskOrganizer/releases/latest)
+[![GitHub license](https://img.shields.io/github/license/artem78/TaskOrganizer?style=plastic)](https://github.com/artem78/TaskOrganizer/blob/master/LICENSE.txt)
+![GitHub All Releases](https://img.shields.io/github/downloads/artem78/TaskOrganizer/total?style=plastic)
+![GitHub last commit](https://img.shields.io/github/last-commit/artem78/TaskOrganizer?style=plastic)
+[![Supports Windows](https://img.shields.io/badge/support-Windows-blue?logo=Windows&style=plastic)](https://github.com/artem78/TaskOrganizer/releases/latest)
+
 Program for managing tasks written in Lazarus IDE (Free Pascal).
 
 ![](images/tasks_tab_screenshot.png)

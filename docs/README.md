@@ -11,6 +11,9 @@ Still work in progress, but some features already implemented:
 - Export database to XML
 - Filter tasks by name
 
+# Known bugs
+- [Task description disappears after name changing](https://github.com/artem78/TaskOrganizer/issues/1)
+
 # Windows builds
 
 https://github.com/artem78/TaskOrganizer/releases

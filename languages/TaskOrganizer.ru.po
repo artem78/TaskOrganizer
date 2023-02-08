@@ -357,7 +357,7 @@ msgstr "Общее время"
 
 #: treportframe.selectalltasksbutton.caption
 msgid "(De)Select all"
-msgstr "Отметить все/снять отметку"
+msgstr "Отметить все/снять отметки"
 
 #: treportframe.tasklistfilteredit.texthint
 msgid "(filter)"
@@ -431,4 +431,3 @@ msgstr "Изменено"
 #: ttasksframe.toolbar1.caption
 msgid "ToolBar1"
 msgstr ""
-

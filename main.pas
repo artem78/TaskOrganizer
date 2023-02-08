@@ -235,7 +235,7 @@ procedure TMainForm.FillLanguagesList;
 
 var
   Files, Langs: TStringList;
-  FileName, LangCode: String;
+  FileName, LangCode, LangName: String;
   MenuItem: TMenuItem;
 begin
   LanguageMenuItem.Clear;
@@ -258,7 +258,15 @@ begin
     for LangCode in Langs do
     begin
       MenuItem := TMenuItem.Create(LanguageMenuItem);
-      MenuItem.Caption := LangCode;
+
+      case LangCode of
+        'en': LangName := 'English';
+        'ru': LangName := 'Russian (Русский)';
+      else
+        LangName := LangCode;
+      end;
+      MenuItem.Caption := LangName;
+
       MenuItem.Name := LangCode + '_LangMenuItem';
       MenuItem.OnClick := @OnLanguageMenuClick;
       MenuItem.RadioItem := True;

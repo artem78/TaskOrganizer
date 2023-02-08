@@ -66,6 +66,11 @@ msgctxt "taskedit.rsedittask"
 msgid "Edit task"
 msgstr ""
 
+#: tasksframe.rsfilter
+msgctxt "tasksframe.rsfilter"
+msgid "Filter:"
+msgstr ""
+
 #: tmainform.caption
 msgid "Task Organizer"
 msgstr ""
@@ -389,6 +394,7 @@ msgid "X"
 msgstr ""
 
 #: ttasksframe.filteredit.editlabel.caption
+msgctxt "ttasksframe.filteredit.editlabel.caption"
 msgid "Filter:"
 msgstr ""
 

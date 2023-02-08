@@ -1,4 +1,4 @@
-object MainForm: TMainForm
+inherited MainForm: TMainForm
   Left = 251
   Height = 450
   Top = 161
@@ -14,8 +14,7 @@ object MainForm: TMainForm
   OnCreate = FormCreate
   OnShow = FormShow
   Position = poScreenCenter
-  LCLVersion = '2.2.4.0'
-  object PageControl1: TPageControl
+  object PageControl1: TPageControl[0]
     Left = 0
     Height = 430
     Top = 0
@@ -126,7 +125,7 @@ object MainForm: TMainForm
       end
     end
   end
-  object MainMenu: TMainMenu
+  object MainMenu: TMainMenu[1]
     Left = 656
     Top = 352
     object ViewMenuItem: TMenuItem

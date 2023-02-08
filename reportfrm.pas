@@ -7,7 +7,7 @@ interface
 uses
   Classes, SysUtils, Forms, Controls, StdCtrls, EditBtn, ExtCtrls,
   CheckLst, TreeListView, Reports, TAGraph, TASeries,
-  TASources, DateTimePicker, ListFilterEdit;
+  TASources, DateTimePicker, ListFilterEdit, LocalizedForms;
 
 type
 
@@ -15,7 +15,7 @@ type
 
   { TReportFrame }
 
-  TReportFrame = class(TFrame)
+  TReportFrame = class(TLocalizedFrame)
     ButtonPanel: TPanel;
     PeriodAllTimeCheckBox: TCheckBox;
     LabelsChartSource: TListChartSource;
@@ -64,7 +64,7 @@ type
     procedure FillReportTree(const AReport: TReport);
     procedure FillReportChart(const AReport: TReport);
     procedure CreateChartLabels;
-    procedure UpdateTranslations;
+    procedure UpdateTranslation(ALang: String); override;
   public
     constructor Create(TheOwner: TComponent); override;
 
@@ -227,9 +227,6 @@ procedure TReportFrame.OnShow;
 begin
   UpdateTasksList;
   UpdateReport;
-
-  // Translate some strings if not translated yet
-  UpdateTranslations;
 end;
 
 function TReportFrame.GetBeginDate: TDate;
@@ -585,8 +582,10 @@ begin
   end;
 end;
 
-procedure TReportFrame.UpdateTranslations;
+procedure TReportFrame.UpdateTranslation(ALang: String);
 begin
+  inherited;
+
   with GroupByRadioGroup do
   begin
     Items[0] := RSYears;

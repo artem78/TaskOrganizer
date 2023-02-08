@@ -1,4 +1,4 @@
-object ReportFrame: TReportFrame
+inherited ReportFrame: TReportFrame
   Left = 0
   Height = 579
   Top = 0

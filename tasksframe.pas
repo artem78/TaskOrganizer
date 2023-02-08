@@ -6,13 +6,13 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, ComCtrls, DBGrids, Grids,
-  ExtCtrls, StdCtrls, Menus;
+  ExtCtrls, StdCtrls, Menus, LocalizedForms;
 
 type
 
   { TTasksFrame }
 
-  TTasksFrame = class(TFrame)
+  TTasksFrame = class(TLocalizedFrame)
     MenuItem1: TMenuItem;
     MenuItem2: TMenuItem;
     MenuItem3: TMenuItem;
@@ -39,7 +39,7 @@ type
     procedure TasksDBGridPrepareCanvas(sender: TObject; DataCol: Integer;
       Column: TColumn; AState: TGridDrawState);
   private
-    
+     procedure UpdateTranslation(ALang: String); override;
   public
     //constructor Create(AOwner: TComponent); override;
     procedure SelectTask(AnID: Integer);
@@ -49,6 +49,9 @@ implementation
 
 uses
   Variants, Graphics, DatabaseDM, LCLType, NonVisualCtrlsDM, WinMouse{, LCLTranslator};
+
+resourcestring
+  RSFilter = 'Filter:';
 
 {$R *.lfm}
 
@@ -66,6 +69,13 @@ begin
 
     (Sender as TDBGrid).Canvas.Font.Style := [fsBold];
   end;
+end;
+
+procedure TTasksFrame.UpdateTranslation(ALang: String);
+begin
+  inherited;
+
+  FilterEdit.EditLabel.Caption := RSFilter;
 end;
 
 procedure TTasksFrame.SelectTask(AnID: Integer);

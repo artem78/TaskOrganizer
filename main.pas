@@ -7,13 +7,13 @@ interface
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, ComCtrls,
   StdCtrls, DBGrids, Menus, TasksFrame, DatabaseDM,
-  PeriodsFrame, NonVisualCtrlsDM, ReportFrm;
+  PeriodsFrame, NonVisualCtrlsDM, ReportFrm, LocalizedForms;
 
 type
 
   { TMainForm }
 
-  TMainForm = class(TForm)
+  TMainForm = class(TLocalizedForm)
     BackupDBMenuItem: TMenuItem;
     GoToTaskMenuItem: TMenuItem;
     MenuItem1: TMenuItem;
@@ -48,6 +48,7 @@ type
     procedure OnLanguageMenuClick(ASender: TObject);
     procedure SetLanguage(ALang: String);
     function GetLanguage: String;
+    procedure UpdateTranslation(ALang: String); override;
   public
     procedure MinimizeToTray;
     procedure RestoreFromTray;
@@ -300,9 +301,21 @@ end;
 procedure TMainForm.SetLanguage(ALang: String);
 var
   ResLang: String;
-  LangMenuItem: TMenuItem;
 begin
   ResLang := SetDefaultLang(ALang);
+  UpdateTranslation(ResLang);
+end;
+
+function TMainForm.GetLanguage: String;
+begin
+  Result := GetDefaultLang;
+end;
+
+procedure TMainForm.UpdateTranslation(ALang: String);
+var
+  LangMenuItem: TMenuItem;
+begin
+  inherited;
 
   // Update some labels
   if LanguageMenuItem.Caption <> 'Language' then
@@ -312,14 +325,11 @@ begin
   Caption := Caption + Format('    %s  %s'{$IFOPT D+} + '    [Debug Build]'{$EndIf}, [GitRevisionStr, {$I %DATE%}]);
 
   // Update selected language in main menu
-  LangMenuItem := (LanguageMenuItem.FindComponent({ALang} ResLang + '_LangMenuItem') as TMenuItem);
+  LangMenuItem := (LanguageMenuItem.FindComponent(ALang + '_LangMenuItem') as TMenuItem);
   if Assigned(LangMenuItem) then
     LangMenuItem.Checked := True;
-end;
 
-function TMainForm.GetLanguage: String;
-begin
-  Result := GetDefaultLang;
+  //ShowMessage('lang changed');
 end;
 
 procedure TMainForm.MinimizeToTray;

@@ -153,6 +153,7 @@ object MainForm: TMainForm
     end
     object LanguageMenuItem: TMenuItem
       Caption = 'Language'
+      SubMenuImages = NonVisualCtrlsDataModule.LanguageIcons
     end
   end
 end

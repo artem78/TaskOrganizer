@@ -260,10 +260,23 @@ begin
       MenuItem := TMenuItem.Create(LanguageMenuItem);
 
       case LangCode of
-        'en': LangName := 'English';
-        'ru': LangName := 'Russian (Русский)';
+        'en':
+          begin
+            LangName := 'English';
+            MenuItem.ImageIndex := 0;
+          end;
+
+        'ru':
+          begin
+            LangName := 'Russian (Русский)';
+            MenuItem.ImageIndex := 1;
+          end
+
       else
-        LangName := LangCode;
+        begin
+          LangName := LangCode;
+          MenuItem.ImageIndex := -1;
+        end;
       end;
       MenuItem.Caption := LangName;
 

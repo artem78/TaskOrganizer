@@ -13,6 +13,7 @@ type
   { TNonVisualCtrlsDataModule }
 
   TNonVisualCtrlsDataModule = class(TDataModule)
+    LanguageIcons: TImageList;
     ShowDoneTasksAction: TAction;
     BackupDatabaseAction: TAction;
     ExportDatabaseAction: TAction;

@@ -339,6 +339,10 @@ msgstr ""
 msgid "Period"
 msgstr ""
 
+#: treportframe.reportchart.axislist[0].title.caption
+msgid "Hours"
+msgstr ""
+
 #: treportframe.reporttreelistview.columns[0].text
 msgctxt "treportframe.reporttreelistview.columns[0].text"
 msgid "Task"

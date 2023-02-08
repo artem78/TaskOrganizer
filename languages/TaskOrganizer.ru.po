@@ -350,6 +350,10 @@ msgstr "Конец:"
 msgid "Period"
 msgstr "Диапазон дат"
 
+#: treportframe.reportchart.axislist[0].title.caption
+msgid "Hours"
+msgstr "Часы"
+
 #: treportframe.reporttreelistview.columns[0].text
 msgctxt "treportframe.reporttreelistview.columns[0].text"
 msgid "Task"

@@ -296,6 +296,8 @@ inherited ReportFrame: TReportFrame
         Marks.LabelBrush.Style = bsClear
         Minors = <>
         Title.LabelFont.Orientation = 900
+        Title.Visible = True
+        Title.Caption = 'Hours'
         Title.LabelBrush.Style = bsClear
       end    
       item

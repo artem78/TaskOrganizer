@@ -35,6 +35,8 @@ uses DB;
 resourcestring
   RSCreateTask = 'Create task';
   RSEditTask = 'Edit task';
+  RSSave = 'Save';
+  RSCancel = 'Cancel';
 
 {$R *.lfm}
 
@@ -48,6 +50,9 @@ begin
        dsEdit:   Caption := RSEditTask;
        else      Caption := '???';
   end;
+
+  ButtonPanel1.OKButton.Caption := RSSave;
+  ButtonPanel1.CancelButton.Caption := RSCancel;
 
   //ActiveControl.SetFocus;
   TaskNameDBEdit.SetFocus;

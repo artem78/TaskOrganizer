@@ -39,6 +39,11 @@ msgstr "Выполнено!"
 msgid "Saved in \"%s\""
 msgstr "Сохранено в \"%s\""
 
+#: periodeditfrm.rscancel
+msgctxt "periodeditfrm.rscancel"
+msgid "Cancel"
+msgstr "Отмена"
+
 #: periodeditfrm.rscreateperiod
 msgid "Create period"
 msgstr "Создать период"
@@ -47,6 +52,11 @@ msgstr "Создать период"
 msgctxt "periodeditfrm.rseditperiod"
 msgid "Edit period"
 msgstr "Редактировать период"
+
+#: periodeditfrm.rssave
+msgctxt "periodeditfrm.rssave"
+msgid "Save"
+msgstr "Сохранить"
 
 #: reportfrm.rschart
 msgid "Chart"
@@ -68,6 +78,11 @@ msgstr "Таблица"
 msgid "Years"
 msgstr "Годы"
 
+#: taskedit.rscancel
+msgctxt "taskedit.rscancel"
+msgid "Cancel"
+msgstr "Отмена"
+
 #: taskedit.rscreatetask
 msgid "Create task"
 msgstr "Создать задачу"
@@ -76,6 +91,11 @@ msgstr "Создать задачу"
 msgctxt "taskedit.rsedittask"
 msgid "Edit task"
 msgstr "Редактировать задачу"
+
+#: taskedit.rssave
+msgctxt "taskedit.rssave"
+msgid "Save"
+msgstr "Сохранить"
 
 #: tasksframe.rsfilter
 msgctxt "tasksframe.rsfilter"
@@ -267,6 +287,11 @@ msgctxt "tperiodeditform.beginlabel.caption"
 msgid "Begin:"
 msgstr "Начало:"
 
+#: tperiodeditform.buttonpanel.cancelbutton.caption
+msgctxt "tperiodeditform.buttonpanel.cancelbutton.caption"
+msgid "Cancel"
+msgstr "Отмена"
+
 #: tperiodeditform.buttonpanel.okbutton.caption
 msgctxt "tperiodeditform.buttonpanel.okbutton.caption"
 msgid "Save"
@@ -383,6 +408,7 @@ msgid "View"
 msgstr "Вид"
 
 #: ttaskeditform.buttonpanel1.cancelbutton.caption
+msgctxt "ttaskeditform.buttonpanel1.cancelbutton.caption"
 msgid "Cancel"
 msgstr "Отмена"
 

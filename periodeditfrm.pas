@@ -37,6 +37,8 @@ uses DB;
 resourcestring
   RSCreatePeriod = 'Create period';
   RSEditPeriod = 'Edit period';
+  RSSave = 'Save';
+  RSCancel = 'Cancel';
 
 {$R *.lfm}
 
@@ -49,6 +51,9 @@ begin
        dsEdit:   Caption := RSEditPeriod;
        else      Caption := '???';
   end;
+
+  ButtonPanel.OKButton.Caption := RSSave;
+  ButtonPanel.CancelButton.Caption := RSCancel;
 
   //ActiveControl.SetFocus;
   TaskDBLookupComboBox.SetFocus;

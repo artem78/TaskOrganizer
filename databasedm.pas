@@ -311,8 +311,8 @@ begin
   DestDir := AppendPathDelim(ExtractFileDir(Application.ExeName));
   DestDir := AppendPathDelim(DestDir + DBBackupsDirName);
 
-  DestFileName := Format('db backup %s v%d%s', [
-      FormatDateTime('yyyy-mm-dd hh-nn-ss', Now),
+  DestFileName := Format('database_Backup_%s_v%d%s', [
+      FormatDateTime('yyyy-mm-dd_hh-nn-ss', Now),
       CurrentVersion, ExtractFileExt(SourceFileName)
   ]);
   DestFileName := ExpandFileNameUTF8(DestFileName, DestDir);

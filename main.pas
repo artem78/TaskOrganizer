@@ -65,6 +65,7 @@ uses
 
 resourcestring
   RSRunningTaskNotification = 'You have running task. Are you sure to exit?';
+  RSLibraryNotFound = 'Library "%s" not found in program directory!';
 
 {$I revision.inc}
 
@@ -73,9 +74,18 @@ resourcestring
 { TMainForm }
 
 procedure TMainForm.FormCreate(Sender: TObject);
+const
+  SqliteLibName = 'sqlite3.dll';
 begin
   FillLanguagesList;
   Language := '';
+
+  if not FileExists(SqliteLibName) then
+  begin
+    MessageDlg(Format(RSLibraryNotFound, [SqliteLibName]), mtError, [mbOK], 0);
+    //Close;
+    Application.Terminate;
+  end;
 
   PageControl1.ActivePageIndex:=0;
   {$IFOPT D-}

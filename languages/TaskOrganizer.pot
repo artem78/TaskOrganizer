@@ -6,6 +6,11 @@ msgstr "Content-Type: text/plain; charset=UTF-8"
 msgid "Failed to save database to file \"%s\""
 msgstr ""
 
+#: main.rslibrarynotfound
+#, object-pascal-format
+msgid "Library \"%s\" not found in program directory!"
+msgstr ""
+
 #: main.rsrunningtasknotification
 msgid "You have running task. Are you sure to exit?"
 msgstr ""

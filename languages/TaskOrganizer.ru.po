@@ -17,6 +17,11 @@ msgstr ""
 msgid "Failed to save database to file \"%s\""
 msgstr "Ошибка сохранения базы данных в файл \"%s\""
 
+#: main.rslibrarynotfound
+#, object-pascal-format
+msgid "Library \"%s\" not found in program directory!"
+msgstr "Файл библиотеки \"%s\" не найден в каталоге программы!"
+
 #: main.rsrunningtasknotification
 msgid "You have running task. Are you sure to exit?"
 msgstr "Есть выполняющаяся задача. Вы уверены, что хотите выйти?"

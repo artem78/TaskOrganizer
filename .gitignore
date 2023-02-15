@@ -46,3 +46,4 @@ lib/
 /releases/
 /settings.xml
 /languages/*.mo
+/SQLScripts.inc

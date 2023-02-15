@@ -50,13 +50,6 @@ function MakeZip(){
 	echo "Done!"
 	echo ""
 	
-	# DB updates
-	echo "Copy db-updates dir..."
-	mkdir -p $BuildDir/db-updates
-	cp -v --preserve db-updates/*.sql $BuildDir/db-updates/
-	echo "Done!"
-	echo ""
-	
 	# Languages
 	echo "Copy languages..."
 	mkdir -p $BuildDir/languages

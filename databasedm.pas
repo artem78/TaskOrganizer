@@ -82,6 +82,7 @@ end;
 { TDatabaseDataModule }
 
 procedure TDatabaseDataModule.DataModuleCreate(Sender: TObject);
+{$INCLUDE "SQLScripts.inc"}
 var
   DBVersioning: TDBVersioning;
 begin
@@ -93,7 +94,8 @@ begin
 
 
   // Create DB schema
-  DBVersioning := TDBVersioning.Create(SQLite3Connection1, SQLTransaction1);
+  DBVersioning := TDBVersioning.Create(SQLite3Connection1, SQLTransaction1,
+               SQLScripts);
   try
     if DBVersioning.UpgradeNeeded then
     begin

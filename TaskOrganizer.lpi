@@ -64,7 +64,7 @@
           </Linking>
           <Other>
             <ExecuteBefore>
-              <Command Value="GitRevision.bat"/>
+              <Command Value="GitRevision.bat &amp; bash GenerateSQLScripts.sh"/>
             </ExecuteBefore>
           </Other>
         </CompilerOptions>
@@ -100,7 +100,7 @@
           </Linking>
           <Other>
             <ExecuteBefore>
-              <Command Value="GitRevision.bat"/>
+              <Command Value="GitRevision.bat &amp; bash GenerateSQLScripts.sh"/>
             </ExecuteBefore>
           </Other>
         </CompilerOptions>
@@ -256,7 +256,7 @@
         <IgnoredMessages idx5024="True"/>
       </CompilerMessages>
       <ExecuteBefore>
-        <Command Value="GitRevision.bat"/>
+        <Command Value="GitRevision.bat &amp; bash GenerateSQLScripts.sh"/>
       </ExecuteBefore>
     </Other>
   </CompilerOptions>

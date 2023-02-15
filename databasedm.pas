@@ -97,7 +97,8 @@ begin
   try
     if DBVersioning.UpgradeNeeded then
     begin
-      SaveDatabaseBackup;
+      if DBVersioning.{IsInitialized}CurrentVersion > 0 then
+        SaveDatabaseBackup;
       DBVersioning.UpgradeToLatest;
     end;
   finally

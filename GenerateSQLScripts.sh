@@ -2,31 +2,40 @@
 
 out_file="SQLScripts.inc"
 
-echo 'const' > $out_file
-cnt=`ls ./db-updates/ -l | grep '.sql' | wc -l`
-echo "  SQLScripts: array [1..${cnt}] of string = (" >> $out_file
+echo "{
+    !!! WARNING !!!
 
-i=1
+    This file generates automatically. Do not edit it.
+    All of your changes will be overwritten.
+}
+" > $out_file;
+
+echo 'const' >> $out_file
+max_version=`ls ./db-updates/ -l | grep '.sql' | wc -l`
+echo "  SQLScripts: array [1..${max_version}] of string = (" >> $out_file
+
+version=1
 for file in ./db-updates/*.sql; do
 	echo "File: $file"
 	
-	if [[ $i = $cnt ]]
+	if [[ $version != 1 ]]
 	then
-		s=""
-	else
-		s=","
+		echo "" >> $out_file
 	fi
+	echo "    // $file" >> $out_file
 	
-	if [[ $i = 1 ]]
+	sed "
+		s/'/''/g
+		$ ! s/.*/    '&' + LineEnding +/
+		$ s/.*/    '&'/
+	" $file >> $out_file
+	
+	if [[ $version != $max_version ]]
 	then
-		n=""
-	else
-		n="\n"
+		echo "    ," >> $out_file
 	fi
-	
-	sed "s/'/''/g; $ ! s/.*/    '&' + LineEnding +/; $ s/.*/    '&'$s/; 1i\\$n    \/\/ $file;" $file >> $out_file
 
-	((i++))
+	((version++))
 done
 
 echo '  );' >> $out_file

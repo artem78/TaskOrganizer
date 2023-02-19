@@ -18,6 +18,7 @@ type
     GoToTaskMenuItem: TMenuItem;
     MenuItem1: TMenuItem;
     LanguageMenuItem: TMenuItem;
+    MenuItem2: TMenuItem;
     PeriodsFrame1: TPeriodsFrame;
     ReportFrame1: TReportFrame;
     ShowDoneTasksMenuItem: TMenuItem;

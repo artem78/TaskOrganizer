@@ -18,6 +18,7 @@ type
     MenuItem3: TMenuItem;
     MenuItem4: TMenuItem;
     MenuItem5: TMenuItem;
+    MenuItem6: TMenuItem;
     TasksGridPopupMenu: TPopupMenu;
     ClearFilterButton: TButton;
     FilterEdit: TLabeledEdit;

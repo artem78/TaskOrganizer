@@ -12,6 +12,26 @@
       <ResourceType Value="res"/>
       <UseXPManifest Value="True"/>
       <Icon Value="0"/>
+      <Resources Count="18">
+        <Resource_0 FileName="icons\create.png" Type="RCDATA" ResourceName="CREATE"/>
+        <Resource_1 FileName="icons\delete.png" Type="RCDATA" ResourceName="DELETE"/>
+        <Resource_2 FileName="icons\edit.png" Type="RCDATA" ResourceName="EDIT"/>
+        <Resource_3 FileName="icons\exit.png" Type="RCDATA" ResourceName="EXIT"/>
+        <Resource_4 FileName="icons\start.png" Type="RCDATA" ResourceName="START"/>
+        <Resource_5 FileName="icons\stop.png" Type="RCDATA" ResourceName="STOP"/>
+        <Resource_6 FileName="icons\tick.png" Type="RCDATA" ResourceName="TICK"/>
+        <Resource_7 FileName="icons\tick_gray.png" Type="RCDATA" ResourceName="TICK_GRAY"/>
+        <Resource_8 FileName="icons\clock_animation_1.png" Type="RCDATA" ResourceName="CLOCK_ANIMATION_1"/>
+        <Resource_9 FileName="icons\clock_animation_2.png" Type="RCDATA" ResourceName="CLOCK_ANIMATION_2"/>
+        <Resource_10 FileName="icons\clock_animation_3.png" Type="RCDATA" ResourceName="CLOCK_ANIMATION_3"/>
+        <Resource_11 FileName="icons\clock_animation_4.png" Type="RCDATA" ResourceName="CLOCK_ANIMATION_4"/>
+        <Resource_12 FileName="icons\clock_animation_5.png" Type="RCDATA" ResourceName="CLOCK_ANIMATION_5"/>
+        <Resource_13 FileName="icons\clock_animation_6.png" Type="RCDATA" ResourceName="CLOCK_ANIMATION_6"/>
+        <Resource_14 FileName="icons\clock_animation_7.png" Type="RCDATA" ResourceName="CLOCK_ANIMATION_7"/>
+        <Resource_15 FileName="icons\clock_animation_8.png" Type="RCDATA" ResourceName="CLOCK_ANIMATION_8"/>
+        <Resource_16 FileName="icons\langs\en.png" Type="RCDATA" ResourceName="FLAG_EN"/>
+        <Resource_17 FileName="icons\langs\ru.png" Type="RCDATA" ResourceName="FLAG_RU"/>
+      </Resources>
     </General>
     <i18n>
       <EnableI18N Value="True"/>

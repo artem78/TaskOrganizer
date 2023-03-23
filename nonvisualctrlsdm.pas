@@ -336,7 +336,9 @@ begin
 
   with TrayIcon do
   begin
+    Icon.SetSize(16, 16); // To load icon with correct size
     Icon.LoadFromResourceName(HINSTANCE, 'MAINICON');
+    DefaultIcon.SetSize(16, 16);
     DefaultIcon.LoadFromResourceName(HINSTANCE, 'MAINICON');
   end;
 

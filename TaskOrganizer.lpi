@@ -12,6 +12,11 @@
       <ResourceType Value="res"/>
       <UseXPManifest Value="True"/>
       <Icon Value="0"/>
+      <Resources Count="3">
+        <Resource_0 FileName="db-updates\0001_create_tables.sql" Type="RCDATA" ResourceName="SQL_SCRIPT_1"/>
+        <Resource_1 FileName="db-updates\0002_change_date_format.sql" Type="RCDATA" ResourceName="SQL_SCRIPT_2"/>
+        <Resource_2 FileName="db-updates\0003_create_views.sql" Type="RCDATA" ResourceName="SQL_SCRIPT_3"/>
+      </Resources>
     </General>
     <i18n>
       <EnableI18N Value="True"/>
@@ -64,7 +69,7 @@
           </Linking>
           <Other>
             <ExecuteBefore>
-              <Command Value="GitRevision.bat &amp; bash Sql2Pas.sh"/>
+              <Command Value="GitRevision.bat"/>
             </ExecuteBefore>
           </Other>
         </CompilerOptions>

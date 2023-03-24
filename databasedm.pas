@@ -82,7 +82,6 @@ end;
 { TDatabaseDataModule }
 
 procedure TDatabaseDataModule.DataModuleCreate(Sender: TObject);
-{$INCLUDE "SQLScripts.inc"}
 var
   DBVersioning: TDBVersioning;
 begin
@@ -93,9 +92,7 @@ begin
   SQLite3Connection1.CreateCollation('UTF8_CI',1,nil,@UTF8xCompare_CI);
 
 
-  // Create DB schema
-  DBVersioning := TDBVersioning.Create(SQLite3Connection1, SQLTransaction1,
-               SQLScripts);
+  DBVersioning := TDBVersioning.CreateFromResources(SQLite3Connection1, SQLTransaction1);
   try
     if DBVersioning.UpgradeNeeded then
     begin

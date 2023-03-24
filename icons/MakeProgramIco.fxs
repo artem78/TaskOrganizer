@@ -1,0 +1,4 @@
+group
+  "icon_program_*px.png"
+  -output "F:\Programms\lazarus\projects\TasksOrganizer\icons\temp"
+  -type ico

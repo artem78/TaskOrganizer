@@ -7,13 +7,13 @@ interface
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, ComCtrls,
   StdCtrls, DBGrids, Menus, TasksFrame, DatabaseDM,
-  PeriodsFrame, NonVisualCtrlsDM, ReportFrm;
+  PeriodsFrame, NonVisualCtrlsDM, ReportFrm, LocalizedForms;
 
 type
 
   { TMainForm }
 
-  TMainForm = class(TForm)
+  TMainForm = class(TLocalizedForm)
     BackupDBMenuItem: TMenuItem;
     GoToTaskMenuItem: TMenuItem;
     MenuItem1: TMenuItem;
@@ -48,6 +48,7 @@ type
     procedure OnLanguageMenuClick(ASender: TObject);
     procedure SetLanguage(ALang: String);
     function GetLanguage: String;
+    procedure UpdateTranslation(ALang: String); override;
   public
     procedure MinimizeToTray;
     procedure RestoreFromTray;
@@ -64,6 +65,7 @@ uses
 
 resourcestring
   RSRunningTaskNotification = 'You have running task. Are you sure to exit?';
+  RSLibraryNotFound = 'Library "%s" not found in program directory!';
 
 {$I revision.inc}
 
@@ -72,9 +74,18 @@ resourcestring
 { TMainForm }
 
 procedure TMainForm.FormCreate(Sender: TObject);
+const
+  SqliteLibName = 'sqlite3.dll';
 begin
   FillLanguagesList;
   Language := '';
+
+  if not FileExists(SqliteLibName) then
+  begin
+    MessageDlg(Format(RSLibraryNotFound, [SqliteLibName]), mtError, [mbOK], 0);
+    //Close;
+    Application.Terminate;
+  end;
 
   PageControl1.ActivePageIndex:=0;
   {$IFOPT D-}
@@ -235,7 +246,7 @@ procedure TMainForm.FillLanguagesList;
 
 var
   Files, Langs: TStringList;
-  FileName, LangCode: String;
+  FileName, LangCode, LangName: String;
   MenuItem: TMenuItem;
 begin
   LanguageMenuItem.Clear;
@@ -258,7 +269,28 @@ begin
     for LangCode in Langs do
     begin
       MenuItem := TMenuItem.Create(LanguageMenuItem);
-      MenuItem.Caption := LangCode;
+
+      case LangCode of
+        'en':
+          begin
+            LangName := 'English';
+            MenuItem.ImageIndex := 0;
+          end;
+
+        'ru':
+          begin
+            LangName := 'Russian (Русский)';
+            MenuItem.ImageIndex := 1;
+          end
+
+      else
+        begin
+          LangName := LangCode;
+          MenuItem.ImageIndex := -1;
+        end;
+      end;
+      MenuItem.Caption := LangName;
+
       MenuItem.Name := LangCode + '_LangMenuItem';
       MenuItem.OnClick := @OnLanguageMenuClick;
       MenuItem.RadioItem := True;
@@ -279,9 +311,21 @@ end;
 procedure TMainForm.SetLanguage(ALang: String);
 var
   ResLang: String;
-  LangMenuItem: TMenuItem;
 begin
   ResLang := SetDefaultLang(ALang);
+  UpdateTranslation(ResLang);
+end;
+
+function TMainForm.GetLanguage: String;
+begin
+  Result := GetDefaultLang;
+end;
+
+procedure TMainForm.UpdateTranslation(ALang: String);
+var
+  LangMenuItem: TMenuItem;
+begin
+  inherited;
 
   // Update some labels
   if LanguageMenuItem.Caption <> 'Language' then
@@ -291,14 +335,11 @@ begin
   Caption := Caption + Format('    %s  %s'{$IFOPT D+} + '    [Debug Build]'{$EndIf}, [GitRevisionStr, {$I %DATE%}]);
 
   // Update selected language in main menu
-  LangMenuItem := (LanguageMenuItem.FindComponent({ALang} ResLang + '_LangMenuItem') as TMenuItem);
+  LangMenuItem := (LanguageMenuItem.FindComponent(ALang + '_LangMenuItem') as TMenuItem);
   if Assigned(LangMenuItem) then
     LangMenuItem.Checked := True;
-end;
 
-function TMainForm.GetLanguage: String;
-begin
-  Result := GetDefaultLang;
+  //ShowMessage('lang changed');
 end;
 
 procedure TMainForm.MinimizeToTray;

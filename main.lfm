@@ -1,4 +1,4 @@
-object MainForm: TMainForm
+inherited MainForm: TMainForm
   Left = 251
   Height = 450
   Top = 161
@@ -14,8 +14,7 @@ object MainForm: TMainForm
   OnCreate = FormCreate
   OnShow = FormShow
   Position = poScreenCenter
-  LCLVersion = '2.2.4.0'
-  object PageControl1: TPageControl
+  object PageControl1: TPageControl[0]
     Left = 0
     Height = 430
     Top = 0
@@ -37,21 +36,6 @@ object MainForm: TMainForm
         ClientWidth = 742
         inherited ToolBar1: TToolBar
           Width = 742
-          inherited EditToolButton: TToolButton
-            Left = 55
-          end
-          inherited RemoveToolButton: TToolButton
-            Left = 107
-          end
-          inherited SeparatorToolButton: TToolButton
-            Left = 182
-          end
-          inherited StartTrackingToolButton: TToolButton
-            Left = 190
-          end
-          inherited StopTrackingToolButton: TToolButton
-            Left = 295
-          end
         end
         inherited TasksDBGrid: TDBGrid
           Height = 344
@@ -75,12 +59,6 @@ object MainForm: TMainForm
         end
         inherited ToolBar: TToolBar
           Width = 742
-          inherited EditPeriodToolButton: TToolButton
-            Left = 89
-          end
-          inherited DeletePeriodToolButton: TToolButton
-            Left = 175
-          end
         end
       end
     end
@@ -98,58 +76,24 @@ object MainForm: TMainForm
         inherited SettingsPanel: TPanel
           Width = 730
           ClientWidth = 730
-          inherited PeriodGroupBox: TGroupBox
-            Width = 290
-            ClientWidth = 286
-            inherited PeriodBeginLabel: TLabel
-              Width = 61
-            end
-            inherited PeriodBeginDateTimePicker: TDateTimePicker
-              Left = 73
-            end
-            inherited PeriodEndLabel: TLabel
-              Left = 172
-            end
-            inherited PeriodEndDateTimePicker: TDateTimePicker
-              Left = 201
-            end
-            inherited PeriodAllTimeCheckBox: TCheckBox
-              Width = 61
-              Caption = 'All time'
-            end
-          end
           inherited TasksGroupBox: TGroupBox
-            Left = 310
-            Width = 420
-            ClientWidth = 416
+            Width = 402
+            ClientWidth = 398
             inherited TaskListFilterEdit: TListFilterEdit
-              Width = 404
+              Width = 386
             end
             inherited TasksCheckListBox: TCheckListBox
-              Width = 400
+              Width = 386
+            end
+            inherited ButtonPanel: TPanel
+              Width = 386
+              ClientWidth = 386
             end
           end
         end
         inherited ReportTreeListView: TTreeListView
           Height = 158
           Width = 742
-          Columns = <          
-            item
-              Alignment = taLeftJustify
-              Text = 'Task'
-              Width = 300
-              Visible = True
-            end          
-            item
-              Alignment = taLeftJustify
-              Text = 'Total time'
-              Width = 100
-              Visible = True
-            end>
-          RootLineMode = lmDot
-          StripedEvenColor = 14745599
-          OnCustomItemDraw = nil
-          OnCustomRecordItemDraw = nil
         end
         inherited ReportChart: TChart
           Height = 158
@@ -181,7 +125,7 @@ object MainForm: TMainForm
       end
     end
   end
-  object MainMenu: TMainMenu
+  object MainMenu: TMainMenu[1]
     Left = 656
     Top = 352
     object ViewMenuItem: TMenuItem
@@ -208,6 +152,7 @@ object MainForm: TMainForm
     end
     object LanguageMenuItem: TMenuItem
       Caption = 'Language'
+      SubMenuImages = NonVisualCtrlsDataModule.LanguageIcons
     end
   end
 end

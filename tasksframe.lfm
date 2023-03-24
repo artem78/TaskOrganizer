@@ -16,7 +16,8 @@ object TasksFrame: TTasksFrame
     Caption = 'ToolBar1'
     Images = NonVisualCtrlsDataModule.Icons
     List = True
-    ShowCaptions = True
+    ParentShowHint = False
+    ShowHint = True
     TabOrder = 0
     object AddToolButton: TToolButton
       Left = 1
@@ -24,28 +25,28 @@ object TasksFrame: TTasksFrame
       Action = NonVisualCtrlsDataModule.CreateTaskAction
     end
     object EditToolButton: TToolButton
-      Left = 76
+      Left = 24
       Top = 2
       Action = NonVisualCtrlsDataModule.EditTaskAction
     end
     object RemoveToolButton: TToolButton
-      Left = 149
+      Left = 47
       Top = 2
       Action = NonVisualCtrlsDataModule.DeleteTaskAction
     end
     object SeparatorToolButton: TToolButton
-      Left = 245
+      Left = 70
       Height = 22
       Top = 2
       Style = tbsSeparator
     end
     object StartTrackingToolButton: TToolButton
-      Left = 253
+      Left = 78
       Top = 2
       Action = NonVisualCtrlsDataModule.StartTimeTrackingAction
     end
     object StopTrackingToolButton: TToolButton
-      Left = 379
+      Left = 101
       Top = 2
       Action = NonVisualCtrlsDataModule.StopTimeTrackingAction
     end
@@ -63,23 +64,27 @@ object TasksFrame: TTasksFrame
     Columns = <    
       item
         Title.Caption = 'ID'
-        Width = 79
+        Width = 26
         FieldName = 'id'
       end    
       item
         Title.Caption = 'Name'
+        Width = 47
         FieldName = 'name'
       end    
       item
         Title.Caption = 'Description'
+        Width = 75
         FieldName = 'description'
       end    
       item
         Title.Caption = 'Created'
+        Width = 56
         FieldName = 'created'
       end    
       item
         Title.Caption = 'Modified'
+        Width = 63
         FieldName = 'modified'
       end>
     DataSource = DatabaseDataModule.TasksDataSource

@@ -46,7 +46,7 @@ function MakeZip(){
 
 	# DLLs
 	echo "Copy DLLs..."
-	cp -v --preserve $LazarusDir/sqlite3.dll $BuildDir
+	cp -v --preserve sqlite3.dll $BuildDir
 	echo "Done!"
 	echo ""
 	

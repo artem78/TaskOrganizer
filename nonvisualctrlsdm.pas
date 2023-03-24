@@ -13,6 +13,7 @@ type
   { TNonVisualCtrlsDataModule }
 
   TNonVisualCtrlsDataModule = class(TDataModule)
+    LanguageIcons: TImageList;
     ShowDoneTasksAction: TAction;
     BackupDatabaseAction: TAction;
     ExportDatabaseAction: TAction;
@@ -27,7 +28,6 @@ type
     ExitAction: TAction;
     ExitMenuItem: TMenuItem;
     Icons: TImageList;
-    TrayAnimationIcons: TImageList;
     MarkTaskAsDoneAction: TAction;
     ServiceMenuItem: TMenuItem;
     ExportMenuItem: TMenuItem;
@@ -58,7 +58,7 @@ type
     {procedure UniqueInstance1OtherInstance(Sender: TObject;
       ParamCount: Integer; const Parameters: array of String);}
   private
-
+    procedure LoadIconsFromResources;
   public
     procedure RunningTaskUpdated;
   end;
@@ -137,7 +137,7 @@ end;
 
 procedure TNonVisualCtrlsDataModule.DataModuleCreate(Sender: TObject);
 begin
-  TrayIcon.Icons := TrayAnimationIcons;
+  LoadIconsFromResources;
 end;
 
 procedure TNonVisualCtrlsDataModule.DeletePeriodActionExecute(Sender: TObject);
@@ -304,6 +304,50 @@ begin
   end;
 
   DatabaseDataModule.SQLTransaction1.CommitRetaining;
+end;
+
+procedure TNonVisualCtrlsDataModule.LoadIconsFromResources;
+begin
+  with Icons do
+  begin
+    Clear;
+    AddResourceName(HINSTANCE, 'START');
+    AddResourceName(HINSTANCE, 'STOP');
+    AddResourceName(HINSTANCE, 'TICK');
+    AddResourceName(HINSTANCE, 'TICK_GRAY');
+    AddResourceName(HINSTANCE, 'CREATE');
+    AddResourceName(HINSTANCE, 'DELETE');
+    AddResourceName(HINSTANCE, 'EDIT');
+    AddResourceName(HINSTANCE, 'EXIT');
+  end;
+
+  with TrayIcon.Icons do
+  begin
+    Clear;
+    AddResourceName(HINSTANCE, 'CLOCK_ANIMATION_1');
+    AddResourceName(HINSTANCE, 'CLOCK_ANIMATION_2');
+    AddResourceName(HINSTANCE, 'CLOCK_ANIMATION_3');
+    AddResourceName(HINSTANCE, 'CLOCK_ANIMATION_4');
+    AddResourceName(HINSTANCE, 'CLOCK_ANIMATION_5');
+    AddResourceName(HINSTANCE, 'CLOCK_ANIMATION_6');
+    AddResourceName(HINSTANCE, 'CLOCK_ANIMATION_7');
+    AddResourceName(HINSTANCE, 'CLOCK_ANIMATION_8');
+  end;
+
+  with TrayIcon do
+  begin
+    Icon.SetSize(16, 16); // To load icon with correct size
+    Icon.LoadFromResourceName(HINSTANCE, 'MAINICON');
+    DefaultIcon.SetSize(16, 16);
+    DefaultIcon.LoadFromResourceName(HINSTANCE, 'MAINICON');
+  end;
+
+  with LanguageIcons do
+  begin
+    Clear;
+    AddResourceName(HINSTANCE, 'FLAG_EN');
+    AddResourceName(HINSTANCE, 'FLAG_RU');
+  end;
 end;
 
 procedure TNonVisualCtrlsDataModule.RunningTaskUpdated;

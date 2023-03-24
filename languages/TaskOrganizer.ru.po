@@ -17,6 +17,11 @@ msgstr ""
 msgid "Failed to save database to file \"%s\""
 msgstr "Ошибка сохранения базы данных в файл \"%s\""
 
+#: main.rslibrarynotfound
+#, object-pascal-format
+msgid "Library \"%s\" not found in program directory!"
+msgstr "Файл библиотеки \"%s\" не найден в каталоге программы!"
+
 #: main.rsrunningtasknotification
 msgid "You have running task. Are you sure to exit?"
 msgstr "Есть выполняющаяся задача. Вы уверены, что хотите выйти?"
@@ -39,6 +44,11 @@ msgstr "Выполнено!"
 msgid "Saved in \"%s\""
 msgstr "Сохранено в \"%s\""
 
+#: periodeditfrm.rscancel
+msgctxt "periodeditfrm.rscancel"
+msgid "Cancel"
+msgstr "Отмена"
+
 #: periodeditfrm.rscreateperiod
 msgid "Create period"
 msgstr "Создать период"
@@ -47,6 +57,11 @@ msgstr "Создать период"
 msgctxt "periodeditfrm.rseditperiod"
 msgid "Edit period"
 msgstr "Редактировать период"
+
+#: periodeditfrm.rssave
+msgctxt "periodeditfrm.rssave"
+msgid "Save"
+msgstr "Сохранить"
 
 #: reportfrm.rschart
 msgid "Chart"
@@ -68,6 +83,11 @@ msgstr "Таблица"
 msgid "Years"
 msgstr "Годы"
 
+#: taskedit.rscancel
+msgctxt "taskedit.rscancel"
+msgid "Cancel"
+msgstr "Отмена"
+
 #: taskedit.rscreatetask
 msgid "Create task"
 msgstr "Создать задачу"
@@ -76,6 +96,16 @@ msgstr "Создать задачу"
 msgctxt "taskedit.rsedittask"
 msgid "Edit task"
 msgstr "Редактировать задачу"
+
+#: taskedit.rssave
+msgctxt "taskedit.rssave"
+msgid "Save"
+msgstr "Сохранить"
+
+#: tasksframe.rsfilter
+msgctxt "tasksframe.rsfilter"
+msgid "Filter:"
+msgstr "Фильтр:"
 
 #: tmainform.caption
 msgid "Task Organizer"
@@ -101,20 +131,6 @@ msgstr ""
 msgid "Periods"
 msgstr "Периоды"
 
-#: tmainform.reportframe1.reporttreelistview.columns[0].text
-msgctxt "tmainform.reportframe1.reporttreelistview.columns[0].text"
-msgid "Task"
-msgstr "Задача"
-
-#: tmainform.reportframe1.reporttreelistview.columns[1].text
-msgctxt "tmainform.reportframe1.reporttreelistview.columns[1].text"
-msgid "Total time"
-msgstr "Общее время"
-
-#: tmainform.reportframe1.settingspanel.periodgroupbox.periodalltimecheckbox.caption
-msgid "All time"
-msgstr "Всё время"
-
 #: tmainform.reporttabsheet.caption
 msgid "Reports"
 msgstr "Отчёты"
@@ -138,18 +154,42 @@ msgid "Backup database"
 msgstr "Сделать резервную копию базы данных"
 
 #: tnonvisualctrlsdatamodule.createperiodaction.caption
+msgctxt "tnonvisualctrlsdatamodule.createperiodaction.caption"
+msgid "Add period"
+msgstr "Добавить период"
+
+#: tnonvisualctrlsdatamodule.createperiodaction.hint
+msgctxt "tnonvisualctrlsdatamodule.createperiodaction.hint"
 msgid "Add period"
 msgstr "Добавить период"
 
 #: tnonvisualctrlsdatamodule.createtaskaction.caption
+msgctxt "tnonvisualctrlsdatamodule.createtaskaction.caption"
+msgid "Add task"
+msgstr "Добавить задачу"
+
+#: tnonvisualctrlsdatamodule.createtaskaction.hint
+msgctxt "tnonvisualctrlsdatamodule.createtaskaction.hint"
 msgid "Add task"
 msgstr "Добавить задачу"
 
 #: tnonvisualctrlsdatamodule.deleteperiodaction.caption
+msgctxt "tnonvisualctrlsdatamodule.deleteperiodaction.caption"
+msgid "Delete period"
+msgstr "Удалить период"
+
+#: tnonvisualctrlsdatamodule.deleteperiodaction.hint
+msgctxt "tnonvisualctrlsdatamodule.deleteperiodaction.hint"
 msgid "Delete period"
 msgstr "Удалить период"
 
 #: tnonvisualctrlsdatamodule.deletetaskaction.caption
+msgctxt "tnonvisualctrlsdatamodule.deletetaskaction.caption"
+msgid "Remove task"
+msgstr "Удалить задачу"
+
+#: tnonvisualctrlsdatamodule.deletetaskaction.hint
+msgctxt "tnonvisualctrlsdatamodule.deletetaskaction.hint"
 msgid "Remove task"
 msgstr "Удалить задачу"
 
@@ -158,12 +198,28 @@ msgctxt "tnonvisualctrlsdatamodule.editperiodaction.caption"
 msgid "Edit period"
 msgstr "Редактировать период"
 
+#: tnonvisualctrlsdatamodule.editperiodaction.hint
+msgctxt "tnonvisualctrlsdatamodule.editperiodaction.hint"
+msgid "Edit period"
+msgstr "Редактировать период"
+
 #: tnonvisualctrlsdatamodule.edittaskaction.caption
 msgctxt "tnonvisualctrlsdatamodule.edittaskaction.caption"
 msgid "Edit task"
 msgstr "Редактировать задачу"
 
+#: tnonvisualctrlsdatamodule.edittaskaction.hint
+msgctxt "tnonvisualctrlsdatamodule.edittaskaction.hint"
+msgid "Edit task"
+msgstr "Редактировать задачу"
+
 #: tnonvisualctrlsdatamodule.exitaction.caption
+msgctxt "tnonvisualctrlsdatamodule.exitaction.caption"
+msgid "Exit"
+msgstr "Выход"
+
+#: tnonvisualctrlsdatamodule.exitaction.hint
+msgctxt "tnonvisualctrlsdatamodule.exitaction.hint"
 msgid "Exit"
 msgstr "Выход"
 
@@ -172,22 +228,52 @@ msgid "Export"
 msgstr "Экспорт"
 
 #: tnonvisualctrlsdatamodule.marktaskasdoneaction.caption
+msgctxt "tnonvisualctrlsdatamodule.marktaskasdoneaction.caption"
+msgid "Mark as done"
+msgstr "Пометить как завершённую"
+
+#: tnonvisualctrlsdatamodule.marktaskasdoneaction.hint
+msgctxt "tnonvisualctrlsdatamodule.marktaskasdoneaction.hint"
 msgid "Mark as done"
 msgstr "Пометить как завершённую"
 
 #: tnonvisualctrlsdatamodule.showdonetasksaction.caption
+msgctxt "tnonvisualctrlsdatamodule.showdonetasksaction.caption"
+msgid "Show done tasks"
+msgstr "Показывать завершённые задачи"
+
+#: tnonvisualctrlsdatamodule.showdonetasksaction.hint
+msgctxt "tnonvisualctrlsdatamodule.showdonetasksaction.hint"
 msgid "Show done tasks"
 msgstr "Показывать завершённые задачи"
 
 #: tnonvisualctrlsdatamodule.starttimetrackingaction.caption
+msgctxt "tnonvisualctrlsdatamodule.starttimetrackingaction.caption"
+msgid "Start time tracking"
+msgstr "Начать замер времени"
+
+#: tnonvisualctrlsdatamodule.starttimetrackingaction.hint
+msgctxt "tnonvisualctrlsdatamodule.starttimetrackingaction.hint"
 msgid "Start time tracking"
 msgstr "Начать замер времени"
 
 #: tnonvisualctrlsdatamodule.stoptimetrackingaction.caption
+msgctxt "tnonvisualctrlsdatamodule.stoptimetrackingaction.caption"
+msgid "Stop time tracking"
+msgstr "Остановить замер времени"
+
+#: tnonvisualctrlsdatamodule.stoptimetrackingaction.hint
+msgctxt "tnonvisualctrlsdatamodule.stoptimetrackingaction.hint"
 msgid "Stop time tracking"
 msgstr "Остановить замер времени"
 
 #: tnonvisualctrlsdatamodule.unmarktaskasdoneaction.caption
+msgctxt "tnonvisualctrlsdatamodule.unmarktaskasdoneaction.caption"
+msgid "Unmark as done"
+msgstr "Пометить как незавершённую"
+
+#: tnonvisualctrlsdatamodule.unmarktaskasdoneaction.hint
+msgctxt "tnonvisualctrlsdatamodule.unmarktaskasdoneaction.hint"
 msgid "Unmark as done"
 msgstr "Пометить как незавершённую"
 
@@ -205,6 +291,11 @@ msgstr ""
 msgctxt "tperiodeditform.beginlabel.caption"
 msgid "Begin:"
 msgstr "Начало:"
+
+#: tperiodeditform.buttonpanel.cancelbutton.caption
+msgctxt "tperiodeditform.buttonpanel.cancelbutton.caption"
+msgid "Cancel"
+msgstr "Отмена"
 
 #: tperiodeditform.buttonpanel.okbutton.caption
 msgctxt "tperiodeditform.buttonpanel.okbutton.caption"
@@ -289,6 +380,10 @@ msgstr "Конец:"
 msgid "Period"
 msgstr "Диапазон дат"
 
+#: treportframe.reportchart.axislist[0].title.caption
+msgid "Hours"
+msgstr "Часы"
+
 #: treportframe.reporttreelistview.columns[0].text
 msgctxt "treportframe.reporttreelistview.columns[0].text"
 msgid "Task"
@@ -301,7 +396,7 @@ msgstr "Общее время"
 
 #: treportframe.selectalltasksbutton.caption
 msgid "(De)Select all"
-msgstr "Отметить все/снять отметку"
+msgstr "Отметить все/снять отметки"
 
 #: treportframe.tasklistfilteredit.texthint
 msgid "(filter)"
@@ -318,6 +413,7 @@ msgid "View"
 msgstr "Вид"
 
 #: ttaskeditform.buttonpanel1.cancelbutton.caption
+msgctxt "ttaskeditform.buttonpanel1.cancelbutton.caption"
 msgid "Cancel"
 msgstr "Отмена"
 
@@ -344,6 +440,7 @@ msgid "X"
 msgstr ""
 
 #: ttasksframe.filteredit.editlabel.caption
+msgctxt "ttasksframe.filteredit.editlabel.caption"
 msgid "Filter:"
 msgstr "Фильтр:"
 

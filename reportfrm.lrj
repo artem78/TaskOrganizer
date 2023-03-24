@@ -11,5 +11,6 @@
 {"hash":218345129,"name":"treportframe.tasklistfilteredit.texthint","sourcebytes":[40,102,105,108,116,101,114,41],"value":"(filter)"},
 {"hash":30998220,"name":"treportframe.selectalltasksbutton.caption","sourcebytes":[40,68,101,41,83,101,108,101,99,116,32,97,108,108],"value":"(De)Select all"},
 {"hash":370843,"name":"treportframe.reporttreelistview.columns[0].text","sourcebytes":[84,97,115,107],"value":"Task"},
-{"hash":132258453,"name":"treportframe.reporttreelistview.columns[1].text","sourcebytes":[84,111,116,97,108,32,116,105,109,101],"value":"Total time"}
+{"hash":132258453,"name":"treportframe.reporttreelistview.columns[1].text","sourcebytes":[84,111,116,97,108,32,116,105,109,101],"value":"Total time"},
+{"hash":5205139,"name":"treportframe.reportchart.axislist[0].title.caption","sourcebytes":[72,111,117,114,115],"value":"Hours"}
 ]}

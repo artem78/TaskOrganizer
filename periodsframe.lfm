@@ -18,30 +18,37 @@ object PeriodsFrame: TPeriodsFrame
     Columns = <    
       item
         Title.Caption = 'ID'
+        Width = 26
         FieldName = 'id'
       end    
       item
         Title.Caption = 'Begin'
+        Width = 45
         FieldName = 'begin'
       end    
       item
         Title.Caption = 'End'
+        Width = 35
         FieldName = 'end'
       end    
       item
         Title.Caption = 'Task ID'
+        Width = 53
         FieldName = 'task_id'
       end    
       item
         Title.Caption = 'Active'
+        Width = 48
         FieldName = 'is_active'
       end    
       item
         Title.Caption = 'Duration'
+        Width = 61
         FieldName = 'duration'
       end    
       item
         Title.Caption = 'Manually added'
+        Width = 100
         FieldName = 'is_manually_added'
       end>
     DataSource = DatabaseDataModule.PeriodsDataSource
@@ -61,7 +68,8 @@ object PeriodsFrame: TPeriodsFrame
     Width = 484
     Images = NonVisualCtrlsDataModule.Icons
     List = True
-    ShowCaptions = True
+    ParentShowHint = False
+    ShowHint = True
     TabOrder = 1
     object CreatePeriodToolButton: TToolButton
       Left = 1
@@ -69,12 +77,12 @@ object PeriodsFrame: TPeriodsFrame
       Action = NonVisualCtrlsDataModule.CreatePeriodAction
     end
     object EditPeriodToolButton: TToolButton
-      Left = 89
+      Left = 24
       Top = 2
       Action = NonVisualCtrlsDataModule.EditPeriodAction
     end
     object DeletePeriodToolButton: TToolButton
-      Left = 175
+      Left = 47
       Top = 2
       Action = NonVisualCtrlsDataModule.DeletePeriodAction
     end

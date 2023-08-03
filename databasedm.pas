@@ -54,6 +54,7 @@ type
     property DoneTasksFilter: Boolean read FDoneTasksFilter write SetDoneTasksFilter;
 
     procedure ExportDatabase(AFileName: String);
+    procedure ImportDatabase(const AFileName: String);
     //procedure SaveDatabaseBackup;
     function SaveDatabaseBackup: String;
   end;
@@ -64,7 +65,11 @@ var
 implementation
 
 uses main, Forms, LazUTF8, NonVisualCtrlsDM, DateUtils, DatabaseVersioning,
-  Laz2_DOM, laz2_XMLWrite, LazFileUtils;
+  Laz2_DOM, laz2_XMLWrite, LazFileUtils
+  //////////
+  ,Dialogs
+  //////////
+  ;
 
 resourcestring
   RSBackupDBFailed = 'Failed to save database to file "%s"';
@@ -296,6 +301,15 @@ begin
   finally
     XmlDoc.Free;
   end;
+end;
+
+procedure TDatabaseDataModule.ImportDatabase(const AFileName: String);
+begin
+  //////////////
+  ShowMessage(AFileName);
+  //////////////
+
+  // Todo ...
 end;
 
 function TDatabaseDataModule.SaveDatabaseBackup: String;

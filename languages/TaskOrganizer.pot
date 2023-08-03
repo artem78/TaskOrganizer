@@ -216,6 +216,11 @@ msgstr ""
 msgid "Export"
 msgstr ""
 
+#: tnonvisualctrlsdatamodule.importdatabaseaction.caption
+msgctxt "tnonvisualctrlsdatamodule.importdatabaseaction.caption"
+msgid "Import"
+msgstr ""
+
 #: tnonvisualctrlsdatamodule.marktaskasdoneaction.caption
 msgctxt "tnonvisualctrlsdatamodule.marktaskasdoneaction.caption"
 msgid "Mark as done"

@@ -143,6 +143,9 @@ inherited MainForm: TMainForm
     end
     object ServiceMenuItem: TMenuItem
       Caption = 'Service'
+      object ImportMenuItem: TMenuItem
+        Action = NonVisualCtrlsDataModule.ImportDatabaseAction
+      end
       object ExportMenuItem: TMenuItem
         Action = NonVisualCtrlsDataModule.ExportDatabaseAction
       end

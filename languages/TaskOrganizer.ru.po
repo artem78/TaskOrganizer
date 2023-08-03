@@ -9,8 +9,9 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
-"X-Generator: Poedit 3.2.2\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
+"X-Generator: Poedit 3.3.2\n"
 
 #: databasedm.rsbackupdbfailed
 #, object-pascal-format
@@ -226,6 +227,11 @@ msgstr "Выход"
 #: tnonvisualctrlsdatamodule.exportdatabaseaction.caption
 msgid "Export"
 msgstr "Экспорт"
+
+#: tnonvisualctrlsdatamodule.importdatabaseaction.caption
+msgctxt "tnonvisualctrlsdatamodule.importdatabaseaction.caption"
+msgid "Import"
+msgstr "Импорт"
 
 #: tnonvisualctrlsdatamodule.marktaskasdoneaction.caption
 msgctxt "tnonvisualctrlsdatamodule.marktaskasdoneaction.caption"

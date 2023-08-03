@@ -13,6 +13,7 @@ type
   { TNonVisualCtrlsDataModule }
 
   TNonVisualCtrlsDataModule = class(TDataModule)
+    ImportDatabaseAction: TAction;
     LanguageIcons: TImageList;
     ShowDoneTasksAction: TAction;
     BackupDatabaseAction: TAction;
@@ -49,6 +50,7 @@ type
     procedure EditTaskActionExecute(Sender: TObject);
     procedure ExitActionExecute(Sender: TObject);
     procedure ExportDatabaseActionExecute(Sender: TObject);
+    procedure ImportDatabaseActionExecute(Sender: TObject);
     procedure MarkTaskAsDoneActionExecute(Sender: TObject);
     procedure ShowDoneTasksActionExecute(Sender: TObject);
     procedure StartTimeTrackingActionExecute(Sender: TObject);
@@ -114,6 +116,23 @@ begin
       end;
     finally
       Free;
+    end;
+  end;
+end;
+
+procedure TNonVisualCtrlsDataModule.ImportDatabaseActionExecute(Sender: TObject
+  );
+begin
+  with TOpenDialog.Create(Nil) do
+  begin
+    try
+      Filter := 'XML|*.xml';
+      if Execute then
+      begin
+        DatabaseDataModule.ImportDatabase(FileName);
+      end;
+    finally
+      Free;;
     end;
   end;
 end;

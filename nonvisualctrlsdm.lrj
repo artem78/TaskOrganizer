@@ -24,5 +24,6 @@
 {"hash":80705172,"name":"tnonvisualctrlsdatamodule.exportdatabaseaction.caption","sourcebytes":[69,120,112,111,114,116],"value":"Export"},
 {"hash":42722885,"name":"tnonvisualctrlsdatamodule.backupdatabaseaction.caption","sourcebytes":[66,97,99,107,117,112,32,100,97,116,97,98,97,115,101],"value":"Backup database"},
 {"hash":32343443,"name":"tnonvisualctrlsdatamodule.showdonetasksaction.caption","sourcebytes":[83,104,111,119,32,100,111,110,101,32,116,97,115,107,115],"value":"Show done tasks"},
-{"hash":32343443,"name":"tnonvisualctrlsdatamodule.showdonetasksaction.hint","sourcebytes":[83,104,111,119,32,100,111,110,101,32,116,97,115,107,115],"value":"Show done tasks"}
+{"hash":32343443,"name":"tnonvisualctrlsdatamodule.showdonetasksaction.hint","sourcebytes":[83,104,111,119,32,100,111,110,101,32,116,97,115,107,115],"value":"Show done tasks"},
+{"hash":84178580,"name":"tnonvisualctrlsdatamodule.importdatabaseaction.caption","sourcebytes":[73,109,112,111,114,116],"value":"Import"}
 ]}

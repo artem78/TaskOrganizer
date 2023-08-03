@@ -94,6 +94,11 @@ object NonVisualCtrlsDataModule: TNonVisualCtrlsDataModule
       Hint = 'Show done tasks'
       OnExecute = ShowDoneTasksActionExecute
     end
+    object ImportDatabaseAction: TAction
+      Category = 'service'
+      Caption = 'Import'
+      OnExecute = ImportDatabaseActionExecute
+    end
   end
   object TrayIcon: TTrayIconEx
     PopUpMenu = TrayPopupMenu

@@ -43,6 +43,8 @@ type
     FTasksFilterText: String;
     FDoneTasksFilter: Boolean;
 
+    DBVersion: Integer;
+
     procedure SetTasksFilterText(AText: String);
     procedure SetDoneTasksFilter(AVal: Boolean);
 
@@ -105,6 +107,8 @@ begin
         SaveDatabaseBackup;
       DBVersioning.UpgradeToLatest;
     end;
+
+    DBVersion := DBVersioning.CurrentVersion;
   finally
     DBVersioning.Free;
   end;
@@ -230,16 +234,16 @@ begin
   XmlDoc := TXMLDocument.Create;
 
   try
+    CommentNode := XmlDoc.CreateComment(' Export file from Task Organizer ');
+    XmlDoc.AppendChild(CommentNode);
+
     RootNode := XmlDoc.CreateElement('export');
     XmlDoc.AppendChild(RootNode);
     RootNode:= XmlDoc.DocumentElement;
 
-    CommentNode := XmlDoc.CreateComment(
-        Format(' Created with %s version %s on %s ', ['Task Organizer',
-          GitRevisionStr, FormatDateTime('yyyy-mm-dd hh:nn:ss', Now)
-        ])
-    );
-    RootNode.AppendChild(CommentNode);
+    TDOMElement(RootNode).SetAttribute('programVersion', GitRevisionStr);
+    TDOMElement(RootNode).SetAttribute('dbVersion', IntToStr(DBVersion));
+    TDOMElement(RootNode).SetAttribute('created', DateToISO8601(Now, False));
 
     TasksNode := XmlDoc.CreateElement('tasks');
     RootNode.AppendChild(TasksNode);

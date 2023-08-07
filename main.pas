@@ -62,7 +62,13 @@ var
 implementation
 
 uses
-  Models, StrUtils, TypInfo, LCLTranslator, LazFileUtils;
+  Models, StrUtils, TypInfo, LCLTranslator, LazFileUtils
+  {$IFOPT D+}
+  ,LazLogger
+  {$Else}
+  ,LazLoggerDummy
+  {$EndIf}
+  ;
 
 resourcestring
   RSRunningTaskNotification = 'You have running task. Are you sure to exit?';
@@ -357,5 +363,11 @@ begin
   Show;
 end;
 
+initialization
+  {$IFOPT D+}
+  DeleteFile('log.txt');
+  DebugLogger.LogName := 'log.txt';
+  DebugLn('Logging started');
+  {$EndIf}
 end.
 

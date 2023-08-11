@@ -108,7 +108,7 @@ begin
     try
       Filter := 'XML|*.xml';
       DefaultExt := 'xml';
-      FileName := Format('export %s.xml', [FormatDateTime('yyyy-mm-dd hh-nn-ss', Now)]);
+      FileName := Format('Task Organizer export %s.xml', [FormatDateTime('yyyy-mm-dd hh-nn-ss', Now)]);
       if Execute then
       begin
         DatabaseDataModule.ExportDatabase(FileName);

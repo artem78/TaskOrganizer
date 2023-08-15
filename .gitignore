@@ -35,6 +35,7 @@ lib/
 ###########################
 # My own rules
 /database.sqlite3
+*.sqlite3-journal
 
 # sqlitebrowser local config:
 *.sqbpro

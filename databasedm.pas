@@ -89,6 +89,10 @@ begin
   FTasksFilterText := '';
   FDoneTasksFilter := False;
 
+  // Turn on Transaction and Connection if disabled
+  SQLite3Connection1.Connected := True;
+  SQLTransaction1.Active := True;
+
   SQLite3Connection1.CreateCollation('UTF8_CI',1,nil,@UTF8xCompare_CI);
 
 

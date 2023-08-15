@@ -61,8 +61,8 @@ var
 
 implementation
 
-uses main, Forms, LazUTF8, NonVisualCtrlsDM, DatabaseVersioning,
-  Laz2_DOM, laz2_XMLWrite, Utils, LazFileUtils;
+uses main, Forms, LazUTF8, NonVisualCtrlsDM, DateUtils, DatabaseVersioning,
+  Laz2_DOM, laz2_XMLWrite, LazFileUtils;
 
 resourcestring
   RSBackupDBFailed = 'Failed to save database to file "%s"';
@@ -214,7 +214,7 @@ procedure TDatabaseDataModule.ExportDatabase(AFileName: String);
     if AField.IsNull then
       Result := ''
     else
-      Result := DateTimeToISO8601(AField.AsDateTime);
+      Result := DateToISO8601(AField.AsDateTime, False);
   end;
 
 {$I revision.inc}

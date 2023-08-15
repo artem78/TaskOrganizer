@@ -65,11 +65,8 @@ var
 implementation
 
 uses main, Forms, LazUTF8, NonVisualCtrlsDM, DateUtils, DatabaseVersioning,
-  Laz2_DOM, laz2_XMLWrite, LazFileUtils
-  //////////
-  ,Dialogs
-  //////////
-  ;
+  Laz2_DOM, laz2_XMLWrite, Models, LazFileUtils, laz2_XMLRead,
+  LazLogger;
 
 resourcestring
   RSBackupDBFailed = 'Failed to save database to file "%s"';
@@ -304,12 +301,117 @@ begin
 end;
 
 procedure TDatabaseDataModule.ImportDatabase(const AFileName: String);
+var
+  XmlDoc: TXMLDocument;
+  TaskNodes, PeriodNodes: TDOMNodeList;
+  TaskNode, PeriodNode: TDOMNode;
+  I, J: Integer;
+  LocalTaskId, LocalPeriodId: Integer;
+  Task: TTask;
+  Period: TPeriod;
 begin
-  //////////////
-  ShowMessage(AFileName);
-  //////////////
+  ReadXMLFile(XmlDoc, AFileName);
 
-  // Todo ...
+  try
+    //TaskNodes := TDOMDocument(XmlDoc.DocumentElement.FindNode('tasks')).GetElementsByTagName('task');
+    TaskNodes := XmlDoc.DocumentElement.GetElementsByTagName('task');
+    try
+      if Assigned(TaskNodes) then
+      begin
+        //for TaskNode in TaskNodes do
+        for I := 0 to TaskNodes.Count - 1 do
+        begin
+          TaskNode := TaskNodes.Item[I];
+          //OutputDebugString(PChar(TDOMDocument(TaskNode).Attributes.GetNamedItem('name').TextContent));
+//          DebugLn(TDOMDocument(TaskNode).Attributes.GetNamedItem('name').TextContent);
+          DebugLn('Task #%s "%s"', [TaskNode.Attributes.GetNamedItem('id').TextContent,
+                                    TaskNode.Attributes.GetNamedItem('name').TextContent]);
+
+
+          CustomSQLQuery.Close;
+          CustomSQLQuery.SQL.Text :=
+            'SELECT `id`' + LineEnding +
+            'FROM `_tasks`' + LineEnding +
+            'WHERE `name` = :NAME';
+          CustomSQLQuery.ParamByName('NAME').AsString := TaskNode.Attributes.GetNamedItem('name').TextContent;
+          CustomSQLQuery.Open;
+          if not CustomSQLQuery.EOF then
+            LocalTaskId := CustomSQLQuery.FieldByName('id').AsInteger
+          else
+            LocalTaskId := -1;
+          DebugLn('local task id=%d', [LocalTaskId]);
+          CustomSQLQuery.Close;
+
+          if LocalTaskId = -1 then
+          begin
+            Task := TTask.Create;
+            Task.Name := TaskNode.Attributes.GetNamedItem('name').TextContent;
+            Task.Description := TaskNode.Attributes.GetNamedItem('description').TextContent;
+            Task.Done := StrToBool(TaskNode.Attributes.GetNamedItem('done').TextContent);
+            if not TaskNode.Attributes.GetNamedItem('created').TextContent.IsEmpty then
+              Task.Created := ISO8601ToDate(TaskNode.Attributes.GetNamedItem('created').TextContent, False);
+            if not TaskNode.Attributes.GetNamedItem('modified').TextContent.IsEmpty then
+              Task.Modified := ISO8601ToDate(TaskNode.Attributes.GetNamedItem('modified').TextContent, False);
+            Task.Save;
+            LocalTaskId := Task.Id;
+            Task.Free;
+          end;
+          DebugLn('local task id=%d', [LocalTaskId]);
+
+     //     PeriodNodes := TDOMDocument(TaskNode).GetElementsByTagName('period');
+          for PeriodNode in TaskNode.GetEnumeratorAllChildren do
+          begin
+            if PeriodNode.NodeName <> 'period' then
+              Continue;
+
+            DebugLn('- Period %s %s - %s', [PeriodNode.Attributes.GetNamedItem('id').TextContent,
+                                        PeriodNode.Attributes.GetNamedItem('begin').TextContent,
+                                        PeriodNode.Attributes.GetNamedItem('end').TextContent]);
+
+
+            CustomSQLQuery.Close;
+            CustomSQLQuery.SQL.Text :=
+              'SELECT `id`' + LineEnding +
+              'FROM `_periods`' + LineEnding +
+              'WHERE `begin` = :BEGIN' + LineEnding +
+              '  AND `end` = :END';
+            CustomSQLQuery.ParamByName('BEGIN').AsDateTime := ISO8601ToDate(PeriodNode.Attributes.GetNamedItem('begin').TextContent, False);
+            CustomSQLQuery.ParamByName('END').AsDateTime := ISO8601ToDate(PeriodNode.Attributes.GetNamedItem('end').TextContent, False);
+            CustomSQLQuery.Open;
+            if not CustomSQLQuery.EOF then
+              LocalPeriodId := CustomSQLQuery.FieldByName('id').AsInteger
+            else
+              LocalPeriodId := -1;
+            DebugLn('local period id=%d', [LocalTaskId]);
+            CustomSQLQuery.Close;
+
+          if LocalPeriodId = -1 then
+          begin
+            Period := TPeriod.Create;
+            Period.BeginTime := ISO8601ToDate(PeriodNode.Attributes.GetNamedItem('begin').TextContent, False);
+            Period.EndTime := ISO8601ToDate(PeriodNode.Attributes.GetNamedItem('end').TextContent, False);
+            Period.TaskId := LocalTaskId;
+            Period.ManuallyAdded := StrToBool(PeriodNode.Attributes.GetNamedItem('isManuallyAdded').TextContent);
+            Period.Save;
+            LocalPeriodId := Period.Id;
+            Period.Free;
+          end;
+          DebugLn('local period id=%d', [LocalTaskId]);
+
+
+
+          end
+
+
+        end;
+
+      end;
+    finally
+      TaskNodes.Free;
+    end;
+  finally
+    XmlDoc.Free;
+  end;
 end;
 
 function TDatabaseDataModule.SaveDatabaseBackup: String;

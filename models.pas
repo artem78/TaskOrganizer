@@ -14,6 +14,8 @@ type
   TTableEntry {TModel}= class
     public
       Id: Integer;
+
+      procedure Save; virtual; abstract;
   end;
 
 
@@ -37,6 +39,8 @@ type
       class function GetActive: TTask; static;
       class function GetById(anId: Integer): TTask; static;
       class function GetLastActive(ACount: Integer; AOnlyUnfinished: Boolean = False): TTasks;
+
+      procedure Save;
     private
       class procedure RefreshSQLQuery;
   end;
@@ -47,17 +51,20 @@ type
     public
       BeginTime, EndTime: TDateTime;
       TaskId: Integer;
+      ManuallyAdded: Boolean;
 
       function GetTask: TTask;
       function IsActive: Boolean;
       class function GetActive: TPeriod; static;
       class function GetById(anId: Integer): TPeriod; static;
+
+      procedure Save;
   end;
 
 implementation
 
 uses
-  DatabaseDM, StrUtils;
+  DatabaseDM, {SQLDB,} StrUtils;
 
 { TPeriod }
 
@@ -106,6 +113,30 @@ begin
       Result.BeginTime := FieldByName('begin').AsDateTime;
       Result.EndTime := FieldByName('end').AsDateTime;
       Result.TaskId := FieldByName('task_id').AsInteger;
+    end;
+  end;
+end;
+
+procedure TPeriod.Save;
+begin
+  with DatabaseDataModule.PeriodsSQLQuery do
+  begin
+    if id <= 0 then
+    begin  // Create
+      Append;
+      FieldByName('begin').AsDateTime := Self.BeginTime;
+      FieldByName('end').AsDateTime := Self.EndTime;
+      FieldByName('task_id').AsInteger := Self.TaskId;
+      FieldByName('is_manually_added').AsBoolean := Self.ManuallyAdded;
+      Post;
+      ApplyUpdates;
+      //(Transaction as TSQLTransaction).Commit;
+      Self.Id := FieldByName('id').AsInteger;
+    end
+    else
+    begin  // Update
+      raise Exception.Create('Not implemented');
+      // todo...
     end;
   end;
 end;
@@ -256,6 +287,31 @@ begin
       Next;
     end;
     Close;
+  end;
+end;
+
+procedure TTask.Save;
+begin
+  with DatabaseDataModule.TasksSQLQuery do
+  begin
+    if id <= 0 then
+    begin  // Create
+      Append;
+      FieldByName('name').AsString := Self.Name;
+      FieldByName('description').AsString := Self.Description;
+      FieldByName('created').AsDateTime := Now;
+      //FieldByName('modified') := ...;
+      FieldByName('done').AsBoolean := self.Done;
+      Post;
+      ApplyUpdates;
+      //(Transaction as TSQLTransaction).Commit;
+      Self.Id := FieldByName('id').AsInteger;
+    end
+    else
+    begin  // Update
+      raise Exception.Create('Not implemented');
+      // todo...
+    end;
   end;
 end;
 

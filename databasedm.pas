@@ -343,8 +343,14 @@ begin
           CustomSQLQuery.Close;
 
           if LocalTaskId = -1 then
+            Task := TTask.Create
+          else
+            Task := TTask.GetById(LocalTaskId);
+
+          if (LocalTaskId <> -1) and (not TaskNode.Attributes.GetNamedItem('modified').TextContent.IsEmpty)
+              and (CompareDateTime(Task.Modified, ISO8601ToDate(TaskNode.Attributes.GetNamedItem('modified').TextContent, False)) < 0)
+              or (LocalTaskId = -1) then
           begin
-            Task := TTask.Create;
             Task.Name := TaskNode.Attributes.GetNamedItem('name').TextContent;
             Task.Description := TaskNode.Attributes.GetNamedItem('description').TextContent;
             Task.Done := StrToBool(TaskNode.Attributes.GetNamedItem('done').TextContent);
@@ -354,8 +360,9 @@ begin
               Task.Modified := ISO8601ToDate(TaskNode.Attributes.GetNamedItem('modified').TextContent, False);
             Task.Save;
             LocalTaskId := Task.Id;
-            Task.Free;
           end;
+          Task.Free;
+
           DebugLn('local task id=%d', [LocalTaskId]);
 
      //     PeriodNodes := TDOMDocument(TaskNode).GetElementsByTagName('period');

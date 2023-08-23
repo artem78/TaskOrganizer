@@ -295,33 +295,33 @@ begin
   with DatabaseDataModule.TasksSQLQuery do
   begin
     if id <= 0 then
-    begin  // Create
-      Append;
-      FieldByName('name').AsString := Self.Name;
-      FieldByName('description').AsString := Self.Description;
-      if Self.Created <> 0 then
-        FieldByName('created').AsDateTime := Self.Created
-      else
-      begin
-        Assert(False, 'Task created date is empty');
-        FieldByName('created').AsVariant := Null;
-        //FieldByName('created').AsDateTime := Now;
-      end;
-      if Self.Modified <> 0 then
-        FieldByName('modified').AsDateTime := Self.Modified
-      else
-        FieldByName('modified').AsVariant := Null;
-      FieldByName('done').AsBoolean := self.Done;
-      Post;
-      ApplyUpdates;
-      //(Transaction as TSQLTransaction).Commit;
-      Self.Id := FieldByName('id').AsInteger;
-    end
+      Append
     else
-    begin  // Update
-      raise Exception.Create('Not implemented');
-      // todo...
+    begin
+      if not Locate('id', Id, []) then
+        raise Exception.CreateFmt('Task with id=%d not found', [Id]);
+      Edit;
     end;
+
+    FieldByName('name').AsString := Self.Name;
+    FieldByName('description').AsString := Self.Description;
+    if Self.Created <> 0 then
+      FieldByName('created').AsDateTime := Self.Created
+    else
+    begin
+      Assert(False, 'Task created date is empty');
+      FieldByName('created').AsVariant := Null;
+      //FieldByName('created').AsDateTime := Now;
+    end;
+    if Self.Modified <> 0 then
+      FieldByName('modified').AsDateTime := Self.Modified
+    else
+      FieldByName('modified').AsVariant := Null;
+    FieldByName('done').AsBoolean := self.Done;
+    Post;
+    ApplyUpdates;
+    //(Transaction as TSQLTransaction).Commit;
+    Self.Id := FieldByName('id').AsInteger;
   end;
 end;
 

@@ -299,8 +299,18 @@ begin
       Append;
       FieldByName('name').AsString := Self.Name;
       FieldByName('description').AsString := Self.Description;
-      FieldByName('created').AsDateTime := Now;
-      //FieldByName('modified') := ...;
+      if Self.Created <> 0 then
+        FieldByName('created').AsDateTime := Self.Created
+      else
+      begin
+        Assert(False, 'Task created date is empty');
+        FieldByName('created').AsVariant := Null;
+        //FieldByName('created').AsDateTime := Now;
+      end;
+      if Self.Modified <> 0 then
+        FieldByName('modified').AsDateTime := Self.Modified
+      else
+        FieldByName('modified').AsVariant := Null;
       FieldByName('done').AsBoolean := self.Done;
       Post;
       ApplyUpdates;

@@ -283,6 +283,7 @@ begin
   begin
     Edit;
     FieldByName('done').AsBoolean := True;
+    FieldByName('modified').AsDateTime := Now;
     Post;
     ApplyUpdates;
   end;
@@ -318,6 +319,7 @@ begin
   begin
     Edit;
     FieldByName('done').AsBoolean := False;
+    FieldByName('modified').AsDateTime := Now;
     Post;
     ApplyUpdates;
   end;

@@ -310,6 +310,7 @@ var
   Task: TTask;
   Period: TPeriod;
 begin
+  DebugLn('Export from "%s" started', [AFileName]);
   ReadXMLFile(XmlDoc, AFileName);
 
   try
@@ -359,6 +360,10 @@ begin
             if not TaskNode.Attributes.GetNamedItem('modified').TextContent.IsEmpty then
               Task.Modified := ISO8601ToDate(TaskNode.Attributes.GetNamedItem('modified').TextContent, False);
             Task.Save;
+
+            if LocalTaskId = -1 then
+              DebugLn('New task "%s" #%d/%d created', [Task.Name, LocalTaskId, ]);
+
             LocalTaskId := Task.Id;
           end;
           Task.Free;
@@ -418,6 +423,8 @@ begin
     end;
   finally
     XmlDoc.Free;
+
+    DebugLn('Export finished');
   end;
 end;
 

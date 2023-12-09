@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<project name="Task Organizer" xmlns:if="ant:if" xmlns:unless="ant:unless">
+	<!-- Properties: -->
+	<!-- <property name="sqlite3_dll.version" value="3.36.0"/> -->
+	<property name="sqlite3_dll.checksum" value="ce5c15b5092877974d5b6476ad1cb2d7"/>
+	<property name="sqlite3_dll.download_url" value="https://www.sqlite.org/2021/sqlite-dll-win32-x86-3360000.zip"/>
+	<property name="sqlite3_dll.filename" value="sqlite3.dll"/>
+
+
+	<!-- Targets: -->
+	<target name="init" depends="download_sqlite3_dll">
+		<!-- <echoproperties/> -->
+	</target>
+	
+	<target name="download_sqlite3_dll" depends="check_sqlite3_dll_checksum" unless="${sqlite3_dll.checksum_is_ok}">
+		<echo>Start download sqlite3 dll archive</echo>
+		<tempfile property="zip_temp_file" suffix=".zip" deleteonexit="true"/>
+		<echo>zip_temp_file: ${zip_temp_file}</echo>
+		<get src="${sqlite3_dll.download_url}" dest="${zip_temp_file}" verbose="on"/>
+		<unzip src="${zip_temp_file}" dest="" overwrite="true">
+			<patternset>
+				<include name="${sqlite3_dll.filename}"/>
+			</patternset>
+		</unzip>
+		<!-- todo: на всякий случай проверить контрольную сумму sqlite3.dll -->
+	</target>
+	
+	<target name="check_sqlite3_dll_available">
+		<available file="${sqlite3_dll.filename}" property="sqlite3_dll.is_available"/>
+		<echo>${sqlite3_dll.filename} exists: ${sqlite3_dll.is_available}</echo>
+	</target>
+	
+	<target name="check_sqlite3_dll_checksum" depends="check_sqlite3_dll_available" if="sqlite3_dll.is_available">
+		<checksum file="${sqlite3_dll.filename}" algorithm="MD5" property="${sqlite3_dll.checksum}" verifyProperty="sqlite3_dll.checksum_is_ok"/>
+		<echo>${sqlite3_dll.filename} checksum is valid: ${sqlite3_dll.checksum_is_ok}</echo>
+	</target>
+</project>

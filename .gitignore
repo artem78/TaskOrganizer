@@ -48,3 +48,4 @@ lib/
 /settings.xml
 /languages/*.mo
 /log.txt
+/local.properties

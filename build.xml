@@ -5,11 +5,30 @@
 	<property name="sqlite3_dll.checksum" value="ce5c15b5092877974d5b6476ad1cb2d7"/>
 	<property name="sqlite3_dll.download_url" value="https://www.sqlite.org/2021/sqlite-dll-win32-x86-3360000.zip"/>
 	<property name="sqlite3_dll.filename" value="sqlite3.dll"/>
+	
+	<property file="local.properties"/>
+	<property name="build_dir" location="build"/>
+	<property name="releases_dir" location="releases"/>
+	<!--#ProgramVersion=$(grep -Po '\<StringTable.+ ProductVersion="\K[0-9\.]+' TaskOrganizer.lpi)-->
+	<exec executable="git" outputproperty="version">
+		<arg value="describe"/>
+		<arg value="--dirty"/>
+		<arg value="--long"/>
+	</exec>
+	<property name="executable" location="TaskOrganizer.exe"/>
 
 
 	<!-- Targets: -->
-	<target name="init" depends="download_sqlite3_dll">
+	<target name="clean">
+		<delete dir="${build_dir}"/>
+		<delete file="${executable}"/>
+	</target>
+	
+	<target name="init" depends="clean,download_sqlite3_dll">
 		<!-- <echoproperties/> -->
+		<echo>Program version: ${version}</echo>
+		<mkdir dir="${build_dir}"/>
+		<mkdir dir="${releases_dir}"/>
 	</target>
 	
 	<target name="download_sqlite3_dll" depends="check_sqlite3_dll_checksum" unless="${sqlite3_dll.checksum_is_ok}">
@@ -33,5 +52,42 @@
 	<target name="check_sqlite3_dll_checksum" depends="check_sqlite3_dll_available" if="sqlite3_dll.is_available">
 		<checksum file="${sqlite3_dll.filename}" algorithm="MD5" property="${sqlite3_dll.checksum}" verifyProperty="sqlite3_dll.checksum_is_ok"/>
 		<echo>${sqlite3_dll.filename} checksum is valid: ${sqlite3_dll.checksum_is_ok}</echo>
+	</target>
+	
+	<target name="build" depends="init" description="Compile executable">
+		<exec executable="${lazarus_dir}/lazbuild.exe">
+			<arg value="--build-mode=Release"/>
+			<!--<arg value="- - verbose"/>-->
+			<arg value="TaskOrganizer.lpi"/>
+		</exec>
+	</target>
+	
+	<target name="package" depends="build" description="Pack all files to distributable zip">
+		<echo>Copy EXE</echo>
+		<copy file="${executable}" todir="${build_dir}" preservelastmodified="true"/>
+		
+		<echo>Copy DLLs</echo>
+		<copy file="${sqlite3_dll.filename}" todir="${build_dir}" preservelastmodified="true"/>
+		
+		<echo>Copy db-updates dir</echo>
+		<mkdir dir="${build_dir}/db-updates"/>
+		<copy todir="${build_dir}/db-updates" preservelastmodified="true">
+			<fileset dir="db-updates">
+				<include name="*.sql"/>
+			</fileset>
+		</copy>
+		
+		<echo>Copy languages</echo>
+		<mkdir dir="${build_dir}/languages"/>
+		<copy todir="${build_dir}/languages" preservelastmodified="true">
+			<fileset dir="languages">
+				<!-- <include name="*.mo"/> -->
+				<include name="*.pot"/>
+				<include name="*.po"/>
+			</fileset>
+		</copy>
+		
+		<echo>Pack to ZIP archive</echo>
+		<zip destfile="${releases_dir}/Task_Organizer_${version}.zip" basedir="${build_dir}"/>
 	</target>
 </project>

@@ -13,7 +13,7 @@ type
   { TPeriodEditForm }
 
   TPeriodEditForm = class(TForm)
-    BeginDateTimePicker1: TDBDateTimePicker;
+    EndDateTimePicker: TDBDateTimePicker;
     ButtonPanel: TButtonPanel;
     TaskDBLookupComboBox: TDBLookupComboBox;
     BeginLabel: TLabel;

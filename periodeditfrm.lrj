@@ -6,5 +6,5 @@
 {"hash":5933546,"name":"tperiodeditform.tasklabel.caption","sourcebytes":[84,97,115,107,58],"value":"Task:"},
 {"hash":366789,"name":"tperiodeditform.buttonpanel.okbutton.caption","sourcebytes":[83,97,118,101],"value":"Save"},
 {"hash":77089212,"name":"tperiodeditform.buttonpanel.cancelbutton.caption","sourcebytes":[67,97,110,99,101,108],"value":"Cancel"},
-{"hash":342540,"name":"tperiodeditform.begindatetimepicker1.textfornulldate","sourcebytes":[78,85,76,76],"value":"NULL"}
+{"hash":342540,"name":"tperiodeditform.enddatetimepicker.textfornulldate","sourcebytes":[78,85,76,76],"value":"NULL"}
 ]}

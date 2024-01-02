@@ -90,7 +90,7 @@ object PeriodEditForm: TPeriodEditForm
     TabOrder = 2
     ShowButtons = [pbOK, pbCancel]
   end
-  object BeginDateTimePicker1: TDBDateTimePicker
+  object EndDateTimePicker: TDBDateTimePicker
     Left = 320
     Height = 23
     Top = 64

@@ -37,7 +37,7 @@ inherited MainForm: TMainForm
         inherited ToolBar1: TToolBar
           Width = 742
         end
-        inherited TasksDBGrid: TDBGrid
+        inherited TasksDBGrid: TVirtualDBGrid
           Height = 344
           Width = 742
         end

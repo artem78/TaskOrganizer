@@ -444,31 +444,42 @@ msgctxt "ttasksframe.filteredit.editlabel.caption"
 msgid "Filter:"
 msgstr "Фильтр:"
 
-#: ttasksframe.tasksdbgrid.columns[0].title.caption
-msgctxt "ttasksframe.tasksdbgrid.columns[0].title.caption"
+#: ttasksframe.tasksdbgrid.header.columns[0].text
+msgctxt "ttasksframe.tasksdbgrid.header.columns[0].text"
 msgid "ID"
 msgstr "ИД"
 
-#: ttasksframe.tasksdbgrid.columns[1].title.caption
-msgctxt "ttasksframe.tasksdbgrid.columns[1].title.caption"
+#: ttasksframe.tasksdbgrid.header.columns[1].text
+msgctxt "ttasksframe.tasksdbgrid.header.columns[1].text"
 msgid "Name"
 msgstr "Название"
 
-#: ttasksframe.tasksdbgrid.columns[2].title.caption
-msgctxt "ttasksframe.tasksdbgrid.columns[2].title.caption"
+#: ttasksframe.tasksdbgrid.header.columns[2].text
+msgctxt "ttasksframe.tasksdbgrid.header.columns[2].text"
 msgid "Description"
 msgstr "Описание"
 
-#: ttasksframe.tasksdbgrid.columns[3].title.caption
-msgctxt "ttasksframe.tasksdbgrid.columns[3].title.caption"
+#: ttasksframe.tasksdbgrid.header.columns[3].text
+msgctxt "ttasksframe.tasksdbgrid.header.columns[3].text"
 msgid "Created"
 msgstr "Создано"
 
-#: ttasksframe.tasksdbgrid.columns[4].title.caption
-msgctxt "ttasksframe.tasksdbgrid.columns[4].title.caption"
+#: ttasksframe.tasksdbgrid.header.columns[4].text
+msgctxt "ttasksframe.tasksdbgrid.header.columns[4].text"
 msgid "Modified"
 msgstr "Изменено"
+
+#: ttasksframe.tasksdbgrid.header.columns[5].text
+msgctxt "ttasksframe.tasksdbgrid.header.columns[5].text"
+msgid "is_active"
+msgstr ""
+
+#: ttasksframe.tasksdbgrid.header.columns[6].text
+msgctxt "ttasksframe.tasksdbgrid.header.columns[6].text"
+msgid "done"
+msgstr ""
 
 #: ttasksframe.toolbar1.caption
 msgid "ToolBar1"
 msgstr ""
+

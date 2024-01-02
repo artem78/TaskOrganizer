@@ -282,11 +282,6 @@ msgctxt "tperiodeditform.begindatetimepicker.textfornulldate"
 msgid "NULL"
 msgstr ""
 
-#: tperiodeditform.begindatetimepicker1.textfornulldate
-msgctxt "tperiodeditform.begindatetimepicker1.textfornulldate"
-msgid "NULL"
-msgstr ""
-
 #: tperiodeditform.beginlabel.caption
 msgctxt "tperiodeditform.beginlabel.caption"
 msgid "Begin:"
@@ -304,6 +299,15 @@ msgstr "Сохранить"
 
 #: tperiodeditform.caption
 msgid "PeriodEditForm"
+msgstr ""
+
+#: tperiodeditform.durationlabel.caption
+msgid "XX:XX:XX"
+msgstr ""
+
+#: tperiodeditform.enddatetimepicker.textfornulldate
+msgctxt "tperiodeditform.enddatetimepicker.textfornulldate"
+msgid "NULL"
 msgstr ""
 
 #: tperiodeditform.endlabel.caption
@@ -472,3 +476,4 @@ msgstr "Изменено"
 #: ttasksframe.toolbar1.caption
 msgid "ToolBar1"
 msgstr ""
+

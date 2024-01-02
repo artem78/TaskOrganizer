@@ -5,14 +5,14 @@ unit PeriodsFrame;
 interface
 
 uses
-  Classes, SysUtils, Forms, Controls, DBGrids, ComCtrls, Menus;
+  Classes, SysUtils, Forms, Controls, DBGrids, ComCtrls, Menus, VirtualDBGrid;
 
 type
 
   { TPeriodsFrame }
 
   TPeriodsFrame = class(TFrame)
-    DBGrid1: TDBGrid;
+    DBGrid1: TVirtualDBGrid;
     EditPeriodMenuItem: TMenuItem;
     DeletePeriodMenuItem: TMenuItem;
     PeriodsGridPopupMenu: TPopupMenu;
@@ -49,17 +49,17 @@ begin
 end;
 
 procedure TPeriodsFrame.DBGrid1DblClick(Sender: TObject);
-  function IsMouseOverCell: Boolean;
+  {function IsMouseOverCell: Boolean;
   var
     ClientCoord: TPoint;
   begin
     ClientCoord := DBGrid1.ScreenToClient(Mouse.CursorPos);
 
     Result := DBGrid1.MouseToGridZone(ClientCoord.X, ClientCoord.Y) = gzNormal;
-  end;
+  end;}
 
 begin
-  if IsMouseOverCell then NonVisualCtrlsDataModule.EditPeriodAction.Execute;
+  {if IsMouseOverCell then} NonVisualCtrlsDataModule.EditPeriodAction.Execute;
 end;
 
 

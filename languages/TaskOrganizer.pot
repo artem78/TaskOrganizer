@@ -304,36 +304,38 @@ msgstr ""
 msgid "Task:"
 msgstr ""
 
-#: tperiodsframe.dbgrid1.columns[0].title.caption
-msgctxt "tperiodsframe.dbgrid1.columns[0].title.caption"
+#: tperiodsframe.dbgrid1.header.columns[0].text
+msgctxt "tperiodsframe.dbgrid1.header.columns[0].text"
 msgid "ID"
 msgstr ""
 
-#: tperiodsframe.dbgrid1.columns[1].title.caption
-msgctxt "tperiodsframe.dbgrid1.columns[1].title.caption"
+#: tperiodsframe.dbgrid1.header.columns[1].text
+msgctxt "tperiodsframe.dbgrid1.header.columns[1].text"
 msgid "Begin"
 msgstr ""
 
-#: tperiodsframe.dbgrid1.columns[2].title.caption
-msgctxt "tperiodsframe.dbgrid1.columns[2].title.caption"
+#: tperiodsframe.dbgrid1.header.columns[2].text
+msgctxt "tperiodsframe.dbgrid1.header.columns[2].text"
 msgid "End"
 msgstr ""
 
-#: tperiodsframe.dbgrid1.columns[3].title.caption
-msgctxt "tperiodsframe.dbgrid1.columns[3].title.caption"
+#: tperiodsframe.dbgrid1.header.columns[3].text
+msgctxt "tperiodsframe.dbgrid1.header.columns[3].text"
 msgid "Task ID"
 msgstr ""
 
-#: tperiodsframe.dbgrid1.columns[4].title.caption
-msgctxt "tperiodsframe.dbgrid1.columns[4].title.caption"
+#: tperiodsframe.dbgrid1.header.columns[4].text
+msgctxt "tperiodsframe.dbgrid1.header.columns[4].text"
 msgid "Active"
 msgstr ""
 
-#: tperiodsframe.dbgrid1.columns[5].title.caption
+#: tperiodsframe.dbgrid1.header.columns[5].text
+msgctxt "tperiodsframe.dbgrid1.header.columns[5].text"
 msgid "Duration"
 msgstr ""
 
-#: tperiodsframe.dbgrid1.columns[6].title.caption
+#: tperiodsframe.dbgrid1.header.columns[6].text
+msgctxt "tperiodsframe.dbgrid1.header.columns[6].text"
 msgid "Manually added"
 msgstr ""
 

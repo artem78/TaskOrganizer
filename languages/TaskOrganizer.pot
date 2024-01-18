@@ -116,6 +116,40 @@ msgstr ""
 msgid "MenuItem1"
 msgstr ""
 
+#: tmainform.periodsframe1.dbgrid1.header.columns[0].text
+msgctxt "tmainform.periodsframe1.dbgrid1.header.columns[0].text"
+msgid "ID"
+msgstr ""
+
+#: tmainform.periodsframe1.dbgrid1.header.columns[1].text
+msgctxt "tmainform.periodsframe1.dbgrid1.header.columns[1].text"
+msgid "Begin"
+msgstr ""
+
+#: tmainform.periodsframe1.dbgrid1.header.columns[2].text
+msgctxt "tmainform.periodsframe1.dbgrid1.header.columns[2].text"
+msgid "End"
+msgstr ""
+
+#: tmainform.periodsframe1.dbgrid1.header.columns[3].text
+msgid "id"
+msgstr ""
+
+#: tmainform.periodsframe1.dbgrid1.header.columns[4].text
+msgctxt "tmainform.periodsframe1.dbgrid1.header.columns[4].text"
+msgid "Active"
+msgstr ""
+
+#: tmainform.periodsframe1.dbgrid1.header.columns[5].text
+msgctxt "tmainform.periodsframe1.dbgrid1.header.columns[5].text"
+msgid "Duration"
+msgstr ""
+
+#: tmainform.periodsframe1.dbgrid1.header.columns[6].text
+msgctxt "tmainform.periodsframe1.dbgrid1.header.columns[6].text"
+msgid "Manually added"
+msgstr ""
+
 #: tmainform.periodstabsheet.caption
 msgid "Periods"
 msgstr ""
@@ -126,6 +160,41 @@ msgstr ""
 
 #: tmainform.servicemenuitem.caption
 msgid "Service"
+msgstr ""
+
+#: tmainform.tasksframe1.tasksdbgrid.header.columns[0].text
+msgctxt "tmainform.tasksframe1.tasksdbgrid.header.columns[0].text"
+msgid "ID"
+msgstr ""
+
+#: tmainform.tasksframe1.tasksdbgrid.header.columns[1].text
+msgctxt "tmainform.tasksframe1.tasksdbgrid.header.columns[1].text"
+msgid "Name"
+msgstr ""
+
+#: tmainform.tasksframe1.tasksdbgrid.header.columns[2].text
+msgctxt "tmainform.tasksframe1.tasksdbgrid.header.columns[2].text"
+msgid "Description"
+msgstr ""
+
+#: tmainform.tasksframe1.tasksdbgrid.header.columns[3].text
+msgctxt "tmainform.tasksframe1.tasksdbgrid.header.columns[3].text"
+msgid "Created"
+msgstr ""
+
+#: tmainform.tasksframe1.tasksdbgrid.header.columns[4].text
+msgctxt "tmainform.tasksframe1.tasksdbgrid.header.columns[4].text"
+msgid "Modified"
+msgstr ""
+
+#: tmainform.tasksframe1.tasksdbgrid.header.columns[5].text
+msgctxt "tmainform.tasksframe1.tasksdbgrid.header.columns[5].text"
+msgid "is_active"
+msgstr ""
+
+#: tmainform.tasksframe1.tasksdbgrid.header.columns[6].text
+msgctxt "tmainform.tasksframe1.tasksdbgrid.header.columns[6].text"
+msgid "done"
 msgstr ""
 
 #: tmainform.taskstabsheet.caption
@@ -325,7 +394,7 @@ msgstr ""
 
 #: tperiodsframe.dbgrid1.header.columns[3].text
 msgctxt "tperiodsframe.dbgrid1.header.columns[3].text"
-msgid "Task ID"
+msgid "Task"
 msgstr ""
 
 #: tperiodsframe.dbgrid1.header.columns[4].text

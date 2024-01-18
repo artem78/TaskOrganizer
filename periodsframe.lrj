@@ -2,7 +2,7 @@
 {"hash":1236,"name":"tperiodsframe.dbgrid1.header.columns[0].text","sourcebytes":[73,68],"value":"ID"},
 {"hash":4767230,"name":"tperiodsframe.dbgrid1.header.columns[1].text","sourcebytes":[66,101,103,105,110],"value":"Begin"},
 {"hash":19524,"name":"tperiodsframe.dbgrid1.header.columns[2].text","sourcebytes":[69,110,100],"value":"End"},
-{"hash":176804996,"name":"tperiodsframe.dbgrid1.header.columns[3].text","sourcebytes":[84,97,115,107,32,73,68],"value":"Task ID"},
+{"hash":370843,"name":"tperiodsframe.dbgrid1.header.columns[3].text","sourcebytes":[84,97,115,107],"value":"Task"},
 {"hash":75149509,"name":"tperiodsframe.dbgrid1.header.columns[4].text","sourcebytes":[65,99,116,105,118,101],"value":"Active"},
 {"hash":210283758,"name":"tperiodsframe.dbgrid1.header.columns[5].text","sourcebytes":[68,117,114,97,116,105,111,110],"value":"Duration"},
 {"hash":54272692,"name":"tperiodsframe.dbgrid1.header.columns[6].text","sourcebytes":[77,97,110,117,97,108,108,121,32,97,100,100,101,100],"value":"Manually added"}

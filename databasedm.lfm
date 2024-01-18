@@ -156,14 +156,16 @@ object DatabaseDataModule: TDatabaseDataModule
     Transaction = SQLTransaction1
     SQL.Strings = (
       'SELECT'
-      '    `id`,'
+      '    `tasks`.`id` AS `id`,'
       '    `begin`,'
       '     `end` - 2415018.5 AS `end`, /* Fix for Lazarus */'
       '     `task_id`,'
-      '     `is_active`,'
+      '     `periods`.`is_active` AS `is_active`,'
       '     `is_manually_added`,'
-      '     `duration`'
+      '     `duration`,'
+      '     `tasks`.`name` AS `task_name`'
       'FROM `periods`'
+      'JOIN `tasks` ON `tasks`.`id` = `periods`.`task_id`'
     )
     InsertSQL.Strings = (
       'INSERT INTO `_periods` (`id`, `begin`, `end`, `task_id`, `is_manually_added`)'
@@ -182,15 +184,17 @@ object DatabaseDataModule: TDatabaseDataModule
     )
     RefreshSQL.Strings = (
       'SELECT'
-      '    `id`,'
+      '    `tasks`.`id` AS `id`,'
       '    `begin`,'
       '     `end` - 2415018.5 AS `end`, /* Fix for Lazarus */'
       '     `task_id`,'
-      '     `is_active`,'
+      '     `periods`.`is_active` AS `is_active`,'
       '     `is_manually_added`,'
-      '     `duration`'
+      '     `duration`,'
+      '     `tasks`.`name` AS `task_name`'
       'FROM `periods`'
-      'WHERE `id` = :id'
+      'JOIN `tasks` ON `tasks`.`id` = `periods`.`task_id`'
+      'WHERE `periods`.`id` = :id'
     )
     Params = <>
     Macros = <>
@@ -260,6 +264,17 @@ object DatabaseDataModule: TDatabaseDataModule
       ReadOnly = False
       Required = False
       DisplayValues = 'True;False'
+    end
+	object PeriodsSQLQueryTaskName: TStringField
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'task_name'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere, pfRefreshOnInsert, pfRefreshOnUpdate]
+      ReadOnly = False
+      Required = False
+      Size = 256
     end
   end
   object PeriodsDataSource: TDataSource

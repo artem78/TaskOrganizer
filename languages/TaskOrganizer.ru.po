@@ -127,6 +127,46 @@ msgstr "Журнал SQL запросов"
 msgid "MenuItem1"
 msgstr ""
 
+#: tmainform.periodsframe1.dbgrid1.header.columns[0].text
+#, fuzzy
+msgctxt "tmainform.periodsframe1.dbgrid1.header.columns[0].text"
+msgid "ID"
+msgstr "ИД"
+
+#: tmainform.periodsframe1.dbgrid1.header.columns[1].text
+#, fuzzy
+msgctxt "tmainform.periodsframe1.dbgrid1.header.columns[1].text"
+msgid "Begin"
+msgstr "Начало"
+
+#: tmainform.periodsframe1.dbgrid1.header.columns[2].text
+#, fuzzy
+msgctxt "tmainform.periodsframe1.dbgrid1.header.columns[2].text"
+msgid "End"
+msgstr "Конец"
+
+#: tmainform.periodsframe1.dbgrid1.header.columns[3].text
+msgid "id"
+msgstr ""
+
+#: tmainform.periodsframe1.dbgrid1.header.columns[4].text
+#, fuzzy
+msgctxt "tmainform.periodsframe1.dbgrid1.header.columns[4].text"
+msgid "Active"
+msgstr "Активна"
+
+#: tmainform.periodsframe1.dbgrid1.header.columns[5].text
+#, fuzzy
+msgctxt "tmainform.periodsframe1.dbgrid1.header.columns[5].text"
+msgid "Duration"
+msgstr "Продолжительность"
+
+#: tmainform.periodsframe1.dbgrid1.header.columns[6].text
+#, fuzzy
+msgctxt "tmainform.periodsframe1.dbgrid1.header.columns[6].text"
+msgid "Manually added"
+msgstr "Добавлена вручную"
+
 #: tmainform.periodstabsheet.caption
 msgid "Periods"
 msgstr "Периоды"
@@ -138,6 +178,41 @@ msgstr "Отчёты"
 #: tmainform.servicemenuitem.caption
 msgid "Service"
 msgstr "Сервис"
+
+#: tmainform.tasksframe1.tasksdbgrid.header.columns[0].text
+msgctxt "tmainform.tasksframe1.tasksdbgrid.header.columns[0].text"
+msgid "ID"
+msgstr "ИД"
+
+#: tmainform.tasksframe1.tasksdbgrid.header.columns[1].text
+msgctxt "tmainform.tasksframe1.tasksdbgrid.header.columns[1].text"
+msgid "Name"
+msgstr "Название"
+
+#: tmainform.tasksframe1.tasksdbgrid.header.columns[2].text
+msgctxt "tmainform.tasksframe1.tasksdbgrid.header.columns[2].text"
+msgid "Description"
+msgstr "Описание"
+
+#: tmainform.tasksframe1.tasksdbgrid.header.columns[3].text
+msgctxt "tmainform.tasksframe1.tasksdbgrid.header.columns[3].text"
+msgid "Created"
+msgstr "Создано"
+
+#: tmainform.tasksframe1.tasksdbgrid.header.columns[4].text
+msgctxt "tmainform.tasksframe1.tasksdbgrid.header.columns[4].text"
+msgid "Modified"
+msgstr "Изменено"
+
+#: tmainform.tasksframe1.tasksdbgrid.header.columns[5].text
+msgctxt "tmainform.tasksframe1.tasksdbgrid.header.columns[5].text"
+msgid "is_active"
+msgstr ""
+
+#: tmainform.tasksframe1.tasksdbgrid.header.columns[6].text
+msgctxt "tmainform.tasksframe1.tasksdbgrid.header.columns[6].text"
+msgid "done"
+msgstr ""
 
 #: tmainform.taskstabsheet.caption
 msgctxt "tmainform.taskstabsheet.caption"
@@ -336,8 +411,8 @@ msgstr "Конец"
 
 #: tperiodsframe.dbgrid1.header.columns[3].text
 msgctxt "tperiodsframe.dbgrid1.header.columns[3].text"
-msgid "Task ID"
-msgstr "ИД задачи"
+msgid "Task"
+msgstr "Задача"
 
 #: tperiodsframe.dbgrid1.header.columns[4].text
 msgctxt "tperiodsframe.dbgrid1.header.columns[4].text"

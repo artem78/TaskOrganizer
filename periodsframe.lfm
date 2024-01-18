@@ -39,8 +39,9 @@ object PeriodsFrame: TPeriodsFrame
       end    
       item
         Position = 3
-        Text = 'Task ID'
-        FieldName = 'task_id'
+        Text = 'Task'
+        Width = 350
+        FieldName = 'task_name'
         ColumnType = ctDBField
       end    
       item

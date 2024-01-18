@@ -4,7 +4,5 @@
 {"hash":346165,"name":"ttasksframe.tasksdbgrid.columns[1].title.caption","sourcebytes":[78,97,109,101],"value":"Name"},
 {"hash":156067838,"name":"ttasksframe.tasksdbgrid.columns[2].title.caption","sourcebytes":[68,101,115,99,114,105,112,116,105,111,110],"value":"Description"},
 {"hash":176917236,"name":"ttasksframe.tasksdbgrid.columns[3].title.caption","sourcebytes":[67,114,101,97,116,101,100],"value":"Created"},
-{"hash":95406836,"name":"ttasksframe.tasksdbgrid.columns[4].title.caption","sourcebytes":[77,111,100,105,102,105,101,100],"value":"Modified"},
-{"hash":218344474,"name":"ttasksframe.filteredit.editlabel.caption","sourcebytes":[70,105,108,116,101,114,58],"value":"Filter:"},
-{"hash":88,"name":"ttasksframe.clearfilterbutton.caption","sourcebytes":[88],"value":"X"}
+{"hash":95406836,"name":"ttasksframe.tasksdbgrid.columns[4].title.caption","sourcebytes":[77,111,100,105,102,105,101,100],"value":"Modified"}
 ]}

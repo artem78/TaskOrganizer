@@ -91,9 +91,9 @@ msgctxt "taskedit.rssave"
 msgid "Save"
 msgstr ""
 
-#: tasksframe.rsfilter
-msgctxt "tasksframe.rsfilter"
-msgid "Filter:"
+#: tasksframe.rsfilterhint
+msgctxt "tasksframe.rsfilterhint"
+msgid "(filter)"
 msgstr ""
 
 #: tmainform.caption
@@ -392,6 +392,7 @@ msgid "(De)Select all"
 msgstr ""
 
 #: treportframe.tasklistfilteredit.texthint
+msgctxt "treportframe.tasklistfilteredit.texthint"
 msgid "(filter)"
 msgstr ""
 
@@ -426,15 +427,6 @@ msgstr ""
 
 #: ttaskeditform.tasknamelabel.caption
 msgid "Name:"
-msgstr ""
-
-#: ttasksframe.clearfilterbutton.caption
-msgid "X"
-msgstr ""
-
-#: ttasksframe.filteredit.editlabel.caption
-msgctxt "ttasksframe.filteredit.editlabel.caption"
-msgid "Filter:"
 msgstr ""
 
 #: ttasksframe.tasksdbgrid.columns[0].title.caption

@@ -102,10 +102,10 @@ msgctxt "taskedit.rssave"
 msgid "Save"
 msgstr "Сохранить"
 
-#: tasksframe.rsfilter
-msgctxt "tasksframe.rsfilter"
-msgid "Filter:"
-msgstr "Фильтр:"
+#: tasksframe.rsfilterhint
+msgctxt "tasksframe.rsfilterhint"
+msgid "(filter)"
+msgstr "(фильтр)"
 
 #: tmainform.caption
 msgid "Task Organizer"
@@ -403,6 +403,7 @@ msgid "(De)Select all"
 msgstr "Отметить все/снять отметки"
 
 #: treportframe.tasklistfilteredit.texthint
+msgctxt "treportframe.tasklistfilteredit.texthint"
 msgid "(filter)"
 msgstr "(фильтр)"
 
@@ -439,15 +440,6 @@ msgstr "Описание:"
 msgid "Name:"
 msgstr "Название:"
 
-#: ttasksframe.clearfilterbutton.caption
-msgid "X"
-msgstr ""
-
-#: ttasksframe.filteredit.editlabel.caption
-msgctxt "ttasksframe.filteredit.editlabel.caption"
-msgid "Filter:"
-msgstr "Фильтр:"
-
 #: ttasksframe.tasksdbgrid.columns[0].title.caption
 msgctxt "ttasksframe.tasksdbgrid.columns[0].title.caption"
 msgid "ID"
@@ -476,4 +468,3 @@ msgstr "Изменено"
 #: ttasksframe.toolbar1.caption
 msgid "ToolBar1"
 msgstr ""
-

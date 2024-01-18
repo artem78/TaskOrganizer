@@ -52,6 +52,7 @@ object TasksFrame: TTasksFrame
     end
   end
   object TasksDBGrid: TDBGrid
+    AnchorSideTop.Control = FilterEdit
     AnchorSideTop.Side = asrBottom
     Left = 0
     Height = 265
@@ -99,39 +100,19 @@ object TasksFrame: TTasksFrame
     OnKeyDown = TasksDBGridKeyDown
     OnPrepareCanvas = TasksDBGridPrepareCanvas
   end
-  object FilterEdit: TLabeledEdit
+  object FilterEdit: TListViewFilterEdit
+    AnchorSideLeft.Control = Owner
     AnchorSideTop.Control = ToolBar1
     AnchorSideTop.Side = asrBottom
-    AnchorSideRight.Side = asrBottom
-    Left = 40
+    Left = 0
     Height = 23
-    Top = 29
-    Width = 160
-    BorderSpacing.Around = 3
-    EditLabel.Height = 15
-    EditLabel.Width = 29
-    EditLabel.Caption = 'Filter:'
-    EditLabel.ParentColor = False
-    LabelPosition = lpLeft
+    Top = 26
+    Width = 300
+    ButtonWidth = 23
+    NumGlyphs = 1
+    MaxLength = 0
     TabOrder = 2
     OnChange = FilterEditChange
-  end
-  object ClearFilterButton: TButton
-    AnchorSideLeft.Control = FilterEdit
-    AnchorSideLeft.Side = asrBottom
-    AnchorSideTop.Control = FilterEdit
-    AnchorSideBottom.Control = FilterEdit
-    AnchorSideBottom.Side = asrBottom
-    Left = 203
-    Height = 23
-    Top = 29
-    Width = 33
-    Anchors = [akTop, akLeft, akBottom]
-    AutoSize = True
-    BorderSpacing.Left = 3
-    Caption = 'X'
-    OnClick = ClearFilterButtonClick
-    TabOrder = 3
   end
   object TasksGridPopupMenu: TPopupMenu
     Images = NonVisualCtrlsDataModule.Icons

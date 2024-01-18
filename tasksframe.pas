@@ -5,14 +5,15 @@ unit TasksFrame;
 interface
 
 uses
-  Classes, SysUtils, FileUtil, Forms, Controls, ComCtrls, DBGrids, Grids,
-  ExtCtrls, StdCtrls, Menus, LocalizedForms;
+  Classes, SysUtils, FileUtil, ListViewFilterEdit, Forms, Controls, ComCtrls,
+  DBGrids, Grids, ExtCtrls, StdCtrls, Menus, FileCtrl, LocalizedForms;
 
 type
 
   { TTasksFrame }
 
   TTasksFrame = class(TLocalizedFrame)
+    FilterEdit: TListViewFilterEdit;
     MenuItem1: TMenuItem;
     MenuItem2: TMenuItem;
     MenuItem3: TMenuItem;
@@ -20,8 +21,6 @@ type
     MenuItem5: TMenuItem;
     MenuItem6: TMenuItem;
     TasksGridPopupMenu: TPopupMenu;
-    ClearFilterButton: TButton;
-    FilterEdit: TLabeledEdit;
     TasksDBGrid: TDBGrid;
     ToolBar1: TToolBar;
     AddToolButton: TToolButton;
@@ -30,7 +29,6 @@ type
     SeparatorToolButton: TToolButton;
     StartTrackingToolButton: TToolButton;
     StopTrackingToolButton: TToolButton;
-    procedure ClearFilterButtonClick(Sender: TObject);
     procedure FilterEditChange(Sender: TObject);
     procedure TasksDBGridDblClick(Sender: TObject);
     procedure TasksDBGridDrawColumnCell(Sender: TObject; const Rect: TRect;
@@ -52,7 +50,7 @@ uses
   Variants, Graphics, DatabaseDM, LCLType, NonVisualCtrlsDM, WinMouse{, LCLTranslator};
 
 resourcestring
-  RSFilter = 'Filter:';
+  RSFilterHint = '(filter)';
 
 {$R *.lfm}
 
@@ -76,7 +74,7 @@ procedure TTasksFrame.UpdateTranslation(ALang: String);
 begin
   inherited;
 
-  FilterEdit.EditLabel.Caption := RSFilter;
+  FilterEdit.TextHint := RSFilterHint;
 end;
 
 procedure TTasksFrame.SelectTask(AnID: Integer);
@@ -84,14 +82,9 @@ begin
   DatabaseDataModule.TasksSQLQuery.Locate('id', AnID, []);
 end;
 
-procedure TTasksFrame.ClearFilterButtonClick(Sender: TObject);
-begin
-  FilterEdit.Clear;
-end;
-
 procedure TTasksFrame.FilterEditChange(Sender: TObject);
 begin
-  DatabaseDataModule.TasksFilterText := FilterEdit.Text;
+  DatabaseDataModule.TasksFilterText := FilterEdit.Caption;
 end;
 
 procedure TTasksFrame.TasksDBGridDblClick(Sender: TObject);

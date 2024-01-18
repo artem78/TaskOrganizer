@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, ListViewFilterEdit, Forms, Controls, ComCtrls,
-  DBGrids, Grids, ExtCtrls, StdCtrls, Menus, FileCtrl, LocalizedForms;
+  ExtCtrls, Menus, VirtualDBGrid, LocalizedForms, VirtualTrees, Graphics;
 
 type
 
@@ -21,7 +21,7 @@ type
     MenuItem5: TMenuItem;
     MenuItem6: TMenuItem;
     TasksGridPopupMenu: TPopupMenu;
-    TasksDBGrid: TDBGrid;
+    TasksDBGrid: TVirtualDBGrid;
     ToolBar1: TToolBar;
     AddToolButton: TToolButton;
     RemoveToolButton: TToolButton;
@@ -31,12 +31,14 @@ type
     StopTrackingToolButton: TToolButton;
     procedure FilterEditChange(Sender: TObject);
     procedure TasksDBGridDblClick(Sender: TObject);
-    procedure TasksDBGridDrawColumnCell(Sender: TObject; const Rect: TRect;
-      DataCol: Integer; Column: TColumn; State: TGridDrawState);
+    procedure TasksDBGridGetImageIndex(Sender: TBaseVirtualTree;
+      Node: PVirtualNode; Kind: TVTImageKind; Column: TColumnIndex;
+      var Ghosted: Boolean; var ImageIndex: Integer);
     procedure TasksDBGridKeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);
-    procedure TasksDBGridPrepareCanvas(sender: TObject; DataCol: Integer;
-      Column: TColumn; AState: TGridDrawState);
+    procedure TasksDBGridPaintText(Sender: TBaseVirtualTree;
+      const TargetCanvas: TCanvas; Node: PVirtualNode; Column: TColumnIndex;
+      TextType: TVSTTextType);
   private
      procedure UpdateTranslation(ALang: String); override;
   public
@@ -47,7 +49,7 @@ type
 implementation
 
 uses
-  Variants, Graphics, DatabaseDM, LCLType, NonVisualCtrlsDM, WinMouse{, LCLTranslator};
+  Variants, DatabaseDM, LCLType, NonVisualCtrlsDM, WinMouse{, LCLTranslator};
 
 resourcestring
   RSFilterHint = '(filter)';
@@ -56,17 +58,27 @@ resourcestring
 
 { TTasksFrame }
 
-procedure TTasksFrame.TasksDBGridPrepareCanvas(sender: TObject;
-  DataCol: Integer; Column: TColumn; AState: TGridDrawState);
+procedure TTasksFrame.TasksDBGridPaintText(Sender: TBaseVirtualTree;
+  const TargetCanvas: TCanvas; Node: PVirtualNode; Column: TColumnIndex;
+  TextType: TVSTTextType);
+var
+  Grid: TVirtualDBGrid;
 begin
   // Green color for active task
 
-  if (Sender as TDBGrid).Datasource.Dataset.FieldByName('is_active').AsBoolean then
-  begin
-    if not (gdSelected in AState) then
-      (Sender as TDBGrid).Canvas.Font.Color := clGreen;
+  if (Column <= NoColumn) then
+    Exit;
+  Grid := (Sender as TVirtualDBGrid);
 
-    (Sender as TDBGrid).Canvas.Font.Style := [fsBold];
+  //if VarIsNull(Grid.GetNodeRecordData(Node).FieldValue['is_active']) then
+  //  Exit;
+
+  if Boolean(Grid.GetNodeRecordData(Node).FieldValue['is_active']) then
+  begin
+    if Node <> Grid.FocusedNode then
+      TargetCanvas.Font.Color := clGreen;
+
+    TargetCanvas.Font.Style := [fsBold];
   end;
 end;
 
@@ -88,68 +100,40 @@ begin
 end;
 
 procedure TTasksFrame.TasksDBGridDblClick(Sender: TObject);
-  function IsMouseOverCell: Boolean;
+  {function IsMouseOverCell: Boolean;
   var
     ClientCoord: TPoint;
   begin
     ClientCoord :=  TasksDBGrid.ScreenToClient(Mouse.CursorPos);
 
     Result := TasksDBGrid.MouseToGridZone(ClientCoord.X, ClientCoord.Y) = gzNormal;
-  end;
+  end;}
 
 begin
-  if IsMouseOverCell then NonVisualCtrlsDataModule.EditTaskAction.Execute;
+  {if IsMouseOverCell then} NonVisualCtrlsDataModule.EditTaskAction.Execute;
 end;
 
-procedure TTasksFrame.TasksDBGridDrawColumnCell(Sender: TObject;
-  const Rect: TRect; DataCol: Integer; Column: TColumn; State: TGridDrawState);
-const
-  Indent = 3;
+procedure TTasksFrame.TasksDBGridGetImageIndex(Sender: TBaseVirtualTree;
+  Node: PVirtualNode; Kind: TVTImageKind; Column: TColumnIndex;
+  var Ghosted: Boolean; var ImageIndex: Integer);
 var
-  Bitmap: TBitmap;
-  BitmapPoint{, TextPoint}: TPoint;
-  TextRect: TRect;
-  IconIdx: Integer = -1;
+  Grid: TVirtualDBGrid;
+  Col: TVirtualDBTreeColumn;
+  RecordData: TRecordData;
 begin
-  if Assigned(Column.Field) and (Column.FieldName = {'id'} 'name')
-      and (not (Sender as TDBGrid).DataSource.DataSet.IsEmpty) then
+  if Column <= NoColumn then
+    Exit;
+
+  Grid := Sender as TVirtualDBGrid;
+  Col := TVirtualDBTreeColumn(Grid.Header.Columns[Column]);
+
+  if Col.FieldName = {'id'} 'name' then
   begin
-    with TasksDBGrid.Canvas do
-    begin
-      FillRect(Rect);
-
-      with DatabaseDataModule.TasksSQLQuery do
-      begin
-        if FieldByName('is_active').AsBoolean then
-          IconIdx := 0
-        else if FieldByName('done').AsBoolean then
-          IconIdx := 2;
-      end;
-
-      // Draw icon
-      if IconIdx > -1 then
-      begin
-        Bitmap := TBitmap.Create;
-        try
-          NonVisualCtrlsDataModule.Icons.GetBitmap(IconIdx, Bitmap);
-          BitmapPoint.X := Rect.Left + Indent;
-          BitmapPoint.Y := Rect.Top + Round((Rect.Height - Bitmap.Height) / 2);
-          Draw(BitmapPoint.X, BitmapPoint.Y, Bitmap);
-        finally
-          Bitmap.Free;
-        end;
-      end;
-
-      {// Draw text
-      TextPoint.X := Rect.Left + Indent * 2 + NonVisualCtrlsDataModule.Icons.Width;
-      TextPoint.Y := Rect.Top + Round((Rect.Height - TextHeight(Column.Field.Text)) / 2);
-      TextOut(TextPoint.X, TextPoint.Y, Column.Field.Text);}
-    end;
-
-    // Draw text
-    TextRect := Rect;
-    TextRect.Left := TextRect.Left + Indent {* 2} + NonVisualCtrlsDataModule.Icons.Width;
-    TasksDBGrid.DefaultDrawColumnCell(TextRect, DataCol, Column, State);
+    RecordData := Grid.GetNodeRecordData(Node);
+    if RecordData.FieldValue['is_active'] then
+      ImageIndex := 0
+    else if RecordData.FieldValue['done'] then
+      ImageIndex := 2;
   end;
 end;
 

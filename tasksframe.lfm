@@ -51,7 +51,7 @@ object TasksFrame: TTasksFrame
       Action = NonVisualCtrlsDataModule.StopTimeTrackingAction
     end
   end
-  object TasksDBGrid: TDBGrid
+  object TasksDBGrid: TVirtualDBGrid
     AnchorSideTop.Control = FilterEdit
     AnchorSideTop.Side = asrBottom
     Left = 0
@@ -59,46 +59,74 @@ object TasksFrame: TTasksFrame
     Top = 58
     Width = 561
     Align = alClient
-    AutoEdit = False
-    BorderSpacing.Top = 32
-    Color = clWindow
-    Columns = <    
+    Header.AutoSizeIndex = 2
+    Header.Columns = <    
       item
-        Title.Caption = 'ID'
-        Width = 26
+        Position = 0
+        Text = 'ID'
+        Width = 30
         FieldName = 'id'
+        ColumnType = ctDBField
       end    
       item
-        Title.Caption = 'Name'
-        Width = 47
+        Position = 1
+        Text = 'Name'
+        Width = 200
         FieldName = 'name'
+        ColumnType = ctDBField
       end    
       item
-        Title.Caption = 'Description'
-        Width = 75
+        Position = 2
+        Text = 'Description'
+        Width = 87
         FieldName = 'description'
+        ColumnType = ctDBField
       end    
       item
-        Title.Caption = 'Created'
-        Width = 56
+        Position = 3
+        Text = 'Created'
+        Width = 120
         FieldName = 'created'
+        ColumnType = ctDBField
       end    
       item
-        Title.Caption = 'Modified'
-        Width = 63
+        Position = 4
+        Text = 'Modified'
+        Width = 120
         FieldName = 'modified'
+        ColumnType = ctDBField
+      end    
+      item
+        Options = [coAllowClick, coDraggable, coEnabled, coParentBidiMode, coParentColor, coResizable, coShowDropMark, coAllowFocus, coEditable]
+        Position = 5
+        Text = 'is_active'
+        Width = 55
+        FieldName = 'is_active'
+        ColumnType = ctDBField
+      end    
+      item
+        Options = [coAllowClick, coDraggable, coEnabled, coParentBidiMode, coParentColor, coResizable, coShowDropMark, coAllowFocus, coEditable]
+        Position = 6
+        Text = 'done'
+        Width = 38
+        FieldName = 'done'
+        ColumnType = ctDBField
       end>
-    DataSource = DatabaseDataModule.TasksDataSource
-    FixedCols = 0
-    Options = [dgTitles, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgAutoSizeColumns, dgAnyButtonCanSelect]
+    Header.Options = [hoAutoResize, hoColumnResize, hoDblClickResize, hoDrag, hoHotTrack, hoShowHint, hoShowSortGlyphs, hoVisible]
+    Images = NonVisualCtrlsDataModule.Icons
+    LineStyle = lsSolid
     PopupMenu = TasksGridPopupMenu
-    ReadOnly = True
     TabOrder = 1
-    TitleStyle = tsNative
-    OnDrawColumnCell = TasksDBGridDrawColumnCell
     OnDblClick = TasksDBGridDblClick
+    OnPaintText = TasksDBGridPaintText
+    OnGetImageIndex = TasksDBGridGetImageIndex
     OnKeyDown = TasksDBGridKeyDown
-    OnPrepareCanvas = TasksDBGridPrepareCanvas
+    BorderSpacing.Top = 32
+    DBOptions.DataSource = DatabaseDataModule.TasksDataSource
+    DBOptions.OddRowColor = clWindow
+    DBOptions.EvenRowColor = clWindow
+    DBOptions.SortColumnBgColor = 14745599
+    DBOptions.AdvOptions = [aoStrippedRows, aoShowHorzLines, aoShowVertLines, aoAutoInsertIndicator, aoAllowSorting, aoHighlightSortColumn, aoHourGlassCursor, aoSortDBFieldColumns, aoEditDBFieldColumns, aoSortCalculatedColumns, aoFullRowSelect]
   end
   object FilterEdit: TListViewFilterEdit
     AnchorSideLeft.Control = Owner

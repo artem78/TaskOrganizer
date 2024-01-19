@@ -34,7 +34,7 @@ type
 implementation
 
 uses
-  LCLType, NonVisualCtrlsDM, WinMouse, StrUtils, Variants, Grids;
+  LCLType, NonVisualCtrlsDM, Utils, WinMouse, StrUtils, Variants, Grids;
 
 resourcestring
   RSYes = 'Yes';
@@ -73,6 +73,8 @@ begin
       FieldValue['is_manually_added'] := ''
     else
       FieldValue['is_manually_added'] := FormatBoolStr(FieldValue['is_manually_added']);
+
+    FieldValue['duration'] := DurationToStr(FieldValue['duration']);
   end;
 end;
 

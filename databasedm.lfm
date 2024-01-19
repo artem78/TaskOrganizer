@@ -151,6 +151,7 @@ object DatabaseDataModule: TDatabaseDataModule
     end
   end
   object PeriodsSQLQuery: TSQLQuery
+    PacketRecords = -1
     FieldDefs = <>
     Database = SQLite3Connection1
     Transaction = SQLTransaction1

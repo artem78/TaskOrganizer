@@ -5,7 +5,7 @@ unit PeriodsFrame;
 interface
 
 uses
-  Classes, SysUtils, Forms, Controls, DBGrids, ComCtrls, Menus, VirtualDBGrid;
+  Classes, SysUtils, Forms, Controls, DBGrids, ComCtrls, Menus, VirtualDBGrid, VirtualTrees, DB;
 
 type
 
@@ -23,6 +23,8 @@ type
     procedure DBGrid1DblClick(Sender: TObject);
     procedure DBGrid1KeyDown(Sender: TObject; var Key: Word; Shift: TShiftState
       );
+    procedure DBGrid1LoadRecord(Sender: TCustomVirtualDBGrid;
+      RecordData: TRecordData; RowIndex: Cardinal);
   private
 
   public
@@ -32,7 +34,10 @@ type
 implementation
 
 uses
-  LCLType, NonVisualCtrlsDM, WinMouse, Grids;
+  LCLType, NonVisualCtrlsDM, WinMouse, StrUtils, Grids;
+
+resourcestring
+  RSYes = 'Yes';
 
 {$R *.lfm}
 
@@ -45,6 +50,22 @@ begin
   begin
     NonVisualCtrlsDataModule.DeletePeriodAction.Execute;
     Key := 0;
+  end;
+end;
+
+procedure TPeriodsFrame.DBGrid1LoadRecord(Sender: TCustomVirtualDBGrid;
+  RecordData: TRecordData; RowIndex: Cardinal);
+
+  function FormatBoolStr(const AStr: String): String; inline;
+  begin
+    Result := IfThen(AStr = 'True', RSYes, '');
+  end;
+
+begin
+  with RecordData do
+  begin
+    FieldValue['is_active'] := FormatBoolStr(FieldValue['is_active']);
+    FieldValue['is_manually_added'] := FormatBoolStr(FieldValue['is_manually_added']);
   end;
 end;
 

@@ -63,6 +63,10 @@ msgctxt "periodeditfrm.rssave"
 msgid "Save"
 msgstr "Сохранить"
 
+#: periodsframe.rsyes
+msgid "Yes"
+msgstr "Да"
+
 #: reportfrm.rschart
 msgid "Chart"
 msgstr "График"

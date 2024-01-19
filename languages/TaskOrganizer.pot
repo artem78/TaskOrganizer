@@ -52,6 +52,10 @@ msgctxt "periodeditfrm.rssave"
 msgid "Save"
 msgstr ""
 
+#: periodsframe.rsyes
+msgid "Yes"
+msgstr ""
+
 #: reportfrm.rschart
 msgid "Chart"
 msgstr ""

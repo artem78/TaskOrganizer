@@ -75,6 +75,7 @@ object PeriodsFrame: TPeriodsFrame
     DBOptions.EvenRowColor = clWindow
     DBOptions.SortColumnBgColor = 14745599
     DBOptions.AdvOptions = [aoStrippedRows, aoShowHorzLines, aoShowVertLines, aoAutoInsertIndicator, aoAllowSorting, aoHighlightSortColumn, aoHourGlassCursor, aoSortDBFieldColumns, aoEditDBFieldColumns, aoSortCalculatedColumns, aoFullRowSelect]
+    OnLoadRecord = DBGrid1LoadRecord
   end
   object ToolBar: TToolBar
     Left = 0

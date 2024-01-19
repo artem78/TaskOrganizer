@@ -156,7 +156,7 @@ object DatabaseDataModule: TDatabaseDataModule
     Transaction = SQLTransaction1
     SQL.Strings = (
       'SELECT'
-      '    `tasks`.`id` AS `id`,'
+      '    `periods`.`id` AS `id`,'
       '    `begin`,'
       '     `end` - 2415018.5 AS `end`, /* Fix for Lazarus */'
       '     `task_id`,'
@@ -184,7 +184,7 @@ object DatabaseDataModule: TDatabaseDataModule
     )
     RefreshSQL.Strings = (
       'SELECT'
-      '    `tasks`.`id` AS `id`,'
+      '    `periods`.`id` AS `id`,'
       '    `begin`,'
       '     `end` - 2415018.5 AS `end`, /* Fix for Lazarus */'
       '     `task_id`,'
@@ -265,7 +265,7 @@ object DatabaseDataModule: TDatabaseDataModule
       Required = False
       DisplayValues = 'True;False'
     end
-	object PeriodsSQLQueryTaskName: TStringField
+    object PeriodsSQLQueryTaskName: TStringField
       DisplayWidth = 20
       FieldKind = fkData
       FieldName = 'task_name'

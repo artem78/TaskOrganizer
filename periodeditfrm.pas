@@ -35,7 +35,7 @@ var
 
 implementation
 
-uses DB, DateUtils, StrUtils;
+uses DB, DateUtils, StrUtils, Utils;
 
 resourcestring
   RSCreatePeriod = 'Create period';
@@ -98,16 +98,14 @@ end;
 procedure TPeriodEditForm.RefreshDuration;
 var
   BeginDT, EndDT: TDateTime;
-  Days: Integer;
 begin
   PatchInstanceClass(BeginDateTimePicker, TMyDBDateTimePicker);
   PatchInstanceClass(EndDateTimePicker, TMyDBDateTimePicker);
 
   BeginDT := (BeginDateTimePicker as TMyDBDateTimePicker).VisibleDateTime;
   EndDT := (EndDateTimePicker as TMyDBDateTimePicker).VisibleDateTime;
-  Days := DaysBetween(EndDT, BeginDT);
-  DurationLabel.Caption := IfThen(Days > 0, IntToStr(Days) + '.', '')
-                         + FormatDateTime('hh:nn:ss', EndDT - BeginDT);
+
+  DurationLabel.Caption := DurationToStr(BeginDT, EndDT);
 end;
 
 procedure TPeriodEditForm.BeginDateTimePickerChange(Sender: TObject);

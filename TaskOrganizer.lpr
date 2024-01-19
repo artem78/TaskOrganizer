@@ -11,7 +11,7 @@ uses
   DatabaseDM, taskedit, periodsframe, Models, NonVisualCtrlsDM, PeriodEditFrm
   { you can add units after this },
   Dialogs, treelistviewpackage, UniqueInstanceRaw, virtualdbgrid_package,
-  ReportFrm;
+  ReportFrm, Utils;
 
 {$R *.res}
 

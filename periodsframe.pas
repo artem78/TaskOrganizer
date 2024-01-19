@@ -34,7 +34,7 @@ type
 implementation
 
 uses
-  LCLType, NonVisualCtrlsDM, WinMouse, StrUtils, Grids;
+  LCLType, NonVisualCtrlsDM, WinMouse, StrUtils, Variants, Grids;
 
 resourcestring
   RSYes = 'Yes';
@@ -64,8 +64,15 @@ procedure TPeriodsFrame.DBGrid1LoadRecord(Sender: TCustomVirtualDBGrid;
 begin
   with RecordData do
   begin
-    FieldValue['is_active'] := FormatBoolStr(FieldValue['is_active']);
-    FieldValue['is_manually_added'] := FormatBoolStr(FieldValue['is_manually_added']);
+    if VarIsNull(FieldValue['is_active']) then
+      FieldValue['is_active'] := ''
+    else
+      FieldValue['is_active'] := FormatBoolStr(FieldValue['is_active']);
+
+    if VarIsNull(FieldValue['is_manually_added']) then
+      FieldValue['is_manually_added'] := ''
+    else
+      FieldValue['is_manually_added'] := FormatBoolStr(FieldValue['is_manually_added']);
   end;
 end;
 

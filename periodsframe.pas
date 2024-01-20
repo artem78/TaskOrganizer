@@ -74,7 +74,10 @@ begin
     else
       FieldValue['is_manually_added'] := FormatBoolStr(FieldValue['is_manually_added']);
 
-    FieldValue['duration'] := DurationToStr(FieldValue['duration']);
+    if VarIsNull(FieldValue['duration']) then
+      FieldValue['duration'] := '-----'
+    else
+      FieldValue['duration'] := DurationToStr(FieldValue['duration']);
   end;
 end;
 

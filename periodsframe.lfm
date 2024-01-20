@@ -14,7 +14,7 @@ object PeriodsFrame: TPeriodsFrame
     Top = 26
     Width = 484
     Align = alClient
-    Header.AutoSizeIndex = 0
+    Header.AutoSizeIndex = 3
     Header.Columns = <    
       item
         Position = 0
@@ -40,31 +40,38 @@ object PeriodsFrame: TPeriodsFrame
       item
         Position = 3
         Text = 'Task'
-        Width = 350
+        Width = 10
         FieldName = 'task_name'
         ColumnType = ctDBField
       end    
       item
+        Alignment = taCenter
+        Options = [coAllowClick, coDraggable, coEnabled, coParentBidiMode, coParentColor, coResizable, coShowDropMark, coVisible, coAllowFocus, coUseCaptionAlignment, coEditable]
         Position = 4
         Text = 'Active'
+        Width = 80
         FieldName = 'is_active'
         ColumnType = ctDBField
       end    
       item
+        Alignment = taRightJustify
+        Options = [coAllowClick, coDraggable, coEnabled, coParentBidiMode, coParentColor, coResizable, coShowDropMark, coVisible, coAllowFocus, coUseCaptionAlignment, coEditable]
         Position = 5
         Text = 'Duration'
-        Width = 120
+        Width = 140
         FieldName = 'duration'
         ColumnType = ctDBField
       end    
       item
+        Alignment = taCenter
+        Options = [coAllowClick, coDraggable, coEnabled, coParentBidiMode, coParentColor, coResizable, coShowDropMark, coVisible, coAllowFocus, coUseCaptionAlignment, coEditable]
         Position = 6
         Text = 'Manually added'
-        Width = 120
+        Width = 140
         FieldName = 'is_manually_added'
         ColumnType = ctDBField
       end>
-    Header.Options = [hoColumnResize, hoDblClickResize, hoDrag, hoHotTrack, hoShowHint, hoShowSortGlyphs, hoVisible]
+    Header.Options = [hoAutoResize, hoColumnResize, hoDblClickResize, hoDrag, hoHotTrack, hoShowHint, hoShowSortGlyphs, hoVisible]
     LineStyle = lsSolid
     PopupMenu = PeriodsGridPopupMenu
     TabOrder = 0

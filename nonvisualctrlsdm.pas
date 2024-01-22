@@ -226,6 +226,8 @@ begin
 
     if PeriodEditForm.ShowModal = mrOK then
     begin
+      FieldByName('is_manually_added').AsBoolean := True;
+
       Post;
       ApplyUpdates;
       DatabaseDataModule.SQLTransaction1.CommitRetaining;

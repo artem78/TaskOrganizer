@@ -46,7 +46,7 @@ object PeriodsFrame: TPeriodsFrame
       end    
       item
         Alignment = taCenter
-        Options = [coAllowClick, coDraggable, coEnabled, coParentBidiMode, coParentColor, coResizable, coShowDropMark, coVisible, coAllowFocus, coUseCaptionAlignment, coEditable]
+        Options = [coAllowClick, coDraggable, coEnabled, coParentBidiMode, coParentColor, coResizable, coShowDropMark, coAllowFocus, coUseCaptionAlignment, coEditable]
         Position = 4
         Text = 'Active'
         Width = 80

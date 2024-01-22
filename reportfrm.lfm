@@ -1,4 +1,4 @@
-inherited ReportFrame: TReportFrame
+object ReportFrame: TReportFrame
   Left = 0
   Height = 579
   Top = 0
@@ -253,7 +253,7 @@ inherited ReportFrame: TReportFrame
         Visible = True
       end    
       item
-        Alignment = taLeftJustify
+        Alignment = taRightJustify
         Text = 'Total time'
         Width = 100
         Visible = True

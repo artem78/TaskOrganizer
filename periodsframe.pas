@@ -64,10 +64,8 @@ procedure TPeriodsFrame.DBGrid1LoadRecord(Sender: TCustomVirtualDBGrid;
 begin
   with RecordData do
   begin
-    if VarIsNull(FieldValue['is_active']) then
-      FieldValue['is_active'] := ''
-    else
-      FieldValue['is_active'] := FormatBoolStr(FieldValue['is_active']);
+    if (not VarIsNull(FieldValue['is_active'])) and FieldValue['is_active'] then
+      FieldValue['end'] := '';
 
     if VarIsNull(FieldValue['is_manually_added']) then
       FieldValue['is_manually_added'] := ''

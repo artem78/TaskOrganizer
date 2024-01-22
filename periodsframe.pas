@@ -77,7 +77,7 @@ begin
     if VarIsNull(FieldValue['duration']) then
       FieldValue['duration'] := '-----'
     else
-      FieldValue['duration'] := DurationToStr(FieldValue['duration']);
+      FieldValue['duration'] := DurationToStr(VarToDateTime(FieldValue['duration']));
   end;
 end;
 

@@ -82,7 +82,7 @@ type
 
 implementation
 
-uses DateUtils, DatabaseDM, Graphics, System.UITypes, fgl, Math{, LCLTranslator};
+uses DateUtils, DatabaseDM, Utils, Graphics, System.UITypes, fgl, Math{, LCLTranslator};
 
 resourcestring
   RSYears = 'Years';
@@ -387,19 +387,6 @@ begin
 end;   }
 
 procedure TReportFrame.FillReportTree(const AReport: TReport);
-    function TimeInSecondsToStr(ASec: Integer): String;
-    var
-      Days, Hours, Minutes, Seconds: Integer;
-    begin
-      Days := ASec div SecsPerDay;
-      Hours := ASec mod SecsPerDay div SecsPerHour;
-      Minutes := ASec mod SecsPerHour div SecsPerMin;
-      Seconds := ASec mod 60;
-      Result := Format('%d:%.2d:%.2d:%.2d', [
-            Days, Hours, Minutes, Seconds
-          ]);
-    end;
-
 var
   PeriodIdx: Integer;
   Period: String;
@@ -429,11 +416,11 @@ begin
         Task := AReport.Items.Data[PeriodIdx].Keys[TaskIdx];
         TaskTimeSeconds := AReport.Items.Data[PeriodIdx].Data[TaskIdx];
         PeriodSecondsSum += TaskTimeSeconds;
-        TaskTime := TimeInSecondsToStr(TaskTimeSeconds);
+        TaskTime := DurationToStr(TaskTimeSeconds);
         SubItems.Add(Task).RecordItems.Add(TaskTime);
       end;
 
-      RecordItems.Add(TimeInSecondsToStr(PeriodSecondsSum));
+      RecordItems.Add(DurationToStr(PeriodSecondsSum));
     end;
   end;
 

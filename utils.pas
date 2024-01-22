@@ -12,6 +12,7 @@ type
 
 function DurationToStr(ADuration: TDuration): String;
 function DurationToStr(ADT1, ADT2: TDateTime): String;
+function DurationToStr(ASeconds: Integer): String;
 
 implementation
 
@@ -32,15 +33,18 @@ end;
 
 function DurationToStr(ADT1, ADT2: TDateTime): String;
 var
-  Days: Integer;
+  D: TDuration;
 begin
-  Assert(ADT2 >= ADT1, 'Duration can''t be negative');
+  D := ADT2 - ADT1;
+  Result := DurationToStr(D);
+end;
 
-  Days := DaysBetween(ADT2, ADT1);
-  Result := '';
-  if Days > 0 then
-    Result := Result + IntToStr(Days) + '.';
-  Result := Result + FormatDateTime('hh:nn:ss', ADT2 - ADT1);
+function DurationToStr(ASeconds: Integer): String;
+var
+  D: TDuration;
+begin
+  D := IncSecond(0, ASeconds);
+  Result := DurationToStr(D);
 end;
 
 end.

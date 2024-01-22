@@ -543,3 +543,7 @@ msgstr ""
 msgid "ToolBar1"
 msgstr ""
 
+#: utils.rsdayunitshort
+msgid "d"
+msgstr ""
+

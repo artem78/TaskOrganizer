@@ -553,3 +553,7 @@ msgstr ""
 #: ttasksframe.toolbar1.caption
 msgid "ToolBar1"
 msgstr ""
+
+#: utils.rsdayunitshort
+msgid "d"
+msgstr "д"

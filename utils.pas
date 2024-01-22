@@ -18,6 +18,9 @@ implementation
 
 uses DateUtils;
 
+resourcestring
+  RSDayUnitShort = 'd';
+
 function DurationToStr(ADuration: TDuration): String;
 var
   Days: Integer;
@@ -27,7 +30,7 @@ begin
   Days := DaysBetween(0, ADuration);
   Result := '';
   if Days > 0 then
-    Result := Result + IntToStr(Days) + '.';
+    Result := Result + IntToStr(Days) + RSDayUnitShort + ' ';
   Result := Result + FormatDateTime('hh:nn:ss', ADuration);
 end;
 

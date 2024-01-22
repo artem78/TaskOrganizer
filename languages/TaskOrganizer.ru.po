@@ -163,7 +163,7 @@ msgstr "Продолжительность"
 #: tmainform.periodsframe1.dbgrid1.header.columns[6].text
 msgctxt "tmainform.periodsframe1.dbgrid1.header.columns[6].text"
 msgid "Manually added"
-msgstr "Добавлена вручную"
+msgstr "Добавлено вручную"
 
 #: tmainform.periodstabsheet.caption
 msgid "Periods"
@@ -415,7 +415,7 @@ msgstr "Задача"
 #: tperiodsframe.dbgrid1.header.columns[4].text
 msgctxt "tperiodsframe.dbgrid1.header.columns[4].text"
 msgid "Active"
-msgstr "Активна"
+msgstr "Активно"
 
 #: tperiodsframe.dbgrid1.header.columns[5].text
 msgctxt "tperiodsframe.dbgrid1.header.columns[5].text"
@@ -425,7 +425,7 @@ msgstr "Продолжительность"
 #: tperiodsframe.dbgrid1.header.columns[6].text
 msgctxt "tperiodsframe.dbgrid1.header.columns[6].text"
 msgid "Manually added"
-msgstr "Добавлена вручную"
+msgstr "Добавлено вручную"
 
 #: treportframe.groupbyradiogroup.caption
 msgid "Group by"

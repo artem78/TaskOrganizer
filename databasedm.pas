@@ -152,13 +152,16 @@ end;
 procedure TDatabaseDataModule.TasksDataSourceDataChange(Sender: TObject;
   Field: TField);
 var
-  Done: Boolean;
+  Done, Active: Boolean;
 begin
   if Assigned(NonVisualCtrlsDataModule) then
   begin
     Done := TasksSQLQuery.FieldByName('done').AsBoolean;
     NonVisualCtrlsDataModule.MarkTaskAsDoneAction.{Enabled}Visible := not Done;
     NonVisualCtrlsDataModule.UnMarkTaskAsDoneAction.{Enabled}Visible := Done;
+
+    Active := TasksSQLQuery.FieldByName('is_active').AsBoolean;
+    NonVisualCtrlsDataModule.DeleteTaskAction.Enabled := not Active;
   end;
 end;
 

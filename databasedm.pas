@@ -35,6 +35,7 @@ type
     TasksSQLQueryName: TStringField;
     procedure DataModuleCreate(Sender: TObject);
     procedure DataModuleDestroy(Sender: TObject);
+    procedure PeriodsDataSourceDataChange(Sender: TObject; Field: TField);
     procedure SQLite3Connection1Log(Sender: TSQLConnection;
       EventType: TDBEventType; const Msg: String);
     procedure TasksDataSourceDataChange(Sender: TObject; Field: TField);
@@ -124,6 +125,19 @@ procedure TDatabaseDataModule.DataModuleDestroy(Sender: TObject);
 begin
   // Save all changes to DB on exit
   DatabaseDataModule.SQLTransaction1.CommitRetaining;
+end;
+
+procedure TDatabaseDataModule.PeriodsDataSourceDataChange(Sender: TObject;
+  Field: TField);
+var
+  Done, Active: Boolean;
+begin
+  if Assigned(NonVisualCtrlsDataModule) then
+  begin
+    Active := PeriodsSQLQuery.FieldByName('is_active').AsBoolean;
+    NonVisualCtrlsDataModule.DeletePeriodAction.Enabled := not Active;
+    NonVisualCtrlsDataModule.EditPeriodAction.Enabled := not Active;
+  end;
 end;
 
 procedure TDatabaseDataModule.SQLite3Connection1Log(Sender: TSQLConnection;

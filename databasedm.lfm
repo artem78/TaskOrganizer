@@ -280,6 +280,7 @@ object DatabaseDataModule: TDatabaseDataModule
   end
   object PeriodsDataSource: TDataSource
     DataSet = PeriodsSQLQuery
+    OnDataChange = PeriodsDataSourceDataChange
     Left = 136
     Top = 208
   end

@@ -264,6 +264,12 @@ procedure TNonVisualCtrlsDataModule.MarkTaskAsDoneActionExecute(Sender: TObject
 begin
   with DatabaseDataModule.TasksSQLQuery do
   begin
+    // Stop selected task if it is active
+    if FieldByName('is_active').AsBoolean then
+    begin
+      StopTimeTrackingAction.Execute;
+    end;
+
     Edit;
     FieldByName('done').AsBoolean := True;
     FieldByName('modified').AsDateTime := Now;

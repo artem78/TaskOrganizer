@@ -62,8 +62,8 @@ var
 
 implementation
 
-uses main, Forms, LazUTF8, NonVisualCtrlsDM, DateUtils, DatabaseVersioning,
-  Laz2_DOM, laz2_XMLWrite, LazFileUtils;
+uses main, Forms, LazUTF8, NonVisualCtrlsDM, Models, DateUtils,
+  DatabaseVersioning, Laz2_DOM, laz2_XMLWrite, LazFileUtils;
 
 resourcestring
   RSBackupDBFailed = 'Failed to save database to file "%s"';
@@ -176,6 +176,8 @@ begin
 
     Active := TasksSQLQuery.FieldByName('is_active').AsBoolean;
     NonVisualCtrlsDataModule.DeleteTaskAction.Enabled := not Active;
+
+    NonVisualCtrlsDataModule.StartTimeTrackingAction.Enabled := (not Done) and (not TTask.HasActive);
   end;
 end;
 

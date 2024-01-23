@@ -360,7 +360,7 @@ var
   HintText: String;
 begin
   IsActive := TTask.HasActive;
-  StartTimeTrackingAction.Enabled:=not IsActive;
+  StartTimeTrackingAction.Enabled:=(not DatabaseDataModule.TasksSQLQuery.FieldByName('done').AsBoolean) and (not IsActive);
   StopTimeTrackingAction.Enabled:=IsActive;
   HintText := 'Task Organizer';
   if IsActive then

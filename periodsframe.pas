@@ -20,11 +20,12 @@ type
     CreatePeriodToolButton: TToolButton;
     EditPeriodToolButton: TToolButton;
     DeletePeriodToolButton: TToolButton;
-    procedure DBGrid1DblClick(Sender: TObject);
     procedure DBGrid1KeyDown(Sender: TObject; var Key: Word; Shift: TShiftState
       );
     procedure DBGrid1LoadRecord(Sender: TCustomVirtualDBGrid;
       RecordData: TRecordData; RowIndex: Cardinal);
+    procedure DBGrid1RecordDblClick(Sender: TCustomVirtualDBGrid;
+      Column: TColumnIndex; RecordData: TRecordData);
   private
 
   public
@@ -79,18 +80,10 @@ begin
   end;
 end;
 
-procedure TPeriodsFrame.DBGrid1DblClick(Sender: TObject);
-  {function IsMouseOverCell: Boolean;
-  var
-    ClientCoord: TPoint;
-  begin
-    ClientCoord := DBGrid1.ScreenToClient(Mouse.CursorPos);
-
-    Result := DBGrid1.MouseToGridZone(ClientCoord.X, ClientCoord.Y) = gzNormal;
-  end;}
-
+procedure TPeriodsFrame.DBGrid1RecordDblClick(Sender: TCustomVirtualDBGrid;
+  Column: TColumnIndex; RecordData: TRecordData);
 begin
-  {if IsMouseOverCell then} NonVisualCtrlsDataModule.EditPeriodAction.Execute;
+  NonVisualCtrlsDataModule.EditPeriodAction.Execute;
 end;
 
 

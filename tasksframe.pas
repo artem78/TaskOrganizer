@@ -30,7 +30,6 @@ type
     StartTrackingToolButton: TToolButton;
     StopTrackingToolButton: TToolButton;
     procedure FilterEditChange(Sender: TObject);
-    procedure TasksDBGridDblClick(Sender: TObject);
     procedure TasksDBGridGetImageIndex(Sender: TBaseVirtualTree;
       Node: PVirtualNode; Kind: TVTImageKind; Column: TColumnIndex;
       var Ghosted: Boolean; var ImageIndex: Integer);
@@ -39,6 +38,8 @@ type
     procedure TasksDBGridPaintText(Sender: TBaseVirtualTree;
       const TargetCanvas: TCanvas; Node: PVirtualNode; Column: TColumnIndex;
       TextType: TVSTTextType);
+    procedure TasksDBGridRecordDblClick(Sender: TCustomVirtualDBGrid;
+      Column: TColumnIndex; RecordData: TRecordData);
   private
      procedure UpdateTranslation(ALang: String); override;
   public
@@ -82,6 +83,12 @@ begin
   end;
 end;
 
+procedure TTasksFrame.TasksDBGridRecordDblClick(Sender: TCustomVirtualDBGrid;
+  Column: TColumnIndex; RecordData: TRecordData);
+begin
+  NonVisualCtrlsDataModule.EditTaskAction.Execute;
+end;
+
 procedure TTasksFrame.UpdateTranslation(ALang: String);
 begin
   inherited;
@@ -97,20 +104,6 @@ end;
 procedure TTasksFrame.FilterEditChange(Sender: TObject);
 begin
   DatabaseDataModule.TasksFilterText := FilterEdit.Caption;
-end;
-
-procedure TTasksFrame.TasksDBGridDblClick(Sender: TObject);
-  {function IsMouseOverCell: Boolean;
-  var
-    ClientCoord: TPoint;
-  begin
-    ClientCoord :=  TasksDBGrid.ScreenToClient(Mouse.CursorPos);
-
-    Result := TasksDBGrid.MouseToGridZone(ClientCoord.X, ClientCoord.Y) = gzNormal;
-  end;}
-
-begin
-  {if IsMouseOverCell then} NonVisualCtrlsDataModule.EditTaskAction.Execute;
 end;
 
 procedure TTasksFrame.TasksDBGridGetImageIndex(Sender: TBaseVirtualTree;

@@ -392,38 +392,38 @@ msgstr "Конец:"
 msgid "Task:"
 msgstr "Задача:"
 
-#: tperiodsframe.dbgrid1.header.columns[0].text
-msgctxt "tperiodsframe.dbgrid1.header.columns[0].text"
+#: tperiodsframe.perioddbgrid.header.columns[0].text
+msgctxt "tperiodsframe.perioddbgrid.header.columns[0].text"
 msgid "ID"
 msgstr "ИД"
 
-#: tperiodsframe.dbgrid1.header.columns[1].text
-msgctxt "tperiodsframe.dbgrid1.header.columns[1].text"
+#: tperiodsframe.perioddbgrid.header.columns[1].text
+msgctxt "tperiodsframe.perioddbgrid.header.columns[1].text"
 msgid "Begin"
 msgstr "Начало"
 
-#: tperiodsframe.dbgrid1.header.columns[2].text
-msgctxt "tperiodsframe.dbgrid1.header.columns[2].text"
+#: tperiodsframe.perioddbgrid.header.columns[2].text
+msgctxt "tperiodsframe.perioddbgrid.header.columns[2].text"
 msgid "End"
 msgstr "Конец"
 
-#: tperiodsframe.dbgrid1.header.columns[3].text
-msgctxt "tperiodsframe.dbgrid1.header.columns[3].text"
+#: tperiodsframe.perioddbgrid.header.columns[3].text
+msgctxt "tperiodsframe.perioddbgrid.header.columns[3].text"
 msgid "Task"
 msgstr "Задача"
 
-#: tperiodsframe.dbgrid1.header.columns[4].text
-msgctxt "tperiodsframe.dbgrid1.header.columns[4].text"
+#: tperiodsframe.perioddbgrid.header.columns[4].text
+msgctxt "tperiodsframe.perioddbgrid.header.columns[4].text"
 msgid "Active"
-msgstr "Активно"
+msgstr "Активна"
 
-#: tperiodsframe.dbgrid1.header.columns[5].text
-msgctxt "tperiodsframe.dbgrid1.header.columns[5].text"
+#: tperiodsframe.perioddbgrid.header.columns[5].text
+msgctxt "tperiodsframe.perioddbgrid.header.columns[5].text"
 msgid "Duration"
 msgstr "Продолжительность"
 
-#: tperiodsframe.dbgrid1.header.columns[6].text
-msgctxt "tperiodsframe.dbgrid1.header.columns[6].text"
+#: tperiodsframe.perioddbgrid.header.columns[6].text
+msgctxt "tperiodsframe.perioddbgrid.header.columns[6].text"
 msgid "Manually added"
 msgstr "Добавлено вручную"
 

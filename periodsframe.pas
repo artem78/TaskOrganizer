@@ -12,7 +12,7 @@ type
   { TPeriodsFrame }
 
   TPeriodsFrame = class(TFrame)
-    DBGrid1: TVirtualDBGrid;
+    PeriodDBGrid: TVirtualDBGrid;
     EditPeriodMenuItem: TMenuItem;
     DeletePeriodMenuItem: TMenuItem;
     PeriodsGridPopupMenu: TPopupMenu;
@@ -20,11 +20,11 @@ type
     CreatePeriodToolButton: TToolButton;
     EditPeriodToolButton: TToolButton;
     DeletePeriodToolButton: TToolButton;
-    procedure DBGrid1KeyDown(Sender: TObject; var Key: Word; Shift: TShiftState
+    procedure PeriodDBGridKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState
       );
-    procedure DBGrid1LoadRecord(Sender: TCustomVirtualDBGrid;
+    procedure PeriodDBGridLoadRecord(Sender: TCustomVirtualDBGrid;
       RecordData: TRecordData; RowIndex: Cardinal);
-    procedure DBGrid1RecordDblClick(Sender: TCustomVirtualDBGrid;
+    procedure PeriodDBGridRecordDblClick(Sender: TCustomVirtualDBGrid;
       Column: TColumnIndex; RecordData: TRecordData);
   private
 
@@ -44,7 +44,7 @@ resourcestring
 
 { TPeriodsFrame }
 
-procedure TPeriodsFrame.DBGrid1KeyDown(Sender: TObject; var Key: Word;
+procedure TPeriodsFrame.PeriodDBGridKeyDown(Sender: TObject; var Key: Word;
   Shift: TShiftState);
 begin
   if Key = VK_DELETE then
@@ -54,7 +54,7 @@ begin
   end;
 end;
 
-procedure TPeriodsFrame.DBGrid1LoadRecord(Sender: TCustomVirtualDBGrid;
+procedure TPeriodsFrame.PeriodDBGridLoadRecord(Sender: TCustomVirtualDBGrid;
   RecordData: TRecordData; RowIndex: Cardinal);
 
   function FormatBoolStr(const AStr: String): String; inline;
@@ -80,7 +80,7 @@ begin
   end;
 end;
 
-procedure TPeriodsFrame.DBGrid1RecordDblClick(Sender: TCustomVirtualDBGrid;
+procedure TPeriodsFrame.PeriodDBGridRecordDblClick(Sender: TCustomVirtualDBGrid;
   Column: TColumnIndex; RecordData: TRecordData);
 begin
   NonVisualCtrlsDataModule.EditPeriodAction.Execute;

@@ -8,7 +8,7 @@ object PeriodsFrame: TPeriodsFrame
   TabOrder = 0
   DesignLeft = 260
   DesignTop = 180
-  object DBGrid1: TVirtualDBGrid
+  object PeriodDBGrid: TVirtualDBGrid
     Left = 0
     Height = 294
     Top = 26
@@ -75,14 +75,14 @@ object PeriodsFrame: TPeriodsFrame
     LineStyle = lsSolid
     PopupMenu = PeriodsGridPopupMenu
     TabOrder = 0
-    OnKeyDown = DBGrid1KeyDown
+    OnKeyDown = PeriodDBGridKeyDown
     DBOptions.DataSource = DatabaseDataModule.PeriodsDataSource
     DBOptions.OddRowColor = clWindow
     DBOptions.EvenRowColor = clWindow
     DBOptions.SortColumnBgColor = 14745599
     DBOptions.AdvOptions = [aoStrippedRows, aoShowHorzLines, aoShowVertLines, aoAutoInsertIndicator, aoAllowSorting, aoHighlightSortColumn, aoHourGlassCursor, aoSortDBFieldColumns, aoEditDBFieldColumns, aoSortCalculatedColumns, aoFullRowSelect]
-    OnLoadRecord = DBGrid1LoadRecord
-    OnRecordDblClick = DBGrid1RecordDblClick
+    OnLoadRecord = PeriodDBGridLoadRecord
+    OnRecordDblClick = PeriodDBGridRecordDblClick
   end
   object ToolBar: TToolBar
     Left = 0

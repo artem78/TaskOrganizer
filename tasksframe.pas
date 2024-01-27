@@ -6,7 +6,8 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, ListViewFilterEdit, Forms, Controls, ComCtrls,
-  ExtCtrls, Menus, VirtualDBGrid, LocalizedForms, VirtualTrees, Graphics;
+  ExtCtrls, Menus, VirtualDBGrid, LocalizedForms, VirtualTrees, Graphics,
+  StdCtrls;
 
 type
 
@@ -30,6 +31,8 @@ type
     StartTrackingToolButton: TToolButton;
     StopTrackingToolButton: TToolButton;
     procedure FilterEditChange(Sender: TObject);
+    procedure TasksDBGridBeforePaint(Sender: TBaseVirtualTree;
+      TargetCanvas: TCanvas);
     procedure TasksDBGridGetImageIndex(Sender: TBaseVirtualTree;
       Node: PVirtualNode; Kind: TVTImageKind; Column: TColumnIndex;
       var Ghosted: Boolean; var ImageIndex: Integer);
@@ -41,9 +44,12 @@ type
     procedure TasksDBGridRecordDblClick(Sender: TCustomVirtualDBGrid;
       Column: TColumnIndex; RecordData: TRecordData);
   private
+     FirstTimeGridShown: Boolean;
+
      procedure UpdateTranslation(ALang: String); override;
+     procedure AutoFitGridColumns;
   public
-    //constructor Create(AOwner: TComponent); override;
+    constructor Create(AOwner: TComponent); override;
     procedure SelectTask(AnID: Integer);
   end;
 
@@ -96,6 +102,45 @@ begin
   FilterEdit.TextHint := RSFilterHint;
 end;
 
+procedure TTasksFrame.AutoFitGridColumns;
+  function GetTextWidth(const AText: String; const AFont: TFont): Integer;
+  var
+    Bmp: TBitmap;
+  begin
+    Result := 0;
+    Bmp := TBitmap.Create;
+    try
+      Bmp.Canvas.Font.Assign(AFont);
+      Result := Bmp.Canvas.TextWidth(AText);
+    finally
+      Bmp.Free;
+    end;
+  end;
+
+var
+  ColIdx: Integer;
+  Column: TVirtualTreeColumn;
+begin
+  with TasksDBGrid.Header do
+  begin
+    AutoFitColumns(False, smaAllColumns);
+
+    for ColIdx := 0 to Columns.Count - 1 do
+    begin
+      Column := Columns.Items[ColIdx];
+      Column.MinWidth := GetTextWidth(Column.Text, Font)
+                       + 20 {ToDo: Calculate REAL margin value};
+    end;
+  end;
+end;
+
+constructor TTasksFrame.Create(AOwner: TComponent);
+begin
+  inherited Create(AOwner);
+
+  FirstTimeGridShown := True;
+end;
+
 procedure TTasksFrame.SelectTask(AnID: Integer);
 begin
   DatabaseDataModule.TasksSQLQuery.Locate('id', AnID, []);
@@ -104,6 +149,16 @@ end;
 procedure TTasksFrame.FilterEditChange(Sender: TObject);
 begin
   DatabaseDataModule.TasksFilterText := FilterEdit.Caption;
+end;
+
+procedure TTasksFrame.TasksDBGridBeforePaint(Sender: TBaseVirtualTree;
+  TargetCanvas: TCanvas);
+begin
+  if FirstTimeGridShown then
+  begin
+    FirstTimeGridShown := False;
+    AutoFitGridColumns;
+  end;
 end;
 
 procedure TTasksFrame.TasksDBGridGetImageIndex(Sender: TBaseVirtualTree;
@@ -139,13 +194,6 @@ begin
     Key := 0;
   end;
 end;
-
-{constructor TTasksFrame.Create(AOwner: TComponent);
-begin
-  inherited Create(AOwner);
-
-  RefreshStartStopBtnsVisibility;
-end;  }
 
 end.
 

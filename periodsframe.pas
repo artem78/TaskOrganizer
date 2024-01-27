@@ -5,7 +5,7 @@ unit PeriodsFrame;
 interface
 
 uses
-  Classes, SysUtils, Forms, Controls, DBGrids, ComCtrls, Menus, VirtualDBGrid, VirtualTrees, DB;
+  Classes, SysUtils, Forms, Controls, DBGrids, ComCtrls, Menus, VirtualDBGrid, VirtualTrees, DB, Graphics;
 
 type
 
@@ -20,6 +20,8 @@ type
     CreatePeriodToolButton: TToolButton;
     EditPeriodToolButton: TToolButton;
     DeletePeriodToolButton: TToolButton;
+    procedure PeriodDBGridBeforePaint(Sender: TBaseVirtualTree;
+      TargetCanvas: TCanvas);
     procedure PeriodDBGridKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState
       );
     procedure PeriodDBGridLoadRecord(Sender: TCustomVirtualDBGrid;
@@ -27,9 +29,11 @@ type
     procedure PeriodDBGridRecordDblClick(Sender: TCustomVirtualDBGrid;
       Column: TColumnIndex; RecordData: TRecordData);
   private
+    FirstTimeGridShown: Boolean;
 
+    procedure AutoFitGridColumns;
   public
-
+    constructor Create(AOwner: TComponent); override;
   end;
 
 implementation
@@ -51,6 +55,16 @@ begin
   begin
     NonVisualCtrlsDataModule.DeletePeriodAction.Execute;
     Key := 0;
+  end;
+end;
+
+procedure TPeriodsFrame.PeriodDBGridBeforePaint(Sender: TBaseVirtualTree;
+  TargetCanvas: TCanvas);
+begin
+  if FirstTimeGridShown then
+  begin
+    FirstTimeGridShown := False;
+    AutoFitGridColumns;
   end;
 end;
 
@@ -86,6 +100,44 @@ begin
   NonVisualCtrlsDataModule.EditPeriodAction.Execute;
 end;
 
+procedure TPeriodsFrame.AutoFitGridColumns;
+  function GetTextWidth(const AText: String; const AFont: TFont): Integer;
+  var
+    Bmp: TBitmap;
+  begin
+    Result := 0;
+    Bmp := TBitmap.Create;
+    try
+      Bmp.Canvas.Font.Assign(AFont);
+      Result := Bmp.Canvas.TextWidth(AText);
+    finally
+      Bmp.Free;
+    end;
+  end;
+
+var
+  ColIdx: Integer;
+  Column: TVirtualTreeColumn;
+begin
+  with PeriodDBGrid.Header do
+  begin
+    AutoFitColumns(False, smaAllColumns);
+
+    for ColIdx := 0 to Columns.Count - 1 do
+    begin
+      Column := Columns.Items[ColIdx];
+      Column.MinWidth := GetTextWidth(Column.Text, Font)
+                       + 20 {ToDo: Calculate REAL margin value};
+    end;
+  end;
+end;
+
+constructor TPeriodsFrame.Create(AOwner: TComponent);
+begin
+  inherited Create(AOwner);
+
+  FirstTimeGridShown := True;
+end;
 
 end.
 

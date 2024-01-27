@@ -112,11 +112,12 @@ object TasksFrame: TTasksFrame
         FieldName = 'done'
         ColumnType = ctDBField
       end>
-    Header.Options = [hoAutoResize, hoColumnResize, hoDblClickResize, hoDrag, hoHotTrack, hoShowHint, hoShowSortGlyphs, hoVisible]
+    Header.Options = [hoAutoResize, hoColumnResize, hoDblClickResize, hoDrag, hoHotTrack, hoShowHint, hoShowSortGlyphs, hoVisible, hoDisableAnimatedResize]
     Images = NonVisualCtrlsDataModule.Icons
     LineStyle = lsSolid
     PopupMenu = TasksGridPopupMenu
     TabOrder = 1
+    OnBeforePaint = TasksDBGridBeforePaint
     OnPaintText = TasksDBGridPaintText
     OnGetImageIndex = TasksDBGridGetImageIndex
     OnKeyDown = TasksDBGridKeyDown

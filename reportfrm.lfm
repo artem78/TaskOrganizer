@@ -259,6 +259,7 @@ object ReportFrame: TReportFrame
         Visible = True
       end>
     RowHeight = 16
+    Images = NonVisualCtrlsDataModule.Icons
     HorizontalLineMode = lmNone
     HorizontalLineColor = clWindowFrame
     VerticalLineMode = lmDot

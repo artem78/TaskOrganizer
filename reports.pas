@@ -43,7 +43,7 @@ type
 
 implementation
 
-uses DateUtils, DatabaseDM;
+uses DateUtils, StrUtils, DatabaseDM;
 
 { TReport }
 
@@ -139,7 +139,7 @@ begin
         with DatabaseDataModule.CustomSQLQuery do
         begin
           Close;
-          SQL.Text := 'SELECT `date`, task_id, tasks.name as `task_name`, duration '
+          SQL.Text := 'SELECT `date`, task_id, tasks.name as `task_name`, duration, tasks.done as `task_done` '
                     + 'FROM /*:tbl*/ `' + TableName + '` '
                     + 'INNER JOIN tasks ON tasks.id = task_id '
                     + 'WHERE task_id IN (' + TaskIdList.DelimitedText + ')';
@@ -168,7 +168,7 @@ begin
               Result.Items.Add(p, d);
             end;
 
-            d.Add(FieldByName('task_name').AsString,
+            d.Add(FieldByName('task_name').AsString + IfThen(FieldByName('task_done').AsBoolean, ' (done)', ''),
                   Round(FieldByName('duration').AsFloat * 60 *60 *24));
 
             Next;

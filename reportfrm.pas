@@ -395,6 +395,8 @@ var
   TaskTimeSeconds: Integer;
   TaskTime: String;
   PeriodSecondsSum: integer;
+  TaskItem: TTreeListItem;
+  Done: Boolean;
 begin
   ReportTreeListView.BeginUpdate;
   ReportTreeListView.Items.Clear;
@@ -409,15 +411,27 @@ begin
     end;
     with ReportTreeListView.Items.Add(Period) do
     begin
+      ImageIndex := -1;
       PeriodSecondsSum := 0;
 
       for TaskIdx := 0 to AReport.Items.Data[PeriodIdx].Count - 1 do
       begin
         Task := AReport.Items.Data[PeriodIdx].Keys[TaskIdx];
+        if Task.EndsWith(' (done)') then
+        begin
+          Task := StringReplace(Task, ' (done)', '', []);
+          Done := True;
+        end
+        else
+        begin
+          Done := False;
+        end;
         TaskTimeSeconds := AReport.Items.Data[PeriodIdx].Data[TaskIdx];
         PeriodSecondsSum += TaskTimeSeconds;
         TaskTime := DurationToStr(TaskTimeSeconds);
-        SubItems.Add(Task).RecordItems.Add(TaskTime);
+        TaskItem := SubItems.Add(Task);
+        TaskItem.ImageIndex := IfThen(Done, 2, -1);
+        TaskItem.RecordItems.Add(TaskTime);
       end;
 
       RecordItems.Add(DurationToStr(PeriodSecondsSum));

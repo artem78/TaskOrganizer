@@ -1,5 +1,7 @@
 unit TasksFrame;
 
+// Todo: Too much duplicates with PeriodFrame unit. Need to make common parent class for grids.
+
 {$mode objfpc}{$H+}
 
 interface

@@ -48,7 +48,6 @@ object DatabaseDataModule: TDatabaseDataModule
   end
   object TasksSQLQuery: TSQLQuery
     FieldDefs = <>
-    OnFilterRecord = TasksSQLQueryFilterRecord
     Database = SQLite3Connection1
     Transaction = SQLTransaction1
     SQL.Strings = (
@@ -58,6 +57,7 @@ object DatabaseDataModule: TDatabaseDataModule
       'from tasks'
       'left join duration_per_task'
       'on tasks.id = task_id'
+      'WHERE TRUE'
     )
     InsertSQL.Strings = (
       'INSERT INTO `_tasks` (`id`, `name`, `description`, `created`, `modified`, `done`)'

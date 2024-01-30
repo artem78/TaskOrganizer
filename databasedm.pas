@@ -38,7 +38,6 @@ type
     procedure SQLite3Connection1Log(Sender: TSQLConnection;
       EventType: TDBEventType; const Msg: String);
     procedure TasksDataSourceDataChange(Sender: TObject; Field: TField);
-    procedure TasksSQLQueryFilterRecord(DataSet: TDataSet; var Accept: Boolean);
   private
     FTasksFilterText: String;
     FDoneTasksFilter: Boolean;
@@ -61,8 +60,8 @@ var
 
 implementation
 
-uses main, Forms, LazUTF8, NonVisualCtrlsDM, DateUtils, DatabaseVersioning,
-  Laz2_DOM, laz2_XMLWrite, LazFileUtils;
+uses main, Forms, LazUTF8, NonVisualCtrlsDM, DateUtils, SQLite3Dyn, ctypes,
+  DatabaseVersioning, Laz2_DOM, laz2_XMLWrite, LazFileUtils;
 
 resourcestring
   RSBackupDBFailed = 'Failed to save database to file "%s"';
@@ -77,6 +76,40 @@ begin
   SetString(S1, data1, len1);
   SetString(S2, data2, len2);
   Result := UnicodeCompareText(UTF8Decode(S1), UTF8Decode(S2));
+end;
+
+// https://forum.lazarus.freepascal.org/index.php/topic,34259.msg224029.html#msg224029
+procedure UTF8xLower(ctx: psqlite3_context; N: cint; V: ppsqlite3_value); cdecl;
+var S: AnsiString;
+begin
+  SetString(S, sqlite3_value_text(V[0]), sqlite3_value_bytes(V[0]));
+  S := UTF8Encode(AnsiLowerCase(UTF8Decode(S)));
+  sqlite3_result_text(ctx, PAnsiChar(S), Length(S), sqlite3_destructor_type(SQLITE_TRANSIENT));
+end;
+
+// Case-insensitive LIKE function working with non-ASCII characters
+procedure UTF8xLike(ctx: psqlite3_context; N: cint; V: ppsqlite3_value); cdecl;
+var Y1,X1,Z1: AnsiString;
+    Y2,X2: UTF8String;
+    Z2: {cint} cuint = 0;
+begin
+  Assert((N = 2) or (N = 3), 'Wrong amount of arguments passed to UTF8xLike()');
+
+  // like(X,Y) = Y LIKE X
+  // like(X,Y,Z) = Y LIKE X ESCAPE Z
+  X1 := sqlite3_value_text(V[0]);
+  Y1 := sqlite3_value_text(V[1]);
+  X2 := UTF8Encode(AnsiLowerCase(UTF8Decode(X1)));
+  Y2 := UTF8Encode(AnsiLowerCase(UTF8Decode(Y1)));
+
+  if N = 3 then // With ESCAPE argument
+  begin
+    Z1 := sqlite3_value_text(V[2]);
+    if not Z1.IsEmpty then
+      Z2 := Ord(Z1[1]);
+  end;
+
+  sqlite3_result_int(ctx, ord(sqlite3_strlike(PAnsiChar(X2), PAnsiChar(Y2), Z2)=0));
 end;
 
 { TDatabaseDataModule }
@@ -94,6 +127,11 @@ begin
   SQLTransaction1.Active := True;
 
   SQLite3Connection1.CreateCollation('UTF8_CI',1,nil,@UTF8xCompare_CI);
+
+  sqlite3_create_function(SQLite3Connection1.Handle, 'lower', 1, SQLITE_UTF8 or SQLITE_DETERMINISTIC, nil, @UTF8xLower, nil, nil);
+  sqlite3_create_function(SQLite3Connection1.Handle, 'like', 2, SQLITE_UTF8 or SQLITE_DETERMINISTIC, nil, @UTF8xLike, nil, nil);
+  sqlite3_create_function(SQLite3Connection1.Handle, 'like', 3, SQLITE_UTF8 or SQLITE_DETERMINISTIC, nil, @UTF8xLike, nil, nil);
+
 
 
   // Create DB schema
@@ -162,30 +200,6 @@ begin
   end;
 end;
 
-procedure TDatabaseDataModule.TasksSQLQueryFilterRecord(DataSet: TDataSet;
-  var Accept: Boolean);
-var
-  Name_, Descr, Search: String;
-begin
-  Accept := True;
-
-  // Filter done tasks
-  if not FDoneTasksFilter then
-  begin
-     Accept := not DataSet.FieldByName('done').AsBoolean;
-  end;
-
-  // Search by text
-  if Accept and (FTasksFilterText <> '') then
-  begin
-    Name_ := UTF8LowerCase(DataSet.FieldByName('name').AsString);
-    Descr := UTF8LowerCase(DataSet.FieldByName('description').AsString);
-    Search:= UTF8LowerCase(FTasksFilterText);
-
-    Accept := (UTF8Pos(Search, Name_) <> 0) or (UTF8Pos(Search, Descr) <> 0);
-  end;
-end;
-
 procedure TDatabaseDataModule.SetTasksFilterText(AText: String);
 begin
   FTasksFilterText := AText;
@@ -199,17 +213,47 @@ begin
 end;
 
 procedure TDatabaseDataModule.UpdateFilters;
-begin
-  if (FTasksFilterText <> '') or (not FDoneTasksFilter) then
-  begin // Enable filtering
-    TasksSQLQuery.Filtered := False;
-    TasksSQLQuery.Filtered := True;
-  end
-  else // Disable filtering
+  function PrepareLikeExpr(const AStr: String): String;
   begin
-    TasksSQLQuery.Filtered := False;
+    Result := AStr;
+
+    Result := StringReplace(Result, '\', '\\', [rfReplaceAll]);
+    Result := StringReplace(Result, '%', '\%', [rfReplaceAll]);
+    Result := StringReplace(Result, '_', '\_', [rfReplaceAll]);
+
+    Result := QuotedStr('%' + Result + '%') + ' ESCAPE ''\''';
   end;
-  //TasksSQLQuery.Refresh;
+
+var
+  Filters: TStringList;
+  FilterSQL: String;
+begin
+  Filters := TStringList.Create;
+  try
+    if not FDoneTasksFilter then
+      Filters.Append('`done` IS NOT TRUE');
+
+    if (not FTasksFilterText.IsEmpty) then
+      Filters.Append(Format('((`tasks`.`name` LIKE %0:s) OR (`tasks`.`description` LIKE %0:s))', [PrepareLikeExpr(FTasksFilterText)]));
+
+
+
+    if (Filters.Count > 0) then
+    begin // Enable filtering
+      FilterSQL := ''.Join(' AND ', Filters.ToStringArray);
+
+      TasksSQLQuery.ServerFiltered := False;
+      TasksSQLQuery.ServerFilter := FilterSQL;
+      TasksSQLQuery.ServerFiltered := True;
+    end
+    else // Disable filtering
+    begin
+      TasksSQLQuery.ServerFiltered := False;
+    end;
+    //TasksSQLQuery.Refresh;
+  finally
+    Filters.Free;
+  end;
 end;
 
 procedure TDatabaseDataModule.ExportDatabase(AFileName: String);

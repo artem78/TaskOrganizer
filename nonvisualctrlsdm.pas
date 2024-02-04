@@ -63,6 +63,21 @@ type
     procedure RunningTaskUpdated;
   end;
 
+const
+  // Indexes for icons in image list
+  NoIconIdx       = -1;
+  StartIconIdx    = 0;
+  StopIconIdx     = 1;
+  TickIconIdx     = 2;
+  TickGrayIconIdx = 3;
+  CreateIconIdx   = 4;
+  DeleteIconIdx   = 5;
+  EditIconIdx     = 6;
+  ExitIconIdx     = 7;
+
+  EnFlagIconIdx = 0;
+  RuFlagIconIdx = 1;
+
 var
   NonVisualCtrlsDataModule: TNonVisualCtrlsDataModule;
 

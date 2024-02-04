@@ -82,7 +82,8 @@ type
 
 implementation
 
-uses DateUtils, DatabaseDM, Utils, Graphics, System.UITypes, fgl, Math{, LCLTranslator};
+uses DateUtils, DatabaseDM, Utils, NonVisualCtrlsDM, Graphics, System.UITypes,
+  fgl, Math{, LCLTranslator};
 
 resourcestring
   RSYears = 'Years';
@@ -411,7 +412,7 @@ begin
     end;
     with ReportTreeListView.Items.Add(Period) do
     begin
-      ImageIndex := -1;
+      ImageIndex := NoIconIdx;
       PeriodSecondsSum := 0;
 
       for TaskIdx := 0 to AReport.Items.Data[PeriodIdx].Count - 1 do
@@ -430,7 +431,7 @@ begin
         PeriodSecondsSum += TaskTimeSeconds;
         TaskTime := DurationToStr(TaskTimeSeconds);
         TaskItem := SubItems.Add(Task);
-        TaskItem.ImageIndex := IfThen(Done, 2, -1);
+        TaskItem.ImageIndex := IfThen(Done, TickIconIdx, NoIconIdx);
         TaskItem.RecordItems.Add(TaskTime);
       end;
 

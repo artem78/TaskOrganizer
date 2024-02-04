@@ -181,9 +181,9 @@ begin
   begin
     RecordData := Grid.GetNodeRecordData(Node);
     if RecordData.FieldValue['is_active'] then
-      ImageIndex := 0
+      ImageIndex := StartIconIdx
     else if RecordData.FieldValue['done'] then
-      ImageIndex := 2;
+      ImageIndex := TickIconIdx;
   end;
 end;
 

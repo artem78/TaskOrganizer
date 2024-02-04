@@ -282,19 +282,19 @@ begin
         'en':
           begin
             LangName := 'English';
-            MenuItem.ImageIndex := 0;
+            MenuItem.ImageIndex := EnFlagIconIdx;
           end;
 
         'ru':
           begin
             LangName := 'Russian (Русский)';
-            MenuItem.ImageIndex := 1;
+            MenuItem.ImageIndex := RuFlagIconIdx;
           end
 
       else
         begin
           LangName := LangCode;
-          MenuItem.ImageIndex := -1;
+          MenuItem.ImageIndex := NoIconIdx;
         end;
       end;
       MenuItem.Caption := LangName;

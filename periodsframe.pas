@@ -65,6 +65,8 @@ begin
   begin
     FirstTimeGridShown := False;
     AutoFitGridColumns;
+
+    PeriodDBGrid.DBOptions.DataSource.DataSet.Last;
   end;
 end;
 

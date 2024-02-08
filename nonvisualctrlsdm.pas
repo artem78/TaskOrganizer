@@ -412,6 +412,8 @@ begin
     TrayIcon.Animate := False;
     TrayIcon.RestoreIcon;
   end;
+
+  DatabaseDataModule.PeriodsDataSource.DataSet.Last;
 end;
 
 {procedure TDataModule1.UniqueInstance1OtherInstance(Sender: TObject;

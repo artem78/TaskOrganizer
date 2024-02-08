@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, XMLConf, Controls, ActnList, ExtCtrls, Menus, Models,
-  PeriodEditFrm, TrayIconEx;
+  PeriodEditFrm, Utils, TrayIconEx;
 
 type
 
@@ -54,6 +54,8 @@ type
     procedure StartTimeTrackingActionExecute(Sender: TObject);
     procedure StopTimeTrackingActionExecute(Sender: TObject);
     procedure TrayIconDblClick(Sender: TObject);
+    procedure TrayIconMouseMove(Sender: TObject; Shift: TShiftState; X,
+      Y: Integer);
     procedure UnMarkTaskAsDoneActionExecute(Sender: TObject);
     {procedure UniqueInstance1OtherInstance(Sender: TObject;
       ParamCount: Integer; const Parameters: array of String);}
@@ -316,6 +318,25 @@ begin
   MainForm.RestoreFromTray;
 end;
 
+procedure TNonVisualCtrlsDataModule.TrayIconMouseMove(Sender: TObject;
+  Shift: TShiftState; X, Y: Integer);
+var
+  ActivePeriod: TPeriod;
+  HintText: String;
+begin
+  // Update tray icon hint text
+  HintText := 'Task Organizer';
+
+  ActivePeriod := TPeriod.GetActive;
+  if Assigned(ActivePeriod) then
+  begin
+    HintText := Format('%s - %s (%s)', [HintText, ActivePeriod.GetTask.Name,
+                                        DurationToStr(ActivePeriod.Duration)]);
+  end;
+
+  TrayIcon.Hint := HintText;
+end;
+
 procedure TNonVisualCtrlsDataModule.UnMarkTaskAsDoneActionExecute(
   Sender: TObject);
 begin
@@ -378,23 +399,19 @@ end;
 procedure TNonVisualCtrlsDataModule.RunningTaskUpdated;
 var
   IsActive: Boolean;
-  HintText: String;
 begin
   IsActive := TTask.HasActive;
   StartTimeTrackingAction.Enabled:=(not DatabaseDataModule.TasksSQLQuery.FieldByName('done').AsBoolean) and (not IsActive);
   StopTimeTrackingAction.Enabled:=IsActive;
-  HintText := 'Task Organizer';
   if IsActive then
   begin
     TrayIcon.Animate := True;
-    HintText := HintText + ' - ' + TTask.GetActive.Name;
   end
   else
   begin
     TrayIcon.Animate := False;
     TrayIcon.RestoreIcon;
   end;
-  TrayIcon.Hint := HintText;
 end;
 
 {procedure TDataModule1.UniqueInstance1OtherInstance(Sender: TObject;

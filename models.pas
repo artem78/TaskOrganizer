@@ -5,7 +5,7 @@ unit Models;
 interface
 
 uses
-  Classes, SysUtils, fgl;
+  Classes, SysUtils, fgl, Utils;
 
 type
 
@@ -44,9 +44,13 @@ type
   { TPeriod }
 
   TPeriod = class(TTableEntry)
+    private
+      function GetDuration: TDuration;
     public
       BeginTime, EndTime: TDateTime;
       TaskId: Integer;
+
+      property Duration: TDuration read GetDuration;
 
       function GetTask: TTask;
       function IsActive: Boolean;
@@ -57,9 +61,17 @@ type
 implementation
 
 uses
-  DatabaseDM, StrUtils;
+  DatabaseDM, DB, StrUtils;
 
 { TPeriod }
+
+function TPeriod.GetDuration: TDuration;
+begin
+  if IsActive then
+    Result := Now - BeginTime
+  else
+    Result := EndTime - BeginTime;
+end;
 
 function TPeriod.GetTask: TTask;
 begin
@@ -104,7 +116,14 @@ begin
       Result := TPeriod.Create;
       Result.Id := FieldByName('id').AsInteger;
       Result.BeginTime := FieldByName('begin').AsDateTime;
-      Result.EndTime := FieldByName('end').AsDateTime;
+      //if not FieldByName('end').IsNull then
+      //try
+      if FieldByName('end').DataType = ftDateTime then
+        Result.EndTime := FieldByName('end').AsDateTime
+      else
+      //except
+        Result.EndTime := 0;
+      //end;
       Result.TaskId := FieldByName('task_id').AsInteger;
     end;
   end;

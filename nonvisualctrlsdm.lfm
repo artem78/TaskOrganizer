@@ -98,6 +98,7 @@ object NonVisualCtrlsDataModule: TNonVisualCtrlsDataModule
   object TrayIcon: TTrayIconEx
     PopUpMenu = TrayPopupMenu
     OnDblClick = TrayIconDblClick
+    OnMouseMove = TrayIconMouseMove
     AnimateInterval = 600
     Left = 56
     Top = 112

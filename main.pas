@@ -45,6 +45,8 @@ type
     procedure GoToTaskMenuItemClick2(Sender: TObject); // ToDo: Better name
     procedure StoreFormState;
     procedure RestoreFormState;
+    procedure StoreSettings;
+    procedure RestoreSettings;
     procedure FillLanguagesList;
     procedure OnLanguageMenuClick(ASender: TObject);
     procedure SetLanguage(ALang: String);
@@ -113,14 +115,14 @@ end;
 
 procedure TMainForm.FormClose(Sender: TObject; var CloseAction: TCloseAction);
 begin
-  StoreFormState;
+  StoreSettings;
 end;
 
 procedure TMainForm.FormShow(Sender: TObject);
 begin
   NonVisualCtrlsDataModule.RunningTaskUpdated;
 
-  RestoreFormState;
+  RestoreSettings;
 end;
 
 procedure TMainForm.GoToTaskMenuItemClick(Sender: TObject);
@@ -188,7 +190,15 @@ begin
     SetValue('MainWindow/RestoredHeight', RestoredHeight);
 
     SetValue('MainWindow/WindowState', GetEnumName(TypeInfo(TWindowState), Ord(WindowState)));
+  end;
+end;
 
+procedure TMainForm.StoreSettings;
+begin
+  StoreFormState;
+
+  with NonVisualCtrlsDataModule.XMLConfig do
+  begin
     SetValue('View/ShowDoneTasks', NonVisualCtrlsDataModule.ShowDoneTasksAction.Checked);
     SetValue('SelectedTask', TasksFrame1.TasksDBGrid.DBOptions.DataSource.DataSet.FieldByName('id').AsInteger);
     SetValue('Language', Language);
@@ -225,7 +235,15 @@ begin
         GetValue('MainWindow/Width', Width),
         GetValue('MainWindow/Height', Height));
     end;
+  end;
+end;
 
+procedure TMainForm.RestoreSettings;
+begin
+  RestoreFormState;
+
+  with NonVisualCtrlsDataModule.XMLConfig do
+  begin
     // ToDo: Remake this
     with NonVisualCtrlsDataModule.ShowDoneTasksAction do
     begin

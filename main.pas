@@ -41,6 +41,8 @@ type
     procedure ReportTabSheetShow(Sender: TObject);
     procedure TasksTabSheetShow(Sender: TObject);
   private
+    FirstShow: Boolean; // Indicates if FormShow event runs first time
+
     procedure ApplicationMinimize(Sender: TObject);
     procedure GoToTaskMenuItemClick2(Sender: TObject); // ToDo: Better name
     procedure StoreFormState;
@@ -88,6 +90,7 @@ const
 begin
   FillLanguagesList;
   Language := '';
+  FirstShow := True;
 
   if not FileExists(SqliteLibName) then
   begin
@@ -122,7 +125,9 @@ procedure TMainForm.FormShow(Sender: TObject);
 begin
   NonVisualCtrlsDataModule.RunningTaskUpdated;
 
-  RestoreSettings;
+  if FirstShow then
+    RestoreSettings;
+  FirstShow := False;
 end;
 
 procedure TMainForm.GoToTaskMenuItemClick(Sender: TObject);
@@ -371,6 +376,8 @@ end;
 
 procedure TMainForm.MinimizeToTray;
 begin
+  StoreFormState;
+
   WindowState := wsMinimized;
   Hide;
   NonVisualCtrlsDataModule.TrayIcon.Show;
@@ -379,8 +386,10 @@ end;
 procedure TMainForm.RestoreFromTray;
 begin
   NonVisualCtrlsDataModule.TrayIcon.Hide;
-  WindowState := wsNormal;
+  //WindowState := wsNormal;
   Show;
+
+  RestoreFormState;
 end;
 
 initialization

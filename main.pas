@@ -173,6 +173,7 @@ begin
   S := (Sender as TMenuItem).Name;
   TaskId := StrToInt(S.Substring(8, S.Length - 16));
   TasksFrame1.SelectTask(TaskId);
+  TasksFrame1.TasksDBGrid.SetFocus;
 end;
 
 procedure TMainForm.StoreFormState;

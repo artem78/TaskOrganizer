@@ -84,7 +84,7 @@
           </Linking>
           <Other>
             <ExecuteBefore>
-              <Command Value="GitRevision.bat"/>
+              <Command Value="$(ProjPath)\GitRevision.bat"/>
             </ExecuteBefore>
           </Other>
         </CompilerOptions>

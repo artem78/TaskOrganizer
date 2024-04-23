@@ -34,6 +34,72 @@ inherited MainForm: TMainForm
         Align = alClient
         ClientHeight = 402
         ClientWidth = 742
+        inherited ToolBar1: TToolBar
+          Width = 742
+          inherited SeparatorToolButton: TToolButton
+            Height = 22
+          end
+        end
+        inherited TasksDBGrid: TVirtualDBGrid
+          Height = 344
+          Width = 742
+          Header.AutoSizeIndex = -1
+          Header.Columns = <          
+            item
+              Position = 0
+              Text = 'ID'
+              Width = 30
+              FieldName = 'id'
+              ColumnType = ctDBField
+            end          
+            item
+              Position = 1
+              Text = 'Name'
+              Width = 200
+              FieldName = 'name'
+              ColumnType = ctDBField
+            end          
+            item
+              Position = 2
+              Text = 'Description'
+              Width = 268
+              FieldName = 'description'
+              ColumnType = ctDBField
+            end          
+            item
+              Position = 3
+              Text = 'Created'
+              Width = 120
+              FieldName = 'created'
+              ColumnType = ctDBField
+            end          
+            item
+              Position = 4
+              Text = 'Modified'
+              Width = 120
+              FieldName = 'modified'
+              ColumnType = ctDBField
+            end          
+            item
+              Options = [coAllowClick, coDraggable, coEnabled, coParentBidiMode, coParentColor, coResizable, coShowDropMark, coAllowFocus, coEditable]
+              Position = 5
+              Text = 'is_active'
+              Width = 55
+              FieldName = 'is_active'
+              ColumnType = ctDBField
+            end          
+            item
+              Options = [coAllowClick, coDraggable, coEnabled, coParentBidiMode, coParentColor, coResizable, coShowDropMark, coAllowFocus, coEditable]
+              Position = 6
+              Text = 'done'
+              Width = 10
+              FieldName = 'done'
+              ColumnType = ctDBField
+            end>
+        end
+        inherited FilterEdit: TListViewFilterEdit
+          AnchorSideLeft.Control = TasksFrame1
+        end
       end
     end
     object PeriodsTabSheet: TTabSheet
@@ -46,6 +112,70 @@ inherited MainForm: TMainForm
         Align = alClient
         ClientHeight = 402
         ClientWidth = 742
+        inherited PeriodDBGrid: TVirtualDBGrid
+          Height = 376
+          Width = 742
+          Header.AutoSizeIndex = -1
+          Header.Columns = <          
+            item
+              Position = 0
+              Text = 'ID'
+              Width = 30
+              FieldName = 'id'
+              ColumnType = ctDBField
+            end          
+            item
+              Position = 1
+              Text = 'Begin'
+              Width = 120
+              FieldName = 'begin'
+              ColumnType = ctDBField
+            end          
+            item
+              Position = 2
+              Text = 'End'
+              Width = 120
+              FieldName = 'end'
+              ColumnType = ctDBField
+            end          
+            item
+              Position = 3
+              Text = 'Task'
+              Width = 188
+              FieldName = 'task_name'
+              ColumnType = ctDBField
+            end          
+            item
+              Alignment = taCenter
+              Options = [coAllowClick, coDraggable, coEnabled, coParentBidiMode, coParentColor, coResizable, coShowDropMark, coAllowFocus, coUseCaptionAlignment, coEditable]
+              Position = 4
+              Text = 'Active'
+              Width = 80
+              FieldName = 'is_active'
+              ColumnType = ctDBField
+            end          
+            item
+              Alignment = taRightJustify
+              Options = [coAllowClick, coDraggable, coEnabled, coParentBidiMode, coParentColor, coResizable, coShowDropMark, coVisible, coAllowFocus, coUseCaptionAlignment, coEditable]
+              Position = 5
+              Text = 'Duration'
+              Width = 140
+              FieldName = 'duration'
+              ColumnType = ctDBField
+            end          
+            item
+              Alignment = taCenter
+              Options = [coAllowClick, coDraggable, coEnabled, coParentBidiMode, coParentColor, coResizable, coShowDropMark, coVisible, coAllowFocus, coUseCaptionAlignment, coEditable]
+              Position = 6
+              Text = 'Manually added'
+              Width = 140
+              FieldName = 'is_manually_added'
+              ColumnType = ctDBField
+            end>
+        end
+        inherited ToolBar: TToolBar
+          Width = 742
+        end
       end
     end
     object ReportTabSheet: TTabSheet

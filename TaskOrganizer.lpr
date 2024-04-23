@@ -29,10 +29,11 @@ begin
   RequireDerivedFormResource:=True;
   Application.Title:='Task Organizer';
   Application.Initialize;
+  Application.CreateForm(TNonVisualCtrlsDataModule, NonVisualCtrlsDataModule);
   Application.CreateForm(TMainForm, MainForm);
   Application.CreateForm(TDatabaseDataModule, DatabaseDataModule);
   Application.CreateForm(TTaskEditForm, TaskEditForm);
-  Application.CreateForm(TNonVisualCtrlsDataModule, NonVisualCtrlsDataModule);
+  //Application.CreateForm(TNonVisualCtrlsDataModule, NonVisualCtrlsDataModule);
   Application.CreateForm(TPeriodEditForm, PeriodEditForm);
   Application.Run;
 end.

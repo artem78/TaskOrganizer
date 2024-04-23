@@ -120,37 +120,38 @@ msgstr ""
 msgid "MenuItem1"
 msgstr ""
 
-#: tmainform.periodsframe1.dbgrid1.header.columns[0].text
-msgctxt "tmainform.periodsframe1.dbgrid1.header.columns[0].text"
+#: tmainform.periodsframe1.perioddbgrid.header.columns[0].text
+msgctxt "tmainform.periodsframe1.perioddbgrid.header.columns[0].text"
 msgid "ID"
 msgstr ""
 
-#: tmainform.periodsframe1.dbgrid1.header.columns[1].text
-msgctxt "tmainform.periodsframe1.dbgrid1.header.columns[1].text"
+#: tmainform.periodsframe1.perioddbgrid.header.columns[1].text
+msgctxt "tmainform.periodsframe1.perioddbgrid.header.columns[1].text"
 msgid "Begin"
 msgstr ""
 
-#: tmainform.periodsframe1.dbgrid1.header.columns[2].text
-msgctxt "tmainform.periodsframe1.dbgrid1.header.columns[2].text"
+#: tmainform.periodsframe1.perioddbgrid.header.columns[2].text
+msgctxt "tmainform.periodsframe1.perioddbgrid.header.columns[2].text"
 msgid "End"
 msgstr ""
 
-#: tmainform.periodsframe1.dbgrid1.header.columns[3].text
-msgid "id"
+#: tmainform.periodsframe1.perioddbgrid.header.columns[3].text
+msgctxt "tmainform.periodsframe1.perioddbgrid.header.columns[3].text"
+msgid "Task"
 msgstr ""
 
-#: tmainform.periodsframe1.dbgrid1.header.columns[4].text
-msgctxt "tmainform.periodsframe1.dbgrid1.header.columns[4].text"
+#: tmainform.periodsframe1.perioddbgrid.header.columns[4].text
+msgctxt "tmainform.periodsframe1.perioddbgrid.header.columns[4].text"
 msgid "Active"
 msgstr ""
 
-#: tmainform.periodsframe1.dbgrid1.header.columns[5].text
-msgctxt "tmainform.periodsframe1.dbgrid1.header.columns[5].text"
+#: tmainform.periodsframe1.perioddbgrid.header.columns[5].text
+msgctxt "tmainform.periodsframe1.perioddbgrid.header.columns[5].text"
 msgid "Duration"
 msgstr ""
 
-#: tmainform.periodsframe1.dbgrid1.header.columns[6].text
-msgctxt "tmainform.periodsframe1.dbgrid1.header.columns[6].text"
+#: tmainform.periodsframe1.perioddbgrid.header.columns[6].text
+msgctxt "tmainform.periodsframe1.perioddbgrid.header.columns[6].text"
 msgid "Manually added"
 msgstr ""
 

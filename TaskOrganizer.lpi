@@ -123,7 +123,7 @@
           </Linking>
           <Other>
             <ExecuteBefore>
-              <Command Value="GitRevision.bat &amp; bash Sql2Pas.sh"/>
+              <Command Value="GitRevision.bat"/>
             </ExecuteBefore>
           </Other>
         </CompilerOptions>
@@ -282,7 +282,7 @@
         <IgnoredMessages idx5024="True"/>
       </CompilerMessages>
       <ExecuteBefore>
-        <Command Value="GitRevision.bat &amp; bash Sql2Pas.sh"/>
+        <Command Value="GitRevision.bat"/>
       </ExecuteBefore>
     </Other>
   </CompilerOptions>

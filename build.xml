@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<project name="Task Organizer" xmlns:if="ant:if" xmlns:unless="ant:unless">
+<project name="Task Organizer" xmlns:if="ant:if" xmlns:unless="ant:unless" default="package">
 	<!-- Properties: -->
 	<!-- <property name="sqlite3_dll.version" value="3.36.0"/> -->
 	<property name="sqlite3_dll.checksum" value="ce5c15b5092877974d5b6476ad1cb2d7"/>

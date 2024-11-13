@@ -107,7 +107,7 @@ object NonVisualCtrlsDataModule: TNonVisualCtrlsDataModule
     Images = Icons
     Left = 144
     Top = 112
-    object StartTimerackingMenuItem: TMenuItem
+    object StartTimeTrackingMenuItem: TMenuItem
       Action = StartTimeTrackingAction
     end
     object StopTimeTrackingMenuItem: TMenuItem

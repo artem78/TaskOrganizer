@@ -31,7 +31,7 @@ type
     MarkTaskAsDoneAction: TAction;
     ServiceMenuItem: TMenuItem;
     ExportMenuItem: TMenuItem;
-    StartTimerackingMenuItem: TMenuItem;
+    StartTimeTrackingMenuItem: TMenuItem;
     StartTimeTrackingAction: TAction;
     StopTimeTrackingAction: TAction;
     StopTimeTrackingMenuItem: TMenuItem;

@@ -12,7 +12,7 @@
       <ResourceType Value="res"/>
       <UseXPManifest Value="True"/>
       <Icon Value="0"/>
-      <Resources Count="18">
+      <Resources Count="21">
         <Resource_0 FileName="icons\icon_create.png" Type="RCDATA" ResourceName="CREATE"/>
         <Resource_1 FileName="icons\icon_delete.png" Type="RCDATA" ResourceName="DELETE"/>
         <Resource_2 FileName="icons\icon_edit.png" Type="RCDATA" ResourceName="EDIT"/>
@@ -31,6 +31,9 @@
         <Resource_15 FileName="icons\icon_clock_animation_8.png" Type="RCDATA" ResourceName="CLOCK_ANIMATION_8"/>
         <Resource_16 FileName="icons\langs\en.png" Type="RCDATA" ResourceName="FLAG_EN"/>
         <Resource_17 FileName="icons\langs\ru.png" Type="RCDATA" ResourceName="FLAG_RU"/>
+        <Resource_18 FileName="db-updates\0001_create_tables.sql" Type="RCDATA" ResourceName="SQL_SCRIPT_1"/>
+        <Resource_19 FileName="db-updates\0002_change_date_format.sql" Type="RCDATA" ResourceName="SQL_SCRIPT_2"/>
+        <Resource_20 FileName="db-updates\0003_create_views.sql" Type="RCDATA" ResourceName="SQL_SCRIPT_3"/>
       </Resources>
     </General>
     <i18n>
@@ -120,7 +123,7 @@
           </Linking>
           <Other>
             <ExecuteBefore>
-              <Command Value="GitRevision.bat"/>
+              <Command Value="GitRevision.bat &amp; bash Sql2Pas.sh"/>
             </ExecuteBefore>
           </Other>
         </CompilerOptions>
@@ -279,7 +282,7 @@
         <IgnoredMessages idx5024="True"/>
       </CompilerMessages>
       <ExecuteBefore>
-        <Command Value="GitRevision.bat"/>
+        <Command Value="GitRevision.bat &amp; bash Sql2Pas.sh"/>
       </ExecuteBefore>
     </Other>
   </CompilerOptions>

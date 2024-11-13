@@ -135,8 +135,7 @@ begin
 
 
 
-  // Create DB schema
-  DBVersioning := TDBVersioning.Create(SQLite3Connection1, SQLTransaction1);
+  DBVersioning := TDBVersioning.CreateFromResources(SQLite3Connection1, SQLTransaction1);
   try
     if DBVersioning.UpgradeNeeded then
     begin

@@ -69,14 +69,6 @@
 		<echo>Copy DLLs</echo>
 		<copy file="${sqlite3_dll.filename}" todir="${build_dir}" preservelastmodified="true"/>
 		
-		<echo>Copy db-updates dir</echo>
-		<mkdir dir="${build_dir}/db-updates"/>
-		<copy todir="${build_dir}/db-updates" preservelastmodified="true">
-			<fileset dir="db-updates">
-				<include name="*.sql"/>
-			</fileset>
-		</copy>
-		
 		<echo>Copy languages</echo>
 		<mkdir dir="${build_dir}/languages"/>
 		<copy todir="${build_dir}/languages" preservelastmodified="true">

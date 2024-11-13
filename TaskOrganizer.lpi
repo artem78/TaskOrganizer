@@ -31,9 +31,9 @@
         <Resource_15 FileName="icons\icon_clock_animation_8.png" Type="RCDATA" ResourceName="CLOCK_ANIMATION_8"/>
         <Resource_16 FileName="icons\langs\en.png" Type="RCDATA" ResourceName="FLAG_EN"/>
         <Resource_17 FileName="icons\langs\ru.png" Type="RCDATA" ResourceName="FLAG_RU"/>
-        <Resource_18 FileName="db-updates\0001_create_tables.sql" Type="RCDATA" ResourceName="SQL_SCRIPT_1"/>
-        <Resource_19 FileName="db-updates\0002_change_date_format.sql" Type="RCDATA" ResourceName="SQL_SCRIPT_2"/>
-        <Resource_20 FileName="db-updates\0003_create_views.sql" Type="RCDATA" ResourceName="SQL_SCRIPT_3"/>
+        <Resource_18 FileName="sql\0001_create_tables.sql" Type="RCDATA" ResourceName="SQL_SCRIPT_1"/>
+        <Resource_19 FileName="sql\0002_change_date_format.sql" Type="RCDATA" ResourceName="SQL_SCRIPT_2"/>
+        <Resource_20 FileName="sql\0003_create_views.sql" Type="RCDATA" ResourceName="SQL_SCRIPT_3"/>
       </Resources>
     </General>
     <i18n>

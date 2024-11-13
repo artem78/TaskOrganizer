@@ -47,6 +47,8 @@ type
     procedure SetDoneTasksFilter(AVal: Boolean);
 
     procedure UpdateFilters;
+
+    procedure DeleteObsoleteDir;
   public
     property TasksFilterText: String write SetTasksFilterText;
     property DoneTasksFilter: Boolean read FDoneTasksFilter write SetDoneTasksFilter;
@@ -156,6 +158,10 @@ begin
   TrayIcon.Icon.Assign(MainForm.Icon);}
 
   UpdateFilters;
+
+  {$IFOPT D-}
+  DeleteObsoleteDir;
+  {$EndIf}
 end;
 
 procedure TDatabaseDataModule.DataModuleDestroy(Sender: TObject);
@@ -271,6 +277,19 @@ begin
     //TasksSQLQuery.Refresh;
   finally
     Filters.Free;
+  end;
+end;
+
+// удаляем старую ненужную папку, которая осталсь от предыдущих версий
+procedure TDatabaseDataModule.DeleteObsoleteDir;
+var
+  SqlDir: String;
+begin
+  SqlDir:=ConcatPaths([ProgramDirectory, 'db-updates']);
+  if DirectoryExists(SqlDir) then
+  begin
+    if DeleteDirectory(SqlDir, True) then
+      RemoveDirUTF8(SqlDir);
   end;
 end;
 

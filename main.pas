@@ -80,6 +80,8 @@ resourcestring
   RSStopTaskAndExit = 'Stop task and exit';
   RSForceExit = 'Force exit';
   RSCAncel = 'Cancel';
+  RSActiveTaskOnStartupNotification = 'Task "%s" was not stopped when program '
+                                    + 'have been closed and is still active';
 
 {$I revision.inc}
 
@@ -142,11 +144,28 @@ begin
 end;
 
 procedure TMainForm.FormShow(Sender: TObject);
+var
+  ActiveTask: TTask;
+  Msg: String;
 begin
   NonVisualCtrlsDataModule.RunningTaskUpdated;
 
   if FirstShow then
+  begin
     RestoreSettings;
+
+    // предупреждение о неостановленной задаче
+    if TTask.HasActive then
+    begin
+      ActiveTask:=TTask.GetActive;
+      try
+        Msg := Format(RSActiveTaskOnStartupNotification, [ActiveTask.Name]);
+        MessageDlg(Msg, mtInformation, [mbOK], 0);
+      finally
+        ActiveTask.Free;
+      end;
+    end;
+  end;
   FirstShow := False;
 end;
 

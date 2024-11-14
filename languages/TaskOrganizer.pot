@@ -6,6 +6,11 @@ msgstr "Content-Type: text/plain; charset=UTF-8"
 msgid "Failed to save database to file \"%s\""
 msgstr ""
 
+#: main.rsactivetaskonstartupnotification
+#, object-pascal-format
+msgid "Task \"%s\" was not stopped when program have been closed and is still active"
+msgstr ""
+
 #: main.rscancel
 msgctxt "main.rscancel"
 msgid "Cancel"

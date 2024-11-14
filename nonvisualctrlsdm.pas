@@ -56,11 +56,13 @@ type
     procedure TrayIconDblClick(Sender: TObject);
     procedure TrayIconMouseMove(Sender: TObject; Shift: TShiftState; X,
       Y: Integer);
+    procedure TrayPopupMenuPopup(Sender: TObject);
     procedure UnMarkTaskAsDoneActionExecute(Sender: TObject);
     {procedure UniqueInstance1OtherInstance(Sender: TObject;
       ParamCount: Integer; const Parameters: array of String);}
   private
     procedure LoadIconsFromResources;
+    procedure StartTimeTrackingForTaskMenuItemClick(Sender: TObject);
   public
     procedure RunningTaskUpdated;
   end;
@@ -337,6 +339,28 @@ begin
   TrayIcon.Hint := HintText;
 end;
 
+procedure TNonVisualCtrlsDataModule.TrayPopupMenuPopup(Sender: TObject);
+const
+  Limit = {12} 7;
+var
+  MenuItem: TMenuItem;
+  Tasks: TTasks;
+  Task: TTask;
+begin
+  StartTimeTrackingMenuItem.Clear;
+
+  Tasks := TTask.GetLastActive(Limit, not DatabaseDataModule.DoneTasksFilter);
+  for Task in Tasks do
+  begin
+    MenuItem := TMenuItem.Create(StartTimeTrackingMenuItem);
+    MenuItem.Caption := Task.Name;
+    MenuItem.Name := Format('StartTimeTrackingForTask%dMenuItem', [Task.Id]);
+    MenuItem.OnClick := @StartTimeTrackingForTaskMenuItemClick;
+    StartTimeTrackingMenuItem.Add(MenuItem);
+  end;
+  Tasks.Free;
+end;
+
 procedure TNonVisualCtrlsDataModule.UnMarkTaskAsDoneActionExecute(
   Sender: TObject);
 begin
@@ -393,6 +417,23 @@ begin
     Clear;
     AddResourceName(HINSTANCE, 'FLAG_EN');
     AddResourceName(HINSTANCE, 'FLAG_RU');
+  end;
+end;
+
+procedure TNonVisualCtrlsDataModule.StartTimeTrackingForTaskMenuItemClick(Sender: TObject);
+var
+  TaskId: Integer;
+  Task:TTask;
+begin
+  //ShowMessage(TMenuItem(Sender).Name);
+  TaskId:=ExtractIntFromStr(TMenuItem(Sender).Name);
+  //ShowMessage(IntToStr(taskid));
+  task := TTask.GetById(TaskId);
+  try
+    task.Start;
+    RunningTaskUpdated;
+  finally
+    task.Free;
   end;
 end;
 

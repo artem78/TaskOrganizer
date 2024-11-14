@@ -105,6 +105,7 @@ object NonVisualCtrlsDataModule: TNonVisualCtrlsDataModule
   end
   object TrayPopupMenu: TPopupMenu
     Images = Icons
+    OnPopup = TrayPopupMenuPopup
     Left = 144
     Top = 112
     object StartTimeTrackingMenuItem: TMenuItem

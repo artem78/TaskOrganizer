@@ -13,10 +13,11 @@ type
 function DurationToStr(ADuration: TDuration): String;
 function DurationToStr(ADT1, ADT2: TDateTime): String;
 function DurationToStr(ASeconds: Integer): String;
+function ExtractIntFromStr(const AStr:string): Integer;
 
 implementation
 
-uses DateUtils;
+uses DateUtils, Character;
 
 resourcestring
   RSDayUnitShort = 'd';
@@ -48,6 +49,26 @@ var
 begin
   D := IncSecond(0, ASeconds);
   Result := DurationToStr(D);
+end;
+
+function ExtractIntFromStr(const AStr: string): Integer;
+var
+  S:string='';
+  C:char {TCharacter};
+begin
+  for c in astr do
+  begin
+    if IsDigit(c) then
+      s:=s+c;
+
+    if (not IsDigit(c)) and (not s.IsEmpty) then
+      Break;
+  end;
+
+  if s='' then
+    raise Exception.CreateFmt('Can''t extract integer from string "%s"', [astr]);
+
+  Result:=StrToInt(s);
 end;
 
 end.

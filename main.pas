@@ -66,7 +66,7 @@ var
 implementation
 
 uses
-  Models, StrUtils, TypInfo, LCLTranslator, LazFileUtils
+  Models, Utils, StrUtils, TypInfo, LCLTranslator, LazFileUtils
   {$IFOPT D+}
   ,LazLogger
   {$Else}
@@ -176,7 +176,7 @@ var
   TaskId: Integer;
 begin
   S := (Sender as TMenuItem).Name;
-  TaskId := StrToInt(S.Substring(8, S.Length - 16));
+  TaskId :=ExtractIntFromStr(s);
   TasksFrame1.SelectTask(TaskId);
   TasksFrame1.TasksDBGrid.SetFocus;
 end;

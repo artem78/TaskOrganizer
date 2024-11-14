@@ -9,13 +9,23 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
-"X-Generator: Poedit 3.2.2\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
+"X-Generator: Poedit 3.3.2\n"
 
 #: databasedm.rsbackupdbfailed
 #, object-pascal-format
 msgid "Failed to save database to file \"%s\""
 msgstr "Ошибка сохранения базы данных в файл \"%s\""
+
+#: main.rscancel
+msgctxt "main.rscancel"
+msgid "Cancel"
+msgstr "Отмена"
+
+#: main.rsforceexit
+msgid "Force exit"
+msgstr "Выйти принудительно"
 
 #: main.rslibrarynotfound
 #, object-pascal-format
@@ -23,8 +33,13 @@ msgid "Library \"%s\" not found in program directory!"
 msgstr "Файл библиотеки \"%s\" не найден в каталоге программы!"
 
 #: main.rsrunningtasknotification
-msgid "You have running task. Are you sure to exit?"
-msgstr "Есть выполняющаяся задача. Вы уверены, что хотите выйти?"
+#, object-pascal-format
+msgid "You have running task \"%s\"!"
+msgstr "Задача \"%s\" всё ещё активна!"
+
+#: main.rsstoptaskandexit
+msgid "Stop task and exit"
+msgstr "Остановить задачу и выйти"
 
 #: nonvisualctrlsdm.rsconfirmdeleteperiod
 msgid "Are you sure to delete period?"
@@ -566,4 +581,3 @@ msgstr ""
 #: utils.rsdayunitshort
 msgid "d"
 msgstr "д"
-

@@ -75,8 +75,11 @@ uses
   ;
 
 resourcestring
-  RSRunningTaskNotification = 'You have running task. Are you sure to exit?';
+  RSRunningTaskNotification = 'You have running task "%s"!';
   RSLibraryNotFound = 'Library "%s" not found in program directory!';
+  RSStopTaskAndExit = 'Stop task and exit';
+  RSForceExit = 'Force exit';
+  RSCAncel = 'Cancel';
 
 {$I revision.inc}
 
@@ -108,11 +111,28 @@ begin
 end;
 
 procedure TMainForm.FormCloseQuery(Sender: TObject; var CanClose: boolean);
+var
+  Msg: string;
+  Res: TModalResult;
+  ActiveTask: TTask;
 begin
+  CanClose:=True;
   if TTask.HasActive then
   begin
-    CanClose := MessageDlg(RSRunningTaskNotification,
-             mtConfirmation, mbYesNo, 0) = mrYes;
+    ActiveTask:=TTask.GetActive;
+    try
+      Msg:=Format(RSRunningTaskNotification, [ActiveTask.Name]);
+      Res := QuestionDlg('', Msg, mtCustom {mtConfirmation},
+                                            [mrAbort, RSStopTaskAndExit,
+                                             mrClose, RSForceExit,
+                                             mrCancel, RSCAncel], '');
+      case Res of
+        mrAbort: ActiveTask.Stop;
+        mrCancel: CanClose:=False;
+      end;
+    finally
+      ActiveTask.Free;
+    end;
   end;
 end;
 

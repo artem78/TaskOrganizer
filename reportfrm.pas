@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, StdCtrls, EditBtn, ExtCtrls,
-  CheckLst, TreeListView, Reports, TAGraph, TASeries,
+  CheckLst, Menus, TreeListView, Reports, TAGraph, TASeries,
   TASources, DateTimePicker, ListFilterEdit, LocalizedForms;
 
 type
@@ -17,8 +17,11 @@ type
 
   TReportFrame = class(TLocalizedFrame)
     ButtonPanel: TPanel;
+    ExpandAllMenuItem: TMenuItem;
+    CollapseAllMenuItem: TMenuItem;
     PeriodAllTimeCheckBox: TCheckBox;
     LabelsChartSource: TListChartSource;
+    ReportTreePopupMenu: TPopupMenu;
     TaskListFilterEdit: TListFilterEdit;
     PeriodBeginDateTimePicker: TDateTimePicker;
     PeriodEndDateTimePicker: TDateTimePicker;
@@ -33,6 +36,8 @@ type
     GroupByRadioGroup: TRadioGroup;
     ReportTreeListView: TTreeListView;
     ViewRadioGroup: TRadioGroup;
+    procedure CollapseAllMenuItemClick(Sender: TObject);
+    procedure ExpandAllMenuItemClick(Sender: TObject);
     procedure GroupByRadioGroupClick(Sender: TObject);
     procedure PeriodAllTimeCheckBoxChange(Sender: TObject);
     procedure PeriodBeginDateTimePickerChange(Sender: TObject);
@@ -107,6 +112,26 @@ end;
 procedure TReportFrame.GroupByRadioGroupClick(Sender: TObject);
 begin
   GroupBy := GroupBy;
+end;
+
+procedure TReportFrame.ExpandAllMenuItemClick(Sender: TObject);
+var
+  I: Integer;
+begin
+  ReportTreeListView.BeginUpdate;
+  for I := 0 to ReportTreeListView.Items.Count - 1 do
+    ReportTreeListView.Items[I].Expand;
+  ReportTreeListView.EndUpdate;
+end;
+
+procedure TReportFrame.CollapseAllMenuItemClick(Sender: TObject);
+var
+  I: Integer;
+begin
+  ReportTreeListView.BeginUpdate;
+  for I := 0 to ReportTreeListView.Items.Count - 1 do
+    ReportTreeListView.Items[I].Collapse;
+  ReportTreeListView.EndUpdate;
 end;
 
 procedure TReportFrame.PeriodAllTimeCheckBoxChange(Sender: TObject);

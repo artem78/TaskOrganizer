@@ -437,6 +437,14 @@ msgctxt "tperiodsframe.perioddbgrid.header.columns[6].text"
 msgid "Manually added"
 msgstr ""
 
+#: treportframe.collapseallmenuitem.caption
+msgid "Collapse all"
+msgstr ""
+
+#: treportframe.expandallmenuitem.caption
+msgid "Expand all"
+msgstr ""
+
 #: treportframe.groupbyradiogroup.caption
 msgid "Group by"
 msgstr ""

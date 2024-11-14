@@ -455,6 +455,14 @@ msgctxt "tperiodsframe.perioddbgrid.header.columns[6].text"
 msgid "Manually added"
 msgstr "Добавлено вручную"
 
+#: treportframe.collapseallmenuitem.caption
+msgid "Collapse all"
+msgstr "Свернуть все"
+
+#: treportframe.expandallmenuitem.caption
+msgid "Expand all"
+msgstr "Развернуть все"
+
 #: treportframe.groupbyradiogroup.caption
 msgid "Group by"
 msgstr "Группировка"

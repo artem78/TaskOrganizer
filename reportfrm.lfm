@@ -244,7 +244,7 @@ object ReportFrame: TReportFrame
     Height = 335
     Top = 244
     Width = 710
-    Options = [tlvoToolTips, tlvoRightMouseSelects, tlvoStriped]
+    Options = [tlvoToolTips, tlvoStriped]
     Columns = <    
       item
         Alignment = taLeftJustify
@@ -286,6 +286,7 @@ object ReportFrame: TReportFrame
     OnCustomRecordItemDraw = ReportTreeListViewCustomRecordItemDraw
     TabOrder = 2
     Align = alClient
+    PopupMenu = ReportTreePopupMenu
   end
   object ReportChart: TChart
     Left = 0
@@ -334,5 +335,19 @@ object ReportFrame: TReportFrame
   object LabelsChartSource: TListChartSource
     Left = 616
     Top = 488
+  end
+  object ReportTreePopupMenu: TPopupMenu
+    Images = NonVisualCtrlsDataModule.Icons
+    AutoPopup = False
+    Left = 616
+    Top = 320
+    object ExpandAllMenuItem: TMenuItem
+      Caption = 'Expand all'
+      OnClick = ExpandAllMenuItemClick
+    end
+    object CollapseAllMenuItem: TMenuItem
+      Caption = 'Collapse all'
+      OnClick = CollapseAllMenuItemClick
+    end
   end
 end

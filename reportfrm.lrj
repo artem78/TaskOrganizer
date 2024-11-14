@@ -12,5 +12,7 @@
 {"hash":30998220,"name":"treportframe.selectalltasksbutton.caption","sourcebytes":[40,68,101,41,83,101,108,101,99,116,32,97,108,108],"value":"(De)Select all"},
 {"hash":370843,"name":"treportframe.reporttreelistview.columns[0].text","sourcebytes":[84,97,115,107],"value":"Task"},
 {"hash":132258453,"name":"treportframe.reporttreelistview.columns[1].text","sourcebytes":[84,111,116,97,108,32,116,105,109,101],"value":"Total time"},
-{"hash":5205139,"name":"treportframe.reportchart.axislist[0].title.caption","sourcebytes":[72,111,117,114,115],"value":"Hours"}
+{"hash":5205139,"name":"treportframe.reportchart.axislist[0].title.caption","sourcebytes":[72,111,117,114,115],"value":"Hours"},
+{"hash":138586444,"name":"treportframe.expandallmenuitem.caption","sourcebytes":[69,120,112,97,110,100,32,97,108,108],"value":"Expand all"},
+{"hash":53565100,"name":"treportframe.collapseallmenuitem.caption","sourcebytes":[67,111,108,108,97,112,115,101,32,97,108,108],"value":"Collapse all"}
 ]}

@@ -2,7 +2,9 @@ Program for managing tasks written in Lazarus IDE (Free Pascal).
 
 ![](images/tasks_tab_screenshot.png)
 
-![](images/reports_tab_screenshot.png)
+![](images/report_chart_screenshot.png)
+
+![](images/report_table_screenshot.png)
 
 Still work in progress, but some features already implemented:
 - Time tracking

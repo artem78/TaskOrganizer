@@ -180,10 +180,13 @@ begin
   if Col.FieldName = {'id'} 'name' then
   begin
     RecordData := Grid.GetNodeRecordData(Node);
-    if RecordData.FieldValue['is_active'] then
-      ImageIndex := StartIconIdx
-    else if RecordData.FieldValue['done'] then
-      ImageIndex := TickIconIdx;
+    if Assigned(RecordData) then
+    begin
+      if RecordData.FieldValue['is_active'] then
+        ImageIndex := StartIconIdx
+      else if RecordData.FieldValue['done'] then
+        ImageIndex := TickIconIdx;
+    end;
   end;
 end;
 

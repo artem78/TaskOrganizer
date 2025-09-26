@@ -53,6 +53,8 @@ resourcestring
 
 
 procedure TTaskEditForm.FormShow(Sender: TObject);
+var
+  Priority: Integer;
 begin
   case DatabaseDataModule.TasksSQLQuery.State of
        dsInsert: Caption := RSCreateTask;
@@ -66,14 +68,17 @@ begin
   //ActiveControl.SetFocus;
   TaskNameDBEdit.SetFocus;
 
-  PriorityComboBox.ItemIndex := (DatabaseDataModule.TasksSQLQuery
-                               .FieldByName('priority').AsInteger + 20) div 10;
+  Priority := DatabaseDataModule.TasksSQLQuery.FieldByName('priority').AsInteger;
+  PriorityComboBox.ItemIndex := PriorityComboBox.Items
+          .IndexOfObject(TObject(PtrUInt(Priority)));
 end;
 
 procedure TTaskEditForm.OKButtonClick(Sender: TObject);
+var
+  Priority: Integer;
 begin
-  DatabaseDataModule.TasksSQLQuery.FieldByName('priority').AsInteger
-                  := (PriorityComboBox.ItemIndex - 2) * 10;
+  Priority := {PtrUInt}PtrInt(PriorityComboBox.Items.Objects[PriorityComboBox.ItemIndex]);
+  DatabaseDataModule.TasksSQLQuery.FieldByName('priority').AsInteger := Priority;
 end;
 
 procedure TTaskEditForm.FormCreate(Sender: TObject);
@@ -81,11 +86,11 @@ begin
   with PriorityComboBox do
   begin
     Clear;
-    AddItem(RSVeryLowPriority, TObject(PtrUInt(tpVeryLow)));
-    AddItem(RSLowPriority, TObject(PtrUInt(tpLow)));
-    AddItem(RSNormalPriority, TObject(PtrUInt(tpNormal)));
-    AddItem(RSHighPriority, TObject(PtrUInt(tpHigh)));
     AddItem(RSVeryHighPriority, TObject(PtrUInt(tpVeryHigh)));
+    AddItem(RSHighPriority, TObject(PtrUInt(tpHigh)));
+    AddItem(RSNormalPriority, TObject(PtrUInt(tpNormal)));
+    AddItem(RSLowPriority, TObject(PtrUInt(tpLow)));
+    AddItem(RSVeryLowPriority, TObject(PtrUInt(tpVeryLow)));
   end;
 end;
 

@@ -16,7 +16,7 @@ inherited MainForm: TMainForm
   OnShow = FormShow
   object PageControl1: TPageControl[0]
     Left = 0
-    Height = 430
+    Height = 450
     Top = 0
     Width = 750
     ActivePage = TasksTabSheet
@@ -25,24 +25,22 @@ inherited MainForm: TMainForm
     TabOrder = 0
     object TasksTabSheet: TTabSheet
       Caption = 'Tasks'
-      ClientHeight = 396
+      ClientHeight = 416
       ClientWidth = 744
       OnShow = TasksTabSheetShow
       inline TasksFrame1: TTasksFrame
-        Height = 402
-        Width = 742
+        Height = 416
+        Width = 744
         Align = alClient
-        ClientHeight = 402
-        ClientWidth = 742
+        ClientHeight = 416
+        ClientWidth = 744
         inherited ToolBar1: TToolBar
-          Width = 742
-          inherited SeparatorToolButton: TToolButton
-            Height = 22
-          end
+          Width = 744
         end
         inherited TasksDBGrid: TVirtualDBGrid
-          Height = 344
-          Width = 742
+          Cursor = crDefault
+          Height = 358
+          Width = 744
           Header.AutoSizeIndex = -1
           Header.Columns = <          
             item
@@ -92,10 +90,19 @@ inherited MainForm: TMainForm
               Options = [coAllowClick, coDraggable, coEnabled, coParentBidiMode, coParentColor, coResizable, coShowDropMark, coAllowFocus, coEditable]
               Position = 6
               Text = 'done'
-              Width = 38
+              Width = 10
               FieldName = 'done'
               ColumnType = ctDBField
+            end          
+            item
+              Options = [coAllowClick, coDraggable, coEnabled, coParentBidiMode, coParentColor, coResizable, coShowDropMark, coAllowFocus, coEditable]
+              Position = 7
+              Text = 'priority'
+              Width = 10
+              FieldName = 'priority'
+              ColumnType = ctDBField
             end>
+          OnBeforePaint = TasksDBGridBeforePaint
         end
         inherited FilterEdit: TListViewFilterEdit
           AnchorSideLeft.Control = TasksFrame1
@@ -104,17 +111,17 @@ inherited MainForm: TMainForm
     end
     object PeriodsTabSheet: TTabSheet
       Caption = 'Periods'
-      ClientHeight = 396
+      ClientHeight = 416
       ClientWidth = 744
       inline PeriodsFrame1: TPeriodsFrame
-        Height = 402
-        Width = 742
+        Height = 416
+        Width = 744
         Align = alClient
-        ClientHeight = 402
-        ClientWidth = 742
+        ClientHeight = 416
+        ClientWidth = 744
         inherited PeriodDBGrid: TVirtualDBGrid
-          Height = 376
-          Width = 742
+          Height = 390
+          Width = 744
           Header.AutoSizeIndex = -1
           Header.Columns = <          
             item
@@ -168,64 +175,116 @@ inherited MainForm: TMainForm
               Options = [coAllowClick, coDraggable, coEnabled, coParentBidiMode, coParentColor, coResizable, coShowDropMark, coVisible, coAllowFocus, coUseCaptionAlignment, coEditable]
               Position = 6
               Text = 'Manually added'
-              Width = 140
+              Width = 142
               FieldName = 'is_manually_added'
               ColumnType = ctDBField
             end>
         end
         inherited ToolBar: TToolBar
-          Width = 742
+          Width = 744
         end
       end
     end
     object ReportTabSheet: TTabSheet
       Caption = 'Reports'
-      ClientHeight = 396
+      ClientHeight = 416
       ClientWidth = 744
       OnShow = ReportTabSheetShow
       inline ReportFrame1: TReportFrame
-        Height = 402
-        Width = 742
+        Height = 416
+        Width = 744
         Align = alClient
-        ClientHeight = 402
-        ClientWidth = 742
+        ClientHeight = 416
+        ClientWidth = 744
         inherited SettingsPanel: TPanel
-          Width = 730
-          ClientWidth = 730
+          Width = 732
+          ClientWidth = 732
+          inherited PeriodGroupBox: TGroupBox
+            Height = 79
+            Width = 350
+            ClientHeight = 62
+            ClientWidth = 348
+            inherited PeriodBeginLabel: TLabel
+              Height = 22
+              Width = 91
+            end
+            inherited PeriodBeginDateTimePicker: TDateTimePicker
+              Left = 103
+              Height = 22
+              Width = 93
+            end
+            inherited PeriodEndLabel: TLabel
+              Left = 216
+              Height = 22
+              Width = 27
+            end
+            inherited PeriodEndDateTimePicker: TDateTimePicker
+              Left = 249
+              Height = 22
+              Width = 93
+            end
+            inherited PeriodAllTimeCheckBox: TCheckBox
+              Height = 22
+              Top = 34
+              Width = 91
+            end
+          end
+          inherited GroupByRadioGroup: TRadioGroup
+            Height = 83
+            Top = 94
+            Width = 85
+            ClientHeight = 66
+            ClientWidth = 83
+          end
+          inherited ViewRadioGroup: TRadioGroup
+            Height = 61
+            Top = 94
+            Width = 71
+            ClientHeight = 44
+            ClientWidth = 69
+          end
           inherited TasksGroupBox: TGroupBox
-            Width = 402
-            ClientWidth = 400
+            Left = 370
+            Width = 362
+            ClientWidth = 360
             inherited TaskListFilterEdit: TListFilterEdit
-              Width = 386
+              Width = 348
             end
             inherited TasksCheckListBox: TCheckListBox
-              Width = 386
+              Width = 348
+              TopIndex = -1
             end
             inherited ButtonPanel: TPanel
-              Width = 386
-              ClientWidth = 386
+              Height = 28
+              Width = 348
+              ClientHeight = 28
+              ClientWidth = 348
+              inherited SelectAllTasksButton: TButton
+                Height = 28
+                Width = 89
+              end
             end
           end
         end
         inherited ReportTreeListView: TTreeListView
-          Height = 158
-          Width = 742
+          Height = 172
+          Width = 744
         end
         inherited ReportChart: TChart
-          Height = 158
-          Width = 742
+          Height = 172
+          Width = 744
         end
       end
     end
     object LogsTabSheet: TTabSheet
       Caption = 'SQL log'
-      ClientHeight = 396
+      ClientHeight = 416
       ClientWidth = 744
       object LogsMemo: TMemo
         Left = 0
-        Height = 402
+        Height = 416
         Top = 0
-        Width = 742
+        Width = 744
         Align = alClient
         Font.CharSet = RUSSIAN_CHARSET
         Font.Color = clBlack

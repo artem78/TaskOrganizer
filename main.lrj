@@ -8,6 +8,7 @@
 {"hash":95406836,"name":"tmainform.tasksframe1.tasksdbgrid.header.columns[4].text","sourcebytes":[77,111,100,105,102,105,101,100],"value":"Modified"},
 {"hash":91938901,"name":"tmainform.tasksframe1.tasksdbgrid.header.columns[5].text","sourcebytes":[105,115,95,97,99,116,105,118,101],"value":"is_active"},
 {"hash":439877,"name":"tmainform.tasksframe1.tasksdbgrid.header.columns[6].text","sourcebytes":[100,111,110,101],"value":"done"},
+{"hash":151427017,"name":"tmainform.tasksframe1.tasksdbgrid.header.columns[7].text","sourcebytes":[112,114,105,111,114,105,116,121],"value":"priority"},
 {"hash":113837539,"name":"tmainform.periodstabsheet.caption","sourcebytes":[80,101,114,105,111,100,115],"value":"Periods"},
 {"hash":1236,"name":"tmainform.periodsframe1.perioddbgrid.header.columns[0].text","sourcebytes":[73,68],"value":"ID"},
 {"hash":4767230,"name":"tmainform.periodsframe1.perioddbgrid.header.columns[1].text","sourcebytes":[66,101,103,105,110],"value":"Begin"},

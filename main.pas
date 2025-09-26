@@ -7,7 +7,7 @@ interface
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, ComCtrls,
   StdCtrls, DBGrids, Menus, TasksFrame, DatabaseDM,
-  PeriodsFrame, NonVisualCtrlsDM, ReportFrm, LocalizedForms;
+  PeriodsFrame, NonVisualCtrlsDM, ReportFrm, LocalizedForms, VirtualTrees;
 
 type
 
@@ -39,6 +39,8 @@ type
     procedure FormShow(Sender: TObject);
     procedure GoToTaskMenuItemClick(Sender: TObject);
     procedure ReportTabSheetShow(Sender: TObject);
+    procedure TasksDBGridBeforePaint(Sender: TBaseVirtualTree;
+      TargetCanvas: TCanvas);
     procedure TasksTabSheetShow(Sender: TObject);
   private
     FirstShow: Boolean; // Indicates if FormShow event runs first time
@@ -201,6 +203,12 @@ begin
   //StatsDBGrid.Refresh;
 
   ReportFrame1.OnShow;
+end;
+
+procedure TMainForm.TasksDBGridBeforePaint(Sender: TBaseVirtualTree;
+  TargetCanvas: TCanvas);
+begin
+
 end;
 
 procedure TMainForm.TasksTabSheetShow(Sender: TObject);

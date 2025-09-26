@@ -58,7 +58,7 @@ type
 implementation
 
 uses
-  Variants, DatabaseDM, LCLType, NonVisualCtrlsDM{, WinMouse}{, LCLTranslator};
+  Variants, DatabaseDM, LCLType, NonVisualCtrlsDM, Models{, WinMouse}{, LCLTranslator};
 
 resourcestring
   RSFilterHint = '(filter)';
@@ -88,6 +88,18 @@ begin
       TargetCanvas.Font.Color := clGreen;
 
     TargetCanvas.Font.Style := [fsBold];
+  end
+  else
+  begin
+    if (not VarIsNull(Grid.GetNodeRecordData(Node).FieldValue['priority'])) and (Node <> Grid.FocusedNode) then
+    begin
+      case TTaskPriority(Grid.GetNodeRecordData(Node).FieldValue['priority']) of
+        tpVeryLow: TargetCanvas.Font.Color := clLtGray;
+        tpLow: TargetCanvas.Font.Color := clDkGray;
+        tpHigh: TargetCanvas.Font.Color := clMaroon;
+        tpVeryHigh: TargetCanvas.Font.Color := clRed;
+      end;
+    end;
   end;
 end;
 

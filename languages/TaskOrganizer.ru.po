@@ -260,6 +260,10 @@ msgctxt "tmainform.tasksframe1.tasksdbgrid.header.columns[6].text"
 msgid "done"
 msgstr ""
 
+#: tmainform.tasksframe1.tasksdbgrid.header.columns[7].text
+msgid "priority"
+msgstr ""
+
 #: tmainform.taskstabsheet.caption
 msgctxt "tmainform.taskstabsheet.caption"
 msgid "Tasks"
@@ -608,6 +612,10 @@ msgstr ""
 #: ttasksframe.tasksdbgrid.header.columns[6].text
 msgctxt "ttasksframe.tasksdbgrid.header.columns[6].text"
 msgid "done"
+msgstr ""
+
+#: ttasksframe.tasksdbgrid.header.columns[7].text
+msgid "Priority"
 msgstr ""
 
 #: ttasksframe.toolbar1.caption

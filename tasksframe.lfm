@@ -36,7 +36,7 @@ object TasksFrame: TTasksFrame
     end
     object SeparatorToolButton: TToolButton
       Left = 70
-      Height = 8
+      Height = 22
       Top = 2
       Style = tbsSeparator
     end
@@ -54,6 +54,7 @@ object TasksFrame: TTasksFrame
   object TasksDBGrid: TVirtualDBGrid
     AnchorSideTop.Control = FilterEdit
     AnchorSideTop.Side = asrBottom
+    Cursor = 63
     Left = 0
     Height = 265
     Top = 58
@@ -78,7 +79,7 @@ object TasksFrame: TTasksFrame
       item
         Position = 2
         Text = 'Description'
-        Width = 91
+        Width = 89
         FieldName = 'description'
         ColumnType = ctDBField
       end    
@@ -111,6 +112,14 @@ object TasksFrame: TTasksFrame
         Width = 38
         FieldName = 'done'
         ColumnType = ctDBField
+      end    
+      item
+        Options = [coAllowClick, coDraggable, coEnabled, coParentBidiMode, coParentColor, coResizable, coShowDropMark, coAllowFocus, coEditable]
+        Position = 7
+        Text = 'Priority'
+        Width = 56
+        FieldName = 'priority'
+        ColumnType = ctDBField
       end>
     Header.Options = [hoAutoResize, hoColumnResize, hoDblClickResize, hoDrag, hoHotTrack, hoShowHint, hoShowSortGlyphs, hoVisible, hoDisableAnimatedResize]
     Images = NonVisualCtrlsDataModule.Icons
@@ -134,7 +143,7 @@ object TasksFrame: TTasksFrame
     AnchorSideTop.Control = ToolBar1
     AnchorSideTop.Side = asrBottom
     Left = 0
-    Height = 23
+    Height = 26
     Top = 26
     Width = 300
     ButtonWidth = 23

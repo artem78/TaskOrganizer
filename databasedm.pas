@@ -21,6 +21,7 @@ type
     PeriodsSQLQueryTaskId: TLongintField;
     PeriodsDataSource: TDataSource;
     PeriodsSQLQuery: TSQLQuery;
+    PeriodsSQLQueryTaskName: TStringField;
     TasksDataSource: TDataSource;
     SQLite3Connection1: TSQLite3Connection;
     CustomSQLQuery: TSQLQuery;
@@ -33,6 +34,7 @@ type
     TasksSQLQueryIsActive: TBooleanField;
     TasksSQLQueryModified: TDateTimeField;
     TasksSQLQueryName: TStringField;
+    TasksSQLQueryPriority: TLongintField;
     procedure DataModuleCreate(Sender: TObject);
     procedure DataModuleDestroy(Sender: TObject);
     procedure PeriodsDataSourceDataChange(Sender: TObject; Field: TField);

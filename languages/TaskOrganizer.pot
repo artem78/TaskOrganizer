@@ -109,9 +109,29 @@ msgctxt "taskedit.rsedittask"
 msgid "Edit task"
 msgstr ""
 
+#: taskedit.rshighpriority
+msgid "High"
+msgstr ""
+
+#: taskedit.rslowpriority
+msgid "Low"
+msgstr ""
+
+#: taskedit.rsnormalpriority
+msgid "Normal"
+msgstr ""
+
 #: taskedit.rssave
 msgctxt "taskedit.rssave"
 msgid "Save"
+msgstr ""
+
+#: taskedit.rsveryhighpriority
+msgid "Very high"
+msgstr ""
+
+#: taskedit.rsverylowpriority
+msgid "Very low"
 msgstr ""
 
 #: tasksframe.rsfilterhint
@@ -523,6 +543,10 @@ msgstr ""
 #: ttaskeditform.caption
 msgctxt "ttaskeditform.caption"
 msgid "Edit task"
+msgstr ""
+
+#: ttaskeditform.prioritylabel.caption
+msgid "Priority:"
 msgstr ""
 
 #: ttaskeditform.taskdescriptionlabel.caption

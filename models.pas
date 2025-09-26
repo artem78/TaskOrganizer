@@ -16,6 +16,11 @@ type
       Id: Integer;
   end;
 
+  TTaskPriority = (tpVeryLow  = -20,
+                 tpLow      = -10,
+                 tpNormal   =   0,
+                 tpHigh     =  10,
+                 tpVeryHigh =  20);
 
   TTask = class;
 
@@ -28,6 +33,7 @@ type
       Name, Description: String;
       Created, Modified: TDateTime;
       Done: Boolean;
+      Priority: TTaskPriority;
 
       function IsActive: Boolean;
       procedure Start;
@@ -235,6 +241,7 @@ begin
       Result.Created := FieldByName('created').AsDateTime;
       Result.Modified := FieldByName('modified').AsDateTime;
       Result.Done := FieldByName('done').AsBoolean;
+      Result.Priority := TTaskPriority(FieldByName('priority').AsInteger);
     end;
   end;
 end;

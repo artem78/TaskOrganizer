@@ -14,11 +14,15 @@ type
 
   TTaskEditForm = class(TForm)
     ButtonPanel1: TButtonPanel;
+    PriorityComboBox: TComboBox;
+    PriorityLabel: TLabel;
     TaskNameDBEdit: TDBEdit;
     TaskDescriptionDBMemo: TDBMemo;
     TaskNameLabel: TLabel;
     TaskDescriptionLabel: TLabel;
+    procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure OKButtonClick(Sender: TObject);
   private
     { private declarations }
   public
@@ -30,13 +34,18 @@ var
 
 implementation
 
-uses DB;
+uses DB, Models;
 
 resourcestring
   RSCreateTask = 'Create task';
   RSEditTask = 'Edit task';
   RSSave = 'Save';
   RSCancel = 'Cancel';
+  RSVeryLowPriority = 'Very low';
+  RSLowPriority = 'Low';
+  RSNormalPriority = 'Normal';
+  RSHighPriority = 'High';
+  RSVeryHighPriority = 'Very high';
 
 {$R *.lfm}
 
@@ -56,6 +65,28 @@ begin
 
   //ActiveControl.SetFocus;
   TaskNameDBEdit.SetFocus;
+
+  PriorityComboBox.ItemIndex := (DatabaseDataModule.TasksSQLQuery
+                               .FieldByName('priority').AsInteger + 20) div 10;
+end;
+
+procedure TTaskEditForm.OKButtonClick(Sender: TObject);
+begin
+  DatabaseDataModule.TasksSQLQuery.FieldByName('priority').AsInteger
+                  := (PriorityComboBox.ItemIndex - 2) * 10;
+end;
+
+procedure TTaskEditForm.FormCreate(Sender: TObject);
+begin
+  with PriorityComboBox do
+  begin
+    Clear;
+    AddItem(RSVeryLowPriority, TObject(PtrUInt(tpVeryLow)));
+    AddItem(RSLowPriority, TObject(PtrUInt(tpLow)));
+    AddItem(RSNormalPriority, TObject(PtrUInt(tpNormal)));
+    AddItem(RSHighPriority, TObject(PtrUInt(tpHigh)));
+    AddItem(RSVeryHighPriority, TObject(PtrUInt(tpVeryHigh)));
+  end;
 end;
 
 end.

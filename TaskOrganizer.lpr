@@ -10,7 +10,7 @@ uses
   Forms, datetimectrls, tachartlazaruspkg, lazcontrols, main, TasksFrame,
   DatabaseDM, taskedit, periodsframe, Models, NonVisualCtrlsDM, PeriodEditFrm
   { you can add units after this },
-  Dialogs, treelistviewpackage, UniqueInstanceRaw, virtualdbgrid_package,
+  Dialogs, treelistviewpackage, UniqueInstanceRaw, virtualdbgrid_package, rxnew,
   ReportFrm, Utils;
 
 {$R *.res}

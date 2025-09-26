@@ -1,6 +1,6 @@
 object TaskEditForm: TTaskEditForm
   Left = 226
-  Height = 288
+  Height = 373
   Top = 205
   Width = 557
   ActiveControl = TaskNameDBEdit
@@ -13,23 +13,23 @@ object TaskEditForm: TTaskEditForm
   ChildSizing.VerticalSpacing = 10
   ChildSizing.Layout = cclLeftToRightThenTopToBottom
   ChildSizing.ControlsPerLine = 2
-  ClientHeight = 288
+  ClientHeight = 373
   ClientWidth = 557
-  OnShow = FormShow
   Position = poOwnerFormCenter
-  LCLVersion = '2.2.4.0'
+  OnCreate = FormCreate
+  OnShow = FormShow
   object TaskNameLabel: TLabel
     Left = 10
-    Height = 23
+    Height = 26
     Top = 10
-    Width = 63
+    Width = 72
     Alignment = taRightJustify
     Caption = 'Name:'
     ParentColor = False
   end
   object TaskNameDBEdit: TDBEdit
-    Left = 83
-    Height = 23
+    Left = 92
+    Height = 26
     Top = 10
     Width = 400
     DataField = 'name'
@@ -41,18 +41,17 @@ object TaskEditForm: TTaskEditForm
   object TaskDescriptionLabel: TLabel
     Left = 10
     Height = 150
-    Top = 43
-    Width = 63
+    Top = 46
+    Width = 72
     Alignment = taRightJustify
     Caption = 'Description:'
     ParentColor = False
   end
   object TaskDescriptionDBMemo: TDBMemo
-    Left = 83
+    Left = 92
     Height = 150
-    Top = 43
+    Top = 46
     Width = 400
-    BorderSpacing.Bottom = 70
     Constraints.MinHeight = 150
     Constraints.MinWidth = 400
     DataField = 'description'
@@ -63,11 +62,12 @@ object TaskEditForm: TTaskEditForm
   end
   object ButtonPanel1: TButtonPanel
     Left = 10
-    Height = 34
-    Top = 244
+    Height = 42
+    Top = 321
     Width = 537
     OKButton.Name = 'OKButton'
     OKButton.Caption = 'Save'
+    OKButton.OnClick = OKButtonClick
     HelpButton.Name = 'HelpButton'
     HelpButton.DefaultCaption = True
     CloseButton.Name = 'CloseButton'
@@ -76,5 +76,23 @@ object TaskEditForm: TTaskEditForm
     CancelButton.Caption = 'Cancel'
     TabOrder = 2
     ShowButtons = [pbOK, pbCancel]
+  end
+  object PriorityLabel: TLabel
+    Left = 10
+    Height = 30
+    Top = 206
+    Width = 72
+    Caption = 'Priority:'
+  end
+  object PriorityComboBox: TComboBox
+    Left = 92
+    Height = 30
+    Top = 206
+    Width = 200
+    BorderSpacing.Bottom = 70
+    Constraints.MaxWidth = 200
+    ItemHeight = 0
+    Style = csDropDownList
+    TabOrder = 3
   end
 end

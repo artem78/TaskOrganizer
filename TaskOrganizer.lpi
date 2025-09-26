@@ -12,7 +12,7 @@
       <ResourceType Value="res"/>
       <UseXPManifest Value="True"/>
       <Icon Value="0"/>
-      <Resources Count="21">
+      <Resources Count="22">
         <Resource_0 FileName="icons\icon_create.png" Type="RCDATA" ResourceName="CREATE"/>
         <Resource_1 FileName="icons\icon_delete.png" Type="RCDATA" ResourceName="DELETE"/>
         <Resource_2 FileName="icons\icon_edit.png" Type="RCDATA" ResourceName="EDIT"/>
@@ -34,6 +34,7 @@
         <Resource_18 FileName="sql\0001_create_tables.sql" Type="RCDATA" ResourceName="SQL_SCRIPT_1"/>
         <Resource_19 FileName="sql\0002_change_date_format.sql" Type="RCDATA" ResourceName="SQL_SCRIPT_2"/>
         <Resource_20 FileName="sql\0003_create_views.sql" Type="RCDATA" ResourceName="SQL_SCRIPT_3"/>
+        <Resource_21 FileName="sql/0004_add_priority.sql" Type="RCDATA" ResourceName="SQL_SCRIPT_4"/>
       </Resources>
     </General>
     <i18n>
@@ -138,37 +139,40 @@
         <Mode0 Name="default"/>
       </Modes>
     </RunParams>
-    <RequiredPackages Count="10">
+    <RequiredPackages Count="11">
       <Item1>
-        <PackageName Value="virtualdbgrid_package"/>
+        <PackageName Value="rxnew"/>
       </Item1>
       <Item2>
-        <PackageName Value="LazControls"/>
+        <PackageName Value="virtualdbgrid_package"/>
       </Item2>
       <Item3>
-        <PackageName Value="treelistviewpackage"/>
+        <PackageName Value="LazControls"/>
       </Item3>
       <Item4>
-        <PackageName Value="TAChartLazarusPkg"/>
+        <PackageName Value="treelistviewpackage"/>
       </Item4>
       <Item5>
-        <PackageName Value="TrayIconExLazPkg"/>
+        <PackageName Value="TAChartLazarusPkg"/>
       </Item5>
       <Item6>
-        <PackageName Value="DateTimeCtrls"/>
+        <PackageName Value="TrayIconExLazPkg"/>
       </Item6>
       <Item7>
-        <PackageName Value="uniqueinstance_package"/>
+        <PackageName Value="DateTimeCtrls"/>
       </Item7>
       <Item8>
-        <PackageName Value="FCL"/>
+        <PackageName Value="uniqueinstance_package"/>
       </Item8>
       <Item9>
-        <PackageName Value="SQLDBLaz"/>
+        <PackageName Value="FCL"/>
       </Item9>
       <Item10>
-        <PackageName Value="LCL"/>
+        <PackageName Value="SQLDBLaz"/>
       </Item10>
+      <Item11>
+        <PackageName Value="LCL"/>
+      </Item11>
     </RequiredPackages>
     <Units Count="13">
       <Unit0>

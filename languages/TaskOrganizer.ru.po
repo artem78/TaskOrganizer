@@ -120,10 +120,30 @@ msgctxt "taskedit.rsedittask"
 msgid "Edit task"
 msgstr "Редактировать задачу"
 
+#: taskedit.rshighpriority
+msgid "High"
+msgstr ""
+
+#: taskedit.rslowpriority
+msgid "Low"
+msgstr ""
+
+#: taskedit.rsnormalpriority
+msgid "Normal"
+msgstr ""
+
 #: taskedit.rssave
 msgctxt "taskedit.rssave"
 msgid "Save"
 msgstr "Сохранить"
+
+#: taskedit.rsveryhighpriority
+msgid "Very high"
+msgstr ""
+
+#: taskedit.rsverylowpriority
+msgid "Very low"
+msgstr ""
 
 #: tasksframe.rsfilterhint
 msgctxt "tasksframe.rsfilterhint"
@@ -542,6 +562,10 @@ msgstr "Сохранить"
 msgctxt "ttaskeditform.caption"
 msgid "Edit task"
 msgstr "Редактировать задачу"
+
+#: ttaskeditform.prioritylabel.caption
+msgid "Priority:"
+msgstr ""
 
 #: ttaskeditform.taskdescriptionlabel.caption
 msgid "Description:"

@@ -53,7 +53,7 @@ object DatabaseDataModule: TDatabaseDataModule
     SQL.Strings = (
       'select id, tasks.name, description, created, modified,'
       '       printf(''%d:%s'', floor(`total_time`) /*days*/, time(IFNULL(`total_time`, 0.5))) AS `total_time`,'
-      '       `done`, is_active'
+      '       `done`, is_active, `priority`'
       'from tasks'
       'left join duration_per_task'
       'on tasks.id = task_id'
@@ -65,14 +65,16 @@ object DatabaseDataModule: TDatabaseDataModule
     )
     UpdateSQL.Strings = (
       'UPDATE `_tasks`'
-      '    SET `name`=:name, `description`=:description, `created`=:created, `modified`=:modified, `done`=:done'
+      '    SET `name`=:name, `description`=:description, `created`=:created, `modified`=:modified, `done`=:done,'
+      '        `priority` = :priority'
       '    WHERE `id`=:id'
     )
     DeleteSQL.Strings = (
       'DELETE FROM `_tasks` WHERE `id` = :id'
     )
     RefreshSQL.Strings = (
-      'SELECT `name`, `description`, `created`, `modified`, `done`, `is_active`'
+      'SELECT `name`, `description`, `created`, `modified`, `done`, `is_active`,'
+      '       `priority`'
       '    FROM `tasks` WHERE (`id` = :id)'
     )
     Params = <>
@@ -148,6 +150,15 @@ object DatabaseDataModule: TDatabaseDataModule
       Required = False
       Visible = False
       DisplayValues = 'True;False'
+    end
+    object TasksSQLQueryPriority: TLongintField
+      FieldKind = fkData
+      FieldName = 'priority'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere, pfRefreshOnInsert, pfRefreshOnUpdate]
+      ReadOnly = False
+      Required = False
     end
   end
   object PeriodsSQLQuery: TSQLQuery

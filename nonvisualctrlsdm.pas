@@ -13,6 +13,11 @@ type
   { TNonVisualCtrlsDataModule }
 
   TNonVisualCtrlsDataModule = class(TDataModule)
+    SetVeryHightPriorityAction: TAction;
+    SetHighPriorityAction: TAction;
+    SetNormalPriorityAction: TAction;
+    SetLowPriorityAction: TAction;
+    SetVeryLowPriorityAction: TAction;
     LanguageIcons: TImageList;
     ShowDoneTasksAction: TAction;
     BackupDatabaseAction: TAction;
@@ -50,6 +55,11 @@ type
     procedure ExitActionExecute(Sender: TObject);
     procedure ExportDatabaseActionExecute(Sender: TObject);
     procedure MarkTaskAsDoneActionExecute(Sender: TObject);
+    procedure SetHighPriorityActionExecute(Sender: TObject);
+    procedure SetLowPriorityActionExecute(Sender: TObject);
+    procedure SetNormalPriorityActionExecute(Sender: TObject);
+    procedure SetVeryHightPriorityActionExecute(Sender: TObject);
+    procedure SetVeryLowPriorityActionExecute(Sender: TObject);
     procedure ShowDoneTasksActionExecute(Sender: TObject);
     procedure StartTimeTrackingActionExecute(Sender: TObject);
     procedure StopTimeTrackingActionExecute(Sender: TObject);
@@ -63,6 +73,7 @@ type
   private
     procedure LoadIconsFromResources;
     procedure StartTimeTrackingForTaskMenuItemClick(Sender: TObject);
+    procedure SetTaskPriority(APriority: TTaskPriority);
   public
     procedure RunningTaskUpdated;
   end;
@@ -299,6 +310,36 @@ begin
   DatabaseDataModule.SQLTransaction1.CommitRetaining;
 end;
 
+procedure TNonVisualCtrlsDataModule.SetHighPriorityActionExecute(Sender: TObject
+  );
+begin
+   SetTaskPriority(tpHigh);
+end;
+
+procedure TNonVisualCtrlsDataModule.SetLowPriorityActionExecute(Sender: TObject
+  );
+begin
+  SetTaskPriority(tpLow);
+end;
+
+procedure TNonVisualCtrlsDataModule.SetNormalPriorityActionExecute(
+  Sender: TObject);
+begin
+  SetTaskPriority(tpNormal);
+end;
+
+procedure TNonVisualCtrlsDataModule.SetVeryHightPriorityActionExecute(
+  Sender: TObject);
+begin
+  SetTaskPriority(tpVeryHigh);
+end;
+
+procedure TNonVisualCtrlsDataModule.SetVeryLowPriorityActionExecute(
+  Sender: TObject);
+begin
+  SetTaskPriority(tpVeryLow);
+end;
+
 procedure TNonVisualCtrlsDataModule.ShowDoneTasksActionExecute(Sender: TObject);
 begin
   ShowDoneTasksAction.Checked := not ShowDoneTasksAction.Checked;
@@ -434,6 +475,17 @@ begin
     RunningTaskUpdated;
   finally
     task.Free;
+  end;
+end;
+
+procedure TNonVisualCtrlsDataModule.SetTaskPriority(APriority: TTaskPriority);
+begin
+  with DatabaseDataModule.TasksSQLQuery do
+  begin
+    Edit;
+    FieldByName('priority').AsInteger := Ord(APriority);
+    Post;
+    ApplyUpdates;
   end;
 end;
 

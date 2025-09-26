@@ -121,14 +121,17 @@ msgid "Edit task"
 msgstr "Редактировать задачу"
 
 #: taskedit.rshighpriority
+msgctxt "taskedit.rshighpriority"
 msgid "High"
 msgstr "Высокий"
 
 #: taskedit.rslowpriority
+msgctxt "taskedit.rslowpriority"
 msgid "Low"
 msgstr "Низкий"
 
 #: taskedit.rsnormalpriority
+msgctxt "taskedit.rsnormalpriority"
 msgid "Normal"
 msgstr "Нормальный"
 
@@ -138,10 +141,12 @@ msgid "Save"
 msgstr "Сохранить"
 
 #: taskedit.rsveryhighpriority
+msgctxt "taskedit.rsveryhighpriority"
 msgid "Very high"
 msgstr "Очень высокий"
 
 #: taskedit.rsverylowpriority
+msgctxt "taskedit.rsverylowpriority"
 msgid "Very low"
 msgstr "Очень низкий"
 
@@ -362,6 +367,36 @@ msgctxt "tnonvisualctrlsdatamodule.marktaskasdoneaction.hint"
 msgid "Mark as done"
 msgstr "Пометить как завершённую"
 
+#: tnonvisualctrlsdatamodule.sethighpriorityaction.caption
+#, fuzzy
+msgctxt "tnonvisualctrlsdatamodule.sethighpriorityaction.caption"
+msgid "High"
+msgstr "Высокий"
+
+#: tnonvisualctrlsdatamodule.setlowpriorityaction.caption
+#, fuzzy
+msgctxt "tnonvisualctrlsdatamodule.setlowpriorityaction.caption"
+msgid "Low"
+msgstr "Низкий"
+
+#: tnonvisualctrlsdatamodule.setnormalpriorityaction.caption
+#, fuzzy
+msgctxt "tnonvisualctrlsdatamodule.setnormalpriorityaction.caption"
+msgid "Normal"
+msgstr "Нормальный"
+
+#: tnonvisualctrlsdatamodule.setveryhightpriorityaction.caption
+#, fuzzy
+msgctxt "tnonvisualctrlsdatamodule.setveryhightpriorityaction.caption"
+msgid "Very high"
+msgstr "Очень высокий"
+
+#: tnonvisualctrlsdatamodule.setverylowpriorityaction.caption
+#, fuzzy
+msgctxt "tnonvisualctrlsdatamodule.setverylowpriorityaction.caption"
+msgid "Very low"
+msgstr "Очень низкий"
+
 #: tnonvisualctrlsdatamodule.showdonetasksaction.caption
 msgctxt "tnonvisualctrlsdatamodule.showdonetasksaction.caption"
 msgid "Show done tasks"
@@ -578,6 +613,10 @@ msgstr "Описание:"
 #: ttaskeditform.tasknamelabel.caption
 msgid "Name:"
 msgstr "Название:"
+
+#: ttasksframe.menuitem7.caption
+msgid "Change priority"
+msgstr "Установить приоритет"
 
 #: ttasksframe.tasksdbgrid.header.columns[0].text
 msgctxt "ttasksframe.tasksdbgrid.header.columns[0].text"

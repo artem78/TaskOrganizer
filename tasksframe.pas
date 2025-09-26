@@ -18,11 +18,17 @@ type
   TTasksFrame = class(TLocalizedFrame)
     FilterEdit: TListViewFilterEdit;
     MenuItem1: TMenuItem;
+    MenuItem10: TMenuItem;
+    MenuItem11: TMenuItem;
+    MenuItem12: TMenuItem;
     MenuItem2: TMenuItem;
     MenuItem3: TMenuItem;
     MenuItem4: TMenuItem;
     MenuItem5: TMenuItem;
     MenuItem6: TMenuItem;
+    MenuItem7: TMenuItem;
+    MenuItem8: TMenuItem;
+    MenuItem9: TMenuItem;
     TasksGridPopupMenu: TPopupMenu;
     TasksDBGrid: TVirtualDBGrid;
     ToolBar1: TToolBar;
@@ -33,6 +39,7 @@ type
     StartTrackingToolButton: TToolButton;
     StopTrackingToolButton: TToolButton;
     procedure FilterEditChange(Sender: TObject);
+    procedure MenuItem7Click(Sender: TObject);
     procedure TasksDBGridBeforePaint(Sender: TBaseVirtualTree;
       TargetCanvas: TCanvas);
     procedure TasksDBGridGetImageIndex(Sender: TBaseVirtualTree;
@@ -163,6 +170,11 @@ end;
 procedure TTasksFrame.FilterEditChange(Sender: TObject);
 begin
   DatabaseDataModule.TasksFilterText := FilterEdit.Caption;
+end;
+
+procedure TTasksFrame.MenuItem7Click(Sender: TObject);
+begin
+
 end;
 
 procedure TTasksFrame.TasksDBGridBeforePaint(Sender: TBaseVirtualTree;

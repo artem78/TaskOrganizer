@@ -110,14 +110,17 @@ msgid "Edit task"
 msgstr ""
 
 #: taskedit.rshighpriority
+msgctxt "taskedit.rshighpriority"
 msgid "High"
 msgstr ""
 
 #: taskedit.rslowpriority
+msgctxt "taskedit.rslowpriority"
 msgid "Low"
 msgstr ""
 
 #: taskedit.rsnormalpriority
+msgctxt "taskedit.rsnormalpriority"
 msgid "Normal"
 msgstr ""
 
@@ -127,10 +130,12 @@ msgid "Save"
 msgstr ""
 
 #: taskedit.rsveryhighpriority
+msgctxt "taskedit.rsveryhighpriority"
 msgid "Very high"
 msgstr ""
 
 #: taskedit.rsverylowpriority
+msgctxt "taskedit.rsverylowpriority"
 msgid "Very low"
 msgstr ""
 
@@ -342,6 +347,31 @@ msgstr ""
 #: tnonvisualctrlsdatamodule.marktaskasdoneaction.hint
 msgctxt "tnonvisualctrlsdatamodule.marktaskasdoneaction.hint"
 msgid "Mark as done"
+msgstr ""
+
+#: tnonvisualctrlsdatamodule.sethighpriorityaction.caption
+msgctxt "tnonvisualctrlsdatamodule.sethighpriorityaction.caption"
+msgid "High"
+msgstr ""
+
+#: tnonvisualctrlsdatamodule.setlowpriorityaction.caption
+msgctxt "tnonvisualctrlsdatamodule.setlowpriorityaction.caption"
+msgid "Low"
+msgstr ""
+
+#: tnonvisualctrlsdatamodule.setnormalpriorityaction.caption
+msgctxt "tnonvisualctrlsdatamodule.setnormalpriorityaction.caption"
+msgid "Normal"
+msgstr ""
+
+#: tnonvisualctrlsdatamodule.setveryhightpriorityaction.caption
+msgctxt "tnonvisualctrlsdatamodule.setveryhightpriorityaction.caption"
+msgid "Very high"
+msgstr ""
+
+#: tnonvisualctrlsdatamodule.setverylowpriorityaction.caption
+msgctxt "tnonvisualctrlsdatamodule.setverylowpriorityaction.caption"
+msgid "Very low"
 msgstr ""
 
 #: tnonvisualctrlsdatamodule.showdonetasksaction.caption
@@ -559,6 +589,10 @@ msgstr ""
 
 #: ttaskeditform.tasknamelabel.caption
 msgid "Name:"
+msgstr ""
+
+#: ttasksframe.menuitem7.caption
+msgid "Change priority"
 msgstr ""
 
 #: ttasksframe.tasksdbgrid.header.columns[0].text

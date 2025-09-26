@@ -174,5 +174,24 @@ object TasksFrame: TTasksFrame
     object MenuItem4: TMenuItem
       Action = NonVisualCtrlsDataModule.UnMarkTaskAsDoneAction
     end
+    object MenuItem7: TMenuItem
+      Caption = 'Change priority'
+      OnClick = MenuItem7Click
+      object MenuItem8: TMenuItem
+        Action = NonVisualCtrlsDataModule.SetVeryHightPriorityAction
+      end
+      object MenuItem9: TMenuItem
+        Action = NonVisualCtrlsDataModule.SetHighPriorityAction
+      end
+      object MenuItem10: TMenuItem
+        Action = NonVisualCtrlsDataModule.SetNormalPriorityAction
+      end
+      object MenuItem11: TMenuItem
+        Action = NonVisualCtrlsDataModule.SetLowPriorityAction
+      end
+      object MenuItem12: TMenuItem
+        Action = NonVisualCtrlsDataModule.SetVeryLowPriorityAction
+      end
+    end
   end
 end

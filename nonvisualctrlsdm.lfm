@@ -94,6 +94,31 @@ object NonVisualCtrlsDataModule: TNonVisualCtrlsDataModule
       Hint = 'Show done tasks'
       OnExecute = ShowDoneTasksActionExecute
     end
+    object SetVeryHightPriorityAction: TAction
+      Category = 'setPriority'
+      Caption = 'Very high'
+      OnExecute = SetVeryHightPriorityActionExecute
+    end
+    object SetHighPriorityAction: TAction
+      Category = 'setPriority'
+      Caption = 'High'
+      OnExecute = SetHighPriorityActionExecute
+    end
+    object SetNormalPriorityAction: TAction
+      Category = 'setPriority'
+      Caption = 'Normal'
+      OnExecute = SetNormalPriorityActionExecute
+    end
+    object SetLowPriorityAction: TAction
+      Category = 'setPriority'
+      Caption = 'Low'
+      OnExecute = SetLowPriorityActionExecute
+    end
+    object SetVeryLowPriorityAction: TAction
+      Category = 'setPriority'
+      Caption = 'Very low'
+      OnExecute = SetVeryLowPriorityActionExecute
+    end
   end
   object TrayIcon: TTrayIconEx
     PopUpMenu = TrayPopupMenu

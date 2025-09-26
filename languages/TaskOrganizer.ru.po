@@ -593,3 +593,4 @@ msgstr ""
 #: utils.rsdayunitshort
 msgid "d"
 msgstr "д"
+

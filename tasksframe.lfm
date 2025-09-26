@@ -36,7 +36,7 @@ object TasksFrame: TTasksFrame
     end
     object SeparatorToolButton: TToolButton
       Left = 70
-      Height = 22
+      Height = 8
       Top = 2
       Style = tbsSeparator
     end
@@ -78,7 +78,7 @@ object TasksFrame: TTasksFrame
       item
         Position = 2
         Text = 'Description'
-        Width = 87
+        Width = 91
         FieldName = 'description'
         ColumnType = ctDBField
       end    

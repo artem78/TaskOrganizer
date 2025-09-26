@@ -87,7 +87,7 @@
           </Linking>
           <Other>
             <ExecuteBefore>
-              <Command Value="GitRevision.bat"/>
+              <Command Value="GitRevision.sh"/>
             </ExecuteBefore>
           </Other>
         </CompilerOptions>
@@ -123,7 +123,7 @@
           </Linking>
           <Other>
             <ExecuteBefore>
-              <Command Value="GitRevision.bat"/>
+              <Command Value="GitRevision.sh"/>
             </ExecuteBefore>
           </Other>
         </CompilerOptions>
@@ -271,6 +271,9 @@
       <UnitOutputDirectory Value="lib\$(TargetCPU)-$(TargetOS)"/>
     </SearchPaths>
     <Linking>
+      <Debugging>
+        <DebugInfoType Value="dsDwarf3"/>
+      </Debugging>
       <Options>
         <Win32>
           <GraphicApplication Value="True"/>
@@ -282,7 +285,7 @@
         <IgnoredMessages idx5024="True"/>
       </CompilerMessages>
       <ExecuteBefore>
-        <Command Value="GitRevision.bat"/>
+        <Command Value="GitRevision.sh"/>
       </ExecuteBefore>
     </Other>
   </CompilerOptions>

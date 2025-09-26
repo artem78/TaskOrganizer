@@ -39,7 +39,7 @@ type
 implementation
 
 uses
-  LCLType, NonVisualCtrlsDM, Utils, WinMouse, StrUtils, Variants, Grids;
+  LCLType, NonVisualCtrlsDM, Utils, {WinMouse,} StrUtils, Variants, Grids;
 
 resourcestring
   RSYes = 'Yes';

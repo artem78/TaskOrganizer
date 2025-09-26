@@ -357,7 +357,7 @@ begin
   begin
     if TasksCheckListBox.Checked[Idx] then
     begin
-      Result[Idx2] := Integer(TasksCheckListBox.Items.Objects[Idx]);
+      Result[Idx2] := PtrUInt(TasksCheckListBox.Items.Objects[Idx]);
       Inc(Idx2);
     end;
   end;
@@ -392,7 +392,7 @@ begin
     while not EOF do
     begin
       {TasksCheckListBox.AddItem} TaskListFilterEdit.Items.AddObject(FieldByName('name').AsString,
-          TObject(FieldByName('id').AsInteger));
+          TObject(PtrUInt(FieldByName('id').AsInteger)));
       Next;
     end;
     Close;

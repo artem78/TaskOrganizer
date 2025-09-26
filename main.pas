@@ -66,7 +66,7 @@ var
 implementation
 
 uses
-  Models, Utils, StrUtils, TypInfo, LCLTranslator, LazFileUtils
+  Models, Utils, StrUtils, TypInfo, LCLTranslator, LazFileUtils, LazUTF8
   {$IFOPT D+}
   ,LazLogger
   {$Else}
@@ -90,19 +90,23 @@ resourcestring
 { TMainForm }
 
 procedure TMainForm.FormCreate(Sender: TObject);
+{$IfDef Windows}
 const
   SqliteLibName = 'sqlite3.dll';
+{$EndIf}
 begin
   FillLanguagesList;
   Language := '';
   FirstShow := True;
 
+  {$IfDef Windows}
   if not FileExists(SqliteLibName) then
   begin
     MessageDlg(Format(RSLibraryNotFound, [SqliteLibName]), mtError, [mbOK], 0);
     //Close;
     Application.Terminate;
   end;
+  {$EndIf}
 
   PageControl1.ActivePageIndex:=0;
   {$IFOPT D-}
@@ -389,7 +393,8 @@ end;
 
 function TMainForm.GetLanguage: String;
 begin
-  Result := GetDefaultLang;
+  //Result := GetDefaultLang;
+  LazGetShortLanguageID(Result);
 end;
 
 procedure TMainForm.UpdateTranslation(ALang: String);

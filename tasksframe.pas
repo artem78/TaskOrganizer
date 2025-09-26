@@ -58,7 +58,7 @@ type
 implementation
 
 uses
-  Variants, DatabaseDM, LCLType, NonVisualCtrlsDM, WinMouse{, LCLTranslator};
+  Variants, DatabaseDM, LCLType, NonVisualCtrlsDM{, WinMouse}{, LCLTranslator};
 
 resourcestring
   RSFilterHint = '(filter)';

@@ -4,16 +4,16 @@ inherited MainForm: TMainForm
   Top = 161
   Width = 750
   Caption = 'Task Organizer'
-  ClientHeight = 430
+  ClientHeight = 450
   ClientWidth = 750
   Constraints.MinHeight = 450
   Constraints.MinWidth = 750
   Menu = MainMenu
+  Position = poScreenCenter
   OnClose = FormClose
   OnCloseQuery = FormCloseQuery
   OnCreate = FormCreate
   OnShow = FormShow
-  Position = poScreenCenter
   object PageControl1: TPageControl[0]
     Left = 0
     Height = 430
@@ -25,8 +25,8 @@ inherited MainForm: TMainForm
     TabOrder = 0
     object TasksTabSheet: TTabSheet
       Caption = 'Tasks'
-      ClientHeight = 402
-      ClientWidth = 742
+      ClientHeight = 396
+      ClientWidth = 744
       OnShow = TasksTabSheetShow
       inline TasksFrame1: TTasksFrame
         Height = 402
@@ -43,6 +43,7 @@ inherited MainForm: TMainForm
         inherited TasksDBGrid: TVirtualDBGrid
           Height = 344
           Width = 742
+          Header.AutoSizeIndex = -1
           Header.Columns = <          
             item
               Position = 0
@@ -103,8 +104,8 @@ inherited MainForm: TMainForm
     end
     object PeriodsTabSheet: TTabSheet
       Caption = 'Periods'
-      ClientHeight = 402
-      ClientWidth = 742
+      ClientHeight = 396
+      ClientWidth = 744
       inline PeriodsFrame1: TPeriodsFrame
         Height = 402
         Width = 742
@@ -114,6 +115,7 @@ inherited MainForm: TMainForm
         inherited PeriodDBGrid: TVirtualDBGrid
           Height = 376
           Width = 742
+          Header.AutoSizeIndex = -1
           Header.Columns = <          
             item
               Position = 0
@@ -178,8 +180,8 @@ inherited MainForm: TMainForm
     end
     object ReportTabSheet: TTabSheet
       Caption = 'Reports'
-      ClientHeight = 402
-      ClientWidth = 742
+      ClientHeight = 396
+      ClientWidth = 744
       OnShow = ReportTabSheetShow
       inline ReportFrame1: TReportFrame
         Height = 402
@@ -192,7 +194,7 @@ inherited MainForm: TMainForm
           ClientWidth = 730
           inherited TasksGroupBox: TGroupBox
             Width = 402
-            ClientWidth = 398
+            ClientWidth = 400
             inherited TaskListFilterEdit: TListFilterEdit
               Width = 386
             end
@@ -217,8 +219,8 @@ inherited MainForm: TMainForm
     end
     object LogsTabSheet: TTabSheet
       Caption = 'SQL log'
-      ClientHeight = 402
-      ClientWidth = 742
+      ClientHeight = 396
+      ClientWidth = 744
       object LogsMemo: TMemo
         Left = 0
         Height = 402

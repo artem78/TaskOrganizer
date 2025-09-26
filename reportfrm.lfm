@@ -34,8 +34,8 @@ object ReportFrame: TReportFrame
       ChildSizing.VerticalSpacing = 6
       ChildSizing.Layout = cclLeftToRightThenTopToBottom
       ChildSizing.ControlsPerLine = 4
-      ClientHeight = 60
-      ClientWidth = 304
+      ClientHeight = 63
+      ClientWidth = 306
       TabOrder = 0
       object PeriodBeginLabel: TLabel
         Left = 6
@@ -110,8 +110,8 @@ object ReportFrame: TReportFrame
         Top = 35
         Width = 79
         Caption = 'For all time'
-        OnChange = PeriodAllTimeCheckBoxChange
         TabOrder = 2
+        OnChange = PeriodAllTimeCheckBoxChange
       end
     end
     object GroupByRadioGroup: TRadioGroup
@@ -132,15 +132,15 @@ object ReportFrame: TReportFrame
       ChildSizing.ShrinkVertical = crsScaleChilds
       ChildSizing.Layout = cclLeftToRightThenTopToBottom
       ChildSizing.ControlsPerLine = 1
-      ClientHeight = 57
-      ClientWidth = 73
+      ClientHeight = 60
+      ClientWidth = 75
       Items.Strings = (
         'Years'
         'Months'
         'Days'
       )
-      OnClick = GroupByRadioGroupClick
       TabOrder = 1
+      OnClick = GroupByRadioGroupClick
     end
     object ViewRadioGroup: TRadioGroup
       AnchorSideTop.Control = GroupByRadioGroup
@@ -158,14 +158,14 @@ object ReportFrame: TReportFrame
       ChildSizing.ShrinkVertical = crsScaleChilds
       ChildSizing.Layout = cclLeftToRightThenTopToBottom
       ChildSizing.ControlsPerLine = 1
-      ClientHeight = 38
-      ClientWidth = 61
+      ClientHeight = 41
+      ClientWidth = 63
       Items.Strings = (
         'Table'
         'Chart'
       )
-      OnClick = ViewRadioGroupClick
       TabOrder = 2
+      OnClick = ViewRadioGroupClick
     end
     object TasksGroupBox: TGroupBox
       AnchorSideLeft.Control = PeriodGroupBox
@@ -184,8 +184,8 @@ object ReportFrame: TReportFrame
       ChildSizing.TopBottomSpacing = 6
       ChildSizing.HorizontalSpacing = 6
       ChildSizing.VerticalSpacing = 6
-      ClientHeight = 212
-      ClientWidth = 366
+      ClientHeight = 215
+      ClientWidth = 368
       Constraints.MaxWidth = 600
       Constraints.MinWidth = 200
       TabOrder = 3
@@ -212,8 +212,8 @@ object ReportFrame: TReportFrame
         Constraints.MinHeight = 140
         Constraints.MinWidth = 250
         ItemHeight = 0
-        OnClickCheck = TasksCheckListBoxClickCheck
         TabOrder = 1
+        OnClickCheck = TasksCheckListBoxClickCheck
       end
       object ButtonPanel: TPanel
         Left = 6
@@ -233,8 +233,8 @@ object ReportFrame: TReportFrame
           Width = 94
           AutoSize = True
           Caption = '(De)Select all'
-          OnClick = SelectAllTasksButtonClick
           TabOrder = 0
+          OnClick = SelectAllTasksButtonClick
         end
       end
     end
@@ -247,16 +247,13 @@ object ReportFrame: TReportFrame
     Options = [tlvoToolTips, tlvoStriped]
     Columns = <    
       item
-        Alignment = taLeftJustify
         Text = 'Task'
         Width = 550
-        Visible = True
       end    
       item
         Alignment = taRightJustify
         Text = 'Total time'
         Width = 100
-        Visible = True
       end>
     RowHeight = 16
     Images = NonVisualCtrlsDataModule.Icons

@@ -60,8 +60,8 @@ object DatabaseDataModule: TDatabaseDataModule
       'WHERE TRUE'
     )
     InsertSQL.Strings = (
-      'INSERT INTO `_tasks` (`id`, `name`, `description`, `created`, `modified`, `done`)'
-      '    VALUES (:id, :name, :description, :created, :modified, :done)'
+      'INSERT INTO `_tasks` (`id`, `name`, `description`, `created`, `modified`, `done`, `priority`)'
+      '    VALUES (:id, :name, :description, :created, :modified, :done, :priority)'
     )
     UpdateSQL.Strings = (
       'UPDATE `_tasks`'

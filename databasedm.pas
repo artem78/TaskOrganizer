@@ -51,6 +51,7 @@ type
     procedure UpdateFilters;
 
     procedure DeleteObsoleteDir;
+    function GetDbVersion: Integer;
   public
     property TasksFilterText: String write SetTasksFilterText;
     property DoneTasksFilter: Boolean read FDoneTasksFilter write SetDoneTasksFilter;
@@ -295,6 +296,18 @@ begin
   end;
 end;
 
+function TDatabaseDataModule.GetDbVersion: Integer;
+var
+  DBVersioning: TDBVersioning;
+begin
+  DBVersioning := TDBVersioning.CreateFromResources(SQLite3Connection1, SQLTransaction1);
+  try
+    Result := DBVersioning.CurrentVersion;
+  except
+    Result := {-1} 0;
+  end;
+end;
+
 procedure TDatabaseDataModule.ExportDatabase(AFileName: String);
   function DateTimeFieldToString(AField: TField): String;
   begin
@@ -316,6 +329,8 @@ begin
     RootNode := XmlDoc.CreateElement('export');
     XmlDoc.AppendChild(RootNode);
     RootNode:= XmlDoc.DocumentElement;
+
+    TDOMElement(RootNode).SetAttribute('dbVersion', IntToStr(GetDbVersion));
 
     CommentNode := XmlDoc.CreateComment(
         Format(' Created with %s version %s on %s ', ['Task Organizer',

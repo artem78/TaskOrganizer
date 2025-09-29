@@ -329,7 +329,7 @@ begin
 
     CustomSQLQuery.Close;
     CustomSQLQuery.SQL.Text :=
-          'SELECT `_tasks`.`id` AS `task_id`, `name`, `description`, `created`, `modified`, `done`, ' +
+          'SELECT `_tasks`.`id` AS `task_id`, `name`, `description`, `created`, `modified`, `done`, `priority`,' +
           '  `p`.`id` AS `period_id`, ' +
           '  `p`.`begin` AS `period_begin`, ' +
           '  `p`.`end` AS `period_end`, ' +
@@ -352,6 +352,7 @@ begin
         TDOMElement(TaskNode).SetAttribute('created',  DateTimeFieldToString(CustomSQLQuery.FieldByName('created')));
         TDOMElement(TaskNode).SetAttribute('modified', DateTimeFieldToString(CustomSQLQuery.FieldByName('modified')));
         TDOMElement(TaskNode).SetAttribute('done',     CustomSQLQuery.FieldByName('done').AsString);
+        TDOMElement(TaskNode).SetAttribute('priority', CustomSQLQuery.FieldByName('priority').AsString);
         TasksNode.AppendChild(TaskNode);
 
         PeriodsNode := XmlDoc.CreateElement('periods');

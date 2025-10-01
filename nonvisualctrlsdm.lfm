@@ -119,9 +119,14 @@ object NonVisualCtrlsDataModule: TNonVisualCtrlsDataModule
       Caption = 'Very low'
       OnExecute = SetVeryLowPriorityActionExecute
     end
+    object RestoreWndAction: TAction
+      Caption = 'Restore window'
+      OnExecute = RestoreWndActionExecute
+    end
   end
   object TrayIcon: TTrayIconEx
     PopUpMenu = TrayPopupMenu
+    OnClick = TrayIconClick
     OnDblClick = TrayIconDblClick
     OnMouseMove = TrayIconMouseMove
     AnimateInterval = 600
@@ -133,6 +138,12 @@ object NonVisualCtrlsDataModule: TNonVisualCtrlsDataModule
     OnPopup = TrayPopupMenuPopup
     Left = 144
     Top = 112
+    object RestoreWndMenuItem: TMenuItem
+      Action = RestoreWndAction
+    end
+    object Separator1: TMenuItem
+      Caption = '-'
+    end
     object StartTimeTrackingMenuItem: TMenuItem
       Action = StartTimeTrackingAction
     end

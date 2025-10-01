@@ -367,6 +367,11 @@ msgctxt "tnonvisualctrlsdatamodule.marktaskasdoneaction.hint"
 msgid "Mark as done"
 msgstr "Пометить как завершённую"
 
+#: tnonvisualctrlsdatamodule.restorewndaction.caption
+msgctxt "tnonvisualctrlsdatamodule.restorewndaction.caption"
+msgid "Restore window"
+msgstr "Восстановить окно"
+
 #: tnonvisualctrlsdatamodule.sethighpriorityaction.caption
 #, fuzzy
 msgctxt "tnonvisualctrlsdatamodule.sethighpriorityaction.caption"

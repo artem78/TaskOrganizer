@@ -13,6 +13,9 @@ type
   { TNonVisualCtrlsDataModule }
 
   TNonVisualCtrlsDataModule = class(TDataModule)
+    RestoreWndAction: TAction;
+    RestoreWndMenuItem: TMenuItem;
+    Separator1: TMenuItem;
     SetVeryHightPriorityAction: TAction;
     SetHighPriorityAction: TAction;
     SetNormalPriorityAction: TAction;
@@ -55,6 +58,7 @@ type
     procedure ExitActionExecute(Sender: TObject);
     procedure ExportDatabaseActionExecute(Sender: TObject);
     procedure MarkTaskAsDoneActionExecute(Sender: TObject);
+    procedure RestoreWndActionExecute(Sender: TObject);
     procedure SetHighPriorityActionExecute(Sender: TObject);
     procedure SetLowPriorityActionExecute(Sender: TObject);
     procedure SetNormalPriorityActionExecute(Sender: TObject);
@@ -63,6 +67,7 @@ type
     procedure ShowDoneTasksActionExecute(Sender: TObject);
     procedure StartTimeTrackingActionExecute(Sender: TObject);
     procedure StopTimeTrackingActionExecute(Sender: TObject);
+    procedure TrayIconClick(Sender: TObject);
     procedure TrayIconDblClick(Sender: TObject);
     procedure TrayIconMouseMove(Sender: TObject; Shift: TShiftState; X,
       Y: Integer);
@@ -310,6 +315,11 @@ begin
   DatabaseDataModule.SQLTransaction1.CommitRetaining;
 end;
 
+procedure TNonVisualCtrlsDataModule.RestoreWndActionExecute(Sender: TObject);
+begin
+  MainForm.RestoreFromTray;
+end;
+
 procedure TNonVisualCtrlsDataModule.SetHighPriorityActionExecute(Sender: TObject
   );
 begin
@@ -356,8 +366,14 @@ begin
   RunningTaskUpdated;
 end;
 
+procedure TNonVisualCtrlsDataModule.TrayIconClick(Sender: TObject);
+begin
+  ShowMessage('123');
+end;
+
 procedure TNonVisualCtrlsDataModule.TrayIconDblClick(Sender: TObject);
 begin
+  // fixme: в linux никакой реакции
   MainForm.RestoreFromTray;
 end;
 

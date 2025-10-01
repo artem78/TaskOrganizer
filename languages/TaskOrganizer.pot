@@ -349,6 +349,11 @@ msgctxt "tnonvisualctrlsdatamodule.marktaskasdoneaction.hint"
 msgid "Mark as done"
 msgstr ""
 
+#: tnonvisualctrlsdatamodule.restorewndaction.caption
+msgctxt "tnonvisualctrlsdatamodule.restorewndaction.caption"
+msgid "Restore window"
+msgstr ""
+
 #: tnonvisualctrlsdatamodule.sethighpriorityaction.caption
 msgctxt "tnonvisualctrlsdatamodule.sethighpriorityaction.caption"
 msgid "High"

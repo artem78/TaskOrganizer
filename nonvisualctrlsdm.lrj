@@ -29,5 +29,6 @@
 {"hash":323544,"name":"tnonvisualctrlsdatamodule.sethighpriorityaction.caption","sourcebytes":[72,105,103,104],"value":"High"},
 {"hash":89559932,"name":"tnonvisualctrlsdatamodule.setnormalpriorityaction.caption","sourcebytes":[78,111,114,109,97,108],"value":"Normal"},
 {"hash":21351,"name":"tnonvisualctrlsdatamodule.setlowpriorityaction.caption","sourcebytes":[76,111,119],"value":"Low"},
-{"hash":211515559,"name":"tnonvisualctrlsdatamodule.setverylowpriorityaction.caption","sourcebytes":[86,101,114,121,32,108,111,119],"value":"Very low"}
+{"hash":211515559,"name":"tnonvisualctrlsdatamodule.setverylowpriorityaction.caption","sourcebytes":[86,101,114,121,32,108,111,119],"value":"Very low"},
+{"hash":192227479,"name":"tnonvisualctrlsdatamodule.restorewndaction.caption","sourcebytes":[82,101,115,116,111,114,101,32,119,105,110,100,111,119],"value":"Restore window"}
 ]}

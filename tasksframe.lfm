@@ -51,7 +51,7 @@ object TasksFrame: TTasksFrame
       Action = NonVisualCtrlsDataModule.StopTimeTrackingAction
     end
   end
-  object TasksDBGrid: TVirtualDBGrid
+  object TaskDBGrid: TVirtualDBGrid
     AnchorSideTop.Control = FilterEdit
     AnchorSideTop.Side = asrBottom
     Cursor = 63
@@ -126,17 +126,17 @@ object TasksFrame: TTasksFrame
     LineStyle = lsSolid
     PopupMenu = TasksGridPopupMenu
     TabOrder = 1
-    OnBeforePaint = TasksDBGridBeforePaint
-    OnPaintText = TasksDBGridPaintText
-    OnGetImageIndex = TasksDBGridGetImageIndex
-    OnKeyDown = TasksDBGridKeyDown
+    OnBeforePaint = TaskDBGridBeforePaint
+    OnPaintText = TaskDBGridPaintText
+    OnGetImageIndex = TaskDBGridGetImageIndex
+    OnKeyDown = TaskDBGridKeyDown
     BorderSpacing.Top = 32
     DBOptions.DataSource = DatabaseDataModule.TasksDataSource
     DBOptions.OddRowColor = clWindow
     DBOptions.EvenRowColor = clWindow
     DBOptions.SortColumnBgColor = 14745599
     DBOptions.AdvOptions = [aoStrippedRows, aoShowHorzLines, aoShowVertLines, aoAutoInsertIndicator, aoAllowSorting, aoHighlightSortColumn, aoHourGlassCursor, aoSortDBFieldColumns, aoEditDBFieldColumns, aoSortCalculatedColumns, aoFullRowSelect]
-    OnRecordDblClick = TasksDBGridRecordDblClick
+    OnRecordDblClick = TaskDBGridRecordDblClick
   end
   object FilterEdit: TListViewFilterEdit
     AnchorSideLeft.Control = Owner

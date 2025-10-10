@@ -229,7 +229,7 @@ begin
   S := (Sender as TMenuItem).Name;
   TaskId :=ExtractIntFromStr(s);
   TasksFrame1.SelectTask(TaskId);
-  TasksFrame1.TasksDBGrid.SetFocus;
+  TasksFrame1.TaskDBGrid.SetFocus;
 end;
 
 procedure TMainForm.StoreFormState;
@@ -257,7 +257,7 @@ begin
   with NonVisualCtrlsDataModule.XMLConfig do
   begin
     SetValue('View/ShowDoneTasks', NonVisualCtrlsDataModule.ShowDoneTasksAction.Checked);
-    SetValue('SelectedTask', TasksFrame1.TasksDBGrid.DBOptions.DataSource.DataSet.FieldByName('id').AsInteger);
+    SetValue('SelectedTask', TasksFrame1.TaskDBGrid.DBOptions.DataSource.DataSet.FieldByName('id').AsInteger);
     SetValue('Language', Language);
   end;
 end;
@@ -308,7 +308,7 @@ begin
       Execute;
     end;
 
-    TasksFrame1.TasksDBGrid.DBOptions.DataSource.DataSet.Locate(
+    TasksFrame1.TaskDBGrid.DBOptions.DataSource.DataSet.Locate(
           'id', GetValue('SelectedTask', -1), []);
     //TasksFrame1.SelectTask(GetValue('SelectedTask', -1));
 

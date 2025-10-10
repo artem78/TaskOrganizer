@@ -30,7 +30,7 @@ type
     MenuItem8: TMenuItem;
     MenuItem9: TMenuItem;
     TasksGridPopupMenu: TPopupMenu;
-    TasksDBGrid: TVirtualDBGrid;
+    TaskDBGrid: TVirtualDBGrid;
     ToolBar1: TToolBar;
     AddToolButton: TToolButton;
     RemoveToolButton: TToolButton;
@@ -40,17 +40,17 @@ type
     StopTrackingToolButton: TToolButton;
     procedure FilterEditChange(Sender: TObject);
     procedure MenuItem7Click(Sender: TObject);
-    procedure TasksDBGridBeforePaint(Sender: TBaseVirtualTree;
+    procedure TaskDBGridBeforePaint(Sender: TBaseVirtualTree;
       TargetCanvas: TCanvas);
-    procedure TasksDBGridGetImageIndex(Sender: TBaseVirtualTree;
+    procedure TaskDBGridGetImageIndex(Sender: TBaseVirtualTree;
       Node: PVirtualNode; Kind: TVTImageKind; Column: TColumnIndex;
       var Ghosted: Boolean; var ImageIndex: Integer);
-    procedure TasksDBGridKeyDown(Sender: TObject; var Key: Word;
+    procedure TaskDBGridKeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);
-    procedure TasksDBGridPaintText(Sender: TBaseVirtualTree;
+    procedure TaskDBGridPaintText(Sender: TBaseVirtualTree;
       const TargetCanvas: TCanvas; Node: PVirtualNode; Column: TColumnIndex;
       TextType: TVSTTextType);
-    procedure TasksDBGridRecordDblClick(Sender: TCustomVirtualDBGrid;
+    procedure TaskDBGridRecordDblClick(Sender: TCustomVirtualDBGrid;
       Column: TColumnIndex; RecordData: TRecordData);
   private
      FirstTimeGridShown: Boolean;
@@ -74,7 +74,7 @@ resourcestring
 
 { TTasksFrame }
 
-procedure TTasksFrame.TasksDBGridPaintText(Sender: TBaseVirtualTree;
+procedure TTasksFrame.TaskDBGridPaintText(Sender: TBaseVirtualTree;
   const TargetCanvas: TCanvas; Node: PVirtualNode; Column: TColumnIndex;
   TextType: TVSTTextType);
 var
@@ -110,7 +110,7 @@ begin
   end;
 end;
 
-procedure TTasksFrame.TasksDBGridRecordDblClick(Sender: TCustomVirtualDBGrid;
+procedure TTasksFrame.TaskDBGridRecordDblClick(Sender: TCustomVirtualDBGrid;
   Column: TColumnIndex; RecordData: TRecordData);
 begin
   NonVisualCtrlsDataModule.EditTaskAction.Execute;
@@ -142,7 +142,7 @@ var
   ColIdx: Integer;
   Column: TVirtualTreeColumn;
 begin
-  with TasksDBGrid.Header do
+  with TaskDBGrid.Header do
   begin
     AutoFitColumns(False, smaAllColumns);
 
@@ -177,7 +177,7 @@ begin
 
 end;
 
-procedure TTasksFrame.TasksDBGridBeforePaint(Sender: TBaseVirtualTree;
+procedure TTasksFrame.TaskDBGridBeforePaint(Sender: TBaseVirtualTree;
   TargetCanvas: TCanvas);
 begin
   if FirstTimeGridShown then
@@ -187,7 +187,7 @@ begin
   end;
 end;
 
-procedure TTasksFrame.TasksDBGridGetImageIndex(Sender: TBaseVirtualTree;
+procedure TTasksFrame.TaskDBGridGetImageIndex(Sender: TBaseVirtualTree;
   Node: PVirtualNode; Kind: TVTImageKind; Column: TColumnIndex;
   var Ghosted: Boolean; var ImageIndex: Integer);
 var
@@ -214,7 +214,7 @@ begin
   end;
 end;
 
-procedure TTasksFrame.TasksDBGridKeyDown(Sender: TObject; var Key: Word;
+procedure TTasksFrame.TaskDBGridKeyDown(Sender: TObject; var Key: Word;
   Shift: TShiftState);
 begin
   if Key = VK_DELETE then

@@ -230,43 +230,49 @@ msgstr "Отчёты"
 msgid "Service"
 msgstr "Сервис"
 
-#: tmainform.tasksframe1.tasksdbgrid.header.columns[0].text
-msgctxt "tmainform.tasksframe1.tasksdbgrid.header.columns[0].text"
+#: tmainform.tasksframe1.taskdbgrid.header.columns[0].text
+#, fuzzy
+msgctxt "tmainform.tasksframe1.taskdbgrid.header.columns[0].text"
 msgid "ID"
 msgstr "ИД"
 
-#: tmainform.tasksframe1.tasksdbgrid.header.columns[1].text
-msgctxt "tmainform.tasksframe1.tasksdbgrid.header.columns[1].text"
+#: tmainform.tasksframe1.taskdbgrid.header.columns[1].text
+#, fuzzy
+msgctxt "tmainform.tasksframe1.taskdbgrid.header.columns[1].text"
 msgid "Name"
 msgstr "Название"
 
-#: tmainform.tasksframe1.tasksdbgrid.header.columns[2].text
-msgctxt "tmainform.tasksframe1.tasksdbgrid.header.columns[2].text"
+#: tmainform.tasksframe1.taskdbgrid.header.columns[2].text
+#, fuzzy
+msgctxt "tmainform.tasksframe1.taskdbgrid.header.columns[2].text"
 msgid "Description"
 msgstr "Описание"
 
-#: tmainform.tasksframe1.tasksdbgrid.header.columns[3].text
-msgctxt "tmainform.tasksframe1.tasksdbgrid.header.columns[3].text"
+#: tmainform.tasksframe1.taskdbgrid.header.columns[3].text
+#, fuzzy
+msgctxt "tmainform.tasksframe1.taskdbgrid.header.columns[3].text"
 msgid "Created"
 msgstr "Создано"
 
-#: tmainform.tasksframe1.tasksdbgrid.header.columns[4].text
-msgctxt "tmainform.tasksframe1.tasksdbgrid.header.columns[4].text"
+#: tmainform.tasksframe1.taskdbgrid.header.columns[4].text
+#, fuzzy
+msgctxt "tmainform.tasksframe1.taskdbgrid.header.columns[4].text"
 msgid "Modified"
 msgstr "Изменено"
 
-#: tmainform.tasksframe1.tasksdbgrid.header.columns[5].text
-msgctxt "tmainform.tasksframe1.tasksdbgrid.header.columns[5].text"
+#: tmainform.tasksframe1.taskdbgrid.header.columns[5].text
+msgctxt "tmainform.tasksframe1.taskdbgrid.header.columns[5].text"
 msgid "is_active"
 msgstr ""
 
-#: tmainform.tasksframe1.tasksdbgrid.header.columns[6].text
-msgctxt "tmainform.tasksframe1.tasksdbgrid.header.columns[6].text"
+#: tmainform.tasksframe1.taskdbgrid.header.columns[6].text
+msgctxt "tmainform.tasksframe1.taskdbgrid.header.columns[6].text"
 msgid "done"
 msgstr ""
 
-#: tmainform.tasksframe1.tasksdbgrid.header.columns[7].text
-msgid "priority"
+#: tmainform.tasksframe1.taskdbgrid.header.columns[7].text
+msgctxt "tmainform.tasksframe1.taskdbgrid.header.columns[7].text"
+msgid "Priority"
 msgstr ""
 
 #: tmainform.taskstabsheet.caption
@@ -623,42 +629,48 @@ msgstr "Название:"
 msgid "Change priority"
 msgstr "Установить приоритет"
 
-#: ttasksframe.tasksdbgrid.header.columns[0].text
-msgctxt "ttasksframe.tasksdbgrid.header.columns[0].text"
+#: ttasksframe.taskdbgrid.header.columns[0].text
+#, fuzzy
+msgctxt "ttasksframe.taskdbgrid.header.columns[0].text"
 msgid "ID"
 msgstr "ИД"
 
-#: ttasksframe.tasksdbgrid.header.columns[1].text
-msgctxt "ttasksframe.tasksdbgrid.header.columns[1].text"
+#: ttasksframe.taskdbgrid.header.columns[1].text
+#, fuzzy
+msgctxt "ttasksframe.taskdbgrid.header.columns[1].text"
 msgid "Name"
 msgstr "Название"
 
-#: ttasksframe.tasksdbgrid.header.columns[2].text
-msgctxt "ttasksframe.tasksdbgrid.header.columns[2].text"
+#: ttasksframe.taskdbgrid.header.columns[2].text
+#, fuzzy
+msgctxt "ttasksframe.taskdbgrid.header.columns[2].text"
 msgid "Description"
 msgstr "Описание"
 
-#: ttasksframe.tasksdbgrid.header.columns[3].text
-msgctxt "ttasksframe.tasksdbgrid.header.columns[3].text"
+#: ttasksframe.taskdbgrid.header.columns[3].text
+#, fuzzy
+msgctxt "ttasksframe.taskdbgrid.header.columns[3].text"
 msgid "Created"
 msgstr "Создано"
 
-#: ttasksframe.tasksdbgrid.header.columns[4].text
-msgctxt "ttasksframe.tasksdbgrid.header.columns[4].text"
+#: ttasksframe.taskdbgrid.header.columns[4].text
+#, fuzzy
+msgctxt "ttasksframe.taskdbgrid.header.columns[4].text"
 msgid "Modified"
 msgstr "Изменено"
 
-#: ttasksframe.tasksdbgrid.header.columns[5].text
-msgctxt "ttasksframe.tasksdbgrid.header.columns[5].text"
+#: ttasksframe.taskdbgrid.header.columns[5].text
+msgctxt "ttasksframe.taskdbgrid.header.columns[5].text"
 msgid "is_active"
 msgstr ""
 
-#: ttasksframe.tasksdbgrid.header.columns[6].text
-msgctxt "ttasksframe.tasksdbgrid.header.columns[6].text"
+#: ttasksframe.taskdbgrid.header.columns[6].text
+msgctxt "ttasksframe.taskdbgrid.header.columns[6].text"
 msgid "done"
 msgstr ""
 
-#: ttasksframe.tasksdbgrid.header.columns[7].text
+#: ttasksframe.taskdbgrid.header.columns[7].text
+msgctxt "ttasksframe.taskdbgrid.header.columns[7].text"
 msgid "Priority"
 msgstr ""
 
@@ -669,3 +681,4 @@ msgstr ""
 #: utils.rsdayunitshort
 msgid "d"
 msgstr "д"
+

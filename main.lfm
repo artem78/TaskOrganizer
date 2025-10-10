@@ -37,11 +37,9 @@ inherited MainForm: TMainForm
         inherited ToolBar1: TToolBar
           Width = 744
         end
-        inherited TasksDBGrid: TVirtualDBGrid
-          Cursor = crDefault
+        inherited TaskDBGrid: TVirtualDBGrid
           Height = 358
           Width = 744
-          Header.AutoSizeIndex = -1
           Header.Columns = <          
             item
               Position = 0
@@ -60,7 +58,7 @@ inherited MainForm: TMainForm
             item
               Position = 2
               Text = 'Description'
-              Width = 268
+              Width = 272
               FieldName = 'description'
               ColumnType = ctDBField
             end          
@@ -90,19 +88,18 @@ inherited MainForm: TMainForm
               Options = [coAllowClick, coDraggable, coEnabled, coParentBidiMode, coParentColor, coResizable, coShowDropMark, coAllowFocus, coEditable]
               Position = 6
               Text = 'done'
-              Width = 10
+              Width = 38
               FieldName = 'done'
               ColumnType = ctDBField
             end          
             item
               Options = [coAllowClick, coDraggable, coEnabled, coParentBidiMode, coParentColor, coResizable, coShowDropMark, coAllowFocus, coEditable]
               Position = 7
-              Text = 'priority'
-              Width = 10
+              Text = 'Priority'
+              Width = 56
               FieldName = 'priority'
               ColumnType = ctDBField
             end>
-          OnBeforePaint = TasksDBGridBeforePaint
         end
         inherited FilterEdit: TListViewFilterEdit
           AnchorSideLeft.Control = TasksFrame1

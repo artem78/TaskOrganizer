@@ -68,7 +68,8 @@ var
 implementation
 
 uses
-  Models, Utils, StrUtils, TypInfo, LCLTranslator, LazFileUtils, LazUTF8
+  Models, Utils, StrUtils, TypInfo, LCLTranslator, VirtualDBGrid, LazFileUtils,
+  LazUTF8
   {$IFOPT D+}
   ,LazLogger
   {$Else}
@@ -251,6 +252,12 @@ begin
 end;
 
 procedure TMainForm.StoreSettings;
+const
+  Grids: array[0..1] of string = ('Task', 'Period');
+var
+  ColIdx: Integer;
+  SettingPath: String;
+  GridName: string;
 begin
   StoreFormState;
 
@@ -259,6 +266,20 @@ begin
     SetValue('View/ShowDoneTasks', NonVisualCtrlsDataModule.ShowDoneTasksAction.Checked);
     SetValue('SelectedTask', TasksFrame1.TaskDBGrid.DBOptions.DataSource.DataSet.FieldByName('id').AsInteger);
     SetValue('Language', Language);
+
+    for GridName in Grids do
+    begin
+      with (MainForm.FindComponent(GridName + 'sFrame1').FindComponent(GridName + 'DBGrid') as TVirtualDBGrid).Header.Columns do
+      begin
+        for ColIdx := 0 to Count - 1 do
+        begin
+          SettingPath := Format('View/%sGrid/Column%d', [GridName, ColIdx]);
+          SetValue(SettingPath + '/idx', ColIdx);
+          SetValue(SettingPath + '/id', Items[ColIdx].ID);
+          SetValue(SettingPath + '/width', Items[ColIdx].Width);
+        end;
+      end;
+    end;
   end;
 end;
 
@@ -296,6 +317,14 @@ begin
 end;
 
 procedure TMainForm.RestoreSettings;
+const
+  Grids: array[0..1] of string = ('Task', 'Period');
+var
+  ColIdx, ColId, ColWidth: Integer;
+  SettingPath: String;
+  GridName: string;
+  Grid:TVirtualDBGrid;
+  HdrOpts: TVTHeaderOptions;
 begin
   RestoreFormState;
 
@@ -313,6 +342,40 @@ begin
     //TasksFrame1.SelectTask(GetValue('SelectedTask', -1));
 
     Language := GetValue('Language', '');
+
+    for GridName in Grids do
+    begin
+      Grid := (MainForm.FindComponent(GridName + 'sFrame1').FindComponent(GridName + 'DBGrid') as TVirtualDBGrid);
+      ColIdx := 0;
+      While True do
+      begin
+        SettingPath := Format('View/%sGrid/Column%d', [GridName, ColIdx]);
+        ColId := GetValue(SettingPath + '/id', -1);
+        ColWidth := GetValue(SettingPath + '/width', -1);
+        if (ColId = -1) or  (ColWidth = -1) then
+          Break;
+
+        // отключаем автоматическую установку ширины столбцов
+        if hoAutoResize in Grid.Header.Options then
+        begin
+          HdrOpts := Grid.Header.Options;
+          Exclude(HdrOpts, hoAutoResize);
+          Grid.Header.Options := HdrOpts;
+        end;
+        //Grid.Header.AutoSizeIndex := -1; *}
+        case GridName of
+          'Task': TasksFrame1.GridColumnsAutoWidthEnabled:=false;
+          'Period': PeriodsFrame1.GridColumnsAutoWidthEnabled:=false;
+        end;
+
+        if (Colid >= 0) and (ColWidth > 0) then
+        begin
+          Grid.Header.Columns.Items[ColIdx].Width := ColWidth;
+        end;
+
+        Inc(ColIdx);
+      end;
+    end;
   end;
 end;
 

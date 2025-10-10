@@ -33,6 +33,8 @@ type
 
     procedure AutoFitGridColumns;
   public
+    GridColumnsAutoWidthEnabled: Boolean;
+
     constructor Create(AOwner: TComponent); override;
   end;
 
@@ -64,7 +66,9 @@ begin
   if FirstTimeGridShown then
   begin
     FirstTimeGridShown := False;
-    AutoFitGridColumns;
+
+    if GridColumnsAutoWidthEnabled then
+      AutoFitGridColumns;
 
     PeriodDBGrid.DBOptions.DataSource.DataSet.Last;
   end;
@@ -139,6 +143,7 @@ begin
   inherited Create(AOwner);
 
   FirstTimeGridShown := True;
+  GridColumnsAutoWidthEnabled:=True;
 end;
 
 end.

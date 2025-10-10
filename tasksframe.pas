@@ -58,6 +58,8 @@ type
      procedure UpdateTranslation(ALang: String); override;
      procedure AutoFitGridColumns;
   public
+    GridColumnsAutoWidthEnabled: Boolean;
+
     constructor Create(AOwner: TComponent); override;
     procedure SelectTask(AnID: Integer);
   end;
@@ -160,6 +162,7 @@ begin
   inherited Create(AOwner);
 
   FirstTimeGridShown := True;
+  GridColumnsAutoWidthEnabled:=True;
 end;
 
 procedure TTasksFrame.SelectTask(AnID: Integer);
@@ -183,7 +186,9 @@ begin
   if FirstTimeGridShown then
   begin
     FirstTimeGridShown := False;
-    AutoFitGridColumns;
+
+    if GridColumnsAutoWidthEnabled then
+      AutoFitGridColumns;
   end;
 end;
 
